@@ -1,0 +1,4061 @@
+/* 6 : max-width 1200px */
+/* 171 : (min-width: 768px) and (max-width: 992px) */
+/* 223 : max-width-767px */
+/* 738 : (min-width: 481px) and (max-width: 767px) */
+/* 707 : max-width-480px  */
+/* 938 : (max-width: 320px) */
+
+/* =========================== Min Width 1399px or max Witdth  ======================= */
+/* =========================== ========================================= */
+
+@media (min-width: 1399px) and (max-width: 3000px) {
+    .about_right_inner_section img {
+      bottom: -177px;
+      width: auto;
+      height: 560px;
+    }
+    .about_merchant_sectiton h5 {
+      margin-top: 50px;
+    }
+  }
+  
+  
+  /* =========================== Max Width 1200 px to 1398 ======================= */
+  /* =========================== ================================================= */
+  @media (min-width: 1199px) and (max-width: 1398px){
+    
+  }
+  
+  
+  
+  
+  
+  
+  
+  /* =========================== Max Width 1200 px ======================= */
+  /* =========================== ========================================= */
+  
+  @media (max-width: 1200px) {
+    header {
+      margin: 20px;
+    }
+  }
+  
+  @media (min-width: 1024px) and (max-width: 1199px) {
+  
+    /* review campaign Start */
+    .inner-hero-section-short h2{
+      font-size: 38px;
+    }
+    .inner-hero-section-short span{
+      font-size: 14px;
+    }
+    .offer_voucher_box h3{
+      font-size: 24px;
+    }
+    .termsCondition h4{
+      font-size: 20px;
+    }
+    /* review campaign Ends */
+  
+  
+    .about_right_inner_section img {
+      bottom: -111px;
+    }
+    .merchant_inner_section img {
+      height: auto;
+    }
+    button.btn.btn-primary.me-3.text-white {
+      width: 148px;
+      padding: 6px 20px;
+    }
+    .become-row {
+      overflow: hidden;
+    }
+  }
+  
+  /************************** max-width-991px******************************/
+  /***********************************************************************/
+  @media (max-width: 991px) {
+  
+    /* Merchant Subscription css start */
+    .plan_type_box{ width: 100%; }
+    .silver_user_box, .gold_user_box { margin: 5px; } 
+    .payment-amount-box{ margin-top: 20px; }
+    .input-box{ margin-top: 10px; }
+    /* Merchant Subscription css ends */
+  
+  
+  
+  
+  
+    /* Merchant Registration Page Css Start */
+    .navbar-collapse ul li .btn-group {
+      display: grid;
+    }
+    /* Merchant Registration Page Css Ends */
+  
+    /* price page css Start */
+  
+    .membarship-plan-box {
+      margin-top: 20px;
+    }
+  
+    .membership-text {
+      text-align: center;
+    }
+    /* price page css Start */
+  
+    /* About Page Css Start  */
+  
+    .about_banner_inner_section img {
+      width: 150px;
+    }
+  
+    /* * About Page Css Ends  */
+  
+    /* home page  mobile navbar */
+  
+    .navbar-collapse {
+      background: rgb(134 189 72);
+      border-radius: 18px;
+      border: 5px solid rgb(167 225 101);
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    
+  
+    .navbuttons button.btn.btn-primary {
+      margin-left: 0px;
+      padding: 14px 40px;
+      font-size: 17px;
+      background: #1478a9;
+    }
+  
+    nav ul li:hover {
+      background: transparent;
+    }
+    .navbar-collapse ul li .btn-group ul li a {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 300;
+    }
+    /* home page  mobile navbar */
+  
+    /* Footer Section Css Start */
+    .get-in-touch {
+      margin-left: 0px;
+    }
+    /* Footer Section Css Ends */
+  
+    .create_campaign_section {
+      padding: 30px 0px;
+    }
+    .form-check ul li {
+      padding-right: 0px;
+      text-align: center;
+    }
+    .create_inner_section {
+      text-align: center;
+      padding: 20px 65px;
+      margin: 0px 0px;
+    }
+    .merchant_inner_section img {
+      height: 344px;
+    }
+    .merchant_inner_section h1 {
+      font-size: 30px;
+    }
+    .merchant_inner_section p {
+      color: #fff;
+      font-size: 16px;
+      /* margin: 0px; */
+    }
+    .merchant_main_section .row {
+      align-items: center;
+    }
+    /* .merchant_inner_section img {
+      top: 0px;
+    } */
+    .banner_left_section h1 {
+      font-size: 29px;
+    }
+  
+    /* .footer-logo img {
+      margin-left: 0px;
+      margin-top: 0px;
+    } */
+    /* .footer_main_section .footer-logo {
+      align-items: center;
+      display: flex;
+    } */
+    /* .about_right_inner_section img {
+      right: 15px;
+    } */
+    .sing_left_outer_section img {
+      position: relative;
+      right: 0px;
+    }
+    .sign_brochure h2 {
+      font-size: 20px;
+    }
+    .sign_brochure h1 {
+      font-size: 24px;
+    }
+    .inner-hero-section h2 {
+      font-size: 48px;
+      text-align: center;
+    }
+    .hero-payment {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    .inner-hero-section p {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 32px;
+      margin-left: 0px;
+      text-align: center;
+      color: #ffffff;
+      padding-right: 0px;
+    }
+    .contact-text {
+      padding-left: 0px;
+    }
+    .review-main-heading h1 {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 27px;
+      text-align: center;
+      color: #130f26;
+      margin-left: 6px;
+    }
+    .campaign-heading-section h5 {
+      margin-left: 0px;
+      margin-top: 0px;
+      font-family: "Montserrat";
+      font-style: normal;
+      font-size: 24px;
+      text-align: center;
+      color: #8e8e8e;
+      margin-bottom: 49px !important;
+    }
+    .review-links {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .review-right-heading {
+      text-align: center;
+    }
+    .middle-info-right-section {
+      margin-left: 155px;
+    }
+    .deshboard-inner-section {
+      background: linear-gradient(
+        104.29deg,
+        #83c545 0%,
+        #12b2a6 45.31%,
+        #1f5fa6 100%
+      );
+      border-radius: 16px;
+      position: relative;
+      left: 10%;
+      top: 75px;
+      width: 800px;
+      height: 328px;
+    }
+  }
+  
+  @media (min-width: 993px) and (max-width: 1199px) {
+  
+  
+    /* bogo premium */
+  
+  
+    .pro_watingList_heading_row h3{
+      font-size: 35px;
+    }
+  
+    .pro_watingList_heading_row p{
+      width: 60%;
+      font-size: 14px;
+    }
+  
+  
+    .bogo_premium_text h5{
+      font-size: 16px;
+    }
+    .bogo_premium_text p{
+      font-size: 13px;
+    }
+    .bogo_premium_text .heigh_light_pra{
+      text-align: start;
+    }
+  
+    .bogo_premium_list h6, .bogo_premium_list ul li{
+      font-size: 12px;
+    }
+    .card_clain_box{
+      justify-content: space-around;
+    }
+    .card_clain_box span{
+      font-size: 12px;
+    }
+    .card_clain_box small{
+      font-size: 12px;
+    }
+  
+    .wait_list_code_row .invite_code_box{
+      width: 60%;
+    }
+  
+    .invite_code_box h4{
+      font-size: 12px;
+    }
+  
+  
+  
+  
+  
+    /* launch Wating list  */
+  
+  
+    .watingList_heading_row h3{
+      width: 100%;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 35px;
+  
+    }
+  
+    .watingList_heading_row p{
+      width: 100%;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 35px;
+      margin: 0;
+    }
+   
+  
+  
+  
+  
+  
+  
+     /* Campaign Report Css Start */
+     .base_row{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .campaign_report_box{
+      top: 66px;
+    }
+    .campaign_name_box{
+      height: 168px;
+    }
+    .campaign_name_box h3{
+      font-size: 24px;
+    }
+    .vouchers_redeemed h4{
+      font-size: 24px;
+    }
+    .voucher_redeemed-row{
+      padding: 0;
+    }
+    .vouchers_redeemed{
+      height: 168px;
+    }
+    .vouchers_redeemed h3{
+      font-size: 40px;
+    }
+    /* Campaign Report Css Ends */
+   
+  
+  
+    /* review campaign start */
+    .offer_voucher_box span{
+      font-size: 22px;
+    }
+    .offer_voucher_box h3{
+      font-size: 26px;
+    }
+    .voucher_code_box h4{
+      font-size: 20px;
+    }
+    .merchant_box-code h4{
+      font-size: 20px;
+    }
+    .termsCondition h4{
+      font-size: 20px;
+    }
+    /* review campaign ends */
+  
+    
+    /* Campaign Css Start */
+  
+    .voucher_preview_box{
+      height: 250px;
+    }
+    .voucher_preview_btn{
+      font-size: 20px;
+    }
+    .voucher_preview_row .buy-box span, .voucher_preview_row .get-box span{
+      font-size: 20px;
+    }
+    .voucher_preview_row .buy-box h3, .voucher_preview_row .get-box h3{
+      font-size: 18px;
+    }
+    .compaing-body-title h3{
+      font-size: 26px;
+    }
+    .compaing-body-title .offer-text{
+      font-size: 20px;
+    }
+    .offer-row ul li h3{
+      font-size: 20px;
+    }
+    .offer-row ul{
+      padding: 0;
+    }
+    .offer-row ul li{
+      width: 200px;
+      height: 100px;
+    }
+    .compare-text-box{
+      padding: 20px 0px;
+    }
+    .compare-text-box h4{
+      font-size: 20px;
+    }
+    .checkbox-label .input_bg{
+      width: 50px;
+      height: 50px;
+    }
+    .offday_row label{
+      font-size: 14px;
+    }
+    .gold_feature_box i, .gold_feature_box small{
+      font-size: 9px;
+    }
+    .modificatin-notification{
+      font-size: 14px;
+    }
+    .fine-print-row label{
+      font-size: 14px;
+    }
+    .review_submit_btn_row {
+      padding: 40px 0px 30px;
+    }
+    /* Campaign Css Ends */
+  
+  
+  
+  
+    .navbar a.nav-link {
+      font-size: 12px;
+    }
+    .become-row {
+      overflow: hidden;
+    }
+  
+  
+    /* bogo for bussiness */
+    .bacome_right_section p{
+      width: 100%;
+      font-size: 16px;
+    }
+  
+  
+  
+  
+  
+  
+  
+    /* home page */
+    .banner_left_section h1 {
+      font-size: 35px;
+    }
+  
+    .banner_left_section p {
+      font-size: 21px;
+    }
+  
+    .browse_inner_section p {
+      font-size: 17px;
+    }
+  
+  
+  
+    /* footer */
+    button.btn.btn-primary.me-3.text-white{
+      width: 149px;
+    }
+  }
+  
+  /************(min-width: 768px) and (max-width: 992px)***********/
+  /***************************************************************/
+  
+  @media (min-width: 768px) and (max-width: 992px) {
+
+    /* voucher Details */
+    .time_address_box{
+      width: 100%;
+    }
+    .hours_box .day_boxes span{
+      font-size: 14px;
+    }
+
+
+
+
+    /* voucher redeem */
+    .redeem_voucher_box{
+      padding: 15px;
+      width: 100%;
+    }
+    .buy_redeem_row span, .get_redeem_row span{
+      font-size: 12px;
+    }
+
+
+
+
+  
+    /* bogo premium */
+    .bogo_premium_text h5{
+      font-size: 16px;
+    }
+    .bogo_premium_text p{
+      font-size: 13px;
+    }
+    .bogo_premium_text .heigh_light_pra{
+      text-align: start;
+    }
+  
+    .bogo_premium_list h6, .bogo_premium_list ul li{
+      font-size: 12px;
+    }
+    .card_clain_box{
+      justify-content: space-around;
+    }
+    .card_clain_box span{
+      font-size: 12px;
+    }
+    .card_clain_box small{
+      font-size: 12px;
+    }
+  
+    .wait_list_code_row .invite_code_box{
+      width: 60%;
+    }
+  
+    .invite_code_box h4{
+      font-size: 12px;
+    }
+  
+  
+  
+  
+  
+  
+    /* Waiting list css */
+    .pro_watingList_heading_row h3{
+      font-size: 18px;
+      line-height: 35px;
+    }
+  
+    .pro_watingList_heading_row p{
+      width: 100%;
+    }
+  
+    /* .wait_list_code_row .invite_code_box{
+      width: 100%;
+    } */
+  
+    .invites_use p{
+      font-family: Montserrat;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 15px;
+      letter-spacing: 0px;
+    }
+  
+    .copy-text span{
+      font-size: 11px;
+      font-weight: 400;
+    }
+    .premium_progress{
+      width: 100%;
+    }
+    .premium_progress_btn{
+      font-size: 16px;
+    }
+    .waitingCard_heading h4{
+      font-size: 14px;
+    }
+    .waiting_card_row{
+      width: 100%;
+    }
+  
+  
+  
+  
+  
+  
+    /* launch Wating list  */
+  
+  
+    .watingList_heading_row h3{
+      width: 100%;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 35px;
+  
+    }
+  
+    .watingList_heading_row p{
+      width: 100%;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 35px;
+      margin: 0;
+    }
+   
+  
+  
+  
+  
+    /* campaing Dashboard */
+    #tabs2-nav li a{
+      font-size: 15px;
+      line-height: 0px;
+    }
+    .offerlabelbox, .public_nowCampaign_box{
+      width: 140px;
+      height: 50px;
+      font-size: 14px;
+    }
+  
+    .campaign_louch_date h6{
+      font-size: 13px;
+    }
+    .manage_editbox ul li a{
+      font-size: 16px;
+    }
+    .voucher_redim_row span {
+      font-family: Montserrat;
+      font-size: 9px;
+      font-weight: 400;
+      line-height: 15px;
+      letter-spacing: 0em;
+    }
+    .voucher_redim_box h4{
+      font-size: 18px;
+    }
+    .invite_review_edit ul li{
+      font-size: 16px;
+    }
+    .voucher_redim_box{
+      width: 50%;
+    }
+    #tabs3-nav li a{
+      font-size: 13px;
+      line-height: 0px;
+    }
+  
+  
+  
+  
+  
+    /* Invite influencers */
+    .influencer_card .card .card-body .name_row p{
+      font-size: 14px;
+    }
+    .influencer_card .card .card-body .name_row span{
+      font-size: 12px;
+    }
+    .influencer_card .card .card-body .followers h6{
+      font-size: 14px;
+    }
+    .influencer_card .card .card-body .social_media_row ul li{
+      font-size: 10px;
+    }
+    .influencer_card .card .influencer_img img{
+      width: 80px;
+      height: auto;
+    }
+  
+  
+    
+    /**** Merchant dashboard *** */
+    .heading_overview h2{
+      font-size: 26px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+    .campaign_base{
+      width: 100%;
+      height: 180px;
+    }
+    .redeem_voucher_base{
+      width: 100%;
+      height: 180px;
+    }
+    .campaign_base h3, .redeem_voucher_base h3{
+      font-size: 26px;
+    }
+    .grow_online_section h2{
+      font-size: 16px;
+      width: 48%;
+      line-height: 28px;
+      
+    }
+    .campaign_base h1, .redeem_voucher_base h1{
+      font-size: 50px;
+    }
+    .grow_online_section{
+      margin-bottom: 60px;
+    }
+    .online_video_group_img img{
+      width: 100px;
+    }
+  
+  
+  
+    /* voucher details page css */
+    .back_to_merchant a{
+      font-size: 14px;
+    }
+    .price_row_inner p, .price_row_inner span{
+      font-size: 14px;
+    }
+    .place_name h3{
+      font-size: 18px;
+    }
+  
+    .contact_row li a{
+      width: 100px;
+      height: 70px;
+    }
+    .contact_row li a img{
+      height: 50%;
+    }
+    .voucher_able span{
+      font-size: 14px;
+    }
+    .location_heading{
+      font-size: 18px;
+    }
+  
+  
+  
+  
+  
+  
+    /* Bogo directory pages */
+    .card_icon_row{
+      display: flex;
+    }
+  
+  
+  
+    /* Campaign Report Css Start */
+    .base_row{
+      width: 100%;
+    }
+    .campaign_report_box{
+      top: 30px;
+    }
+    .campaign_name_box{
+      height: 124px;
+    }
+    .campaign_name_box h3{
+      font-size: 19px;
+    }
+    .vouchers_redeemed h4{
+      font-size: 19px;
+    }
+    .voucher_redeemed-row{
+      padding: 0;
+    }
+    .vouchers_redeemed{
+      height: 124px;
+    }
+    .vouchers_redeemed h3{
+      font-size: 40px;
+    }
+    /* Campaign Report Css Ends */
+  
+  
+  
+  
+  
+   /* review campaign css start */
+  
+  
+   .inner-hero-section-short h2{
+    font-size: 42px;
+  }
+  .inner-hero-section-short span{
+    font-size: 16px;
+  }
+  .review_compaign_row{
+  
+    display: initial;
+  }
+  
+  .base_img{
+    width: 100%;
+  }
+  
+  .review_campaign_box{
+    width: 100%;
+  }
+  .offer_voucher_box img{
+    height: 100%;
+  }
+  .offer_voucher_box h3{
+    font-size: 26px;
+  }
+  .offer_voucher_box span{
+    font-size: 22px;
+  }
+  .voucher_code_box h4, .merchant_box-code h4{
+  
+    font-size: 21px;
+    text-align: center;
+  }
+  .toggler_code_box{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .verification-code-box{
+    max-width: 100%;
+  }
+  
+  
+  .validity_box ul li{
+    font-size: 16px;
+  }
+  
+  .fine_print_outbox span{
+    font-size: 16px;
+  }
+  
+  .termsCondition h4{
+    font-size: 16px;
+    line-height: 30px;
+  }
+  /* review campaign css Ends */
+    
+  
+  
+    /* Campaign Css Start */
+  
+    .voucher_preview_box{
+      height: 250px;
+    }
+    .voucher_preview_btn{
+      font-size: 20px;
+    }
+    .voucher_preview_row .buy-box span, .voucher_preview_row .get-box span{
+      font-size: 20px;
+    }
+    .voucher_preview_row .buy-box h3, .voucher_preview_row .get-box h3{
+      font-size: 18px;
+    }
+    .compaing-body-title h3{
+      font-size: 26px;
+    }
+    .compaing-body-title .offer-text{
+      font-size: 20px;
+    }
+    .offer-row ul li h3{
+      font-size: 20px;
+    }
+    .offer-row ul{
+      padding: 0;
+    }
+    .offer-row ul li{
+      width: 200px;
+      height: 100px;
+    }
+    .compare-text-box{
+      padding: 20px 0px;
+    }
+    .compare-text-box h4{
+      font-size: 20px;
+    }
+    .checkbox-label .input_bg{
+      width: 50px;
+      height: 50px;
+    }
+    .offday_row label{
+      font-size: 14px;
+    }
+    .gold_feature_box i, .gold_feature_box small{
+      font-size: 9px;
+    }
+    .modificatin-notification{
+      font-size: 14px;
+    }
+    .fine-print-row label{
+      font-size: 14px;
+    }
+    .review_submit_btn_row {
+      padding: 40px 0px 30px;
+    }
+    /* Campaign Css Ends */
+  
+  
+  
+  
+    /* Brand Page Start */
+  
+    .utlise-text {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 29px;
+      /* text-align: center; */
+      color: #0f0f0f;
+    }
+  
+    .ambassadors-header-section {
+      padding: 20px 0px;
+    }
+    .brand-header-left-section {
+      height: auto;
+    }
+    .ambassadors-header-section h2 {
+      font-size: 30px;
+      line-height: 50px;
+    }
+  
+    .ambassadors-header-section h6 {
+      font-size: 20px;
+    }
+    .ambassadors-header-section span {
+      font-size: 23px;
+    }
+  
+    .brand-header-left-section ul li {
+      font-size: 13px;
+      line-height: 30px;
+    }
+    .interest-heading-box h1 {
+      font-size: 18px;
+    }
+  
+    .elegibility-section p {
+      width: 100%;
+      font-size: 14px;
+    }
+    .join-influencer-arrow p {
+      padding-left: 0px;
+      font-size: 18px;
+    }
+  
+    .brouchure-img-box img {
+      width: auto;
+      height: 100%;
+    }
+  
+    .brouchure-text-box h4 {
+      font-size: 21px;
+    }
+    .brouchure-form {
+      width: 100%;
+    }
+    .brouchure-form .input-box {
+      margin-top: 0px;
+    }
+    .brochure-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    /* Brand Page Ends */
+  
+    /*  Business Type Page Css Start*/
+    .Business_hedding_section {
+      padding: 16px 0px 0px;
+    }
+    
+
+
+    .form_facebook {
+      font-size: 13px;
+      padding: 10px 17px;
+    }
+    .merchant_main_top_section {
+      padding-top: 0;
+    }
+    .merchant_hedding p {
+      margin-top: 0;
+    }
+    .merchent-nav-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 0px;
+      margin-top: 30px;
+    }
+    .merchent-nav-box li {
+      width: 116px;
+    }
+    .Business_Information_map {
+      left: 10%;
+      right: 10%;
+      top: 30%;
+    }
+    .span_stars_google {
+      font-size: 10px;
+    }
+    .form_privacy_policy_section p {
+      font-size: 16px;
+    }
+    .Business_Information_section {
+      padding: 0px 0px 0px 0px;
+    }
+    .form_privacy_policy_section {
+      text-align: center;
+      padding: 10px 0px;
+    }
+    .form_Instagram {
+      font-size: 26px;
+    }
+    .form_right_last_content_section h4 {
+      font-size: 17px;
+    }
+  
+    .brouchure-text-box h6 {
+      font-size: 16px;
+    }
+  
+    /* Merchant Regitration Page Start */
+  
+  
+    #multi_img{
+      width: 300px;
+    }
+    .merchant_hedding h1 {
+      font-size: 56px;
+    }
+  
+    /* Merchant Regitration Page Ends */
+
+
+    
+    /* Login page Start */
+    .influencer_option{
+      width: 100px;
+      height: 100px;
+    }
+    /* Login page Ends */
+
+
+
+  
+    /* Contact Page Css Start */
+    .contact-text-box .contact-text {
+      padding: 0px 0px 0px 0px;
+      text-align: center;
+    }
+  
+    .contact-text h1 {
+      font-size: 42px;
+    }
+  
+    .bogo_inner_section {
+      width: auto;
+    }
+    .bogo_inner_section p {
+      font-size: 15px;
+    }
+    /* Contact Page Css Ends */
+  
+    /* Bogo For Business Page Start */
+    .bacome_right_section {
+      padding-left: 0px;
+    }
+    .become_main_section {
+      padding: 0px 0px;
+    }
+    .bacome_right_section a {
+      font-size: 16px;
+    }
+    .sing_right_section img {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      top: -70px;
+      right: 0;
+      bottom: 0;
+    }
+    .about_merchant_sectiton h5 {
+      font-size: 16px;
+    }
+  
+    /* About Page Css Start */
+    .about_right_inner_section {
+      height: auto;
+      position: static;
+    }
+    .about_right_inner_section img {
+      position: static;
+    }
+    .about_left_section p {
+      font-size: 16px;
+    }
+  
+    .about_outer_section h4 {
+      font-size: 19px;
+    }
+    .about_outer_section p {
+      font-size: 12px;
+    }
+    .about_outer_section a {
+      font-size: 8px;
+      padding-bottom: 9px;
+    }
+  
+    .about_outer_section a img {
+      width: 25px;
+    }
+  
+    .about_merchant_sectiton {
+      margin-bottom: 60px;
+    }
+  
+    .about_merchant_sectiton h5 img {
+      width: 3%;
+      height: auto;
+    }
+    .merchant_main_section {
+      height: auto;
+    }
+    .about_merchant_sectiton h5 {
+      margin-top: 0;
+    }
+    /* About Page Css End */
+  
+    /* Business Page Css Start  */
+    .bussiness-header-section h1 {
+      font-size: 40px;
+    }
+  
+    .bacome_right_section p {
+      width: 100%;
+      font-size: 14px;
+    }
+  
+    .bacome_right_section h2 {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+    .bacome_right_section ul li {
+      font-size: 14px;
+    }
+    .sign_brochure h1 {
+      font-size: 22px;
+    }
+  
+    .business_outer_last_section h1 {
+      font-size: 29px;
+    }
+  
+    /* Business Page Css Start  */
+  
+    /* Price Page Css Start */
+    .bacome_right_outer_section p {
+      padding-left: 0px;
+    }
+  
+    .become-row {
+      overflow: hidden;
+    }
+    .main-hero-section {
+      padding: 0;
+    }
+    /* Price Page Css Ends */
+  
+    /* Home Page Css Start */
+  
+    .banner_right_section {
+      justify-content: center;
+      align-items: center;
+    }
+    .banner_right_section {
+      background: linear-gradient(
+        135deg,
+        #83c545 0%,
+        #12b2a6 45.31%,
+        #1f5fa6 100%
+      );
+    }
+  
+    .banner_left_section p {
+      font-size: 15px;
+      padding: 0;
+    }
+    .playstore-icon {
+      display: flex;
+      /* justify-content: center; */
+      align-items: center;
+      margin-top: 20px;
+    }
+    .playstore-icon a:first-child {
+      margin-right: 0px;
+    }
+    .playstore-icon a img {
+      width: 120px;
+      height: auto;
+    }
+    .banner_right_section img {
+      width: 100%;
+    }
+    .merchant_inner_section h1 {
+      font-size: 29px;
+    }
+    .home-merchant-inncer-sec img {
+      margin-top: 0px;
+    }
+    .merchant_inner_section {
+      margin-top: -15px;
+    }
+    .merchent_home_text {
+      margin-top: 0px;
+    }
+  
+    .banner_left_section h1 {
+      font-size: 27px;
+      line-height: 40px;
+    }
+    /* Home Page Css Ends */
+  
+    /* footer */
+    .follow-us {
+      display: flex;
+      flex-direction: column;
+    }
+    .footer_inner_section button {
+      padding: 7px 15px !important;
+    }
+  
+    .get-in-touch {
+      align-items: flex-start;
+      margin-top: 30px;
+    }
+    .footer-playstrore-icon {
+      display: none;
+    }
+    .footer_inner_section ul li i {
+      font-size: 16px;
+    }
+  
+    .merchant_inner_section {
+      margin-bottom: 10px;
+    }
+  
+    /* footer end */
+  
+    /* User Login Css Start */
+    .customer_option img,
+    .merchant_option img,
+    .Influencer_option img {
+      width: auto;
+      height: 50%;
+    }
+    .customer_option,
+    .merchant_option,
+    .Influencer_option {
+      height: 101px;
+      width: 101px;
+    }
+    .registation-col h6 {
+      font-size: 14px;
+    }
+  
+    /* User Login Css Ends */
+  
+    /* User Registration Css Start */
+    .user_register-group-box {
+      width: 100%;
+    }
+    /* User Registration Css Ends */
+  
+    .verification-code .verification-code--inputs input {
+      width: 70px;
+      height: 70px !important;
+      padding: 18px 0px;
+    }
+    .verify-group-box {
+      width: 100%;
+    }
+  
+    .regis_complete-text-group h4 {
+      font-size: 24px;
+    }
+  
+    .regis_complete-text-group span {
+      font-size: 12px;
+    }
+  }
+  
+  /************************** max-width-767px*******************************/
+  /***********************************************************************/
+  @media (max-width: 767px) {
+   
+    .switchBox span{
+      font-size: 12px;
+    }
+    .exclude_weekends_row{
+      background-color: none !important;
+    }
+    .brouchure-form .input-box input{
+      margin: 0;
+    }
+    .brouchure-form .brochure-btn{
+      margin-top: 30px;
+    }
+    .brouchure-form iframe[title="reCAPTCHA"]{
+      margin-top: 15px;
+    }
+
+    .interest-form-box .interst-form .input-box input{
+      margin: 0;
+    }
+    .interest-form-box .interst-form iframe[title='reCAPTCHA']{
+      margin-top: 13px;
+    }
+  
+    /* Bogo directory */
+    .bogo_directory_card_row {
+      margin-top: 20px;
+      margin-bottom: 50px;
+    }
+    
+  
+  
+  
+  
+    /* Price Page Css Start  */
+    .merchant_main_section {
+      margin-bottom: 0px;
+    }
+    /* Price Page Css Ends  */
+  
+    /* home page main head  */
+  
+    .banner_right_section {
+      display: none;
+    }
+    .banner_main_section {
+      height: auto;
+    }
+    .playstore-icon {
+      text-align: center;
+    }
+  
+    .browse_section {
+      text-align: center;
+    }
+  
+    .merchent_right_text {
+      margin-top: 0px;
+    }
+    /* home page main head  */
+  
+    /* Bussiness Page Css Start */
+    .bacome_right_section {
+      text-align: center;
+    }
+  
+    /* Gellery */
+    .logo-image-box,
+    .multi-img-box {
+      display: flex;
+      justify-content: space-around;
+      width: 80%;
+      flex-direction: column;
+      margin: auto;
+    }
+    #imagePreview {
+      width: auto;
+    }
+    .upload_preview_box {
+      text-align: center;
+    }
+    #multi_img {
+      width: auto;
+    }
+    .multi-upload_gallery {
+      text-align: center;
+    }
+    /* integration */
+    .form_left_content_section {
+      margin-top: 0;
+    }
+    .form_left_content_section h4 {
+      font-size: 20px;
+    }
+  
+    /* Bussiness Page Css Ends */
+  
+    /*  footer */
+    .footer_inner_section {
+      text-align: left;
+    }
+    .merchant_main_section {
+      padding: 20px 0px;
+    }
+    /*  footer */
+  
+    .form-check ul li input#blankCheckbox {
+      width: 63px;
+      height: 30px;
+      margin-left: 1px;
+    }
+    .deshboard-left-section img {
+      width: 24px;
+      position: absolute;
+      left: -5px;
+      top: 38px !important;
+    }
+    .deshboard-main-section {
+      background: #88c641;
+      padding-bottom: 60px;
+    }
+    .deshboard-inner-section .row {
+      align-items: center;
+    }
+    .deshboard-left-section h4 {
+      position: absolute;
+      left: 20px;
+      right: 0px;
+      top: -38px;
+      bottom: 0px;
+      font-family: "Airbnb Cereal App";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 29px;
+      color: #ffffff;
+    }
+    .deshboard-right-section img {
+      width: 100%;
+      margin-top: 0px;
+      position: relative;
+      margin-left: -35px;
+    }
+    .deshboard-left-section a {
+      position: absolute;
+      left: 22px;
+      top: 49px;
+      font-family: "Airbnb Cereal App";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 0px;
+      letter-spacing: 0.02em;
+      color: #ffffff;
+    }
+    .deshboard-left-section {
+      position: relative;
+      top: -35px;
+    }
+    .deshboard-inner-section {
+      background: linear-gradient(
+        104.29deg,
+        #83c545 0%,
+        #12b2a6 45.31%,
+        #1f5fa6 100%
+      );
+      border-radius: 16px;
+      position: relative;
+      left: 16%;
+      top: 75px;
+      width: 70%;
+      height: auto;
+      top: 14px;
+    }
+    .lastclass .form-control {
+      width: 96%;
+    }
+    .form-group {
+      padding: 16px;
+    }
+    .banner_bottom_section img {
+      max-width: 150px;
+    }
+    .banner_right_section {
+      text-align: center;
+      background: linear-gradient(
+        104.29deg,
+        #83c545 0%,
+        #12b2a6 45.31%,
+        #1f5fa6 100%
+      );
+      border-radius: 20px 0px 0px 20px;
+      margin-top: 40px;
+      height: 284px;
+    }
+    .banner_right_section img {
+      position: relative;
+      top: -75px;
+      z-index: 9999;
+      width: 380px;
+    }
+    /* .contact-text h3 {
+      margin-top: 93px;
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 37px;
+      color: #ffffff;
+      margin-bottom: 24px;
+      margin-left: 0px !important;
+    } */
+    .contact-text p {
+      margin-left: 0px !important;
+    }
+    .submit-button {
+      width: 100%;
+      color: #fff;
+      padding: 8px 0px;
+      margin-top: 15px;
+    }
+    .banner_main_section .row {
+      align-items: center;
+      /* margin-top: 14px; */
+    }
+    .hero-contact-section input {
+      margin-bottom: 13px;
+      width: 100%;
+    }
+    .contact-info textarea {
+      width: 100%;
+      height: 110px;
+    }
+    .voucher-code h4 {
+      font-style: normal;
+      font-size: 18px;
+      color: #000000;
+    }
+  
+    .merchant-pin h4 {
+      margin-left: 18px;
+      font-style: normal;
+      font-size: 18px;
+      color: #000000;
+    }
+    .campaign-main-section h3 {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 100%;
+      color: #000000;
+    }
+    .campaign-main-section p {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 100%;
+      color: #029cab;
+    }
+  
+    .campaign-logo img {
+      width: 60px;
+      margin-left: -3px;
+    }
+    .compaign-button1 {
+      padding: 10px 78px !important;
+    }
+  
+    .create_inner_section {
+      text-align: center;
+      padding: 11px 39px;
+      margin: 0px 0px;
+    }
+    .mean-toggle {
+      display: block;
+      width: auto;
+      height: auto;
+      margin: 10px;
+      float: right;
+      cursor: pointer;
+      text-align: center;
+      font-size: 30px;
+      color: #069370;
+    }
+    .inner-hero-section h2 {
+      font-size: 36px;
+      text-align: center;
+    }
+  
+    .inner-hero-section p {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 26px;
+      margin-left: 0px;
+      text-align: center;
+      color: #ffffff;
+      padding-right: 0px;
+    }
+    .about_left_inner_section img {
+      position: relative;
+      right: 0px;
+    }
+    .about_left_inner_section {
+      text-align: center;
+    }
+    /* .about_right_inner_section img {
+      width: 250px;
+      position: relative;
+      right: 0px;
+    } */
+    /* .about_right_section {
+      position: relative;
+      top: auto;
+      bottom: 0px;
+      right: 0px;
+    } */
+    .about_merchant_sectiton {
+      background: #fff !important;
+      /* margin-bottom: 50px; */
+    }
+    .mean-toggle:before {
+      content: "\f0c9";
+      font-family: fontAwesome;
+      line-height: 40px;
+    }
+    /* .about_right_inner_section img {
+      width: 166px;
+      position: relative;
+      right: 0px;
+    } */
+    .about_right_outer_section img {
+      width: 150px;
+    }
+    .mean-toggle.active:before {
+      content: "\f00d";
+    }
+  
+    nav {
+      display: none;
+    }
+  
+    nav.active {
+      display: block;
+      width: 100%;
+    }
+  
+    nav.active ul {
+      display: block;
+    }
+  
+    nav.active ul li {
+      margin: 0;
+      text-align: center;
+    }
+    .banner_left_section {
+      padding-top: 20px;
+      text-align: center;
+    }
+  
+    .banner_left_section h1 {
+      font-weight: 800;
+      font-size: 28px;
+      line-height: 37px;
+      color: #000;
+    }
+    .banner_top_row {
+      display: none;
+    }
+    .banner_row {
+      display: block;
+    }
+    .banner_right_section {
+      margin-top: 10px;
+    }
+  
+    .browse_inner_section {
+      margin-bottom: 30px;
+    }
+  
+    .browse_bottom_section ul li img {
+      width: 100%;
+      border-radius: 10px;
+      max-width: 110px;
+    }
+  
+    .browse_bottom_section ul {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .browse_bottom_section {
+      margin-top: 30px;
+      width: 100%;
+    }
+  
+    .merchant_main_section {
+      background: #88c641;
+      height: auto;
+      margin-top: 0px;
+    }
+  
+    .merchant_inner_section h1 {
+      padding-top: 0px;
+    }
+  
+    .merchant_inner_section img {
+      width: 100%;
+      max-width: 350px;
+      position: relative;
+      top: 0px;
+      bottom: auto;
+      height: 430px;
+      object-fit: unset;
+      left: 0px;
+    }
+  
+    .merchant_main_section {
+      text-align: center;
+    }
+  
+    .merchant_inner_section {
+      padding-bottom: 30px;
+    }
+  
+    .footer_bottom {
+      padding-top: 30px;
+      text-align: center;
+      width: 100%;
+    }
+    .row.banner_row {
+      display: flex;
+    }
+  
+    .business_left_section {
+      text-align: end;
+      position: relative;
+      right: 0px;
+      top: -2px;
+    }
+    .bussiness_right_section h1 {
+      color: #fff;
+      font-size: 40px;
+      font-weight: 400;
+      position: relative;
+      left: -40px;
+    }
+    .sign_brochure {
+      background: #88c641;
+      padding: 40px 0px 0px;
+      height: auto;
+    }
+    .sing_right_section {
+      position: unset;
+      margin-top: 30px;
+      text-align: center;
+    }
+    /* .sing_right_section img {
+      width: 100%;
+      width: 154px;
+    } */
+  
+    .sing_right_section img {
+      position: unset;
+    }
+    .sing_left_outer_section img {
+      width: 170px;
+    }
+    .sing_left_outer_section img {
+      position: relative;
+      right: 0px;
+    }
+    .bogo_inner_section {
+      text-align: center;
+    }
+    .row.lastclass {
+      padding: 15px 0px 15px 15px;
+    }
+    .lastclass label {
+      font-weight: 600;
+      font-size: 20px;
+    }
+    .merchant_hedding h1 {
+      font-size: 34px;
+    }
+    .merchant_outer_section {
+      margin-bottom: 20px;
+    }
+    button#upload-button {
+      margin-bottom: 0px;
+    }
+    .form_gallery_main_section {
+      text-align: center;
+      margin-bottom: 0px;
+    }
+    .multi-img-box{
+      margin-top: 35px;
+    }
+    button.form_Instagram {
+      font-size: 20px;
+    }
+    .form_right_last_content_section h4.pb-4 {
+      font-size: 22px;
+    }
+    .voucher_one_section img {
+      width: 40px;
+      height: 40px;
+      margin-top: 8px;
+    }
+    .create_campaign_section textarea {
+      background: #f7f7f7;
+      border: none;
+      height: 179px;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    .middle-info-left-section {
+      text-align: center;
+    }
+    .middle-info-right-section {
+      margin-left: 279px;
+    }
+    .middle-info-right-section h6 {
+      margin-left: -11px;
+    }
+    .merchant_inner_section img {
+      width: 100%;
+      height: auto;
+      left: 0px;
+    }
+    .about_left_section p {
+      color: #fff;
+      margin-left: 0px;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .bacome_right_outer_section p {
+      padding-left: 0px;
+      padding-bottom: 30px;
+      text-align: center;
+    }
+    .bacome_right_outer_section {
+      position: relative;
+      top: 0px;
+    }
+    .about_outer_section {
+      margin-bottom: 30px;
+    }
+    .footer_main_section .banner_bottom_section {
+      position: relative;
+      top: -8px;
+    }
+  
+    /* Bogo For Businerss Page  Css Start  */
+  
+    .Business_hedding_section {
+      padding: 0px 0px 0px;
+    }
+  
+    .Business_Information_map {
+      left: 10%;
+      right: 10%;
+      top: 22%;
+      height: 50px;
+    }
+    .bacome_right_section {
+      padding: 20px 0px;
+    }
+    .sing_left_section {
+      text-align: center;
+    }
+    .sign_brochure h2 {
+      text-align: center;
+    }
+    .Business_hedding_section h1 {
+      font-weight: 400;
+      font-size: 32px;
+      margin: 0px;
+      margin-left: 29px;
+    }
+    .Business_hedding_section p {
+      color: #2352a4;
+      /* padding-top: 8px;
+      margin-left: 31px; */
+    }
+  
+    .review-right-heading {
+      margin-left: 11px;
+    }
+  
+    /* Bogo For Business Page Css */
+  
+    .business_outer_last_section {
+      margin-top: 20px;
+    }
+  
+    .verify-group-box {
+      width: 100%;
+    }
+  }
+  
+  /* ===========(min-width: 481px) and (max-width: 767px)================= */
+  /* ===================================================================== */
+  @media (min-width: 481px) and (max-width: 767px) {
+
+    /* Forget Password */
+    .forget_pass_row{
+      align-items: center;
+    }
+    .forget_pass_row h4{
+      font-size: 18px;
+    }
+    .backtoLogin{
+      text-align: center;
+    }
+    .backtoLogin a{
+      font-size: 14px;
+    }
+    .user_login_btn-box .user_login_btn{
+      margin-top: 0;
+    }
+
+
+
+
+     /* Voucher Details */
+     #tabs2-nav li a, #tabs-navtab li a{
+      font-size: 16px;
+    }
+    .tabs-content_child{
+      margin:0 ;
+    }
+    .time_address_box{
+      width: 100%;
+    }
+    .branch-gallery_img_box ul{
+      padding: 0;
+      justify-content: center;
+    }
+
+
+
+
+
+     /* voucher redeem */
+     .redeem_voucher_box{
+      padding: 15px;
+      width: 100%;
+    }
+    .buy_redeem_row span, .get_redeem_row span{
+      font-size: 14px;
+    }
+
+
+
+  
+     /* bogo premium */
+     .bogo_premium_text h5{
+      text-align: center;
+      font-size: 16px;
+    }
+    .bogo_premium_text p{
+      text-align: center;
+      font-size: 13px;
+    }
+    .bogo_premium_text .heigh_light_pra{
+      text-align: start;
+    }
+    
+  
+  
+  
+  
+  
+    /* Waiting list css */
+    .pro_watingList_heading_row h3{
+      font-size: 18px;
+      line-height: 35px;
+    }
+  
+    .pro_watingList_heading_row p{
+      width: 100%;
+    }
+  
+    .wait_list_code_row .invite_code_box{
+      width: 100%;
+    }
+  
+    .invites_use p{
+      font-family: Montserrat;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 15px;
+      letter-spacing: 0px;
+    }
+  
+    .copy-text span{
+      font-size: 11px;
+      font-weight: 400;
+    }
+    .premium_progress{
+      width: 100%;
+    }
+    .premium_progress_btn{
+      font-size: 16px;
+    }
+    .waitingCard_heading h4{
+      font-size: 14px;
+    }
+    .waiting_card_row{
+      width: 100%;
+    }
+  
+  
+  
+  
+     /* launch Wating list  */
+  
+  
+     .watingList_heading_row h3{
+      width: 100%;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 35px;
+  
+    }
+  
+    .watingList_heading_row p{
+      width: 100%;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 35px;
+      margin: 0;
+    }
+    .right_img_box img{
+      border: 1px solid #ededed;
+      border-radius: 30px;
+      margin-bottom: 20px;
+    }
+  
+  
+  
+  
+  
+  
+  
+  
+    /* campaing Dashboard */
+    #tabs2-nav li a{
+      font-size: 15px;
+      line-height: 0px;
+    }
+    .offerlabelbox, .public_nowCampaign_box{
+      width: 110px;
+      height: 40px;
+      font-size: 14px;
+    }
+  
+    .campaign_louch_date h6{
+      font-size: 13px;
+    }
+    .manage_editbox ul li a{
+      font-size: 13px;
+    }
+    .voucher_redim_row span {
+      font-family: Montserrat;
+      font-size: 9px;
+      font-weight: 400;
+      line-height: 15px;
+      letter-spacing: 0em;
+    }
+    .voucher_redim_box h4{
+      font-size: 16px;
+    }
+    .invite_review_edit ul li{
+      font-size: 13px;
+    }
+    .voucher_redim_box{
+      width: 80%;
+    }
+    #tabs3-nav li a{
+      font-size: 13px;
+      line-height: 0px;
+    }
+  
+  
+  
+  
+  
+  
+    /* Invite influencers */
+    .serarch_inflencer .searchBox{
+      width: 200px;
+    }
+    .sort_fiter_dropdown select{
+      width: 150px;
+    }
+    
+  
+    .influencer_tab a h3{
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+    .influencer_card .card .card-body .name_row p{
+      font-size: 20px;
+    }
+    .influencer_card .card .card-body .name_row span{
+      font-size: 16px;
+    }
+    .influencer_card .card .card-body .followers h6{
+      font-size: 20px;
+    }
+  
+  
+  
+    /**** Merchant dashboard *** */
+    .campaign_card_row{
+      height: 300px;
+      margin-top: 0;
+    }
+    .deshboard-header {
+      background: #88C541;
+      padding: 0px 0px 60px;
+    }
+    .play_iconBtn{
+      font-size: 18px;
+    }
+    .campaign_card_text{
+      height: 290px;
+    }
+    .campaign_card_text h3{
+      font-size: 33px;
+    }
+    .heading_overview h2{
+      font-size: 34px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .campaign_base{
+      width: 100%;
+    }
+    .redeem_voucher_base{
+      width: 100%;
+      float: none;
+      margin-top: 30px;
+    }
+    .grow_online_section h2{
+      width: 80%;
+      font-size: 18px;
+      line-height: 30px;
+    }
+    .online_video_group_img img{
+      padding-top: 20px;
+      width: 150px;
+    }
+    .offerType li button{
+      font-size: 16px;
+    }
+  
+  
+  
+    
+    /* voucher details page css */
+    .back_to_merchant a{
+      font-size: 12px;
+    }
+    .price_row_inner p, .price_row_inner span{
+      font-size: 12px;
+    }
+    .place_name h3{
+      font-size: 16px;
+    }
+  
+    .contact_row li a{
+      width: 66px;
+      height: 50px;
+    }
+    .contact_row li a img{
+      height: 50%;
+    }
+    .voucher_able span{
+      font-size: 12px;
+    }
+    .location_heading{
+      font-size: 18px;
+    }
+  
+  
+  
+  
+    /* Bogo Directory */
+    .searchBox{
+      width: 100%;
+    }
+
+
+
+  
+    /* Campaingn Report Css Start */
+    .base_row{
+      width: 100%;
+      overflow: hidden;
+    }
+    .campaign_report_box{
+      justify-content: start;
+      padding: 10px;
+    }
+    .base_text_box h3 {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 23px;
+      line-height: 59px;
+      color: #FFFFFF;
+      width: 90%;
+      margin-top: 20px;
+    }
+    .base_video_row a{
+      font-size: 14px;
+    }
+    .base_video_row i{
+      font-size: 24px;
+    }
+    .compaing-report-body-title h3{
+      font-size: 29px;
+    }
+    .campaign_name_box h3{
+      font-size: 25px;
+    }
+    .campaign_name_box{
+      height: 143px;
+    }
+  
+    .campaign_report_body .col-md-6:last-child{
+      margin-top: 20px;
+    }
+    .vouchers_redeemed h4{
+      font-size: 25px;
+    }
+    .voucher_redeemed-row {
+      padding: 0px 17px;
+    }
+    .vouchers_redeemed{
+  
+      height: 172px;
+    }
+    .vouchers_redeemed h3{
+      font-size: 40px;
+    }
+  
+    /* Campaingn Report Css Ends */
+  
+  
+  
+  
+  
+  
+    /* review campaign css start */
+  
+  
+    .inner-hero-section-short h2{
+      font-size: 30px;
+    }
+    .inner-hero-section-short span{
+      font-size: 10px;
+    }
+    .review_compaign_row{
+  
+      display: initial;
+    }
+  
+    .base_img{
+      width: 100%;
+    }
+  
+    .review_campaign_box{
+      width: 100%;
+    }
+    .offer_voucher_box img{
+      height: 70px;
+    }
+    .offer_voucher_box h3{
+      font-size: 20px;
+    }
+    .offer_voucher_box span{
+      font-size: 18px;
+    }
+    .voucher_code_box h4, .merchant_box-code h4{
+  
+      font-size: 15px;
+      text-align: center;
+    }
+    .toggler_code_box{
+      display: flex;
+      justify-content: center;
+    }
+  
+    .verification-code-box{
+      max-width: 100%;
+    }
+  
+  
+    .validity_box ul li{
+      font-size: 10px;
+    }
+  
+    .fine_print_outbox span{
+      font-size: 16px;
+    }
+  
+    .termsCondition h4{
+      font-size: 16px;
+      line-height: 30px;
+    }
+  
+    .merchant-subscription-header, .campaign-header{
+      padding: 30px 0px 30px;
+    }
+    /* review campaign css Ends */
+  
+  
+    /* Campaign Css Start */
+  
+    .voucher_preview_box{
+      height: 250px;
+    }
+    .voucher_preview_btn{
+      font-size: 20px;
+    }
+    .voucher_preview_row .buy-box span, .voucher_preview_row .get-box span{
+      font-size: 20px;
+    }
+    .voucher_preview_row .buy-box h3, .voucher_preview_row .get-box h3{
+      font-size: 18px;
+    }
+    .compaing-body-title h3{
+      font-size: 26px;
+    }
+    .compaing-body-title .offer-text{
+      font-size: 20px;
+    }
+    .offer-row ul li h3{
+      font-size: 14px;
+    }
+    .offer-row ul{
+      padding: 0;
+    }
+    .offer-row ul li{
+      width: 117px;
+      height: 100px;
+    }
+    .compare-text-box{
+      padding: 20px 0px;
+    }
+    .compare-text-box h4{
+      font-size: 20px;
+    }
+    .checkbox-label .input_bg{
+      width: 40px;
+      height: 40px;
+    }
+    .offday_row label{
+      font-size: 14px;
+    }
+    .gold_feature_box i, .gold_feature_box small{
+      font-size: 9px;
+    }
+    .modificatin-notification{
+      font-size: 14px;
+    }
+    .fine-print-row label{
+      font-size: 14px;
+    }
+    .review_submit_btn_row {
+      padding: 40px 0px 30px;
+    }
+    /* Campaign Css Ends */
+  
+  
+     
+  
+  
+  
+    /* Register page Css Start */
+    .hour_operation{
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 0px 10px;
+    }
+    .inputhours{
+      margin-top: 30px;
+    }
+    /* Register page Css Ends */
+  
+  
+    /* Merchant subscription start */
+    .card-row, .date-row{
+      margin-top: 0px;
+    }
+    /* Merchant subscription ends */
+  
+   
+  
+    /*  brand page Start*/
+    .form_facebook {
+      background: #3b5998;
+      color: #fff !important;
+      border: none;
+      padding: 5px 20px;
+      font-size: 10px;
+      /* font-size: 8px; */
+      border-radius: 5px;
+      text-decoration: none !important;
+    }
+    .form_right_last_content_section h4 {
+      font-size: 14px;
+      font-weight: 400;
+    }
+    .form_left_last_content_section .from_fackbook_disconnect {
+          color: #fff !important;
+          border: none;
+          padding: 5px 20px;
+          font-size: 10px;
+          /* font-size: 8px; */
+          border-radius: 5px;
+          text-decoration: none !important;
+    }
+    .g-bussiness p {
+      font-size: 16px;
+    }
+  
+    .ambassadors-header-section {
+      padding-top: 30px;
+    }
+  
+    .ambassadors-header-section h6 {
+      margin-top: 20px;
+    }
+    .ambassadors-header-section{
+      padding-bottom: 15px;
+    }
+  
+    .brand-header-right-section {
+      padding: 0px;
+      padding-top: 20px;
+    }
+    .bacome_right_section h2,
+    .bacome_right_section p {
+      text-align: center;
+    }
+    .bacome_right_section p {
+      width: 100%;
+    }
+    .join-influencer-arrow {
+      text-align: center;
+    }
+  
+    .brouchure-text-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .brouchure-img-box {
+      margin-top: 20px;
+    }
+    .request-brochure {
+      padding-bottom: 0px;
+    }
+    .brouchure-form iframe[title='reCAPTCHA'] {
+      margin: 10px 0;
+    }
+  
+    .utlise-text {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 29px;
+      /* text-align: center; */
+      color: #0f0f0f;
+    }
+  
+    /* Brand Page Ends */
+  
+    /* Price Page Css Start */
+    .user-payment-methode ul li {
+      font-size: 12px;
+    }
+    .user-payment-methode a {
+      font-size: 12px;
+    }
+  
+    .user-payment-methode h4 {
+      font-size: 18px;
+    }
+  
+    .bacome_right_outer_section {
+      text-align: center;
+    }
+    .brand-header-left-section {
+      padding-top: 0;
+    }
+  
+    .ambassadors-header-section h2 {
+      font-size: 30px;
+      text-align: center;
+      margin: 0;
+    }
+    .brouchure-text-box h4{
+      font-size: 24px;
+    }
+    .ambassadors-header-section h6 {
+      text-align: center;
+    }
+    .brand-header-left-section ul li {
+      font-size: 14px;
+    }
+    .become-row {
+      overflow: hidden;
+    }
+  
+  
+    /*  */
+    .membarship-plan-box .user-payment-methode{
+      margin: auto;
+      border: 1px solid #efefef;
+      margin-bottom: 40px;
+      padding: 10px 5px;
+      border-radius: 10px;
+      width: 100%;
+    }
+    .user-payment-methode h4{
+      font-size: 20px;
+    }
+    .user-payment-methode a{
+      font-size: 18px;
+    }
+    .user-payment-methode ul{
+      padding: 0;
+    }
+    .user-payment-methode ul li{
+      margin: 0;
+      margin-bottom: 7px;
+      font-size: 14px;
+      padding: 0;
+    }
+  
+  
+  
+  
+    /* Price Page Css Ends */
+  
+    /* Business Page Css Start  */
+    .bussiness-header-section h1 {
+      font-size: 40px;
+    }
+  
+    .form-input-box {
+      margin-top: 20px;
+    }
+  
+    .right-position {
+      display: block;
+    }
+  
+    /* Business Page Css Start  */
+  
+    /* Contact Page Css Start */
+    .contact-text-box .contact-text {
+      padding: 0px 0px 0px 0px;
+      text-align: center;
+    }
+    .hero-contact-section {
+      padding-top: 50px;
+    }
+    .contact-text h1 {
+      font-size: 42px;
+    }
+  
+    .bogo_inner_section {
+      width: auto;
+    }
+    /* Contact Page Css Ends */
+  
+    /* About Page Css */
+    .about_right_inner_section img {
+      position: static;
+      display: flex;
+  
+      justify-content: center;
+      align-items: center;
+    }
+    .home-merchant-inncer-sec img {
+      margin-top: 0px;
+    }
+  
+    .about_merchant_sectiton h5 {
+      margin-top: 20px;
+    }
+    .about_merchant_sectiton h5 img {
+      width: 5%;
+      height: auto;
+    }
+    .interst-form .interest-form-btn{
+      margin-bottom: 20px;
+    }
+  
+    /* Home Page Css Start  */
+    .banner_left_section p {
+      width: 100%;
+    }
+    .banner_left_section h1 {
+      font-size: 38px;
+      line-height: 48px;
+    }
+    /* Home Page Css Start  */
+  
+    /* Footer Css Start */
+    .footer-playstrore-icon {
+      display: none;
+    }
+    .get-in-touch {
+      display: inherit;
+    }
+    .footer-row-2 .footer-logo {
+      text-align: center;
+    }
+    /* Footer Css Ends */
+  
+    /* User Registration Css Start */
+    .user_register-group-box {
+      width: 100%;
+    }
+    /* User Registration Css Ends */
+  
+  
+  
+    /* User Registration Css Start */
+    .playstore-icon-app {
+      justify-content: center;
+    }
+    /* User Registration Css Ends */
+  }
+  
+  /************************** max-width-480px *************************/
+  /*******************************************************************/
+  @media (max-width: 480px) {
+
+    .integration-btn-next{
+      margin-bottom: 20px;
+    }
+
+
+    /* Forget Password */
+    .forget_pass_row{
+      align-items: center;
+    }
+    .forget_pass_row h4{
+      font-size: 18px;
+    }
+    .backtoLogin{
+      text-align: center;
+    }
+    .backtoLogin a{
+      font-size: 14px;
+    }
+    .user_login_btn-box .user_login_btn{
+      margin-top: 0;
+    }
+
+
+
+    /* account */
+    .subscription-row{
+      font-size: 12px;
+    }
+
+
+    /* Voucher Details */
+    #tabs2-nav li a, #tabs-navtab li a{
+      font-size: 16px;
+    }
+    .tabs-content_child{
+      margin:0 ;
+    }
+    .time_address_box{
+      width: 100%;
+    }
+    .branch-gallery_img_box ul{
+      padding: 0;
+      justify-content: center;
+    }
+
+
+    /* voucher redeem */
+    .redeem_voucher_box{
+      padding: 15px;
+      width: 100%;
+    }
+    .buy_redeem_row span, .get_redeem_row span{
+      font-size: 12px;
+    }
+
+
+
+  
+    /* bogo premium */
+    .bogo_premium_text h5{
+      text-align: center;
+      font-size: 16px;
+    }
+    .bogo_premium_text p{
+      text-align: center;
+      font-size: 13px;
+    }
+    .bogo_premium_text .heigh_light_pra{
+      text-align: start;
+    }
+  
+  
+  
+  
+  
+  
+    /* Waiting list css */
+    .pro_watingList_heading_row h3{
+      font-size: 18px;
+      line-height: 35px;
+    }
+  
+    .pro_watingList_heading_row p{
+      width: 100%;
+    }
+  
+    .wait_list_code_row .invite_code_box{
+      width: 100%;
+    }
+  
+    .invites_use p{
+      font-family: Montserrat;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 15px;
+      letter-spacing: 0px;
+    }
+  
+    .copy-text span{
+      font-size: 11px;
+      font-weight: 400;
+    }
+    .premium_progress{
+      width: 100%;
+    }
+    .premium_progress_btn{
+      font-size: 16px;
+    }
+    .waitingCard_heading h4{
+      font-size: 14px;
+    }
+    .waiting_card_row{
+      width: 100%;
+    }
+
+
+
+
+
+    /* Login */
+    .customer_option, .merchant_option, .Influencer_option{
+      width: 90px;
+      height: 90px;
+    }
+    .influencer_option{
+      width: 90px;
+      height: 90px;
+    }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    /* launch Wating list  */
+  
+  
+    .watingList_heading_row h3{
+      width: 100%;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 35px;
+  
+    }
+  
+    .watingList_heading_row p{
+      width: 100%;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 35px;
+      margin: 0;
+    }
+    .right_img_box img{
+      border: 1px solid #ededed;
+      border-radius: 30px;
+      margin-bottom: 20px;
+    }
+  
+  
+  
+    /* campaing Dashboard */
+    #tabs2-nav li a{
+      font-size: 15px;
+      line-height: 0px;
+    }
+    .offerlabelbox, .public_nowCampaign_box{
+      width: 120px;
+      height: 40px;
+      font-size: 14px;
+    }
+  
+    .campaign_louch_date h6{
+      font-size: 10px;
+    }
+    .influence_invit h6{
+      font-size: 10px;
+    }
+    .manage_editbox ul li a{
+      font-size: 13px;
+    }
+    .voucher_redim_row span {
+      font-family: Montserrat;
+      font-size: 9px;
+      font-weight: 400;
+      line-height: 15px;
+      letter-spacing: 0em;
+    }
+    .voucher_redim_box h4{
+      font-size: 16px;
+    }
+    .invite_review_edit ul li{
+      font-size: 9px;
+      margin-right: 0px;
+    }
+    .completed_redem_box{
+      width: 144px;
+    }
+    .com_voucher_redim_box span{
+      font-size: 10px;
+    }
+    .com_voucher_redim_box small{
+      font-size: 28px;
+    }
+    .campaign_offer_type .offerType1 h6, .campaign_offer_type .offerType2 h6{
+      font-size: 12px;
+    }
+    .voucher_redim_box{
+      width: 80%;
+    }
+    #tabs3-nav li a{
+      font-size: 13px;
+      line-height: 0px;
+    }
+  
+  
+  
+  
+  
+  
+    /* Invite influencers */
+    .serarch_inflencer .searchBox{
+      width: 200px;
+    }
+    .sort_fiter_dropdown select{
+      width: 150px;
+    }
+    
+  
+    .influencer_tab a h3{
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+    .influencer_card .card .card-body .name_row p{
+      font-size: 20px;
+    }
+    .influencer_card .card .card-body .name_row span{
+      font-size: 16px;
+    }
+    .influencer_card .card .card-body .followers h6{
+      font-size: 20px;
+    }
+  
+  
+  
+  
+  
+  
+  
+    /**** Merchant dashboard *** */
+  
+    .deshboard-header {
+      background: #88C541;
+      padding: 0px 0px 60px;
+    }
+  
+    .heading_overview h2{
+      font-size: 22px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .campaign_base{
+      background-size: cover;
+      height: 200px;
+      width: 100%;
+      float: none;
+    }
+  
+  
+    .redeem_voucher_base{
+      background-size: cover;
+      height: 200px;
+      margin-top: 30px;
+      width: 100%;
+      float: none;
+    }
+    .campaign_base h3, .redeem_voucher_base h3{
+      font-size: 27px;
+    }
+  
+    .grow_online_section h2{
+      font-size: 18px;
+      line-height: 30px;
+      width: 100%;
+    }
+  
+    .online_video_group_img img{
+      width: 150px;
+      margin-top: 20px;
+    }
+    .campaign_card_row{
+      height: 200px;
+      margin-top: 0;
+    }
+    .campaign_card_text{
+      height: 200px;
+    }
+  
+    .campaign_card_text h3{
+      font-size: 20px;
+      line-height: 26px;
+    }
+    .play_iconBtn{
+      font-size: 15px;
+    }
+    .play_iconBtn img{
+      width: 25px;
+    }
+  
+  
+  
+  
+  
+    /* voucher details page css */
+    .back_to_merchant a{
+      font-size: 12px;
+    }
+    .price_row_inner p, .price_row_inner span{
+      font-size: 9px;
+    }
+    .place_name h3{
+      font-size: 14px;
+    }
+  
+    .contact_row li a{
+      width: 66px;
+      height: 50px;
+    }
+    .contact_row li a img{
+      height: 50%;
+    }
+    .voucher_able span{
+      font-size: 12px;
+    }
+    .location_heading{
+      font-size: 18px;
+    }
+  
+  
+  
+  
+    /* Bogo Directory css start */
+    #inner_section h1{
+      font-size: 24px;
+      line-height: 40px;
+      padding-top: 20px;
+    }
+    #inner_section h6{
+      font-size: 14px;
+    }
+    .searchBox{
+      width: 100%;
+    }
+    .rating_icon{
+  
+      font-size: 14px;
+      display: flex;
+    }
+  
+  
+  
+  
+  
+    /* Campaingn Report Css Start */
+    .base_row{
+      width: 100%;
+      overflow: hidden;
+    }
+    .campaign_report_box{
+      justify-content: start;
+      padding: 10px;
+    }
+    .base_text_box h3 {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 23px;
+      line-height: 59px;
+      color: #FFFFFF;
+      width: 90%;
+      margin-top: 20px;
+    }
+    .base_video_row a{
+      font-size: 14px;
+    }
+    .base_video_row i{
+      font-size: 24px;
+    }
+    .compaing-report-body-title h3{
+      font-size: 29px;
+    }
+    .campaign_name_box h3{
+      font-size: 25px;
+    }
+    .campaign_name_box{
+      height: 143px;
+    }
+  
+    .campaign_report_body .col-md-6:last-child{
+      margin-top: 20px;
+    }
+    .vouchers_redeemed h4{
+      font-size: 25px;
+    }
+    .voucher_redeemed-row {
+      padding: 0px 17px;
+    }
+    .vouchers_redeemed{
+  
+      height: 172px;
+    }
+    .vouchers_redeemed h3{
+      font-size: 40px;
+    }
+  
+    /* Campaingn Report Css Ends */
+  
+  
+  
+    /* review campaign css start */
+    .fine_print_outbox {
+      width: 200px;
+    }
+  
+    .inner-hero-section-short h2{
+      font-size: 30px;
+    }
+    .inner-hero-section-short span{
+      font-size: 12px;
+    }
+    .review_compaign_row{
+  
+      display: initial;
+    }
+  
+    .base_img{
+      width: 100%;
+    }
+  
+    .review_campaign_box{
+      width: 100%;
+    }
+    .offer_voucher_box img{
+      height: 70px;
+    }
+    .offer_voucher_box h3{
+      font-size: 20px;
+    }
+    .offer_voucher_box span{
+      font-size: 18px;
+    }
+    .voucher_code_box h4, .merchant_box-code h4{
+  
+      font-size: 15px;
+      text-align: center;
+    }
+    .toggler_code_box{
+      display: flex;
+      justify-content: center;
+    }
+  
+    .verification-code-box{
+      max-width: 100%;
+    }
+  
+  
+    .validity_box ul li{
+      font-size: 12px;
+    }
+  
+    .fine_print_outbox span{
+      font-size: 16px;
+    }
+  
+    .termsCondition h4{
+      font-size: 16px;
+      line-height: 30px;
+    }
+  
+    .merchant-subscription-header, .campaign-header{
+      padding: 30px 0px 30px;
+    }
+    /* review campaign css Ends */
+  
+  
+  
+  
+  
+  
+  
+  
+    /* Campaign Css Start */
+    .voucher_preview_btn{
+      font-size: 20px;
+    }
+    .voucher_preview_row .buy-box span, .voucher_preview_row .get-box span{
+      font-size: 18px;
+    }
+    .voucher_preview_row .buy-box h3, .voucher_preview_row .get-box h3{
+      font-size: 13px;
+    }
+    .compaing-body-title h3{
+      font-size: 26px;
+    }
+    .compaing-body-title .offer-text{
+      font-size: 20px;
+    }
+    .offer-row ul li h3{
+      font-size: 14px;
+    }
+    .offer-row ul{
+      padding: 0;
+    }
+    .offer-row ul li{
+      width: 100px;
+      height: 100px;
+    }
+    .compare-text-box{
+      padding: 20px 0px;
+    }
+    .compare-text-box h4{
+      font-size: 20px;
+    }
+    .checkbox-label .input_bg{
+      width: 40px;
+      height: 40px;
+    }
+    .offday_row label{
+      font-size: 14px;
+    }
+    .gold_feature_box i, .gold_feature_box small{
+      font-size: 9px;
+    }
+    .modificatin-notification{
+      font-size: 12px;
+    }
+    .fine-print-row label{
+      font-size: 14px;
+    }
+    .exclude_weekends_row{
+      background-color: none;
+    }
+    .review_submit_btn_row {
+      padding: 40px 0px 30px;
+    }
+  
+  
+    .voucher_preview_box{
+      height: 223px;
+    }
+    /* Campaign Css Ends */
+  
+  
+  
+  
+  
+    /* Merchant Subscription Css Start */
+    .merchant-subscription-header h1{
+      font-size: 27px;
+    }
+    .merchant-subscription-header{
+      padding: 0px 0px 53px;
+    }
+    .silver_user_box span, .gold_user_box span{
+      font-size: 13px;
+    }
+    .payment-haeding h1{
+      font-size: 27px;
+    }
+    .payment-haeding{
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+    .card-row, .date-row{
+      margin-top: 0px;
+    }
+    .next-btn-box .btnNext, .payment-btn-box .btnNext{
+      font-size: 15px;
+      /* margin-bottom: 20px; */
+    }
+    /* Merchant Subscription Css Ends */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    /*  brand page Start*/
+    .ambassadors-header-section {
+      padding: 0;
+    }
+  
+    .brand-header-left-section {
+      text-align: center;
+      padding: 0;
+    }
+    .ambassadors-header-section h2 {
+      font-size: 22px;
+      text-align: center;
+      margin-top: 0;
+    }
+  
+    .ambassadors-header-section h6 {
+      font-size: 14px;
+      margin-top: 0;
+    }
+    .ambassadors-header-section span {
+      text-align: left;
+    }
+    .brand-header-left-section ul li {
+      font-size: 16px;
+      text-align: left;
+    }
+  
+    .elegibility-section {
+      text-align: center;
+    }
+    .bacome_right_section h2 {
+      font-size: 21px;
+      text-align: center;
+    }
+  
+    .brand-header-right-section {
+      padding: 0;
+    }
+  
+    .bacome_right_section p {
+      text-align: center;
+      width: 100%;
+      font-size: 16px;
+    }
+    .business_outer_last_section ul li{
+      
+      font-size: 18px;
+      padding-bottom: 18px;
+    }
+    .bacome_right_outer_section p a {
+      text-align: center;
+    }
+    .right-position {
+      display: block;
+    }
+  
+    .join-influencer-arrow {
+      text-align: center;
+    }
+  
+    .brouchure-text-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .brouchure-text-box h4 {
+      font-size: 22px;
+    }
+  
+    .request-brochure {
+      padding: 40px 0 0px;
+    }
+  
+    .brouchure-img-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .brouchure-img-box img {
+      width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+  
+    .utlise-text {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 29px;
+      /* text-align: center; */
+      color: #0f0f0f;
+      text-align: left;
+    }
+    /*  brand page Ends*/
+  
+    /* Merchant Registration Css Start */
+    .form-input-box {
+      margin-top: 20px;
+    }
+  
+    .form_privacy_policy_section {
+      text-align: center;
+      padding: 20px 0px 0px;
+    }
+    #ADDbusiness {
+      margin-bottom: 0;
+    }
+    .form_privacy_policy_section p {
+      font-size: 11px;
+    }
+  
+    .merchent-nav-box {
+      justify-content: space-around;
+    }
+    .merchent-nav-box li {
+      margin-right: 0px;
+    }
+    .nav-tabs .nav-item {
+      margin-bottom: 0;
+    }
+    .nav-tabs .nav-item button{
+      font-size: 12px;
+    }
+  
+  
+    .hour_operation{
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 0px 10px;
+    }
+    .inputhours{
+      margin-top: 30px;
+    }
+  
+    /* Merchant Registration Css Ends */
+  
+  
+  
+  
+  
+    /* Price Page Css Start */
+    .user-payment-methode {
+      margin-bottom: 50px;
+    }
+  
+    .merchant_inner_section p {
+      text-align: center;
+    }
+  
+    .choose-price-text {
+      padding-bottom: 0px;
+    }
+  
+    .bacome_right_section ul li {
+      text-align: start;
+    }
+  
+    .main-hero-section {
+      padding: 0 0 30px;
+    }
+    .membership-text h5 {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    .membership-text span {
+      font-size: 11px;
+    }
+    .bacome_right_section ul li {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    .merchant_inner_section p {
+      font-size: 14px;
+    }
+    .membership-option-section{
+      padding: 40px 0px 20px;
+    }
+    .marchent-fluid-section {
+      padding: 30px 0px 0px;
+    }
+  
+  
+    /*  */
+    .membarship-plan-box .user-payment-methode{
+      margin: auto;
+      border: 1px solid #efefef;
+      margin-bottom: 40px;
+      padding: 10px 5px;
+      border-radius: 10px;
+    }
+    .user-payment-methode h4{
+      font-size: 16px;
+    }
+    .user-payment-methode a{
+      font-size: 14px;
+    }
+    .user-payment-methode ul{
+      padding: 0;
+    }
+    .user-payment-methode ul li{
+      margin: 0;
+      margin-bottom: 7px;
+      font-size: 13px;
+    }
+    
+  
+  
+  
+  
+  
+  
+    /* Price Page Css Ends */
+  
+  
+  
+  
+    /* Business Page Css Start  */
+    .bussiness-header-section h1 {
+      font-size: 36px;
+    }
+    .business_banner_section {
+      padding-bottom: 0;
+    }
+    .merchant-partner {
+      text-align: center;
+    }
+  
+    .business_outer_last_section h1 {
+      font-size: 25px;
+      margin-top: 20px;
+    }
+  
+    .bogo_inner_section {
+      width: auto;
+    }
+    .become-row {
+      overflow: hidden;
+    }
+  
+    .business_form_main_section ul {
+      justify-content: space-between;
+    }
+  
+    .business_form_main_section ul li a {
+      font-size: 18px;
+    }
+  
+    .span_stars_google {
+      font-size: 11px;
+    }
+  
+    /* Business Page Css Start  */
+  
+  
+  
+  
+    /* Contact Page Css Start */
+    .contact-text-box .contact-text {
+      padding: 0px 0px 0px 0px;
+      text-align: center;
+    }
+    .hero-contact-section {
+      padding-top: 50px;
+    }
+    .contact-text h1 {
+      font-size: 42px;
+    }
+    /* Contact Page Css Ends */
+  
+    /* About Page Css Start */
+    .about_right_inner_section {
+      height: auto;
+    }
+    .about_right_inner_section img {
+      position: static;
+    }
+  
+    .about_merchant_sectiton h5 img {
+      width: 5%;
+      height: auto;
+    }
+  
+    .about_merchant_sectiton h5 {
+      font-size: 16px;
+    }
+    .about_inner_section {
+      margin-top: 0px;
+    }
+    .about_outer_section h4{
+      font-size: 20px;
+    }
+  
+    /* About Page Css End */
+  
+    /* Home page Css Start */
+    .home-merchant-inncer-sec img {
+      margin-top: 0px;
+    }
+  
+    .playstore-icon a:first-child {
+      margin-right: 0px;
+    }
+  
+    .playstore-icon {
+      margin-top: 15px;
+    }
+  
+    .choose-price-voucher-text {
+      padding-bottom: 0px;
+    }
+    /* Home page Css Ends */
+  
+    /* footer Css Start */
+  
+    button.btn.btn-primary.me-3.text-white {
+      font-size: 13px;
+    }
+  
+    .footer_main_section .footer-logo div p {
+      font-size: 11px;
+    }
+  
+    .footer-playstrore-icon {
+      display: none;
+    }
+  
+    .interest-heading-box h1 {
+      font-size: 20px;
+    }
+  
+    .footer-app-icon {
+      justify-content: inherit;
+    }
+  
+    .footer_main_section {
+      padding: 30px 0px 50px;
+      background: #ecf8fb;
+    }
+  
+    .footer_inner_section {
+      margin-bottom: 20px;
+    }
+  
+    .footer-row-2 .footer-logo {
+      text-align: center;
+    }
+    .footer-row-2 {
+      margin-top: 30px;
+    }
+  
+    .footer_bottom {
+      padding-top: 0px;
+    }
+    .footer_main_section {
+      padding-bottom: 30px;
+    }
+  
+    .get-in-touch {
+      display: inherit;
+    }
+    /* footer Css End*/
+  
+    .inner-hero-section h2 {
+      font-size: 24px;
+      text-align: center;
+      font-weight: 500;
+    }
+    /* .banner_left_section {
+      padding-top: 7px;
+    } */
+    .banner_main_section .row {
+      align-items: center;
+      margin-top: 0px;
+    }
+    .form-check {
+      padding: 0px;
+    }
+    .form-check ul li input#blankCheckbox {
+      width: 56px;
+      height: 30px;
+      margin-left: 1px;
+    }
+    div#tabs-1 {
+      padding: 15px;
+    }
+    .create_campaign_section a.nav-link p {
+      /* color: #fff; */
+      font-size: 16px !important;
+    }
+    .create_inner_section {
+      text-align: center;
+      padding: 5px 9px !important;
+      margin: 0px 0px;
+    }
+    .form-check ul li input#blankCheckbox {
+      width: 34px;
+      height: 30px;
+      margin-left: 1px;
+    }
+    .create_inner_section {
+      text-align: center;
+      padding: 5px 27px;
+      margin: 0px 0px;
+    }
+    .create_form_section .row {
+      max-width: 506px;
+      padding: 22px;
+    }
+    .create_campaign_section ul.nav.nav-tabs {
+      text-align: center;
+      width: 100%;
+      display: -webkit-inline-box;
+      margin: 0px 0px 20px;
+    }
+    .create_form_section .row {
+      max-width: 536px;
+      padding: 22px;
+    }
+  
+    .banner_right_section img {
+      width: 100%;
+      max-width: 310px;
+    }
+    .contact-text h3 {
+      /* margin-top: 30px; */
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 26px;
+      color: #ffffff;
+      /* margin-bottom: 14px; */
+    }
+    .contact-info {
+      margin-top: 10px;
+    }
+    .contact-info {
+      text-align: center;
+    }
+    .banner_right_section {
+      text-align: center;
+      background: linear-gradient(
+        104.29deg,
+        #83c545 0%,
+        #12b2a6 45.31%,
+        #1f5fa6 100%
+      );
+      border-radius: 20px 0px 0px 20px;
+      margin-top: 40px;
+      height: 214px;
+    }
+    .merchant_inner_section img {
+      width: 100%;
+      max-width: 350px;
+      position: relative;
+      top: 0px;
+      bottom: auto;
+      height: 374px;
+      object-fit: unset;
+      left: 0px;
+    }
+    .merchant_inner_section h1 {
+      padding-top: 0px;
+      color: #fff;
+      font-size: 24px;
+    }
+    .banner_bottom_section {
+      position: relative;
+      top: 35px;
+    }
+    .banner_left_section p {
+      font-size: 18px;
+      width: 100%;
+    }
+    /* .banner_left_section h1 {
+      font-weight: 800;
+      font-size: 28px;
+      color: #000;
+    } */
+    .merchant_inner_section img {
+      height: 320px;
+    }
+    .merchant_main_top_section {
+      text-align: center;
+      background: #88c641;
+      padding: 0px 0px;
+    }
+    .merchant_hedding h1 {
+      font-size: 27px;
+    }
+    .merchant_hedding p {
+      font-size: 16px;
+    }
+    .Business_Information_section {
+      padding: 0px 0px;
+    }
+    .Business_hedding_section h1 {
+      font-weight: 400;
+      font-size: 29px;
+      margin: 0px;
+    }
+    .form_left_content_section h4 {
+      color: #585858;
+      font-weight: 400;
+      font-size: 18px;
+    }
+    .g-bussiness p{
+      font-size: 16px;
+    }
+    .form_right_last_content_section h4{
+      font-size: 14px;
+    }
+    .form_left_content_section p {
+      font-size: 13px;
+    }
+    .form_facebook {
+      background: #029cab;
+      color: #fff;
+      border: none;
+      padding: 7px 15px;
+      border-radius: 5px;
+      font-size: 10px;
+    }
+
+    .form_left_last_content_section .from_fackbook_disconnect{
+      background: #029cab;
+      color: #fff;
+      border: none;
+      padding: 7px 15px;
+      border-radius: 5px;
+      font-size: 10px;
+    }
+    
+    button.form_Instagram {
+      font-size: 16px;
+    }
+    .review3-main-section ul li a {
+      font-family: "Montserrat";
+      font-weight: 600;
+      font-size: 28px;
+      color: #979797;
+    }
+    .review3-main-section a.nav-link.active {
+      color: #1478a8;
+      border-bottom: 2px solid;
+    }
+    .middle-info-right-section {
+      margin-left: 177px;
+    }
+    .middle-info-right-section h6 {
+      margin-left: -141px;
+    }
+    .deshboard-inner-section {
+      background: linear-gradient(
+        104.29deg,
+        #83c545 0%,
+        #12b2a6 45.31%,
+        #1f5fa6 100%
+      );
+      border-radius: 16px;
+      position: relative;
+      left: 4%;
+      top: 75px;
+      width: 89%;
+      height: auto;
+      top: 14px;
+    }
+    .deshboard-left-section h4 {
+      position: absolute;
+      left: 20px;
+      right: 0px;
+      top: -38px;
+      bottom: 0px;
+      font-family: "Airbnb Cereal App";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 26px;
+      color: #ffffff;
+    }
+    .compaign-button2 {
+      margin-left: 151px;
+      margin-top: 3px;
+    }
+  
+    /* User Login Css Start */
+    .login-group-box h4,
+    .register-group-box h4,
+    .user_register-group-box h4,
+    .verify-group-box h4 {
+      font-size: 25px;
+    }
+    .user_login_form {
+      margin-top: 0;
+    }
+  
+    .user_login_forget_pass a {
+      font-size: 12px;
+    }
+    .user_login_btn-box {
+      justify-content: center;
+    }
+    /* .customer_option,
+    .merchant_option,
+    .Influencer_option {
+      width: 85px;
+      height: 85px;
+    } */
+    .register-group-box {
+      margin-top: 30px;
+    }
+    .customer_option img,
+    .merchant_option img,
+    .Influencer_option img {
+      /* width: 100%; */
+      height: 50%;
+    }
+    .user_login_box {
+      padding: 25px 0px;
+    }
+    .registation-option-row {
+      margin-top: 25px;
+    }
+  
+    .registation-col h6 {
+      font-size: 14px;
+    }
+    /* User Login Css Ends */
+  
+    /* User Registration Css Start */
+    .user_register-group-box {
+      width: 100%;
+    }
+    .verify-group-box {
+      width: 100%;
+    }
+    .verification-code .verification-code--inputs input {
+      width: 70px;
+      height: 70px !important;
+      font-size: 25px;
+      padding: 18px 0px;
+      color: #000;
+    }
+    .verify-group-box .otp-text {
+      font-size: 16px;
+    }
+    .verify-text-group span {
+      margin-top: 10px;
+    }
+  
+     
+  
+    .brouchure-form {
+      width: 100%;
+    }
+    /* User Registration Css Ends */
+  
+    /* Final Registration Css Start */
+    .regis_complete-text-group h4 {
+      font-size: 20px;
+    }
+    .regis_complete-text-group span {
+      font-size: 12px;
+    }
+    /* Final Registration Css Ends */
+  
+  
+  
+   
+  }
+  
+  /*******************(max-width: 320px)******************************/
+  /***********************************************************************/
+  @media (max-width: 320px) {
+    
+  
+    
+  
+    
+  
+  
+  
+    .inner-hero-section h2 {
+      font-size: 18px;
+      text-align: center;
+      font-weight: 900;
+      margin-left: 15px;
+    }
+    .review-main-heading h1 {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 27px;
+      text-align: center;
+      color: #130f26;
+      margin-left: 6px;
+    }
+    .campaign-heading-section h5 {
+      margin-left: 0px;
+      margin-top: 0px;
+      font-family: "Montserrat";
+      font-style: normal;
+      font-size: 18px;
+      text-align: center;
+      color: #8e8e8e;
+      margin-bottom: 49px !important;
+    }
+    .campaign-main-section p {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 100%;
+      color: #029cab;
+    }
+    .campaign-main-section h3 {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 100%;
+      color: #000000;
+    }
+    .campaign-logo img {
+      width: 40px;
+      margin-left: -3px;
+    }
+    .fine-print h5 {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .validity h5 {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .validity ul li {
+      list-style: none;
+      margin-left: -40px;
+      font-size: 16px;
+    }
+    .review3-main-section ul li a {
+      font-family: "Montserrat";
+      font-weight: 600;
+      font-size: 18px;
+      color: #979797;
+    }
+    .middle-info-right-section {
+      margin-left: 104px;
+    }
+    .review3-main-section a.nav-link.active {
+      color: #1478a8;
+      border-bottom: 2px solid;
+    }
+    .deshboard-left-section h4 {
+      position: absolute;
+      left: 20px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      font-family: "Airbnb Cereal App";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      color: #ffffff;
+    }
+    .deshboard-left-section img {
+      width: 17px;
+      position: absolute;
+      left: -6px;
+      top: 26px !important;
+    }
+  
+    .deshboard-left-section a {
+      position: absolute;
+      left: 13px;
+      top: 28px;
+      font-family: "Airbnb Cereal App";
+      font-style: normal;
+      /* font-weight: 400; */
+      font-size: 9px;
+      line-height: 12px;
+      letter-spacing: 0.02em;
+      color: #ffffff;
+    }
+    button.btn.btn-primary.me-3.text-white {
+      font-size: 16px;
+      width: 100%;
+    }
+    .compaign-button2 {
+      margin-left: 79px;
+      margin-top: 3px;
+    }
+
+
+
+  }
+  

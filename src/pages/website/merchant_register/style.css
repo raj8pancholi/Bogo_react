@@ -1,0 +1,191 @@
+
+/* Multiple image upload css start */
+
+.upload__btn p{
+    margin: 0px;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+    text-align: center;
+    color: #1e5af3;
+    text-align: end;
+  }
+  .upload__btn p span{
+    cursor: pointer;
+  }
+   .upload__inputfile {
+       width: 0.1px;
+       height: 0.1px;
+       opacity: 0;
+       overflow: hidden;
+       position: absolute;
+       z-index: -1;
+  }
+   /* .upload__btn {
+       display: inline-block;
+       font-weight: 600;
+       color: #fff;
+       text-align: center;
+       min-width: 116px;
+       padding: 10px;
+       transition: all 0.3s ease;
+       cursor: pointer;
+       border: 2px solid;
+       background-color: #029cab;
+       border-color: #029cab;
+       border-radius: 5px;
+       line-height: 26px;
+       font-size: 14px;
+  }
+  .button:focus{
+    border: none;
+  }
+   .upload__btn:hover {
+       background-color: unset;
+       color: #029cab;
+       transition: all 0.3s ease;
+  } */
+  
+  .upload__btn{
+    text-align: end;
+  }
+  
+   .upload__btn-box {
+       margin-top: 20px;
+     text-align: end;
+  }
+   .upload__img-wrap {
+       display: flex;
+       flex-wrap: wrap;
+       margin: 0 -10px;
+     justify-content: center;
+     align-items: center;
+     /* background-image: url(../images/from_images_banner.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover; */
+      height: auto;
+      max-height: 350px;
+      overflow: scroll;
+    /* IE scroll 숨김 */
+    -ms-overflow-style: none;
+  }
+  
+  /* Add a custom class to target the scroll bar */
+  .upload__img-wrap::-webkit-scrollbar { 
+    width: 0 !important;
+    display: none; 
+  }
+  
+  
+  
+  
+   .upload__img-box {
+       width: 150px;
+       padding: 0 10px;
+       margin-bottom: 12px;
+     border-radius: 10px;
+  }
+   .upload__img-close {
+       width: 24px;
+       height: 24px;
+       border-radius: 50%;
+       background-color: rgba(0, 0, 0, 0.5);
+       position: absolute;
+       top: 10px;
+       right: 10px;
+       text-align: center;
+       line-height: 24px;
+       z-index: 1;
+       cursor: pointer;
+  }
+   .upload__img-close:after {
+       content: '\2716';
+       font-size: 14px;
+       color: white;
+  }
+   .img-bg {
+       background-repeat: no-repeat;
+       background-position: center;
+       background-size: cover;
+       position: relative;
+       padding-bottom: 100%;
+     border-radius: 10px;
+  }
+  /* .sub_category .dropdown-menu .inner .dropdown-menu li a{
+    display: none;
+   } */
+  /* Multiple image upload css end*/
+  
+  
+  
+  
+  
+  /*  */
+    .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+      cursor: pointer;
+      top: 2px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 23px;
+      width: 44px;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+      content: "";
+      height: 17px;
+      width: 17px;
+      left: 0px;
+      bottom: 3px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+  }
+  
+  .day-box span{
+    font-size: 14px;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }

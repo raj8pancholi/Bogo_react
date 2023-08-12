@@ -1,0 +1,126 @@
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+
+// import Header and Footer
+import Header1 from '../../../partials/header/Header1';
+import Footer from '../../../partials/footer/Footer';
+
+
+// Import components
+import InviteCardAppliedComponent from './elements/Invite_cardApplied_component';
+import InviteCardInviteComponent from './elements/Invite_cardInvite_component';
+import InviteInfluencerHeader from './elements/Invite_influencer_header';
+
+
+
+// tabs
+function Invite_influencer() {
+  const [selectedTab, setSelectedTab] = useState(1);
+
+  const buttonOption = (id) => {
+    setSelectedTab(id);
+  }
+
+  return (
+    <>
+      <Header1 />
+      <InviteInfluencerHeader />
+
+      <div className="campaing-body-section influencers_body_section">
+        <div className="container">
+          {/* <!-- tab section --> */}
+          <div className="influencers_section">
+            <div className="tabs-row">
+              <ul id="tabs-nav">
+                <li
+                  className={
+                    selectedTab === 1
+                      ? "offer-box influencer_tab  active"
+                      : "offer-box influencer_tab "
+                  }
+                  
+                  onClick={() => buttonOption(1)}
+                >
+                  <Link to="">
+                    <h3>Applied</h3>
+                  </Link>
+                </li>
+                <li
+                  className={
+                    selectedTab === 2
+                      ? "offer-box influencer_tab aos-init aos-animate active"
+                      : "offer-box influencer_tab aos-init aos-animate"
+                  }
+                  
+                  onClick={() => buttonOption(2)}
+                >
+                  <Link to="">
+                    <h3>Invite Influencers</h3>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="container">
+          <div className="filter_influencer">
+            <div className="row">
+              <ul>
+                <li className="serarch_inflencer">
+                  {/* <!-- inflencer serach box with icon --> */}
+                  <form action="" className="searchBox">
+                    <div className="input-group">
+                      <div className="input-group-append">
+                        <button className="btn " type="button">
+                          <img src="/images/search.png" alt="" className="img-fluid" />
+                        </button>
+                      </div>
+                      <input type="text" className="form-control search_input" placeholder="Search" />
+                    </div>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* <!-- offer form input 1 --> */}
+          {selectedTab === 1 ? (
+            <div className="offer_form_section1 tab-content" id="tab1" >
+              <div className="row">
+                <div className="col-md-6">
+                  <InviteCardAppliedComponent />
+                </div>
+                <div className="col-md-6">
+                  <InviteCardAppliedComponent />
+                </div>
+              </div>
+            </div>
+          ) : null}
+
+          {/* <!-- offer form input 2 --> */}
+          {selectedTab === 2 ? (
+            <div className="offer_form_section1 tab-content" id="tab2" >
+              <div className="row">
+                <div className="col-md-6">
+                  <InviteCardInviteComponent />
+                </div>
+                <div className="col-md-6">
+                  <InviteCardInviteComponent />
+                </div>
+              </div>
+            </div>
+          ) : null}
+
+        </div>
+
+      </div>
+
+      {/* <%- include('partials/footer.ejs') %> */}
+
+      <Footer />
+    </>
+  )
+}
+
+export default Invite_influencer;

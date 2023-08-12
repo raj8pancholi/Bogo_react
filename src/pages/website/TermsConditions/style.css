@@ -1,0 +1,85 @@
+   /* Terms-conditon Page Css Start */
+   .terms-condition-header{
+    background: #88C541;
+  }
+  .terms-condition-heading h1{
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 133px;
+      /* or 208% */
+  
+      text-align: center;
+  
+      color: #FFFFFF;
+  }
+  
+  .terms-condition-page-section{
+    padding: 30px 100px;
+  
+  }
+  
+  .terms-condition-page-box p{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 32px;
+    /* or 133% */
+  
+  
+    color: #000000;
+  }
+  
+  .terms-condition-page-box ul li{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 32px;
+    /* or 133% */
+    color: #000000;
+    margin-top: 30px;
+    list-style: none;
+  
+  }
+  
+  
+  
+  .terms-condition-page-box h6{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    /* identical to box height, or 100% */
+  
+  
+    color: #1478A8;
+  }
+  
+  
+  /* Media Query */
+  @media (max-width: 991px) {
+      .terms-condition-page-section{
+          padding: 0;
+      }
+      .terms-condition-heading h1 {
+          font-size: 35px;
+          line-height: 61px;
+      }
+      .terms-condition-header{
+          padding: 40px 0px;
+      }
+      .terms-condition-page-box p{
+          font-size: 18px;
+      }
+      .terms-condition-page-box h6{
+          font-size: 24px;
+      }
+      .terms-condition-page-box ul li{
+          font-size: 18px;
+      }
+  }
+  

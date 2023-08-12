@@ -10,11 +10,61 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
+
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- boostarp link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- jquery link -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+
+    <!-- fontaswome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- bootstrap select link -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css"
+  />
+
+
+  <!-- boostrap table 4 -->
+  <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"
+    />
+
+
+  <!-- jquery toster plugin -->
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css"
+      integrity="sha512-8D+M+7Y6jVsEa7RD6Kv/Z7EImSpNpQllgaEIQAtqHcI0H6F4iZknRj0Nx1DCdB+TwBaS+702BGWYC0Ze2hpExQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+
+    <!-- AOS LINK -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.0/dist/aos.css" />
+
+
+    <!-- choosen css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css"
+    />
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@16.0.3/build/css/intlTelInput.css" />
+
+    
+
+
+
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -25,6 +75,159 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+
+
+
+    <style>
+      .fa-bars:before, .fa-navicon:before{
+      color: #fff;
+    }         
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1;
+      display: none;
+    }
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      z-index: 2;
+      display: none;
+    }
+    #popup1 {
+      width: 600px;
+    }
+    #popup2 {
+      width: 600px;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #4caf50;
+      cursor: pointer;
+      padding: 5px 15px;
+      border-radius: 51px;
+      color: #fff;
+    }
+    .login-container {
+      width: 550px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 30px;
+      text-align: center;
+      margin-bottom: 18px;
+      font-weight: 700;
+      color: #1478a8;
+    }
+
+    form {
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 3px;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    }
+
+    /* button[type="submit"] {
+      background-color: #88c641;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    } */
+    #popup2 h1 {
+      font-size: 30px;
+      text-align: center;
+      margin-bottom: 18px;
+      font-weight: 700;
+      color: #1478a8;
+    }
+    .forgot-password {
+      display: block;
+      margin-top: 0px;
+      color: #1478a8;
+      text-align: end;
+    }
+    .popup_button_one {
+      border: none;
+      background: #1478a8;
+      color: #fff;
+      margin-left: 20px;
+      font-size: 18px;
+      padding: 4px 22px;
+    }
+
+    #otp-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      display: none;
+    }
+
+    #otp-popup h2 {
+      margin-top: 0;
+    }
+
+    #otp-popup form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    #otp-popup input {
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      width: 100%;
+      max-width: 300px;
+      box-sizing: border-box;
+    }
+
+    #otp-popup button {
+      padding: 10px 20px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 3px;
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+    }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -39,5 +242,73 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+
+
+    <!-- jquery toast -->
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
+
+
+    <!-- boostrap script link with popover -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- boostrap select  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
+
+
+    <!-- AOS LINK -->
+    <!-- <script src="https://unpkg.com/aos@2.3.0/dist/aos.js"></script> -->
+
+    <!-- sweetAlert script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+
+
+
+
+
+
+
+
+
+    <!-- script -->
+    <script>
+      function show_box(){
+        // the second box will be hide by default
+        $('.hour-box1').css('display', 'none');
+        $('.hour-box2').css('display', 'none');
+        $('.hour-box3').css('display', 'none');
+        $('.hour-box4').css('display', 'none');
+        $('.hour-box5').css('display', 'none');
+        $('.hour-box6').css('display', 'none');
+        $('.hour-box7').css('display', 'none');
+        
+        // Show the second box when click on the frist box
+        $('.day-box1 .switch span').click(function(){
+          $(".hour-box1").slideToggle(400);
+        });
+        $('.day-box2 .switch span').click(function(){
+          $(".hour-box2").slideToggle(400);
+        });
+        $('.day-box3 .switch span').click(function(){
+          $(".hour-box3").slideToggle(400);
+        });
+        $('.day-box4 .switch span').click(function(){
+          $(".hour-box4").slideToggle(400);
+        });
+        $('.day-box5 .switch span').click(function(){
+          $(".hour-box5").slideToggle(400);
+        });
+        $('.day-box6 .switch span').click(function(){
+          $(".hour-box6").slideToggle(400);
+        });
+        $('.day-box7 .switch span').click(function(){
+          $(".hour-box7").slideToggle(400);
+        });
+      }
+      
+      show_box();
+      </script>
+
   </body>
 </html>

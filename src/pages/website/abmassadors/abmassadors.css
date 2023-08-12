@@ -1,0 +1,140 @@
+input:focus,
+select:focus {
+  box-shadow: none;
+}
+input:focus-visible {
+  box-shadow: none;
+}
+.form-control:focus {
+  box-shadow: none;
+}
+textarea:focus {
+  box-shadow: none;
+}
+.iti {
+  width: 100%;
+  margin-bottom: 10px;
+}
+#country-listbox {
+  width: 270px;
+}
+.ambassadors-header-section span {
+  font-size: 14px;
+}
+
+.apto-trigger-dropdown svg {
+  width: 18px !important;
+}
+
+/****************************************************************
+APTO Dropdown Styles Note - don't use this css in other pages
+*****************************************************************/
+
+.apto-dropdown-wrapper {
+  width: 50px;
+  height: 50px;
+  float: left;
+  position: absolute;
+  border: 1px solid #e5e5e5;
+  border-right: 1px solid #0000;
+  background-color: #f2f2f2;
+}
+
+.apto-trigger-dropdown {
+  width: 51px;
+  height: 45px;
+  background-color: none;
+  border: 0;
+  padding: 0 10px;
+  transition: 0.2s ease-in;
+  cursor: pointer;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.apto-trigger-dropdown:hover {
+  background-color: #eee;
+}
+
+.apto-trigger-dropdown .fa-caret-down {
+  float: right;
+  line-height: 22px;
+  font-size: 9px;
+  margin-left: 5px;
+}
+
+.apto-trigger-dropdown svg {
+  width: 25px;
+  float: left;
+  height: 25px;
+}
+
+.dropdown-menu-box {
+  width: 180px;
+  display: none;
+  z-index: 1;
+  position: absolute;
+  background-color: white;
+  left: 0;
+  top: 45px;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+    0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+.dropdown-menu-box button{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding:10px;
+}
+.dropdown-menu-box button i{
+  margin-right: 5px;
+}
+
+.dropdown-menu-box.show {
+  display: block;
+  z-index: 3;
+}
+
+.dropdown-item svg {
+  width: 25px;
+  height: 25px;
+  float: left;
+  margin-right: 10px;
+  color: #222;
+}
+
+.dropdown-item {
+  width: 100%;
+  height: 50px;
+  line-height: 25px;
+  border: 0;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+  background-color: #fff;
+  font-weight: 700;
+  font-family: Montserrat, serif;
+  color: #5a616c;
+  text-align: left;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  color: #0f0f0f;
+}
+
+.dropdown-item:hover {
+  background-color: #e5e5e5;
+}
+
+.dropdown-item:not(:last-child) {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.css-qbdosj-Input input{
+  height:40px !important;
+}
+

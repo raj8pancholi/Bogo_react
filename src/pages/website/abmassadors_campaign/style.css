@@ -1,0 +1,36 @@
+.switch{
+    height: 20px;
+}
+
+.fine-print-row label{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 16px;
+    color: #0F0F0F;
+}
+.react-datepicker__input-container input{
+    opacity: 0;
+}
+
+.selectDate label{
+    color: #029cab;
+}
+.select_datebox{
+    position:relative;
+}
+.select_datebox .react-datepicker-wrapper{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    overflow: hidden;
+}
+.select_datebox .react-datepicker-wrapper .react-datepicker__input-container input{
+    height: 20%;
+}
+.input-box .jst_cont_btw{
+    margin-bottom: 15px;
+}
