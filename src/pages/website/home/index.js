@@ -23,8 +23,8 @@ const HomePage = () => {
   const carouselData = [
     { title: 'Restaurants', imageSrc: '/images/image5.png' },
     { title: 'Spas & Salons', imageSrc: '/images/image6.png' },
-    { title: 'Fitness', imageSrc: '/images/image7.png' },
-    { title: 'Retail', imageSrc: '/images/image8.png' },
+    { title: 'Retail', imageSrc: '/images/image7.png' },
+    { title: 'Fitness', imageSrc: '/images/image8.png' },
     { title: 'Entertainment', imageSrc: '/images/image9.png' },
     { title: 'Hotels', imageSrc: '/images/image10.png' },
     { title: 'Services', imageSrc: '/images/image11.png' },

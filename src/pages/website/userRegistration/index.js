@@ -39,9 +39,6 @@ export default function MerchantRegistration() {
                 <form id="addform" className="user_registration_form" >
                     <div className="row">
 
-                        
-                        <InputText type='text' className='form-control use_registration_email' required='required' placeholder='Title'  />
-
                         <InputText type='text' className='form-control user_registration_Sname' id='first_name' name='first_name' required='required' placeholder='
                         First Name'  />
 
@@ -72,7 +69,7 @@ export default function MerchantRegistration() {
 
 
                         <div className="col-12 regisBtn">
-                            <Link to='/otpVerify'>
+                            <Link to='/userOtpVerify'>
                                 <button type="submit" className="registration-btn btn btn-primary" style={{marginBottom: '20px'}}>
                                     Complete Registration
                                 </button>

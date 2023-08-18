@@ -33,7 +33,7 @@ const GrowOnlineSection = () => {
                     onClick={toggleVideoLayer}
                   />
                 ) : (
-                  <video ref={videoRef} width="320" height="320" controls autoPlay>
+                  <video ref={videoRef} width="320" height="320" controls autoPlay muted>
                     <source src="/images/Merchants (1).mp4" type="video/mp4" />
                   </video>
                 )}

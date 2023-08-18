@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+
+
+// Import Conponents
+import VerifyOtp from './OtpVerifyInput';
+
+
 function AccountPageBody() {
 
     const [Colaps, setColaps] = useState(false);
@@ -99,6 +105,25 @@ function AccountPageBody() {
                                                 placeholder="Phone Number"
                                                 name="mobile"
                                             />
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div className="row">
+                                    <div className="col-12">
+                                        <div className="input-box">
+                                            <label for="">Set Merchant Pin</label>
+                                            <VerifyOtp/>
+                                            {/* <input
+                                                type="text"
+                                                id="mobile_code"
+                                                className="form-control"
+                                                placeholder="Phone Number"
+                                                name="mobile"
+                                            /> */}
                                         </div>
                                     </div>
                                 </div>

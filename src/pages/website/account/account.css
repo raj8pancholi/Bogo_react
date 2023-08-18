@@ -1,0 +1,11 @@
+.verificationCodeInputs {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+.verificationCodeInputs input{
+    width: 5%;
+    margin-right: 5px;
+    text-align: center;
+}

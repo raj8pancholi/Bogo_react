@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const BecomeMainSection = () => {
+
+  const [videoLayerVisible, setVideoLayerVisible] = useState(true);
+  const videoRef = useRef(null);
+
+
+  const toggleVideoLayer = () => {
+    setVideoLayerVisible(false);
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        // Auto-play might be blocked, handle the error here
+        console.error('Auto-play blocked:', error);
+      });
+    }
+  };
+
+
+
   return (
     <div className="container-fluid become_main_section">
       <div className="become-row">
@@ -12,7 +29,19 @@ const BecomeMainSection = () => {
                 <div className="video" data-video-id="CoL8Gtvxfl0">
                   <div className="">
                     <div className="video-placeholder">
-                      <video width="320" height="240" controls>
+                    {videoLayerVisible ? (
+                  <img
+                    src="/images/bussiness-icon/bogo-video.jpg"
+                    alt=""
+                    className="img-fluid video-layer"
+                    onClick={toggleVideoLayer}
+                  />
+                ) : (
+                  <video ref={videoRef} width="320" height="180" style={{height:'320px'}} controls autoPlay muted>
+                    <source src="/images/Merchants (1).mp4" type="video/mp4" />
+                  </video>
+                )}
+                      {/* <video width="320" height="240" controls>
                         <source
                           src="/images/Merchants (1).mp4"
                           type="video/mp4"
@@ -22,7 +51,7 @@ const BecomeMainSection = () => {
                         src="images/bussiness-icon/bogo-video.jpg"
                         alt=""
                         className="img-fluid video-layer"
-                      />
+                      /> */}
                     </div>
                   </div>
                 </div>

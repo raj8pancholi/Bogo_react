@@ -1,6 +1,5 @@
 import React from 'react'
-// import style.css
-import "./style.css";
+
 
 // Import Footer and Header Component
 import Footer from '../../../partials/footer/Footer'

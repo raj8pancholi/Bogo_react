@@ -9,7 +9,7 @@ import Footer from '../../../partials/footer/Footer';
 
 import CampaignHeader from './elements/CampaignHeader';
 import VoucherInfo from './elements/VoucherInfo';
-import SwitchBox from './elements/SwitchBox';
+// import SwitchBox from './elements/SwitchBox';
 import ValidityBox from './elements/ValidityBox';
 
 export default function ReviewCampaign() {
@@ -30,7 +30,7 @@ export default function ReviewCampaign() {
             <div className="review_campaign_box">
                 <div className="base_img">
                     <VoucherInfo />
-                    <SwitchBox />
+                    {/* <SwitchBox /> */}
                     <ValidityBox />
                     <div className='row'>
                         <div className='col-12'>
@@ -49,7 +49,7 @@ export default function ReviewCampaign() {
 
                 <div className="row">
                 <div className="col-12">
-                    <Link to="/invite_influencer" type="submit" className="fullsubmitbtn">
+                    <Link to="/dashboard" type="submit" className="fullsubmitbtn">
                     Publish Campaign
                     </Link>
                 </div>

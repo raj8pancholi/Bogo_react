@@ -137,4 +137,17 @@ APTO Dropdown Styles Note - don't use this css in other pages
 .css-qbdosj-Input input{
   height:40px !important;
 }
-
+input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  }
+iframe[title='reCAPTCHA']{
+  margin-top: 4px;
+}

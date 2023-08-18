@@ -26,7 +26,7 @@ export default function Tab5() {
                 <div className="completed_redem_row">
                     <div className="completed_redem_box">
                     <Link
-                        to="/voucherRedeem"
+                        to="/redemtionHisory"
                         className="com_voucher_redim_box"
                     >
                         <span>Vouchers Redeemed</span>
@@ -58,7 +58,7 @@ export default function Tab5() {
                 <div className="completed_redem_row">
                     <div className="completed_redem_box">
                     <Link
-                        href="/voucherRedeem"
+                        to="/redemtionHisory"
                         className="com_voucher_redim_box"
                     >
                         <span>Vouchers Redeemed</span>

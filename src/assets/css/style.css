@@ -93,7 +93,7 @@ textarea:focus {
   box-shadow: none;
 }
 
-/* Common Css End */
+
 
 header {
   position: relative;
@@ -923,7 +923,8 @@ button.popup_button_two_section.popup_button_one:hover {
 }
 
 .business_outer_section ul li {
-  padding-bottom: 15px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   font-size: 16px;
   border-bottom: 1px dashed #9d9d9d;
 }
@@ -1091,10 +1092,7 @@ button.popup_button_two_section.popup_button_one:hover {
 .sing_right_section {
   position: relative;
 }
-/* .contact-info textarea {
-  width: 100%;
-  height: 110px;
-} */
+
 
 .contact-info button.submit-button{
   font-family: "Montserrat";
@@ -1688,7 +1686,7 @@ button.popup_button_two_section.popup_button_one:hover {
   content: "";
   height: 26px;
   width: 26px;
-  left: 4px;
+  left: 0px !important;
   bottom: 4px;
   background-color: white;
   -webkit-transition: 0.4s;
@@ -2252,6 +2250,7 @@ img.choose_two_images {
 
 .bacome_right_section ul li i {
   color: #1478a8;
+  margin-right:5px;
 }
 
 .inner-hero-section p {
@@ -3234,7 +3233,7 @@ nav.navbar {
 
 .preview_branch{
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 .preview_branch label{
@@ -3745,8 +3744,11 @@ video {
 .conn-g-bussi-btn {
   margin-top: 30px;
   padding: 10px 30px;
-  background: #029cab;
+  background: #008744;
   border-radius: 5px;
+}
+.conn-g-bussi-btn:hover{
+  background: #008744 !important;
 }
 
 /* ------------------------ User login section ----------------------------------  */
@@ -4218,13 +4220,7 @@ video {
 .video-placeholder {
   position: relative;
 }
-.video-placeholder .video-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  opacity: 1;
-}
+
 
 /*  */
 .upload__img-wrap.show-all-images {
@@ -4508,6 +4504,17 @@ video {
   cursor: pointer;
   
 }
+/* .offer-row ul li:hover{
+  background-color:#87C73E ;
+  color: #fff;
+} */
+.activebox{
+  background: #87C73E;
+  color: #fff;
+}
+.offer-row ul li.activebox a h3{
+  color: #fff;
+}
 .offer-box.active{
   background: #87C73E;
   color: #fff;
@@ -4541,6 +4548,35 @@ video {
 
 .offer-row ul li a{
   text-decoration: none;
+}
+
+.complete-reg-row{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+}
+.complete-reg-text-group h4{
+      font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.3px;
+    color: #1478a8;
+}
+.complete-reg-text-group span{
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.3px;
+  color: #1478a8;
 }
 
 
@@ -4975,13 +5011,17 @@ color: #FFFEFE;
 }
 
 .base_img{
-  height: 659px;
+  height: 600px;
   width: auto;
   background-image: url('../../../public/images/Base1.png');
   background-position: center;
   background-repeat:no-repeat;
   background-size:cover;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-bottom: 1px solid #dadada;
 
 }
 
@@ -5023,6 +5063,8 @@ color: #FFFEFE;
   justify-content:space-around;
   align-items: center;
   padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 2px dotted rgba(0, 0, 0, 0.27);
 }
 
 .offer_voucher_box  span{
@@ -5118,7 +5160,6 @@ border: 2px dotted #1478A8;
 .validity_row{
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
 }
 .validity_box h4{
   font-size: 20px;
@@ -5951,7 +5992,7 @@ padding-bottom: 30px;
 
 .influencer_card .card .card-body .followers, .influencer_card .card .card-body .social_media_row ul{
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 .influencer_card .card .card-body .social_media_row ul{
@@ -6062,7 +6103,7 @@ padding-bottom: 30px;
 }
 .jst_cont_end{
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -6107,7 +6148,7 @@ padding-bottom: 30px;
 }
 .hastag-row .switch-row{
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }
 textarea::-webkit-scrollbar { 
@@ -6301,7 +6342,7 @@ ul#tabs2-nav li.active {
 .completed_redem_row{
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   height: 100%;
   align-items: center;
 }
@@ -6353,7 +6394,7 @@ ul#tabs2-nav li.active {
 .invite_review_edit ul{
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   padding: 0px;
   margin:0 ;
@@ -6405,7 +6446,7 @@ ul#tabs2-nav li.active {
 
 .campaign_louch_date{
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 
 
@@ -6443,7 +6484,7 @@ ul#tabs2-nav li.active {
 
 .manage_editbox ul{
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   padding: 0px;
   margin-top: 20px;
@@ -6525,7 +6566,7 @@ ul#tabs2-nav li.active {
 }
 .public_nowCampaign_row{
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }
 .public_nowCampaign_box{
@@ -6705,7 +6746,7 @@ ul#tabs2-nav li.active {
 .branch-gallery_img_box ul{
   display: flex;
   flex-wrap: wrap;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .branch-gallery_img_box ul li{

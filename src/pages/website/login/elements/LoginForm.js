@@ -33,7 +33,7 @@ export default function LoginForm() {
                         type={passwordVisible ? 'text' : 'password'}
                         className="form-control user_login_pass"
                         id="exampleFormControlInput1"
-                        placeholder="password"
+                        placeholder="Password"
                     />
                     <i
                         toggle="#password-field"
@@ -44,7 +44,7 @@ export default function LoginForm() {
                     </div>
                     <div className="user_login_forget_pass">
                     <Link to="/loginForgetPassword" className="forgot-password">
-                        Forgot password?
+                        Forgot Password?
                     </Link>
                     </div>
                     <div className="user_login_btn-box">

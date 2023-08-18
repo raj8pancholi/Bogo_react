@@ -4,6 +4,7 @@ import React from 'react'
 // Import Conponents Header and Footer
 import Footer from '../../../partials/footer/Footer.js'
 import Header from '../../../partials/header/Header.js'
+import './account.css'
 
 
 // Import Components

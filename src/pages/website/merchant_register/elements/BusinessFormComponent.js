@@ -303,15 +303,10 @@ const BusinessFormMainSection = () => {
 
 
                 <div className="row form-input-box">
+                    
                     <div className="col-md-4 col-sm-12">
                     <div className="input-box">
-                        <label  htmlFor="inputcode">Postal Code</label>
-                        <input type="number" name="postal_code" id="inputcode" className="form-control" placeholder="000000" required />
-                    </div>
-                    </div>
-                    <div className="col-md-4 col-sm-12">
-                    <div className="input-box">
-                        <label htmlFor="inputcity">State/City</label>
+                        <label htmlFor="inputcity">City</label>
                         <input type="text" name="city" id="buss_city" class="form-control" placeholder="Country" required />
                     </div>
                     </div>
@@ -327,6 +322,19 @@ const BusinessFormMainSection = () => {
                         </select>
                         </div>
                     
+                    </div>
+                    <div className="col-md-4 col-sm-12">
+
+
+                    <div className="input-box">
+                      <label htmlFor="inputCountry">Sub Category</label>
+                      <select className="form-control" name="country" id="buss_country">
+                        <option value="">Select Country</option>
+                        <option value="Afghanistan">Afghanistan</option>
+                        <option value="Albania">Albania</option>
+                        <option value="Algeria">Algeria</option>
+                      </select>
+                    </div>
                     </div>
 
                 </div>

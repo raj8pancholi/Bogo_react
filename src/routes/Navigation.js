@@ -16,6 +16,7 @@ import TermsConditions from '../pages/website/TermsConditions/index';
 import PrivacyPolicy from '../pages/website/privacyPolicy/index';
 import MerchantRegistration from '../pages/website/merchant_registration/index';
 import OtpVerify from '../pages/website/otpVerify/index';
+import UserOtpVerify from '../pages/website/userOtpVerify/index';
 import MerchantSubscription from '../pages/website/merchant_subscription/index';
 import Dashboard from '../pages/website/dashboard/index';
 import MerchantCampaign from '../pages/website/merchant_campaign/index';
@@ -27,14 +28,16 @@ import BogoDirectory from '../pages/website/bogo_directory/index'
 import VoucherDetails from '../pages/website/voucherDetails/index'
 import RedemtionHisory from '../pages/website/redemptionHistory/index'
 import UserRegistration from '../pages/website/userRegistration/index'
+import UserRegComplete from '../pages/website/userRegComplete/index'
 
 import Account from '../pages/website/account/index';
 
 
 
 
-// this is test page
-import Test from '../pages/website/test.js'
+
+
+
 
 
 export default function Navigation() {
@@ -53,6 +56,7 @@ export default function Navigation() {
           <Route path='/privacyPolicy' element={<PrivacyPolicy/>} />
           <Route path='/merchant_registration' element={<MerchantRegistration/>} />
           <Route path='/otpVerify' element={<OtpVerify/>} />
+          <Route path='/userOtpVerify' element={<UserOtpVerify/>} />
           <Route path='/merchant_subscription' element={<MerchantSubscription/>} />
           <Route path='/dashboard' element={<Dashboard/>} />
           <Route path='/merchant_campaign' element={<MerchantCampaign/>} />
@@ -64,17 +68,8 @@ export default function Navigation() {
           <Route path='/voucherDetails' element={<VoucherDetails/>} />
           <Route path='/redemtionHisory' element={<RedemtionHisory/>} />
           <Route path='/userRegistration' element={<UserRegistration/>} />
-
-
-
-
+          <Route path='/userRegComplete' element={<UserRegComplete/>} />
           <Route path='/account' element={<Account/>} />
-
-
-
-          <Route path='/test' element={<Test/>} />
-          
-
         </Routes>
   )
 }

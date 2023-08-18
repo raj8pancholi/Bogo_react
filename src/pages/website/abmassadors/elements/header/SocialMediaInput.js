@@ -24,13 +24,12 @@ const SocialMediaInput = () => {
 
   const validateLink = () => {
     if (selectedSocialMedia && enteredLink) {
-      const linkRegex = new RegExp(`^https?:\/\/(www\.)?${selectedSocialMedia.type}\/.*`);
-      if (!linkRegex.test(enteredLink)) {
-        alert('Please enter a valid link for the selected social media platform.');
-      }
+      // const linkRegex = new RegExp(`^https?:\/\/(www\.)?${selectedSocialMedia.type}\/.*`);
+      // if (!linkRegex.test(enteredLink)) {
+      //   alert('Please enter a valid link for the selected social media platform.');
+      // }
     }
   };
-
 
   return (
     <div className="row">
@@ -42,18 +41,21 @@ const SocialMediaInput = () => {
               <div className="apto-dropdown-wrapper">
                 <div className="apto-trigger-dropdown" onClick={() => setSocialMedia(!socialMedia)}>
                   {selectedSocialMedia ? (
-                    <i className={`fab fa-${selectedSocialMedia.icon} ${selectedSocialMedia.color}`} style={{ color: selectedSocialMedia ? selectedSocialMedia.color : 'black' }} />
+                    <i className={`fab fa-${selectedSocialMedia.icon}`} style={{ color: selectedSocialMedia.color }} />
                   ) : (
-                    <svg aria-hidden="true" data-prefix="fab" data-icon="facebook-messenger" className="svg-inline--fa fa-facebook-messenger fa-w-14 fa-network" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" title="messenger">
-                      <path fill="currentColor" d="M224 32C15.9 32-77.5 278 84.6 400.6V480l75.7-42c142.2 39.8 285.4-59.9 285.4-198.7C445.8 124.8 346.5 32 224 32zm23.4 278.1L190 250.5 79.6 311.6l121.1-128.5 57.4 59.6 110.4-61.1-121.1 128.5z" />
-                    </svg>
+                    <i className="fab fa-facebook-messenger fa-w-14 fa-network" style={{ color: 'black' }} />
                   )}
                   <i className="fas fa-caret-down" style={{ color: selectedSocialMedia ? selectedSocialMedia.color : 'black' }} />
                 </div>
 
                 <div className={`dropdown-menu-box social-media-icon-btn ${socialMedia ? 'show' : ''}`}>
-                  {socialMediaOptions.map((option, index) => (
-                    <button type="button" className="dropdown-item" key={index} onClick={() => handleSocialMediaSelect(option)}>
+                  {socialMediaOptions.map((option) => (
+                    <button
+                      type="button"
+                      className="dropdown-item"
+                      key={option.type}
+                      onClick={() => handleSocialMediaSelect(option)}
+                    >
                       <i className={`fab fa-${option.icon}`} style={{ color: option.color }} />
                       {option.name}
                     </button>

@@ -146,7 +146,7 @@ export default function GiveBtnModal() {
 
           <Modal.Footer className='review_footerBtn_row'>
             <Button type="button" variant="secondary" onClick={handleCloseModal} className="btn " data-bs-dismiss="modal"style={{backgroundColor:'#88c541' , color: 'white'}}>Edit</Button>
-            <Button type="button" variant="secondary" onClick={handleCloseModal} className="btn " data-bs-dismiss="modal"style={{backgroundColor:'#029CAB' , color: 'white'}}>Save</Button>
+            <Button type="button" variant="secondary"  className="btn " data-bs-dismiss="modal"style={{backgroundColor:'#029CAB' , color: 'white'}}><Link to='/invite_influencer' style={{textDecoration:'none', color: '#fff'}}>Save</Link></Button>
           </Modal.Footer>
       </Modal>
     </>

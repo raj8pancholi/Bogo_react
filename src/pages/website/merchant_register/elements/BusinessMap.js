@@ -29,7 +29,7 @@ export default function BusinessMap() {
       ></iframe>
 
       <div className="connect-g-bussi text-center">
-        <div className="conn-g-bussi-btn btn btn-primary">
+        <div className=" btn btn-primary conn-g-bussi-btn" >
           Connect Google Business Account
         </div>
       </div>

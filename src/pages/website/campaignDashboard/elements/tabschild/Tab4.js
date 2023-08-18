@@ -31,7 +31,7 @@ export default function Tab4() {
                             <Link to="/invite_influencer"> Manage Offer</Link>
                         </li>
                         <li>
-                            <Link href="/invite_influencer">Applications</Link>
+                            <Link to="/abmassdors_compaign">Applications</Link>
                         </li>
                         </ul>
                     </div>

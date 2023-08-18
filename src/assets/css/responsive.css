@@ -77,6 +77,12 @@
   /************************** max-width-991px******************************/
   /***********************************************************************/
   @media (max-width: 991px) {
+
+    .nav ul li{
+      padding-left: 0px;
+    }
+
+
   
     /* Merchant Subscription css start */
     .plan_type_box{ width: 100%; }
@@ -501,6 +507,9 @@
   /***************************************************************/
   
   @media (min-width: 768px) and (max-width: 992px) {
+    nav ul li{
+      padding-left: 0px;
+    }
 
     /* voucher Details */
     .time_address_box{
@@ -1392,6 +1401,7 @@
     }
     #imagePreview {
       width: auto;
+      background-size: contain;
     }
     .upload_preview_box {
       text-align: center;
@@ -1921,6 +1931,10 @@
   /* ===========(min-width: 481px) and (max-width: 767px)================= */
   /* ===================================================================== */
   @media (min-width: 481px) and (max-width: 767px) {
+    nav ul li{
+      padding-left: 0px;
+    }
+   
 
     /* Forget Password */
     .forget_pass_row{
@@ -2667,6 +2681,9 @@
   /************************** max-width-480px *************************/
   /*******************************************************************/
   @media (max-width: 480px) {
+    nav ul li{
+      padding-left: 0px;
+    }
 
     .integration-btn-next{
       margin-bottom: 20px;
@@ -3357,7 +3374,16 @@
       color: #0f0f0f;
       text-align: left;
     }
+    
+    .interst-form .interest-form-btn{
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
     /*  brand page Ends*/
+
+
+
+
   
     /* Merchant Registration Css Start */
     .form-input-box {

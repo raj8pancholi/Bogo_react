@@ -40,7 +40,7 @@ function Header(props) {
                 </li>
                 <li>
                     <div className="d-flex navbuttons">
-                    <Link to="/Getregister">
+                    <Link to="/login">
                         <button type="button" className="btn btn-primary">
                         Register
                         </button>

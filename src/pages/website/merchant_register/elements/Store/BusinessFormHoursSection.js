@@ -264,15 +264,7 @@ export default function BusinessFormHoursSection() {
       <div className="col-md-3 col-lg-4 col-sm-12 black-div"></div>
 
       <div className="col-md-4 col-lg-4 col-sm-12">
-        <div className="input-box">
-          <label htmlFor="inputCountry">Sub Category</label>
-          <select className="form-control" name="country" id="buss_country">
-            <option value="">Select Country</option>
-            <option value="Afghanistan">Afghanistan</option>
-            <option value="Albania">Albania</option>
-            <option value="Algeria">Algeria</option>
-          </select>
-        </div>
+        
       </div>
     </div>
     </>

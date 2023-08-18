@@ -9,6 +9,7 @@ function GoogleCaptcha() {
         <>
             <ReCAPTCHA
                 sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                className='captcha'
                 onChange={onChange}
             />
         </>

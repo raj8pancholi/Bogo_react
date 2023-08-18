@@ -151,7 +151,7 @@
       transition: .4s;
   }
   
-  .slider:before {
+  /* .slider:before {
     position: absolute;
       content: "";
       height: 17px;
@@ -161,7 +161,7 @@
       background-color: white;
       -webkit-transition: .4s;
       transition: .4s;
-  }
+  } */
   
   .day-box span{
     font-size: 14px;
