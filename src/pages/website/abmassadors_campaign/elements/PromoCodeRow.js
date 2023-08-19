@@ -12,7 +12,7 @@ export default function PromoCodeRow({ label }) {
         <textarea className="form-control" id="exampleFormControlTextarea1" rows="1" placeholder="#hashtag" maxLength="20"></textarea>
       </div>
       <div className="col-2 switch-row">
-        <label className="switch">
+        <label className="switch" style={{width:'37px'}}>
           <input type="checkbox" id="switchButton" />
           <span className="slider round"></span>
         </label>

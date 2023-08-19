@@ -5,7 +5,7 @@ const SingleSelector = ({ label,  id,  }) => {
     <>
         <div className="input-box">
         <label htmlFor={id}>{label}</label>
-            <select  className="form-select" id="{id}" name="sellist2">
+            <select  className="form-select" id="{id}" name="sellist2" style={{backgrondColor:'#f7f7f7'}}>
                 <option>Nothing selected</option>
                 <option>1</option>
                 <option>2</option>

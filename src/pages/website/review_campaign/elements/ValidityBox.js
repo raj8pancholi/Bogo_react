@@ -10,13 +10,13 @@ export default function ValidityBox() {
         <div className="validity_box">
               <h4>VALIDITY</h4>
               <ul>
-                <li>S    11:00 - 23:00</li>
-                <li>M    11:00 - 23:00</li>
-                <li>T    11:00 - 23:00</li>
-                <li>W    11:00 - 23:00</li>
-                <li>T    11:00 - 23:00</li>
-                <li>F    Not available</li>
-                <li>S    Not available</li>
+                <li>S <span>11:00 - 23:00</span></li>
+                <li>M <span>11:00 - 23:00</span></li>
+                <li>T <span>11:00 - 23:00</span></li>
+                <li>W <span>11:00 - 23:00</span></li>
+                <li>T <span>11:00 - 23:00</span></li>
+                <li>F <span>Not available</span></li>
+                <li>S <span>Not available</span></li>
               </ul>
         </div>
 

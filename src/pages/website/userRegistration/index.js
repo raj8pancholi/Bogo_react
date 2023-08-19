@@ -8,7 +8,8 @@ import Footer from '../../../partials/footer/Footer';
 // Import Components
 import PasswordInput from './elements/PasswordInput';
 import InputText from './elements/InputText';
-import MobileInput from './../../../components/CommonComponent/MobileInputbox';
+// import MobileInput from './../../../components/CommonComponent/MobileInputbox';
+import MobileInput from './elements/MobileNumberInput';
 
 
 

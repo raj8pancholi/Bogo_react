@@ -1,11 +1,34 @@
 import React, { useState } from 'react';
 
 export default function Weekends() {
+  // const [excludeWeekends, setExcludeWeekends] = useState(false);
+
+  // const handleSwitchChange = () => {
+  //   setExcludeWeekends((prevValue) => !prevValue);
+  // };
+
+
+  //Weekend tab
   const [excludeWeekends, setExcludeWeekends] = useState(false);
 
+
   const handleSwitchChange = () => {
-    setExcludeWeekends((prevValue) => !prevValue);
-  };
+      setExcludeWeekends((prevValue) => !prevValue)
+
+      // disable sunday and saturday input box
+      if(excludeWeekends){
+          document.getElementById("sunday").disabled = true;
+          document.getElementById("saturday").disabled = true;
+      }else{
+          document.getElementById("sunday").disabled = false;
+          document.getElementById("saturday").disabled = false;
+      }
+  }
+
+
+
+
+
 
   return (
     <div className="row">

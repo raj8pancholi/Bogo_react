@@ -40,7 +40,7 @@ export default function MerchantRegistration() {
                     <div className="row">
 
                         
-                        <InputText type='text' className='form-control use_registration_email' required='required' placeholder='Title'  />
+                        {/* <InputText type='text' className='form-control use_registration_email' required='required' placeholder='Title'  /> */}
 
                         <InputText type='text' className='form-control user_registration_Sname' id='first_name' name='first_name' required='required' placeholder='
                         First Name'  />

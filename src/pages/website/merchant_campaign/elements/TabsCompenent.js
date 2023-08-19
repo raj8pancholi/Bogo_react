@@ -21,7 +21,6 @@ import TextAreaLabel from '../../../../components/CommonComponent/TextAreaLabel'
 
 export default function TabsCompenent() {
 
-
     // Days Check box
     const [daysSelection, setDaysSelection] = useState({
         all: false,
@@ -80,13 +79,11 @@ export default function TabsCompenent() {
         { day: 'friday', label: 'Fri' },
         { day: 'saturday', label: 'Sat' },
       ];
+
+
+
     
-
-
-
-
-
-
+    
 
     // Active TAb //
 
@@ -152,6 +149,7 @@ export default function TabsCompenent() {
                                       <DaysInput
                                       key={day}
                                       day={day}
+                                      id={day}
                                       label={label}
                                       selected={daysSelection[day]}
                                       onChange={handleDayChange}
@@ -165,7 +163,7 @@ export default function TabsCompenent() {
 
                           <ExcludePublicHolidays/>
 
-                          <ExcludeWeekends/>
+                          <ExcludeWeekends />
 
                           <div class="row">
                               <h4 class="modificatin-notification">

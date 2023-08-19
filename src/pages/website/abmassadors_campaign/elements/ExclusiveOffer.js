@@ -54,6 +54,8 @@ export default function ExclusiveOffer() {
     control: (provided) => ({
       ...provided,
       minHeight: '40px !important',
+      backgroundColor: '#f7f7f7',
+      border: 'none',
     }),
   }}
     />
@@ -102,7 +104,7 @@ export default function ExclusiveOffer() {
                 <div className="input-box jst_cont_btw">
                   <label for="">Allow Guest  (+1)
                   </label>
-                  <label className="switch">
+                  <label className="switch" style={{width:'44px'}}>
                     <input type="checkbox" id="switchButton"/>
                     <span className="slider round"></span>
                   </label>
@@ -138,7 +140,7 @@ export default function ExclusiveOffer() {
                   <li>
                     <div className="input-box ">
                       <label htmlFor="" className="text-center">Video</label>
-                      <label className="switch mr-0">
+                      <label className="switch mr-0" style={{width:'37px'}}>
                         <input type="checkbox" id="switchButton"/>
                         <span className="slider round"></span>
                       </label>

@@ -25,7 +25,7 @@ function VoucherDetails() {
                 <div className='container'>
                     <div className="row">
                         <div className="col-12">
-                            <h3 className="location_heading">Location</h3>
+                            <h3 className="location_heading">Location:</h3>
                         </div>
                     </div>
                 </div>
