@@ -29,7 +29,7 @@ function VoucherDetails_index() {
                             <Link to="#">Campaign</Link>
                         </li>
                         <li onClick={() => TabButton(3)}>
-                            <Link to="#">Branchs</Link>
+                            <Link to="#">Branches</Link>
                         </li>
                     </ul>
                     {/* <!-- END tabs-nav --> */}

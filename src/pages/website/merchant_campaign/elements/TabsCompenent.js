@@ -133,11 +133,13 @@ export default function TabsCompenent() {
                   <div class="offer_form_section1">
                       <form method="" action="" class=" offer_input_box offer_input_box1">
 
-                          <InputBoxComponent label="Full Name" type="text" id="" name="" value="" required="required" placeholder="Example: Sushi Platter" />
+                          <InputBoxComponent label="What should they buy?" type="text" id="" name="" value="" required="required" placeholder="Example: Sushi Platter" />
+
+                          <InputBoxComponent label="What will they get?" type="text" id="" name="" value="" required="required" placeholder="AED" />
 
                           <InputBoxComponent label="Estimated Savings?" type="text" id="" name="" value="" required="required" placeholder="AED" />
 
-                          <SingleSelector id="subcategory" label='Sub Category' />
+                          <SingleSelector id="subcategory" label='Select Branch' />
 
                           
 
@@ -173,6 +175,15 @@ export default function TabsCompenent() {
 
 
                           <TextAreaLabel label='Fine Print' placeholder='' rows='5'/>
+
+                          <div className="input-box mt-2">
+                            <div className='d-flex justify-content-between align-center maxRedemption_group'>
+                              <label htmlFor="">Maximum redemptions</label>
+                              <span style={{color: "#F1C62E"}}> <i className="fa-regular fa-gem" style={{position: "inherit", color: "#F1C62E"}}></i> Gold Feature</span>
+                            </div>
+                            
+                            <input type="text" name="" id="" placeholder="example:500" class="form-control" required="" value=""/>
+                          </div>
 
 
                           <div class="row review_submit_btn_row">
@@ -248,6 +259,15 @@ export default function TabsCompenent() {
 
                     <TextAreaLabel label='Fine Print' placeholder='' rows='5'/>
 
+                    <div className="input-box mt-2">
+                      <div className='d-flex justify-content-between align-center maxRedemption_group'>
+                        <label htmlFor="">Maximum redemptions</label>
+                        <span style={{color: "#F1C62E"}}> <i className="fa-regular fa-gem" style={{position: "inherit", color: "#F1C62E"}}></i> Gold Feature</span>
+                      </div>
+                      
+                      <input type="text" name="" id="" placeholder="example:500" class="form-control" required="" value=""/>
+                    </div>
+
 
                     <div class="row review_submit_btn_row">
                         <div class="next-btn-box review_submit_btn_box tab-pane active" >
@@ -278,7 +298,7 @@ export default function TabsCompenent() {
 
                 <InputBoxComponent label="Estimation Saving" type="text" id="" name="" value="" required="required" placeholder="AED" />
 
-                <SingleSelector id="subcategory" label='Sub Category' />
+                <SingleSelector id="subcategory" label='Select Branch' />
 
                 <div className="row mt-3">
                     <div className="days-input-row">
@@ -311,6 +331,15 @@ export default function TabsCompenent() {
 
 
                 <TextAreaLabel label='Fine Print' placeholder='' rows='5'/>
+
+                <div className="input-box mt-2">
+                  <div className='d-flex justify-content-between align-center maxRedemption_group'>
+                    <label htmlFor="">Maximum redemptions</label>
+                    <span style={{color: "#F1C62E"}}> <i className="fa-regular fa-gem" style={{position: "inherit", color: "#F1C62E"}}></i> Gold Feature</span>
+                  </div>
+                  
+                  <input type="text" name="" id="" placeholder="example:500" class="form-control" required="" value=""/>
+                </div>
 
 
                 <div class="row review_submit_btn_row">

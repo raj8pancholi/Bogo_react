@@ -5137,6 +5137,15 @@ border: 2px dotted #1478A8;
   line-height: 37px;
   color: #000000;
 }
+.maxRedemption_group span{
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #F1C62E;
+  margin-right: 5px;
+}
 .merchant_box-code{
   text-align: center;
 }
@@ -7302,6 +7311,18 @@ ul#tabs2-nav li.active {
   border: 1px solid #00e7ff;
 }
 
+
+
+
+
+/*  */
+.error-message{
+  color: red;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  
+}
 
 
 

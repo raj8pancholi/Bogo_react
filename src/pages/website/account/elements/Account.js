@@ -62,8 +62,7 @@ function AccountPageBody() {
                                 <div className="row ">
                                     <div className="col-12">
                                         <div className="input-box ">
-                                            {/* <label for=""></label> */}
-                                            <label for="">Owner/ Manager Informationr</label>
+                                            <label for="">Owner/ Manager Information</label>
                                             <input type="text" name="name" id="name" className="form-control" required="" placeholder="John Doe" />
                                         </div>
                                     </div>

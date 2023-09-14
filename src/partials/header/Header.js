@@ -56,10 +56,11 @@ function Header(props) {
             {/* <!-- Nave Bar  --> */}
 
             {/* <!-- Login Popup Modal --> */}
+
             <div
                 className="modal fade"
                 id="loginModal"
-                tabindex="-1"
+                tabIndex="-1"
                 role="dialog"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
@@ -116,7 +117,7 @@ function Header(props) {
             <div
                 className="modal fade"
                 id="exampleModal"
-                tabindex="-1"
+                tabIndex="-1"
                 role="dialog"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
@@ -152,7 +153,7 @@ function Header(props) {
                                 />
                                 <input
                                     type="email"
-                                    id="email"
+                                    id="emailmodal"
                                     name="email"
                                     placeholder="Email:"
                                     className="form-control"
@@ -190,7 +191,7 @@ function Header(props) {
             <div
                 className="modal fade"
                 id="otpModal"
-                tabindex="-1"
+                tabIndex="-1"
                 role="dialog"
                 aria-labelledby="otpModalLabel"
                 aria-hidden="true"
