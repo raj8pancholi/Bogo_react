@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Select from 'react-select'
+import { format } from 'date-fns';
 
 
 
@@ -112,9 +113,15 @@ export default function ExclusiveOffer() {
               </div>
             </div>
 
-
             {/* multi selector  */}
-            <MyComponent />
+            <div className="row ">
+               <div className="col-12">
+                  <div className="input-box">
+                      <label htmlFor=" " className="label_text">Select Branch</label>
+                      <MyComponent  />
+                  </div>
+               </div>
+            </div>
 
 
             <TextAreaLabel label='Campaign Requirement' rows="5" placeholder="Tell the influencer what you’re looking for"  />
@@ -172,12 +179,10 @@ export default function ExclusiveOffer() {
                 <div className="input-box jst_cont_btw">
                   <label for="" >Accept applications until</label>
                   <div className="select_datebox">
-                   
-                    {startDate ? (
-                      <label for=""  className="selectDate" >{startDate.toDateString()}</label>
-                      ) : (
-                        <div>
-                          <label onClick={() => document.getElementById('datepicker-trigger').click()}>Select date</label>
+                  <div>
+                          <label onClick={() => document.getElementById('datepicker-trigger').click()} style={{color:'#029cab', cursor: 'pointer'}}>
+                          {startDate ? format(startDate, 'dd/MM/yyyy') : 'Select Date'}
+                          </label>
                           <DatePicker
                             id="datepicker-trigger"
                             selected={startDate}
@@ -185,9 +190,10 @@ export default function ExclusiveOffer() {
                             onChange={handleDateChange}
                             popperPlacement="bottom-end"
                             onFocus={() => document.getElementById('datepicker-trigger').click()}
+                            
                           />
                         </div>
-                      )}
+
                   </div>
 
                 </div>
@@ -200,22 +206,19 @@ export default function ExclusiveOffer() {
                   <label htmlFor="" >Campaign completion date</label>
                   <div className="select_datebox">
                     
-                    {dateStart ? (
-                      <label htmlFor="" className="selectDate">{dateStart.toDateString()}</label>
-                    ):(
-                      <div>
-                        <label onClick={() => document.getElementById('datepicker-trigger').click()}>Select date</label>
+                  <div>
+                        <label onClick={() => document.getElementById('datepickerTriggers').click()} style={{color:'#029cab'}}>
+                                {dateStart ? format(dateStart, 'dd/MM/yyyy') : 'Select Date'}
+                        </label>
                         <DatePicker
-                              id="datepicker-trigger"
-                              selected={dateStart}
-                              minDate={new Date()}
-                              onChange={handleDateOpen}
-                              popperPlacement="bottom-end"
-                              onFocus={() => document.getElementById('datepicker-trigger').click()}
+                            id="datepickerTriggers"
+                            selected={dateStart}
+                            minDate={new Date()}
+                            onChange={handleDateOpen}
+                            popperPlacement="bottom-end"
+                            onFocus={() => document.getElementById('datepicker-trigger').click()}
                         />
                       </div>
-                      
-                    )}
                     
                   </div>
 

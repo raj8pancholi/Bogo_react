@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import WhatappInputbox from '../../../../../components/CommonComponent/WhatappInputbox';
 
 export default function BusinessFormHoursSection() {
 
@@ -19,7 +20,7 @@ export default function BusinessFormHoursSection() {
   return (
     <>
       <div className="row form-input-box hour_operation">
-      <div className="col-md-5 col-lg-4 col-sm-12">
+      <div className="col-md-4 order-sm-1 col-lg-4 col-sm-12 ">
         <label htmlFor="inputhours" className="inputhours">Hours of Operation</label>
         <div className="row ">
             <div className="col-12 day-box day-box1">
@@ -261,10 +262,11 @@ export default function BusinessFormHoursSection() {
         </div>
       </div>
 
-      <div className="col-md-3 col-lg-4 col-sm-12 black-div"></div>
+      <div className="col-md-4 order-sm-2 col-lg-4 col-sm-12 whatapp_row ">
+               <WhatappInputbox/>
+      </div>
 
-      <div className="col-md-4 col-lg-4 col-sm-12">
-        
+      <div className="col-md-4 order-sm-3 col-lg-4 col-sm-12  black-div ">
       </div>
     </div>
     </>

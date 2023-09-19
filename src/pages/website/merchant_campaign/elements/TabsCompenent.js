@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Select from 'react-select'
 
 
 
@@ -20,6 +21,15 @@ import TextAreaLabel from '../../../../components/CommonComponent/TextAreaLabel'
 
 
 export default function TabsCompenent() {
+
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+
+
 
     // Days Check box
     const [daysSelection, setDaysSelection] = useState({
@@ -93,6 +103,30 @@ export default function TabsCompenent() {
     const buttonOption = (id) => {
       setSelectedTab(id);
     };
+    // select box
+  const colourOptions = [
+    { value: 'demo1', label: 'demo1' },
+    { value: 'demo2', label: 'demo2' },
+    { value: 'demo3', label: 'demo3' }
+  ]
+
+
+    const MyComponent = () => (
+      <Select closeMenuOnSelect={false}
+      defaultValue={[colourOptions[4], colourOptions[5]]}
+      isMulti
+      options={colourOptions}
+      styles={{
+      // Add a custom style to set the height of the input
+      control: (provided) => ({
+        ...provided,
+        minHeight: '40px !important',
+        backgroundColor: '#f7f7f7',
+        border: 'none',
+      }),
+    }}
+      />
+    )
 
 
   return (
@@ -133,11 +167,23 @@ export default function TabsCompenent() {
                   <div class="offer_form_section1">
                       <form method="" action="" class=" offer_input_box offer_input_box1">
 
-                          <InputBoxComponent label="Full Name" type="text" id="" name="" value="" required="required" placeholder="Example: Sushi Platter" />
+                          <InputBoxComponent label="What should they buy?" type="text" id="" name="" value="" required="required" placeholder="Example: Sushi Platter" />
+
+                          <InputBoxComponent label="What will they get?" type="text" id="" name="" value="" required="required" placeholder="AED" />
 
                           <InputBoxComponent label="Estimated Savings?" type="text" id="" name="" value="" required="required" placeholder="AED" />
 
-                          <SingleSelector id="subcategory" label='Sub Category' />
+                          {/* <SingleSelector id="subcategory" label='Select Branch' /> */}
+
+                          {/* multi selector  */}
+                          <div className="row ">
+                            <div className="col-12">
+                                <div className="input-box">
+                                    <label htmlFor=" " className="label_text">Select Branch</label>
+                                    <MyComponent  />
+                                </div>
+                            </div>
+                          </div>
 
                           
 
@@ -173,6 +219,15 @@ export default function TabsCompenent() {
 
 
                           <TextAreaLabel label='Fine Print' placeholder='' rows='5'/>
+
+                          <div className="input-box mt-2">
+                            <div className='d-flex justify-content-between align-center maxRedemption_group'>
+                              <label htmlFor="">Maximum redemptions</label>
+                              <span style={{color: "#F1C62E"}}> <i className="fa-regular fa-gem" style={{position: "inherit", color: "#F1C62E"}}></i> Gold Feature</span>
+                            </div>
+                            
+                            <input type="text" name="" id="" placeholder="example:500" class="form-control" required="" value={inputValue} onChange={handleInputChange} />
+                          </div>
 
 
                           <div class="row review_submit_btn_row">
@@ -239,14 +294,18 @@ export default function TabsCompenent() {
                     </div>
 
 
-                    {/* <div class="row fine-print-row">
-                        <label for="">Fine Print</label>
-                        <div class="fine_print_box">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder=""></textarea>
-                        </div>
-                    </div> */}
+                   
 
                     <TextAreaLabel label='Fine Print' placeholder='' rows='5'/>
+
+                    <div className="input-box mt-2">
+                      <div className='d-flex justify-content-between align-center maxRedemption_group'>
+                        <label htmlFor="">Maximum redemptions</label>
+                        <span style={{color: "#F1C62E"}}> <i className="fa-regular fa-gem" style={{position: "inherit", color: "#F1C62E"}}></i> Gold Feature</span>
+                      </div>
+                      
+                      <input type="text" name="" id="" placeholder="example:500" class="form-control" required="" value={inputValue} onChange={handleInputChange}/>
+                    </div>
 
 
                     <div class="row review_submit_btn_row">
@@ -278,7 +337,7 @@ export default function TabsCompenent() {
 
                 <InputBoxComponent label="Estimation Saving" type="text" id="" name="" value="" required="required" placeholder="AED" />
 
-                <SingleSelector id="subcategory" label='Sub Category' />
+                <SingleSelector id="subcategory" label='Select Branch' />
 
                 <div className="row mt-3">
                     <div className="days-input-row">
@@ -311,6 +370,15 @@ export default function TabsCompenent() {
 
 
                 <TextAreaLabel label='Fine Print' placeholder='' rows='5'/>
+
+                <div className="input-box mt-2">
+                  <div className='d-flex justify-content-between align-center maxRedemption_group'>
+                    <label htmlFor="">Maximum redemptions</label>
+                    <span style={{color: "#F1C62E"}}> <i className="fa-regular fa-gem" style={{position: "inherit", color: "#F1C62E"}}></i> Gold Feature</span>
+                  </div>
+                  
+                  <input type="text" name="" id="" placeholder="example:500" class="form-control" required="" value={inputValue} onChange={handleInputChange}/>
+                </div>
 
 
                 <div class="row review_submit_btn_row">

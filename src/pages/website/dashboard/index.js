@@ -18,6 +18,17 @@ const DashboardPage = () => (
     <div className="dashboard_body_section">
       <div className="container">
         <div className="row">
+          <div className="col-12">
+            <div className="BranchSelector">
+              <select className="form-select" aria-label="Default select example">
+                  <option selected="">Select Branch</option>
+                  <option value={1}>Marina</option>
+                  <option value={2}>Dubai</option>
+                  <option value={3}>Marina</option>
+                  <option value={4}>Dubai</option>
+              </select>
+            </div>
+          </div>
           <div className="heading_overview">
             <h2>Voucher Campaign Overview</h2>
           </div>

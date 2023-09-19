@@ -19,31 +19,45 @@ export default function Tab4() {
                 <div className="influencer_appli"></div>
                 </div>
                 <div className="col-6">
-                <div className="edtiteable-row">
-                    <div className="editeable_box">
-                    <div className="campaign_louch_date">
-                        <h6 className="me-1">Launched: </h6>
-                        <h6>Apr 23, 2021</h6>
+                    <div className="edtiteable-row">
+                        <div className="editeable_box">
+                            <div className="campaign_louch_date">
+                                <h6 className="me-1">Launched: </h6>
+                                <h6>Apr 23, 2021</h6>
+                            </div>
+                            <div className="editBox">
+                                <div className="dropdown MangeOfferEditRow">
+                                    <button
+                                        className="btn  dropdown-toggle"
+                                        type="button"
+                                        id="dropdownMenuButton1"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                    >
+                                        Manage Offer
+                                    </button>
+                                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li>
+                                        <Link className="dropdown-item" to="/merchant_campaign">
+                                            <i class="fa-solid fa-pencil mr-1"></i>
+                                            Edit Application
+                                        </Link>
+                                        </li>
+                                        <li>
+                                        <Link className="dropdown-item" to="/">
+                                            <i class="fa-regular fa-circle-xmark mr-1"></i>
+                                            Close This Campaign
+                                        </Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className="invite_review_edit">
-                        <ul>
-                        <li>
-                            <Link to="/invite_influencer"> Manage Offer</Link>
-                        </li>
-                        <li>
-                            <Link to="/abmassdors_compaign">Applications</Link>
-                        </li>
-                        </ul>
-                    </div>
-                    <div className="influence_invit">
-                        <h6>12 influencer application(s)</h6>
-                    </div>
-                    </div>
-                </div>
                 </div>
             </div>
             {/*  */}
-            <div className="row mt-4">
+            <div className="row">
                 <div className="col-6">
                 <div className="offerLabel">
                     <div className="offerlabelbox">Giveaway</div>
@@ -57,27 +71,41 @@ export default function Tab4() {
                 <div className="influencer_appli"></div>
                 </div>
                 <div className="col-6">
-                <div className="edtiteable-row">
-                    <div className="editeable_box">
-                    <div className="campaign_louch_date">
-                        <h6 className="me-1">Launched: </h6>
-                        <h6>Apr 23, 2021</h6>
+                    <div className="edtiteable-row">
+                        <div className="editeable_box">
+                            <div className="campaign_louch_date">
+                                <h6 className="me-1">Launched: </h6>
+                                <h6>Apr 23, 2021</h6>
+                            </div>
+                            <div className="editBox">
+                                <div className="dropdown MangeOfferEditRow">
+                                    <button
+                                        className="btn  dropdown-toggle"
+                                        type="button"
+                                        id="dropdownMenuButton1"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                    >
+                                        Manage Offer
+                                    </button>
+                                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li>
+                                        <Link className="dropdown-item" to="/merchant_campaign">
+                                            <i class="fa-solid fa-pencil mr-1"></i>
+                                            Edit Application
+                                        </Link>
+                                        </li>
+                                        <li>
+                                        <Link className="dropdown-item" to="/">
+                                            <i class="fa-regular fa-circle-xmark mr-1"></i>
+                                            Close This Campaign
+                                        </Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className="invite_review_edit">
-                        <ul>
-                        <li>
-                            <Link to="/invite_influencer">Manage Offer</Link>
-                        </li>
-                        <li>
-                            <Link to="/abmassdors_compaign">Applications</Link>
-                        </li>
-                        </ul>
-                    </div>
-                    <div className="influence_invit">
-                        <h6>12 influencer application(s)</h6>
-                    </div>
-                    </div>
-                </div>
                 </div>
             </div>
         </div>

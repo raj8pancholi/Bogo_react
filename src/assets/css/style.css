@@ -1002,6 +1002,7 @@ button.popup_button_two_section.popup_button_one:hover {
   padding-top: 0;
 }
 
+
 .bogo_inner_section {
   margin-bottom: 40px;
   width: 320px;
@@ -1186,6 +1187,14 @@ button.popup_button_two_section.popup_button_one:hover {
   /* max-width: 700px; */
   width: 100%;
   margin: auto;
+}
+.whatapp_row .react-tel-input input{
+  background: #f7f7f7ff;
+}
+.whatapp_row .react-tel-input .country-list{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 /* Merchange Registration Page Css Start  */
@@ -5137,6 +5146,15 @@ border: 2px dotted #1478A8;
   line-height: 37px;
   color: #000000;
 }
+.maxRedemption_group span{
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #F1C62E;
+  margin-right: 5px;
+}
 .merchant_box-code{
   text-align: center;
 }
@@ -5766,7 +5784,7 @@ padding-bottom: 30px;
   line-height: 49px;
   letter-spacing: 0.02em;
   color:#130F26;
-  margin-top: 40px;
+  margin-top: 10px;
   margin-bottom: 40px;
 
 }
@@ -6310,6 +6328,7 @@ ul#tabs2-nav li.active {
 .edtiteable-row{
   display: flex;
   justify-content: flex-end;
+  height:100%;
 }
 .tab-content1, .tab-content6 {
   padding: 10px;
@@ -6568,9 +6587,63 @@ ul#tabs2-nav li.active {
 .editeable_box{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
+  /* align-items: center; */
   height: 100%;
+}
+
+.MangeOfferEditRow{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 8px;
+}
+.MangeOfferEditRow button{
+  background: #1478A8;
+    width: 200px;
+    height: 50px;
+    color: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+}
+
+.MangeOfferEditRow button:hover{
+  color: white;
+}
+.MangeOfferEditRow ul{
+  border: none;
+  background: #0000002b;
+  padding: 10px 0px;
+}
+
+.BranchSelector{
+  margin-top: 1rem;
+  width: 20%;
+}
+.addMoreSocialMedia{
+  background: #f7f7f7;
+  width: 100%;
+  padding: 10px;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 5px;
+
+}
+.MangeOfferEditRow ul li a{
+  color:#000;
+  line-height: 25px;
+  font-size: 14px;
+}
+.MangeOfferEditRow ul li a:hover{
+  color:#1478A8;
+  
 }
 
 .voucher_redim_row span{

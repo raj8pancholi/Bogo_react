@@ -20,11 +20,6 @@ export default function Integration() {
 
 
 
-  // when click on next button then link new page
-  // const nxtpage = () => {
-  //   window.location.href = '/website/user/register_user';
-  // };
-
 
 
 
@@ -41,6 +36,7 @@ export default function Integration() {
 
         {showGallery && (
         <div className="insta-gallery-section row">
+          <InstagramGalleryItem />
           <InstagramGalleryItem />
           <InstagramGalleryItem />
           <InstagramGalleryItem />

@@ -38,6 +38,17 @@ function AccountPageBody() {
     const VisibleButton4 = () => {
         setVisible4(!Visible4)
     }
+
+
+    // State to control the visibility of VerifyOtp component
+    const [otpVisible, setOtpVisible] = useState(false);
+
+    // Function to toggle the visibility of VerifyOtp component
+    const toggleOtpVisible = () => {
+        setOtpVisible(!otpVisible);
+    };
+
+
     return (
         <>
             <div className="campaing-body-section">
@@ -62,8 +73,7 @@ function AccountPageBody() {
                                 <div className="row ">
                                     <div className="col-12">
                                         <div className="input-box ">
-                                            {/* <label for=""></label> */}
-                                            <label for="">Owner/ Manager Informationr</label>
+                                            <label for="">Owner/ Manager Information</label>
                                             <input type="text" name="name" id="name" className="form-control" required="" placeholder="John Doe" />
                                         </div>
                                     </div>
@@ -114,17 +124,27 @@ function AccountPageBody() {
 
                                 <div className="row">
                                     <div className="col-12">
-                                        <div className="input-box">
-                                            <label for="">Set Merchant Pin</label>
-                                            <VerifyOtp/>
-                                            {/* <input
-                                                type="text"
-                                                id="mobile_code"
-                                                className="form-control"
-                                                placeholder="Phone Number"
-                                                name="mobile"
-                                            /> */}
+                                        <div className='merchantPin_sett_row'>
+                                            <div className='inputBox'>
+
+                                                <div className="input-box">
+                                                    <label for="">Set Merchant Pin</label>
+                                                    {otpVisible && 
+                                                        <VerifyOtp />
+                                                    }
+                                                </div>
+                                                {otpVisible && 
+                                                    <button className='btn setBtnPin' type='submit'>SET PIN</button>
+                                                    }
+                                            </div>
+                                            
+
+                                            <label className="switch">
+                                                <input type="checkbox" checked={otpVisible} onChange={toggleOtpVisible}/>
+                                                <span className="slider round"></span>
+                                            </label>                         
                                         </div>
+                                        
                                     </div>
                                 </div>
 

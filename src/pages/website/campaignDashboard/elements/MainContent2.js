@@ -2,9 +2,13 @@ import React, {useState} from 'react'
 
 
 // Import Conponents
-import Tab4 from './tabschild/Tab4';
-import Tab5 from './tabschild/Tab5';
-import Tab6 from './tabschild/Tab6';
+// import Tab4 from './tabschild/Tab4';
+// import Tab5 from './tabschild/Tab5';
+// import Tab6 from './tabschild/Tab6';
+import Tab7 from './tabschild/Tab7';
+import Tab8 from './tabschild/Tab8';
+import Tab9 from './tabschild/Tab9';
+
 
 
 
@@ -52,9 +56,9 @@ export default function MainContent2() {
 
                 {/* tab content child */}
                 <div id="tabs-content_child">
-                    {selectedTab === 1 && <Tab4 />}
-                    {selectedTab === 2 && <Tab5 />}
-                    {selectedTab === 3 && <Tab6 />}
+                    {selectedTab === 1 && <Tab7 />}
+                    {selectedTab === 2 && <Tab8 />}
+                    {selectedTab === 3 && <Tab9 />}
                 </div>
             </div>
 

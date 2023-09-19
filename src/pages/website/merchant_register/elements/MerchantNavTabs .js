@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import MerchantNavItem from './MerchantNavItem';
 
 const categories = [
@@ -13,7 +13,6 @@ const categories = [
 
 const MerchantNavTabs = () => {
   const [activeCategory, setActiveCategory] = useState(null);
-
   const handleCategoryClick = (categoryId) => {
     setActiveCategory(categoryId);
   };

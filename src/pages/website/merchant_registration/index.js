@@ -20,8 +20,6 @@ export default function MerchantRegistration() {
 
     {/* Header */}
     <Header />
-
-
     <div className="login_section">
       <div className="container">
         <div className="user_login_box">
@@ -46,7 +44,7 @@ export default function MerchantRegistration() {
                         First Name'  />
 
 
-                        <InputText type='text' className='form-control use_registration_Lname' id='Last_name' name='last_name' required='required' placeholder='last_name'  />
+                        <InputText type='text' className='form-control use_registration_Lname' id='Last_name' name='last_name' required='required' placeholder='Last Name'  />
 
                         <InputText type='email' className='form-control use_registration_email' id='email' name='email' required='required' placeholder='Email Name'  />
 

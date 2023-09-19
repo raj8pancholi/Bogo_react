@@ -53,7 +53,7 @@ export default function ExcludePublicHolidays() {
             <Modal.Title className='modal-title'>
             UAE Holiday 2022
                  <p style={{fontSize:'18px', color:'f9f9f9'}}>
-                    Some holiday dates are subject to chyange*
+                    Some holiday dates are subject to change*
                  </p>
             </Modal.Title>
         </Modal.Header>

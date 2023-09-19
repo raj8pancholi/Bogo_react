@@ -22,7 +22,12 @@ function VoucheHeader() {
                         <img src="/images/branch_logo_img.png" alt="" className="img_fluid" />
                     </div>
                     <div className="branch_name_review_row">
-                        <span>Hutong Dubai</span>
+                        <span>Hutong Dubai 
+                            <Link to="/merchant_register" className="backTodirectory">
+                                 <i class="fa-solid fa-pen-to-square text-white pl-1" data-toggle="tooltip" title="Edit Branch" ></i>
+                            </Link>
+                        </span>
+
 
                         <div className="branch_review">
                             {/* <!-- start icon --> */}

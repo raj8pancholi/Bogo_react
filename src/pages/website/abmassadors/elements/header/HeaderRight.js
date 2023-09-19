@@ -11,6 +11,16 @@ import Recapture from '../../../../../components/CommonComponent/Recapture'
 
 const HeaderRight = () => {
 
+
+    // State to keep track of how many times to render the SocialMediaInput component
+  const [socialMediaCount, setSocialMediaCount] = useState(1);
+
+  // Function to add more SocialMediaInput components
+  const handleAddMore = () => {
+    setSocialMediaCount(socialMediaCount + 1);
+  };
+
+
     // select box
     const colourOptions = [
         { value: 'Fashion', label: 'Fashion' },
@@ -92,7 +102,17 @@ const HeaderRight = () => {
                     <InputBox label="Email address" type="email" name="email" id="email" required />
                     </div>
                 </div>
-                <SocialMediaInput/>
+                {/* Render SocialMediaInput components */}
+                {[...Array(socialMediaCount)].map((_, index) => (
+                    <SocialMediaInput key={index} />
+                ))}
+                <div className="row">
+                    <div className="col-12">
+                        <button className="btn addMoreSocialMedia" onClick={handleAddMore}>
+                            Add More <i className="fa fa-plus" />
+                        </button>
+                    </div>
+                </div>
                 <div className="row">
                     <div className="col-12">
                         <MobileInput/>

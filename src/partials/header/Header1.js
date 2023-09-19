@@ -25,9 +25,7 @@ export default function Header1() {
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav mr-auto w-100 justify-content-end align-items-center">
-        {/* <li class="nav-item active">
-        <Link class="nav-link" to="/website/index">How it Works </Link>
-      </li> */}
+        
         <li className="nav-item">
           <Link className="nav-link" to="/pricing">Pricing</Link>
         </li>
@@ -55,13 +53,17 @@ export default function Header1() {
                 <Link className="dropdown-item" to="/abmassdors_compaign">Create Brand Ambassador</Link>
               </li>
               <li>
+              <i class="fa-solid fa-pen"></i>
+                <Link className="dropdown-item" to="/voucherDetails">Manage  Business Profile</Link>
+              </li>
+              <li>
                 <i className="fa-solid fa-bullhorn" />
                 <Link className="dropdown-item" to="/campaignDashboard">Campaigns</Link>
               </li>
               <li>
                 {/* <img src="/website/images/shop.png" alt="" class="img-fluid" /> */}
                 <i className="fa-solid fa-code-branch" />
-                <Link className="dropdown-item" to="/voucherDetails">Add  Branch</Link>
+                <Link className="dropdown-item" to="/merchant_register">Add  Branch</Link>
               </li>
               <li>
                 {/* <img src="/website/images/shop.png" alt="" class="img-fluid" /> */}
