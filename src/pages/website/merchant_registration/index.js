@@ -30,8 +30,6 @@ signup=()=>{
 
 render(){
   const  {firstName, lastName, email, password, repeatpassword, phone, whatsaAppNo , error, passMatchErr} = this.state
- //  console.log('{firstName, lastName, email, password, repeatpassword, phone, whatsaAppNo }', {firstName, lastName, email, password, repeatpassword, phone, whatsaAppNo, error, passMatchErr })
-   console.log('{whatsaAppNo }',  phone,  error, passMatchErr )
   return (
     <>
     <Header />

@@ -23,7 +23,6 @@ export default function LoginForm() {
   
 
     const merchantData = useSelector((state) => state.merchantAuth);
-    console.log("merchantData",merchantData)
 
     useEffect(() => {
         if (merchantData?.loginError) { setErrorMsg(merchantData?.loginError) }
@@ -33,7 +32,6 @@ export default function LoginForm() {
       
     
     const login=()=>{  
-        console.log("password, email", email, password)
         if(!email || !password) setError(true)
         else{ 
              const obj ={ email, password } 
