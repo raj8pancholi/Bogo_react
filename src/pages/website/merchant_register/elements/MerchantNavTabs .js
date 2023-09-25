@@ -1,25 +1,51 @@
-import React, { useState} from 'react';
-import MerchantNavItem from './MerchantNavItem';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-const categories = [
-  { id: 1, name: 'Dining', image: '/images/bussiness-icon/Dining.png' },
-  { id: 2, name: 'Fitness', image: '/images/bussiness-icon/Fitness.png' },
-  { id: 3, name: 'Services', image: '/images/bussiness-icon/Services.png' },
-  { id: 4, name: 'Entertainment', image: '/images/bussiness-icon/Entertainment.png' },
-  { id: 5, name: 'Spas & Salons', image: '/images/bussiness-icon/Spas.png' },
-  { id: 6, name: 'Hotels', image: '/images/bussiness-icon/Hotels.png' },
-  // Add more categories with their respective images as needed
-];
+import { fetchCategories } from './../../../../redux/slice/categorySlice'; // Replace with the correct import path
+import {fetchSubcategory } from './../../../../redux/slice/subCategorySlice'
+
+
+
+import MerchantNavItem from './MerchantNavItem';
 
 const MerchantNavTabs = () => {
   const [activeCategory, setActiveCategory] = useState(null);
-  const handleCategoryClick = (categoryId) => {
+
+  // Get the categories from the Redux store
+  const categories = useSelector((state) => state.category.categories);
+ 
+
+
+  // Get the dispatch function from the useDispatch hook
+  const dispatch = useDispatch();
+
+  
+  // Fetch the categories from the API
+  useEffect(() => {
+
+  // Dispatch the fetchCategories action
+  if (!categories.length) {
+      
+      dispatch(fetchCategories());
+    }
+  }, [dispatch, categories]);
+
+  const handleCategoryClick = async(categoryId) => {
     setActiveCategory(categoryId);
+    console.log("categoryId....", categoryId);
+
+    try {
+      // Dispatch the fetchSubcategories action with the categoryId
+      await dispatch(fetchSubcategory(categoryId));
+      // console.log("Subcategories response ....", result);
+    } catch (error) {
+      console.error('Error fetching subcategoriessssss', error);
+    }
   };
 
   return (
-    <ul className="nav nav-tabs merchent-nav-box" role="tablist"  >
-      {categories.map(category => (
+    <ul className="nav nav-tabs merchent-nav-box" role="tablist">
+      {categories.map((category) => (
         <MerchantNavItem
           key={category.id}
           category={category}

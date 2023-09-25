@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 
 export default function Weekends() {
-  // const [excludeWeekends, setExcludeWeekends] = useState(false);
-
-  // const handleSwitchChange = () => {
-  //   setExcludeWeekends((prevValue) => !prevValue);
-  // };
-
 
   //Weekend tab
   const [excludeWeekends, setExcludeWeekends] = useState(false);

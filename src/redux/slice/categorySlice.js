@@ -5,7 +5,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchCategories = createAsyncThunk('category/fetchCategories', async (_, {rejectWithValue, fulfillWithValue}) => {
   // Your API call logic here
   try {
-    const response = await fetch('192.168.0.16:3000/v1/admin/category/add');
+    const response = await fetch('http://3.108.250.128:3000/v1/merchant/category');
     const data = await response.json();
     return fulfillWithValue(data);
   } catch (err) {

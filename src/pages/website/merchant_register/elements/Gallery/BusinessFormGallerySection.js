@@ -79,7 +79,7 @@ const BusinessFormGallerySection = ({onNextClick}) => {
             <div className="logo-image-box">
               <h3>Logo</h3>
               <div className="upload_preview_box">
-                <div id="imagePreview" style={{ backgroundImage:logoImage ? `url(${logoImage})`: 'url(/images/upload_logo.png)', }}></div>
+                <div id="imagePreview" style={{ backgroundImage:logoImage ? `url(${logoImage})`: 'url(/images/upload_logo.png)', border: logoImage ? 'none' : '2px dashed #cccccc',}}></div>
                 <span>Upload New</span>
               </div>
             </div>
@@ -91,7 +91,7 @@ const BusinessFormGallerySection = ({onNextClick}) => {
             <div className="multi-img-box">
               <h3>Banner</h3>
               <div className="multi-img-box-group">
-                <div id="multi_img" style={{ backgroundImage:bannerImage ? `url(${bannerImage})`: 'url(/images/from_images_bannerrr.png)', }}></div>
+                <div id="multi_img" style={{ backgroundImage:bannerImage ? `url(${bannerImage})`: 'url(/images/from_images_bannerrr.png)', border: bannerImage ? 'none' : '2px dashed #cccccc', }}></div>
                 <input type="file" name="gallery" id="BannerImage" onChange={handleBannerImageUpload} />
                 <button
                   type="button"

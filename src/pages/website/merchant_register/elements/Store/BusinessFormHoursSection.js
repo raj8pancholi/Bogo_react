@@ -21,7 +21,7 @@ export default function BusinessFormHoursSection() {
     <>
       <div className="row form-input-box hour_operation">
       <div className="col-md-4 order-sm-1 col-lg-4 col-sm-12 ">
-        <label htmlFor="inputhours" className="inputhours">Hours of Operation</label>
+        <label htmlFor="inputhours" className="inputhours mt-2">Hours of Operation</label>
         <div className="row ">
             <div className="col-12 day-box day-box1">
                 <span>Sunday </span>

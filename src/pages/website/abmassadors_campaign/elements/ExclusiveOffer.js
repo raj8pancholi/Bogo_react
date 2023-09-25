@@ -40,9 +40,9 @@ export default function ExclusiveOffer() {
 
   // select box
   const colourOptions = [
-    { value: 'demo1', label: 'demo1' },
-    { value: 'demo2', label: 'demo2' },
-    { value: 'demo3', label: 'demo3' }
+    { value: 'Marina', label: 'Marina' },
+    { value: 'Dhubai', label: 'Dhubai' },
+    { value: 'Marina1', label: 'Marina1' }
   ]
   
   const MyComponent = () => (
@@ -62,28 +62,51 @@ export default function ExclusiveOffer() {
     />
   )
 
+
+
+  // select box
+  const socialMediaOptions = [
+    { value: 'Facebook', label: 'Facebook' },
+    { value: 'Instagram', label: 'Instagram' },
+    { value: 'Youtube', label: 'Youtube' },
+    { value: 'TickTok', label: 'TickTok' },
+  ]
+  
+  const SocialComponent = () => (
+    <Select closeMenuOnSelect={false}
+    defaultValue={[socialMediaOptions[4], socialMediaOptions[5]]}
+    isMulti
+    options={socialMediaOptions}
+    styles={{
+    // Add a custom style to set the height of the input
+    control: (provided) => ({
+      ...provided,
+      minHeight: '40px !important',
+      backgroundColor: '#f7f7f7',
+      border: 'none',
+    }),
+  }}
+    />
+  )
+
+
   
 
 
 
-
-
-    // social media options
-    const socialMediaOptions = [
-        { value: '1', label: 'One' },
-        { value: '2', label: 'Two' },
-        { value: '3', label: 'Three' },
-        // Add more options as needed
-    ];
-
-
     // Audience Size options
     const audienceSize = [
-        { value: '1', label: 'One' },
-        { value: '2', label: 'Two' },
-        { value: '3', label: 'Three' },
-        // Add more options as needed
-    ];
+      { value: '1', label: '2000+' },
+      { value: '2', label: '5000+' },
+      { value: '3', label: '10000+' },
+      { value: '3', label: '25000+' },
+      { value: '3', label: '50000+' },
+      { value: '3', label: '100000+' },
+      { value: '3', label: '250000+' },
+      { value: '3', label: '500000+' },
+      { value: '3', label: '1m+' },
+      // Add more options as needed
+  ];
 
 
 
@@ -162,9 +185,20 @@ export default function ExclusiveOffer() {
             <PromoCodeRow label='Add Promo Code' />
 
 
-            <SingleSelector label="Preffered Social Media Platform" defautlOptions='Select platforms that apply' options={socialMediaOptions} />
+            {/* multi selector  */}
+            <div className="row ">
+               <div className="col-12">
+                  <div className="input-box">
+                      <label htmlFor=" " className="label_text">Preffered Social Media Platform</label>
+                      <SocialComponent  />
+                  </div>
+               </div>
+            </div>
 
-            <SingleSelector label="Audience Size" defautlOptions='One' options={audienceSize} />
+
+
+
+            <SingleSelector label="Audience Size" defautlOptions='Audience Size' options={audienceSize} />
 
             <div class="row mt-3">
               <div class="col-12">
@@ -216,7 +250,7 @@ export default function ExclusiveOffer() {
                             minDate={new Date()}
                             onChange={handleDateOpen}
                             popperPlacement="bottom-end"
-                            onFocus={() => document.getElementById('datepicker-trigger').click()}
+                            onFocus={() => document.getElementById('datepickerTriggers').click()}
                         />
                       </div>
                     

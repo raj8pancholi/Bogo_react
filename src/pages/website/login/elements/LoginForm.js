@@ -1,10 +1,22 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
+import {loginUser} from './../../../../redux/slice/authSlice';
+import {useDispatch} from 'react-redux';
+
 
 // Import components
 import RegisterGroupBox from './RegisterGroupBox'
 
+
 export default function LoginForm() {
+
+
+
+    const dispatch = useDispatch();
+
+
+
+
 
     const [passwordVisible, setPasswordVisible] = useState(false);
 
@@ -14,18 +26,42 @@ export default function LoginForm() {
 
 
 
+    // form data
+    const [formData, setFormData] = useState({
+        email:'',
+        password:'',
+     });
+
+
+    const handleChange = (event) => {
+        setFormData({...formData, [event.target.name]: event.target.value});
+    }
+
+
+    
+
+    // Submit form
+    const handlesubmit = async(e) => {
+        e.preventDefault();
+        dispatch(loginUser(formData));
+    }
+
+
+
   return (
     <>
         <div className="col-md-6">
             <div className="login-group-box">
                 <h4>Login</h4>
-                <form action="user_login" className="user_login_form">
+                <form action="user_login" className="user_login_form" onSubmit={handlesubmit}>
                 <div className="row">
                     <div className="col-6">
                     <input
                         type="text"
                         className="form-control user_login_email"
                         placeholder="Email address"
+                        value={formData.email}
+                        onChange={handleChange}
                     />
                     </div>
                     <div className="col-6">
@@ -48,7 +84,9 @@ export default function LoginForm() {
                     </Link>
                     </div>
                     <div className="user_login_btn-box">
-                    <button className="user_login_btn btn">Login</button>
+                    <button className="user_login_btn btn">
+                    Login
+                    </button>
                     </div>
                 </div>
                 </form>

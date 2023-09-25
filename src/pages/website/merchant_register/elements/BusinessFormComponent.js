@@ -1,12 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 import BusinessFormGallerySection from './Gallery/BusinessFormGallerySection';
 import BusinessFormHoursSection from './Store/BusinessFormHoursSection';
 import NextButton from './Store/NextButton';
 import PrivacyPolicy from './Store/PrivacyPolicy';
 import Integration from './Integration/Integration';
+import { useDispatch, useSelector } from 'react-redux';
+
+// Import the fetchCategories thunk
+import {fetchSubcategory } from './../../../../redux/slice/subCategorySlice'
+
+
 
 const BusinessFormMainSection = () => {
+
+  const dispatch = useDispatch();
+
+  const selectedSubCategoryId = useSelector((state) => state.subCategory.subcategories);
+ 
+
+  useEffect(() => {
+    dispatch(fetchSubcategory());
+  }, [dispatch]);
+
+
+
   const [activeTab, setActiveTab] = useState("tabs-1");
 
   const handleTabSelect = (tabId) => {
@@ -306,8 +324,17 @@ const BusinessFormMainSection = () => {
                     
                     <div className="col-md-4 col-sm-12">
                     <div className="input-box">
-                        <label htmlFor="inputcity">City</label>
-                        <input type="text" name="city" id="buss_city" class="form-control" placeholder="Country" required />
+                        <label htmlFor="emirate">Emirate</label>
+                        <select className="form-control" name="country" id="emirate">
+                                <option value="">Emirate</option>
+                                <option value="Abu Dhabi">Abu Dhabi</option>
+                                <option value="Dubai">Dubai</option>
+                                <option value="Sharjah">Sharjah</option>
+                                <option value="Ajman">Ajman</option>
+                                <option value="Umm Al Quwain">Umm Al Quwain</option>
+                                <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+                                <option value="Fujairah">Fujairah</option>
+                        </select>
                     </div>
                     </div>
                     <div className="col-md-4 col-sm-12">
@@ -329,10 +356,9 @@ const BusinessFormMainSection = () => {
                     <div className="input-box">
                       <label htmlFor="inputCountry">Sub Category</label>
                       <select className="form-control" name="country" id="buss_country">
-                        <option value="">Select Country</option>
-                        <option value="Afghanistan">Afghanistan</option>
-                        <option value="Albania">Albania</option>
-                        <option value="Algeria">Algeria</option>
+                      {selectedSubCategoryId && selectedSubCategoryId.map((item, index) => (
+                          <option key={item.id} value={item.id}>{item.name}</option>
+                        ))}
                       </select>
                     </div>
                     </div>

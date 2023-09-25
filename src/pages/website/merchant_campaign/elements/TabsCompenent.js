@@ -8,7 +8,6 @@ import Select from 'react-select'
 // Import Components
 import InputBoxComponent from '../../../../components/CommonComponent/InputBoxComponent.js'
 import ComparerOffer from '../elements/tabcomponents/CompareOffer.js'
-import SingleSelector from './tabcomponents/SingleSelector';
 import DaysInput from '../elements/tabcomponents/DaysInput.js';
 import ExcludeWeekends from './tabcomponents/ExcludeWeekends';
 import Weekends from '../elements/tabcomponents/Weekends.js';
@@ -78,6 +77,111 @@ export default function TabsCompenent() {
           }));
         }
       };
+
+
+      // select tab 2
+      // Days Check box
+    const [daysSelection2, setDaysSelection2] = useState({
+      all: false,
+      sunday: false,
+      monday: false,
+      tuesday: false,
+      wednesday: false,
+      Thursday: false,
+      friday: false,
+      saturday: false,
+    });
+  
+    const handleDayChange2 = (day) => {
+      if (day === 'all') {
+        if (!daysSelection2.all) {
+          // Select all days
+          setDaysSelection2({
+            all: true,
+            sunday: true,
+            monday: true,
+            tuesday: true,
+            wednesday: true,
+            Thursday: true,
+            friday: true,
+            saturday: true,
+          });
+        } else {
+          // Unselect all days
+          setDaysSelection2({
+            all: false,
+            sunday: false,
+            monday: false,
+            tuesday: false,
+            wednesday: false,
+            Thursday: false,
+            friday: false,
+            saturday: false,
+          });
+        }
+      } else {
+        setDaysSelection2((prevSelection) => ({
+          ...prevSelection,
+          [day]: !prevSelection[day],
+          all: false, // Unselect "All" if any other checkbox is unchecked
+        }));
+      }
+    };
+
+
+    // select tab 3
+    // Days Check box
+    const [daysSelection3, setDaysSelection3] = useState({
+      all: false,
+      sunday: false,
+      monday: false,
+      tuesday: false,
+      wednesday: false,
+      Thursday: false,
+      friday: false,
+      saturday: false,
+    });
+  
+    const handleDayChange3 = (day) => {
+      if (day === 'all') {
+        if (!daysSelection3.all) {
+          // Select all days
+          setDaysSelection3({
+            all: true,
+            sunday: true,
+            monday: true,
+            tuesday: true,
+            wednesday: true,
+            Thursday: true,
+            friday: true,
+            saturday: true,
+          });
+        } else {
+          // Unselect all days
+          setDaysSelection3({
+            all: false,
+            sunday: false,
+            monday: false,
+            tuesday: false,
+            wednesday: false,
+            Thursday: false,
+            friday: false,
+            saturday: false,
+          });
+        }
+      } else {
+        setDaysSelection3((prevSelection) => ({
+          ...prevSelection,
+          [day]: !prevSelection[day],
+          all: false, // Unselect "All" if any other checkbox is unchecked
+        }));
+      }
+    };
+
+
+
+
+
     
       const days = [
         { day: 'all', label: 'All' },
@@ -105,9 +209,9 @@ export default function TabsCompenent() {
     };
     // select box
   const colourOptions = [
-    { value: 'demo1', label: 'demo1' },
-    { value: 'demo2', label: 'demo2' },
-    { value: 'demo3', label: 'demo3' }
+    { value: 'Marina', label: 'Marina' },
+    { value: 'Dhubai', label: 'Dhubai' },
+    { value: 'Marina1', label: 'Marina1' }
   ]
 
 
@@ -260,10 +364,20 @@ export default function TabsCompenent() {
 
                     <InputBoxComponent label="What will they get?" type="text" id="" name="" value="" required="required" placeholder="AED" />
 
-                    <InputBoxComponent label="Estimation Saving" type="text" id="" name="" value="" required="required" placeholder="AED" />
+                    <InputBoxComponent label="Estimated Savings?" type="text" id="" name="" value="" required="required" placeholder="AED" />
 
-                    <SingleSelector id="subcategory" label='Select Branch' />
+                   
+                    {/* multi selector  */}
+                    <div className="row ">
+                      <div className="col-12">
+                          <div className="input-box">
+                              <label htmlFor=" " className="label_text">Select Branch</label>
+                              <MyComponent  />
+                          </div>
+                      </div>
+                    </div>
 
+                    {/*  */}
                     <div className="row mt-3">
                         <div className="days-input-row">
                             <label>Day of the week</label>
@@ -273,8 +387,8 @@ export default function TabsCompenent() {
                                 key={day}
                                 day={day}
                                 label={label}
-                                selected={daysSelection[day]}
-                                onChange={handleDayChange}
+                                selected={daysSelection2[day]}
+                                onChange={handleDayChange2}
                                 />
                             ))}
                             </div>
@@ -335,9 +449,19 @@ export default function TabsCompenent() {
 
                 <InputBoxComponent label="What will they get?" type="text" id="" name="" value="" required="required" placeholder="AED" />
 
-                <InputBoxComponent label="Estimation Saving" type="text" id="" name="" value="" required="required" placeholder="AED" />
+                <InputBoxComponent label="Estimated Savings?" type="text" id="" name="" value="" required="required" placeholder="AED" />
 
-                <SingleSelector id="subcategory" label='Select Branch' />
+                
+
+                {/* multi selector  */}
+                <div className="row ">
+                  <div className="col-12">
+                      <div className="input-box">
+                          <label htmlFor=" " className="label_text">Select Branch</label>
+                          <MyComponent  />
+                      </div>
+                  </div>
+                </div>
 
                 <div className="row mt-3">
                     <div className="days-input-row">
@@ -348,8 +472,8 @@ export default function TabsCompenent() {
                             key={day}
                             day={day}
                             label={label}
-                            selected={daysSelection[day]}
-                            onChange={handleDayChange}
+                            selected={daysSelection3[day]}
+                            onChange={handleDayChange3}
                             />
                         ))}
                         </div>

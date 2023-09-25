@@ -45,12 +45,16 @@ export default function Header1() {
             </button>
             <ul className="dropdown-menu" aria-labelledby="defaultDropdown">
               <li>
+                <i class="fa-brands fa-windows"></i>
+                <Link className="dropdown-item" to="/dashboard">Dashboard</Link>
+              </li>
+              <li>
                 <i className="fa-solid fa-plus" />
                 <Link className="dropdown-item" to="/merchant_campaign">Create voucher Campaign</Link>
               </li>
               <li>
                 <i className="fa-solid fa-plus" />
-                <Link className="dropdown-item" to="/abmassdors_compaign">Create Brand Ambassador</Link>
+                <Link className="dropdown-item" to="/ambassdors_compaign">Create Brand Ambassador</Link>
               </li>
               <li>
               <i class="fa-solid fa-pen"></i>
