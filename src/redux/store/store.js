@@ -1,18 +1,17 @@
-// src/store/store.js
-import { configureStore } from '@reduxjs/toolkit';
-import categoryReducer from '../slice/categorySlice';
-import subcategoryReducer from '../slice/subCategorySlice';
-import authReducer from '../slice/authSlice';
+import { configureStore } from '@reduxjs/toolkit'
+import categoryReducer from '../slices/categorySlice';
+import subcategoryReducer from '../slices/subCategorySlice';
+import merchantAuthReducer from '../slices/merchantAuthSlice';
+
+const reducer = {
+  category: categoryReducer,
+  subCategory: subcategoryReducer,
+  merchantAuth:merchantAuthReducer,
+}
 
 const store = configureStore({
-  
-  reducer: {
-    category: categoryReducer, // Add your category slice reducer
-    subCategory: subcategoryReducer,
-    auth: authReducer,   // Add your auth slice reducer here
-  },
-  // other configuration options (middleware, etc.)
-});
-
+  reducer: reducer,
+  devTools: true,
+})
 
 export default store;

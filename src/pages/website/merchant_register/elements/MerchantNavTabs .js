@@ -1,31 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
-import { fetchCategories } from './../../../../redux/slice/categorySlice'; // Replace with the correct import path
-import {fetchSubcategory } from './../../../../redux/slice/subCategorySlice'
-
-
-
+import React, { useState} from 'react';
 import MerchantNavItem from './MerchantNavItem';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchCategories }from '../../../../redux/slices/categorySlice'  
+import { fetchSubcategory } from '../../../../redux/slices/subCategorySlice';
+
+
 
 const MerchantNavTabs = () => {
   const [activeCategory, setActiveCategory] = useState(null);
 
-  // Get the categories from the Redux store
   const categories = useSelector((state) => state.category.categories);
  
-
-
-  // Get the dispatch function from the useDispatch hook
   const dispatch = useDispatch();
 
-  
-  // Fetch the categories from the API
-  useEffect(() => {
 
-  // Dispatch the fetchCategories action
+  useEffect(() => {
   if (!categories.length) {
-      
       dispatch(fetchCategories());
     }
   }, [dispatch, categories]);
@@ -35,13 +26,13 @@ const MerchantNavTabs = () => {
     console.log("categoryId....", categoryId);
 
     try {
-      // Dispatch the fetchSubcategories action with the categoryId
-      await dispatch(fetchSubcategory(categoryId));
-      // console.log("Subcategories response ....", result);
+      await dispatch(fetchSubcategory(categoryId)); 
     } catch (error) {
       console.error('Error fetching subcategoriessssss', error);
     }
   };
+
+ 
 
   return (
     <ul className="nav nav-tabs merchent-nav-box" role="tablist">

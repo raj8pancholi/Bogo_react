@@ -1,5 +1,5 @@
 import React from 'react'
-import {  Route, Routes } from 'react-router-dom';
+import {  Route, Routes, useNavigate } from 'react-router-dom';
 
 // import pages part
 import HomePage from '../pages/website/home/index';
@@ -43,6 +43,8 @@ import Account from '../pages/website/account/index';
 
 
 export default function Navigation() {
+
+  const navigate = useNavigate()
   return (
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -56,7 +58,7 @@ export default function Navigation() {
           <Route path='/merchant_register' element={<MerchantRegister/>} />
           <Route path='/TermsConditions' element={<TermsConditions/>} />
           <Route path='/privacyPolicy' element={<PrivacyPolicy/>} />
-          <Route path='/merchant_registration' element={<MerchantRegistration/>} />
+          <Route path='/merchant_registration' element={<MerchantRegistration navigate={navigate}/>} />
           <Route path='/otpVerify' element={<OtpVerify/>} />
           <Route path='/userOtpVerify' element={<UserOtpVerify/>} />
           <Route path='/merchant_subscription' element={<MerchantSubscription/>} />

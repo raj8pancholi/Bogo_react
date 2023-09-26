@@ -5,10 +5,8 @@ import BusinessFormHoursSection from './Store/BusinessFormHoursSection';
 import NextButton from './Store/NextButton';
 import PrivacyPolicy from './Store/PrivacyPolicy';
 import Integration from './Integration/Integration';
-import { useDispatch, useSelector } from 'react-redux';
-
-// Import the fetchCategories thunk
-import {fetchSubcategory } from './../../../../redux/slice/subCategorySlice'
+import { useDispatch, useSelector } from 'react-redux'; 
+import { fetchSubcategory } from '../../../../redux/slices/subCategorySlice';
 
 
 
