@@ -22,6 +22,7 @@ signup=()=>{
     if(password == repeatpassword){
        const obj ={ firstName, lastName, email, password, repeatpassword, phone } 
        this.props.MERCHANT_SIGNUP(obj)
+       this.props.navigate('/otpVerify')
     }else{
          this.setState({passMatchErr:true})
     }

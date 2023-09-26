@@ -5,6 +5,9 @@
 body {
   font-family: "Montserrat", sans-serif !important;
 }
+a:hover{
+  text-decoration: none;
+}
 input::placeholder {
   font-family: "Montserrat !important";
   font-style: normal;
@@ -4835,7 +4838,7 @@ color: #969696;
 .fine_print_box textarea{
   background: #F7F7F7;
   border-radius: 5px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .review_submit_btn_row{
@@ -5072,6 +5075,7 @@ textarea[placeholder='#hashtag']{
   border-radius: 3px;
   cursor: pointer;
   width: 100%;
+  display: block;
   margin-top: 20px;
   text-decoration: none !important;
 }
@@ -5527,6 +5531,9 @@ padding-bottom: 30px;
   margin-top: 50px;
   margin-bottom: 50px;
 }
+
+
+
 
 
 /* horizontal card */
@@ -7236,6 +7243,15 @@ ul#tabs2-nav li.active {
 
 
 /* *************************** redeemtion history css start ********************* */
+.redeem_voucher_body .red_section_box{
+  box-sizing: border-box;
+  padding-top: 20px;
+}
+
+.red_section_box::-webkit-scrollbar { 
+  width: 2px !important;
+  display: none; 
+}
 .redeem_voucher_body{
   padding: 30px 0px;
 }
@@ -7372,7 +7388,7 @@ ul#tabs2-nav li.active {
 }
 
 .change_pass_input_row .input-box input{
-  border: 1px solid #00e7ff;
+  border: 1px solid #e8eaec;
 }
 
 

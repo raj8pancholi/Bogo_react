@@ -6,7 +6,9 @@ import RegisterGroupBox from './RegisterGroupBox'
 import { useDispatch, useSelector } from 'react-redux';
 import {   MERCHANT_SIGNIN  } from '../../../../redux/slices/merchantAuthSlice';
 
+
 export default function LoginForm() {
+
 
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [email, setEmail] = useState('');
@@ -38,6 +40,9 @@ export default function LoginForm() {
              dispatch(MERCHANT_SIGNIN(obj))
       }
     }
+ 
+ 
+
 
   return (
     <>

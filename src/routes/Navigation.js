@@ -29,6 +29,8 @@ import VoucherDetails from '../pages/website/voucherDetails/index'
 import RedemtionHisory from '../pages/website/redemptionHistory/index'
 import UserRegistration from '../pages/website/userRegistration/index'
 import UserRegComplete from '../pages/website/userRegComplete/index'
+import OtpForgetPassword from '../pages/website/otpForgetPassword/index'
+import ResetPassword from '../pages/website/newPassword/index'
 
 import Account from '../pages/website/account/index';
 
@@ -64,13 +66,15 @@ export default function Navigation() {
           <Route path='/merchant_campaign' element={<MerchantCampaign/>} />
           <Route path='/review_campaign' element={<ReviewCampaign/>} />
           <Route path='/invite_influencer' element={<InviteInfluencer/>} />
-          <Route path='/abmassdors_compaign' element={<AbmassdorsCampaign/>} />
+          <Route path='/ambassdors_compaign' element={<AbmassdorsCampaign/>} />
           <Route path='/campaignDashboard' element={<CampaignDashboard/>} />
           <Route path='/bogo_directory' element={<BogoDirectory/>} />
           <Route path='/voucherDetails' element={<VoucherDetails/>} />
           <Route path='/redemtionHisory' element={<RedemtionHisory/>} />
           <Route path='/userRegistration' element={<UserRegistration/>} />
           <Route path='/userRegComplete' element={<UserRegComplete/>} />
+          <Route path='/otpForgetPassword' element={<OtpForgetPassword/>} />
+          <Route path='/newPassword' element={<ResetPassword/>} />
           <Route path='/account' element={<Account/>} />
         </Routes>
   )

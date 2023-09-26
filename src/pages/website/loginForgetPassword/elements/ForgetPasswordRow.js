@@ -14,7 +14,7 @@ const ForgetPasswordRow = () => {
 
           <div className="col-12">
             <div className="user_login_btn-box">
-              <Link to="/website/pages/forget_password_Otp" className="user_login_btn btn">Submit</Link>
+              <Link to="/otpForgetPassword" className="user_login_btn btn">Submit</Link>
             </div>
           </div>
 

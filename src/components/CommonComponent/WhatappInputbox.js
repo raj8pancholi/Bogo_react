@@ -12,7 +12,7 @@ const WhatappInputbox = () => {
   return (
     <div className="input-box">
       {/* Using the PhoneInput component */}
-      <label>WhatsApp Number</label>
+      <label className='mt-2'>WhatsApp Number</label>
       <PhoneInput
         country={'ae'}
         value={phone}

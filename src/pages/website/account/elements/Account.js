@@ -163,7 +163,7 @@ function AccountPageBody() {
                                                     </div>
                                                     <div className="input-group">
                                                         <span className="input-group-text" style={{ height: "50px" }}><img src="/images/visa-icon.png" alt="" className="img-fluid" /></span>
-                                                        <input type="text" className="form-control" placeholder="**7872" required />
+                                                        <input type="number" className="form-control" placeholder="**7872" required />
                                                     </div>
 
                                                     <div className="subscription-row">
