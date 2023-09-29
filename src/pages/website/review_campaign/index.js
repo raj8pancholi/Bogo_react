@@ -35,7 +35,7 @@ export default function ReviewCampaign() {
                     <div className='row'>
                         <div className='col-12'>
                             <div className='backToEdit'>
-                                <i class="fa-solid fa-angle-left"></i>
+                                <i className="fa-solid fa-angle-left"></i>
                                 <Link to='/merchant_campaign'>Back to Edit</Link>
                             </div>
                         </div>

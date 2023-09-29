@@ -33,12 +33,12 @@ export default function index() {
 
 
           {/* campaingn body section */}
-          <div class="campaing-body-section">
-            <div class="container">
+          <div className="campaing-body-section">
+            <div className="container">
               {/* <!-- Title --> */}
-              <div class="compaing-body-title">
+              <div className="compaing-body-title">
                 <h3>CREATE NEW CAMPAIGN</h3>
-                <h4 class="offer-text">CHOOSE OFFER TYPE</h4>
+                <h4 className="offer-text">CHOOSE OFFER TYPE</h4>
               </div>
 
 

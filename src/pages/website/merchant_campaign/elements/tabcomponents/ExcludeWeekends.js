@@ -13,7 +13,7 @@ export default function ExcludeWeekends() {
       <div className="offday_row">
         <label htmlFor="">Customize Timing</label>
         <div className='switchBox'>
-          <span> <i class="fa-regular fa-gem" style={{position:'inherit', color:'#F1C62E'}}></i> Gold Feature</span>
+          <span> <i className="fa-regular fa-gem" style={{position:'inherit', color:'#F1C62E'}}></i> Gold Feature</span>
           <label className="switch">
             <input
               type="checkbox"

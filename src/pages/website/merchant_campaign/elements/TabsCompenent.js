@@ -268,8 +268,8 @@ export default function TabsCompenent() {
           <div className=''>
             <ComparerOffer/> 
             <div className="tab-pane active" id="tabs-1" role="tabpanel">
-                  <div class="offer_form_section1">
-                      <form method="" action="" class=" offer_input_box offer_input_box1">
+                  <div className="offer_form_section1">
+                      <form method="" action="" className=" offer_input_box offer_input_box1">
 
                           <InputBoxComponent label="What should they buy?" type="text" id="" name="" value="" required="required" placeholder="Example: Sushi Platter" />
 
@@ -315,8 +315,8 @@ export default function TabsCompenent() {
 
                           <ExcludeWeekends />
 
-                          <div class="row">
-                              <h4 class="modificatin-notification">
+                          <div className="row">
+                              <h4 className="modificatin-notification">
                                   Campaign modifications take 24 hours to take effect.
                               </h4>
                           </div>
@@ -330,13 +330,13 @@ export default function TabsCompenent() {
                               <span style={{color: "#F1C62E"}}> <i className="fa-regular fa-gem" style={{position: "inherit", color: "#F1C62E"}}></i> Gold Feature</span>
                             </div>
                             
-                            <input type="text" name="" id="" placeholder="example:500" class="form-control" required="" value={inputValue} onChange={handleInputChange} />
+                            <input type="text" name="" id="" placeholder="example:500" className="form-control" required="" value={inputValue} onChange={handleInputChange} />
                           </div>
 
 
-                          <div class="row review_submit_btn_row">
-                              <div class="next-btn-box review_submit_btn_box tab-pane active" >
-                                  <button type="button" class="btn btn-primary btnNext review_submit_btn">
+                          <div className="row review_submit_btn_row">
+                              <div className="next-btn-box review_submit_btn_box tab-pane active" >
+                                  <button type="button" className="btn btn-primary btnNext review_submit_btn">
                                       <Link to="/review_campaign">Review and Submit</Link>
                                   </button>
                               </div>
@@ -357,8 +357,8 @@ export default function TabsCompenent() {
     {selectedTab === 2 && (
       <div className=''>
             <ComparerOffer/>         
-            <div class="offer_form_section1">
-                <form method="" action="" class=" offer_input_box offer_input_box1">
+            <div className="offer_form_section1">
+                <form method="" action="" className=" offer_input_box offer_input_box1">
 
                     <InputBoxComponent label="What should they buy?" type="text" id="" name="" value="" required="required" placeholder="Example: Sushi Platter" />
 
@@ -401,8 +401,8 @@ export default function TabsCompenent() {
 
                     <ExcludeWeekends/>
 
-                    <div class="row">
-                        <h4 class="modificatin-notification">
+                    <div className="row">
+                        <h4 className="modificatin-notification">
                             Campaign modifications take 24 hours to take effect.
                         </h4>
                     </div>
@@ -418,13 +418,13 @@ export default function TabsCompenent() {
                         <span style={{color: "#F1C62E"}}> <i className="fa-regular fa-gem" style={{position: "inherit", color: "#F1C62E"}}></i> Gold Feature</span>
                       </div>
                       
-                      <input type="text" name="" id="" placeholder="example:500" class="form-control" required="" value={inputValue} onChange={handleInputChange}/>
+                      <input type="text" name="" id="" placeholder="example:500" className="form-control" required="" value={inputValue} onChange={handleInputChange}/>
                     </div>
 
 
-                    <div class="row review_submit_btn_row">
-                        <div class="next-btn-box review_submit_btn_box tab-pane active" >
-                            <button type="button" class="btn btn-primary btnNext review_submit_btn">
+                    <div className="row review_submit_btn_row">
+                        <div className="next-btn-box review_submit_btn_box tab-pane active" >
+                            <button type="button" className="btn btn-primary btnNext review_submit_btn">
                                 <Link to="/review_campaign">Review and Submit</Link>
                             </button>
                         </div>
@@ -442,8 +442,8 @@ export default function TabsCompenent() {
     {selectedTab === 3 && (
       <div className=''>
           <ComparerOffer/> 
-          <div class="offer_form_section1">
-            <form method="" action="" class=" offer_input_box offer_input_box1">
+          <div className="offer_form_section1">
+            <form method="" action="" className=" offer_input_box offer_input_box1">
 
                 <InputBoxComponent label="What should they buy?" type="text" id="" name="" value="" required="required" placeholder="Example: Sushi Platter" />
 
@@ -486,8 +486,8 @@ export default function TabsCompenent() {
 
                 <ExcludeWeekends/>
 
-                <div class="row">
-                    <h4 class="modificatin-notification">
+                <div className="row">
+                    <h4 className="modificatin-notification">
                         Campaign modifications take 24 hours to take effect.
                     </h4>
                 </div>
@@ -501,13 +501,13 @@ export default function TabsCompenent() {
                     <span style={{color: "#F1C62E"}}> <i className="fa-regular fa-gem" style={{position: "inherit", color: "#F1C62E"}}></i> Gold Feature</span>
                   </div>
                   
-                  <input type="text" name="" id="" placeholder="example:500" class="form-control" required="" value={inputValue} onChange={handleInputChange}/>
+                  <input type="text" name="" id="" placeholder="example:500" className="form-control" required="" value={inputValue} onChange={handleInputChange}/>
                 </div>
 
 
-                <div class="row review_submit_btn_row">
-                    <div class="next-btn-box review_submit_btn_box tab-pane active" >
-                        <button type="button" class="btn btn-primary btnNext review_submit_btn">
+                <div className="row review_submit_btn_row">
+                    <div className="next-btn-box review_submit_btn_box tab-pane active" >
+                        <button type="button" className="btn btn-primary btnNext review_submit_btn">
                             <Link to="/review_campaign">Review and Submit</Link>
                         </button>
                     </div>

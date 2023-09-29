@@ -45,7 +45,7 @@ export default function Header1() {
             </button>
             <ul className="dropdown-menu" aria-labelledby="defaultDropdown">
               <li>
-                <i class="fa-brands fa-windows"></i>
+                <i className="fa-brands fa-windows"></i>
                 <Link className="dropdown-item" to="/dashboard">Dashboard</Link>
               </li>
               <li>
@@ -57,7 +57,7 @@ export default function Header1() {
                 <Link className="dropdown-item" to="/ambassdors_compaign">Create Brand Ambassador</Link>
               </li>
               <li>
-              <i class="fa-solid fa-pen"></i>
+              <i className="fa-solid fa-pen"></i>
                 <Link className="dropdown-item" to="/voucherDetails">Manage  Business Profile</Link>
               </li>
               <li>
@@ -65,12 +65,12 @@ export default function Header1() {
                 <Link className="dropdown-item" to="/campaignDashboard">Campaigns</Link>
               </li>
               <li>
-                {/* <img src="/website/images/shop.png" alt="" class="img-fluid" /> */}
+                {/* <img src="/website/images/shop.png" alt="" className="img-fluid" /> */}
                 <i className="fa-solid fa-code-branch" />
                 <Link className="dropdown-item" to="/merchant_register">Add  Branch</Link>
               </li>
               <li>
-                {/* <img src="/website/images/shop.png" alt="" class="img-fluid" /> */}
+                {/* <img src="/website/images/shop.png" alt="" className="img-fluid" /> */}
                 <i className="fa-solid fa-gear" />
                 <Link className="dropdown-item" to="/account">Account</Link>
               </li>

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Header from '../../../partials/header/Header';
 import Footer from '../../../partials/footer/Footer';
 import PasswordInput from './elements/PasswordInput';
 import InputText from './elements/InputText';
-import MobileInput from './../../../components/CommonComponent/MobileInputbox';
+// import MobileInput from './../../../components/CommonComponent/MobileInputbox';
 import 'react-phone-input-2/lib/style.css';
 import PhoneInput from 'react-phone-input-2'; 
 import { connect } from 'react-redux';
@@ -19,7 +19,7 @@ signup=()=>{
   const  {firstName, lastName, email, password, repeatpassword, phone, whatsaAppNo } = this.state
   if(!firstName || !lastName || !email || !password|| !repeatpassword|| !phone) this.setState({error:true})
   else{
-    if(password == repeatpassword){
+    if(password === repeatpassword){
        const obj ={ firstName, lastName, email, password, repeatpassword, phone } 
        this.props.MERCHANT_SIGNUP(obj)
        this.props.navigate('/otpVerify')
