@@ -146,7 +146,7 @@ export default function VerifyOtpForm({ id }) {
   const handleOtpVerification = async (e) => {
     e.preventDefault();
 
-    const email = 'himanshusaini8741@gmail.com';
+    const email = 'sanjaychhipa786@gmail.com';
     const isReset = true;
 
     try {
@@ -163,7 +163,9 @@ export default function VerifyOtpForm({ id }) {
         setVerificationError(veriToken.msg);
       } else {
         console.log('OTP verification Token:', veriToken);
-        history(`/newPassword/${veriToken}`);
+        let tokenValue = JSON.stringify(veriToken);
+        history(`/newPassword/${tokenValue}`);
+      
         
         // history('/newPassword', { state: { veriToken } });
       }

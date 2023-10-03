@@ -161,13 +161,14 @@
 
 
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom'; // Import useParams to access route parameters
+import { useParams ,useNavigate} from 'react-router-dom'; // Import useParams to access route parameters
 import { useDispatch } from 'react-redux';
 import { MERCHANT_RESET_PASSWORD } from '../../../../redux/slices/merchantAuthSlice';
 
 const ResetNewPassword = () => {
-  const { veriToken } = useParams(); // Access veriToken from route parameters
-  
+  const { token: veriToken } = useParams(); // Access veriToken from route parameters
+  const history = useNavigate();
+  console.log('VeriToken in resetpassword:', veriToken);
   const dispatch = useDispatch();
 
   const [newPassword, setNewPassword] = useState('');
@@ -181,6 +182,7 @@ const ResetNewPassword = () => {
     e.preventDefault();
 
     try {
+      console.log('new password' + newPassword);
       const response = await dispatch(
         MERCHANT_RESET_PASSWORD({ newPassword, token: veriToken })
       );
@@ -189,6 +191,7 @@ const ResetNewPassword = () => {
       if (response.payload.msg === 'Password reset successfully') {
         // Redirect to the dashboard or another appropriate route upon success
         // You may need to use useHistory for this.
+        history('/dashboard');
       }
     } catch (error) {
       setResetPasswordError(error.message);

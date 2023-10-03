@@ -271,7 +271,10 @@ export default function TabsCompenent() {
                   <div className="offer_form_section1">
                       <form method="" action="" className=" offer_input_box offer_input_box1">
 
-                          <InputBoxComponent label="What should they buy?" type="text" id="" name="" value="" required="required" placeholder="Example: Sushi Platter" />
+                          <InputBoxComponent label="What should they buy?" type="text" id="" name="" value=""
+                          required="required" 
+                          placeholder="Example: Sushi Platter" 
+                          />
 
                           <InputBoxComponent label="What will they get?" type="text" id="" name="" value="" required="required" placeholder="AED" />
 

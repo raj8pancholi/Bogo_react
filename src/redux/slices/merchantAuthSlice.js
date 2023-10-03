@@ -69,7 +69,6 @@ export const MERCHANT_RESET_PASSWORD = createAsyncThunk(
   'merchant/MERCHANT_RESET_PASSWORD',
   async (data) => {
       try {
-
         const res = await ResetPassword(data);
         return res.data;
         
