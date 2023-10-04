@@ -22,13 +22,12 @@ const MerchantNavTabs = () => {
   }, [dispatch, categories]);
 
   const handleCategoryClick = async(categoryId) => {
-    setActiveCategory(categoryId);
-    console.log("categoryId....", categoryId);
+    setActiveCategory(categoryId); 
 
     try {
       await dispatch(fetchSubcategory(categoryId)); 
     } catch (error) {
-      console.error('Error fetching subcategoriessssss', error);
+      console.error('Error fetching subcategorie', error);
     }
   };
 
