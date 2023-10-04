@@ -25,7 +25,7 @@ const BusinessFormMainSection = () => {
   const [banner ,setBanner] = useState('')
   const [gallery ,setGallery] = useState('')
 
-  const [sundayState, setSundayState] = useState({ status: true, openTime: '', closeTime: '', });
+  const [sundayState, setSundayState] = useState({ status: false, openTime: '', closeTime: '', });
   const [mondayState, setMondayState] = useState({ status: false, openTime: '', closeTime: '', });
   const [tuesdayState, setTuesdayState] = useState({ status: false, openTime: '', closeTime: '', });
   const [wednesdayState, setWednesdayState] = useState({ status: false, openTime: '', closeTime: '', });
@@ -386,7 +386,7 @@ const BusinessFormMainSection = () => {
 
                 </div>
 
-                <BusinessFormHoursSection  daysState ={ daysState }/>
+                <BusinessFormHoursSection  daysState ={ daysState } setWhatsappNo={setWhatsappNo}/>
 
                 {/* Privacy Policy */}
                 <PrivacyPolicy/>

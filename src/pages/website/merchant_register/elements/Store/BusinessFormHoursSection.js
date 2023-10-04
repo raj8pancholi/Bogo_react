@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import WhatappInputbox from '../../../../../components/CommonComponent/WhatappInputbox';
 
 export default function BusinessFormHoursSection(props) {
-    const { daysState } = props; 
+    const { daysState , setWhatsappNo } = props; 
 
     const sundayState = daysState.sunday.state;
     const updateSunday = daysState.sunday.update; 
@@ -85,7 +85,7 @@ export default function BusinessFormHoursSection(props) {
                         To
                         </div>
                         <div className="col-5 pr-0">
-                        <input type="time" className="form-control" name="monday_to" placeholder="10:30 PM" onChange={(e)=> updateMonday(mondayState.status, e.target.value, mondayState.closeTime )}/>
+                        <input type="time" className="form-control" name="monday_to" placeholder="10:30 PM" onChange={(e)=> updateMonday(mondayState.status,  mondayState.openTime ,e.target.value )}/>
                         </div>
                     </div>
                 </div>
@@ -112,13 +112,13 @@ export default function BusinessFormHoursSection(props) {
                 <div className="hour-box hour-box3">
                     <div className="row">
                     <div className="col-5">
-                        <input type="time" className="form-control" name="tuesday_from" placeholder="7:00 AM"/>
+                        <input type="time" className="form-control" name="tuesday_from" placeholder="7:00 AM"  onChange={(e)=> updateTuesday(tuesdayState.status, e.target.value, tuesdayState.closeTime )}/>
                     </div>
                     <div className="col-2 text-center to-text">
                         To
                     </div>
                     <div className="col-5 pr-0">
-                        <input type="time" className="form-control" name="tuesday_to" placeholder="10:30 PM"/>
+                        <input type="time" className="form-control" name="tuesday_to" placeholder="10:30 PM"  onChange={(e)=> updateTuesday(tuesdayState.status, tuesdayState.openTime, e.target.value)}/>
                     </div>
                     </div>
                 </div>
@@ -147,13 +147,13 @@ export default function BusinessFormHoursSection(props) {
                 <div className="hour-box hour-box4">
                     <div className="row">
                         <div className="col-5">
-                            <input type="time" className="form-control" name="wednesday_from" placeholder="7:00 AM"/>
+                            <input type="time" className="form-control" name="wednesday_from" placeholder="7:00 AM"  onChange={(e)=> updateWednesday(wednesdayState.status, e.target.value, wednesdayState.closeTime )}/>
                         </div>
                         <div className="col-2 text-center to-text">
                             To
                         </div>
                         <div className="col-5 pr-0">
-                            <input type="time" className="form-control" name="wednesday_to" placeholder="10:30 PM"/>
+                            <input type="time" className="form-control" name="wednesday_to" placeholder="10:30 PM"  onChange={(e)=> updateWednesday(wednesdayState.status, wednesdayState.openTime, e.target.value )}/>
                         </div>
                     </div>
                 </div>
@@ -178,13 +178,13 @@ export default function BusinessFormHoursSection(props) {
                 <div className="hour-box hour-box5">
                     <div className="row">
                         <div className="col-5">
-                            <input type="time" className="form-control" name="thursday_from" placeholder="7:00 AM"/>
+                            <input type="time" className="form-control" name="thursday_from" placeholder="7:00 AM"  onChange={(e)=> updateThursday(thursdayState.status, e.target.value, thursdayState.closeTime )}/>
                         </div>
                         <div className="col-2 text-center to-text">
                             To
                         </div>
                         <div className="col-5 pr-0">
-                            <input type="time" className="form-control" name="thursday_to" placeholder="10:30 PM" />
+                            <input type="time" className="form-control" name="thursday_to" placeholder="10:30 PM"  onChange={(e)=> updateThursday(thursdayState.status, thursdayState.openTime, e.target.value )}/>
                         </div>
                     </div>
                 </div>
@@ -210,13 +210,13 @@ export default function BusinessFormHoursSection(props) {
                 <div className="hour-box hour-box6">
                     <div className="row">
                     <div className="col-5">
-                        <input type="time" className="form-control" name="friday_from" placeholder="7:00 AM"/>
+                        <input type="time" className="form-control" name="friday_from" placeholder="7:00 AM"  onChange={(e)=> updateFriday(fridayState.status, e.target.value, fridayState.closeTime )}/>
                     </div>
                     <div className="col-2 text-center to-text">
                         To
                     </div>
                     <div className="col-5 pr-0">
-                        <input type="time" className="form-control" name="friday_to" placeholder="10:30 PM"/>
+                        <input type="time" className="form-control" name="friday_to" placeholder="10:30 PM"  onChange={(e)=> updateFriday(fridayState.status, fridayState.openTime,  e.target.value )}/>
                     </div>
                     </div>
                 </div>
@@ -244,13 +244,13 @@ export default function BusinessFormHoursSection(props) {
                 <div className="hour-box hour-box7">
                     <div className="row">
                         <div className="col-5">
-                            <input type="time" className="form-control" name="saturday_from" placeholder="7:00 AM"/>
+                            <input type="time" className="form-control" name="saturday_from" placeholder="7:00 AM"  onChange={(e)=> updateSaturday(saturdayState.status, e.target.value, saturdayState.closeTime )}/>
                         </div>
                         <div className="col-2 text-center to-text">
                             To
                         </div>
                         <div className="col-5 pr-0">
-                            <input type="time" className="form-control" name="saturday_to" placeholder="10:30 PM"/>
+                            <input type="time" className="form-control" name="saturday_to" placeholder="10:30 PM"  onChange={(e)=> updateSaturday(saturdayState.status  , saturdayState.openTime , e.target.value )}/>
                         </div>
                     </div>
                 </div>
@@ -273,7 +273,7 @@ export default function BusinessFormHoursSection(props) {
       </div>
 
       <div className="col-md-4 order-sm-2 col-lg-4 col-sm-12 whatapp_row ">
-               <WhatappInputbox/>
+               <WhatappInputbox setWhatsappNo={setWhatsappNo}/>
       </div>
 
       <div className="col-md-4 order-sm-3 col-lg-4 col-sm-12  black-div ">
