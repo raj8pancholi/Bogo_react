@@ -7,42 +7,67 @@ import PrivacyPolicy from './Store/PrivacyPolicy';
 import Integration from './Integration/Integration';
 import { useDispatch, useSelector } from 'react-redux'; 
 import { fetchSubcategory } from '../../../../redux/slices/subCategorySlice';
+import { UpdateBusinessInfo } from '../../../../redux/slices/businessInfoSlice';
 
 
 
 const BusinessFormMainSection = () => {
+  
+  const [bName ,setBName] = useState('')
+  const [address ,setAddress] = useState('')
+  const [country ,setCountry] = useState('')
+  const [pin ,setPin] = useState('')
+  const [state ,setState] = useState('')
+  const [categoryId ,setCategoryId] = useState('')
+  const [subCategoryId ,setSubCategoryId] = useState('')
+  const [whatsappNo ,setWhatsappNo] = useState('')
+  const [logo ,setLogo] = useState('')
+  const [banner ,setBanner] = useState('')
+  const [gallery ,setGallery] = useState('')
 
+  const [sundayState, setSundayState] = useState({ status: false, openTime: '', closeTime: '', });
+  const [mondayState, setMondayState] = useState({ status: false, openTime: '', closeTime: '', });
+  const [tuesdayState, setTuesdayState] = useState({ status: false, openTime: '', closeTime: '', });
+  const [wednesdayState, setWednesdayState] = useState({ status: false, openTime: '', closeTime: '', });
+  const [thursdayState, setThursdayState] = useState({ status: false, openTime: '', closeTime: '', });
+  const [fridayState, setFridayState] = useState({ status: false, openTime: '', closeTime: '', });
+  const [saturdayState, setSaturdayState] = useState({ status: false, openTime: '', closeTime: '', });
+
+  const updateSunday = (act, ot, Ct) => {console.log("helooo", act, ot, Ct) ; setSundayState({ ...sundayState, status: act, openTime: ot, closeTime: Ct, }) };
+  const updateMonday = (act, ot, Ct) => { setMondayState({ ...mondayState, status: act, openTime: ot, closeTime: Ct, }) };
+  const updateTuesday = (act, ot, Ct) => { setTuesdayState({ ...tuesdayState, status: act, openTime: ot, closeTime: Ct, }) };
+  const updateWednesday = (act, ot, Ct) => { setWednesdayState({ ...wednesdayState, status: act, openTime: ot, closeTime: Ct, }) };
+  const updateThursday = (act, ot, Ct) => { setThursdayState({ ...thursdayState, status: act, openTime: ot, closeTime: Ct, }) };
+  const updateFriday = (act, ot, Ct) => { setFridayState({ ...fridayState, status: act, openTime: ot, closeTime: Ct, }) };
+  const updateSaturday = (act, ot, Ct) => { setSaturdayState({ ...saturdayState, status: act, openTime: ot, closeTime: Ct, }) };
+
+  const daysState = {
+    sunday: { state: sundayState, update: updateSunday },
+    monday: { state: mondayState, update: updateMonday },
+    tuesday: { state: tuesdayState, update: updateTuesday },
+    wednesday: { state: wednesdayState, update: updateWednesday },
+    thursday: { state: thursdayState, update: updateThursday },
+    friday: { state: fridayState, update: updateFriday },
+    saturday: { state: saturdayState, update: updateSaturday },
+  };
   const dispatch = useDispatch();
 
+  const category = useSelector((state) => state.category.categories);
   const selectedSubCategoryId = useSelector((state) => state.subCategory.subcategories);
  
-
-  useEffect(() => {
-    dispatch(fetchSubcategory());
-  }, [dispatch]);
-
-
-
+  
   const [activeTab, setActiveTab] = useState("tabs-1");
 
-  const handleTabSelect = (tabId) => {
-    setActiveTab(tabId);
-  };
 
-
-
-  // Function to handle clicking the "Next" button
+  const handleTabSelect = (tabId) => { setActiveTab(tabId); };
   const handleNextClick = () => {
-    setActiveTab("tabs-2"); // Switch to the "Gallery" tab
-  };
-
-  // Function to handle clicking the "Next" button
-  const handleInterNextClick = () => {
-    setActiveTab("tabs-3"); // Switch to the "Gallery" tab
-  };
-
-
-
+    const obj = {bName , address ,country ,pin ,state ,categoryId ,subCategoryId ,whatsappNo ,logo ,banner , gallery, sundayState , mondayState , tuesdayState , wednesdayState , thursdayState , fridayState , saturdayState }
+    dispatch(UpdateBusinessInfo(obj)) 
+     setActiveTab("tabs-2");
+     }; 
+  const handleInterNextClick = () => { setActiveTab("tabs-3"); };
+ 
+   
 
 
   return (
@@ -55,20 +80,20 @@ const BusinessFormMainSection = () => {
                     <div className="col-md-4 col-sm-12">
                     <div className="input-box">
                         <label  htmlFor="inputname">Business name</label>
-                        <input type="text" name="business_name" id="buss_name" className="form-control" placeholder="Name" required />
+                        <input type="text" value={bName} onChange={e=>setBName(e.target.value)} name="business_name" id="buss_name" className="form-control" placeholder="Name" required />
                     </div>
                     </div>
                     <div className="col-md-4 col-sm-12">
                     <div className="input-box">
                         <label htmlFor="inputAddress">Address</label>
-                        <input type="text" name="address" id="buss_address" className="form-control" placeholder="Address" required />
+                        <input type="text"  value={address} onChange={e=>setAddress(e.target.value)}  name="address" id="buss_address" className="form-control" placeholder="Address" required />
                     </div>
                     </div>
                     <div className="col-md-4 col-sm-12">
 
                             <div className="input-box">
                                 <label htmlFor="inputCountry">Country</label>
-                                <select className="form-control" name="" id="buss_country">
+                                <select className="form-control" name="" id="buss_country" onChange={e=>setCountry(e.target.value)} >
                                 <option value="">Select Country</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
@@ -339,11 +364,9 @@ const BusinessFormMainSection = () => {
 
                         <div className="input-box">
                             <label htmlFor="inputCountry">Category</label>
-                            <select className="form-control" name="country" id="buss_country">
-                                <option value="">Select Country</option>
-                                <option value="Afghanistan">Afghanistan</option>
-                                <option value="Albania">Albania</option>
-                                <option value="Algeria">Algeria</option>
+                            <select className="form-control" name="country" id="buss_country"  onChange={e=>{setCategoryId(e.target.value); dispatch(fetchSubcategory(e.target.value))}} >
+                            <option value="">Select Country</option>
+                              {category?.map(item=> <option  key={item.id} value={item.id}>{item.name}</option>)} 
                         </select>
                         </div>
                     
@@ -353,7 +376,7 @@ const BusinessFormMainSection = () => {
 
                     <div className="input-box">
                       <label htmlFor="inputCountry">Sub Category</label>
-                      <select className="form-control" name="country" id="buss_country">
+                      <select className="form-control" name="country" id="buss_country" onChange={e=>setSubCategoryId(e.target.value)} >
                       {selectedSubCategoryId && selectedSubCategoryId.map((item, index) => (
                           <option key={item.id} value={item.id}>{item.name}</option>
                         ))}
@@ -363,7 +386,7 @@ const BusinessFormMainSection = () => {
 
                 </div>
 
-                <BusinessFormHoursSection/>
+                <BusinessFormHoursSection  daysState ={ daysState } setWhatsappNo={setWhatsappNo}/>
 
                 {/* Privacy Policy */}
                 <PrivacyPolicy/>
@@ -376,7 +399,7 @@ const BusinessFormMainSection = () => {
         </Tab>
         <Tab eventKey="tabs-2" title="Gallery">
           {/* Content for Gallery tab */}
-          <BusinessFormGallerySection onNextClick={handleInterNextClick} />
+          <BusinessFormGallerySection onNextClick={handleInterNextClick} /> 
         </Tab>
         <Tab eventKey="tabs-3" title="Integration">
           {/* Content for Integration tab */}
