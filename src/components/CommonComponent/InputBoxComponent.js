@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 
 const InputBox = ({ label, type, id, name,  required, placeholder }) => {
 
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState();
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);

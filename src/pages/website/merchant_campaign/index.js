@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Import Css
 import './style.css';
@@ -12,7 +12,11 @@ import TabsComponents from './elements/TabsCompenent'; // Correct the import nam
 import CampaignHeader from './elements/CampaignHeader';
 
 export default function Index() { // Renamed to start with an uppercase letter
- 
+  const [inputText, setInputText] = useState('');
+
+  const handleTextChange = (newText) => {
+    setInputText(newText);
+  };
 
   return (
     <>
@@ -21,7 +25,7 @@ export default function Index() { // Renamed to start with an uppercase letter
 
       <div className="campaign-header">
         <div className="container">
-          <CampaignHeader  />
+          <CampaignHeader text={inputText} />
         </div>
       </div>
 
@@ -36,7 +40,7 @@ export default function Index() { // Renamed to start with an uppercase letter
 
           {/* offer type */}
           <div className="offer-row">
-            <TabsComponents  /> {/* Correct the component name here */}
+            <TabsComponents onTextChange={handleTextChange} /> {/* Correct the component name here */}
           </div>
         </div>
       </div>
