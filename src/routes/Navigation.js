@@ -74,7 +74,7 @@ export default function Navigation() {
           <Route path='/userRegistration' element={<UserRegistration/>} />
           <Route path='/userRegComplete' element={<UserRegComplete/>} />
           <Route path='/otpForgetPassword' element={<OtpForgetPassword/>} />
-          <Route path='/newPassword' element={<ResetPassword/>} />
+          <Route path='/newPassword/:token' element={<ResetPassword/>} />
           <Route path='/account' element={<Account/>} />
         </Routes>
   )

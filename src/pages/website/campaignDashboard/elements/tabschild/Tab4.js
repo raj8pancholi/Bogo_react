@@ -39,13 +39,13 @@ export default function Tab4() {
                                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                         <li>
                                         <Link className="dropdown-item" to="/merchant_campaign">
-                                            <i class="fa-solid fa-pencil mr-1"></i>
+                                            <i className="fa-solid fa-pencil mr-1"></i>
                                             Edit Application
                                         </Link>
                                         </li>
                                         <li>
                                         <Link className="dropdown-item" to="/">
-                                            <i class="fa-regular fa-circle-xmark mr-1"></i>
+                                            <i className="fa-regular fa-circle-xmark mr-1"></i>
                                             Close This Campaign
                                         </Link>
                                         </li>
@@ -91,13 +91,13 @@ export default function Tab4() {
                                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                         <li>
                                         <Link className="dropdown-item" to="/merchant_campaign">
-                                            <i class="fa-solid fa-pencil mr-1"></i>
+                                            <i className="fa-solid fa-pencil mr-1"></i>
                                             Edit Application
                                         </Link>
                                         </li>
                                         <li>
                                         <Link className="dropdown-item" to="/">
-                                            <i class="fa-regular fa-circle-xmark mr-1"></i>
+                                            <i className="fa-regular fa-circle-xmark mr-1"></i>
                                             Close This Campaign
                                         </Link>
                                         </li>

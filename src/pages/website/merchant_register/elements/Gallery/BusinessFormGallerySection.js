@@ -117,29 +117,7 @@ const submitGallery=()=>{
         <div className="col-md-12 py-4 text-end">
           <div className="form_gallery_main_section upload-banner-img">
             <h3>Gallery Image</h3>
-            {/* <div id="upload-button">
-              <img
-                src="/images/gallery_img.png"
-                alt="Upload"
-                className="profile-pic img-fluid"
-              />
-              <div className="upload__box">
-                <div className="upload__img-wrap"></div>
-                <div className="upload__btn-box">
-                  <label className="upload__btn">
-                    <p>
-                      <span>Upload images</span>
-                    </p>
-                    <input
-                      type="file"
-                      multiple=""
-                      data-max_length="20"
-                      className="upload__inputfile"
-                    />
-                  </label>
-                </div>
-              </div>
-            </div> */}
+            
             {selectedImages.length > 0 ? (
                 <div style={{ border: '2px dashed #cccccc', minHeight: '60px', width: '100%' ,borderRadius:'5px'}}>
 

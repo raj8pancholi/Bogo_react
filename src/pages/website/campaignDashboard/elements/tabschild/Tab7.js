@@ -39,17 +39,17 @@ export default function Tab4() {
                                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                         <li>
                                         <Link className="dropdown-item" to="/invite_influencer">
-                                           <i class="fa-solid fa-eye mr-1"></i>
+                                           <i className="fa-solid fa-eye mr-1"></i>
                                             Review Applications
                                         </Link>
                                         </li>
                                         <li>
                                         <Link className="dropdown-item" to="/abmassdors_compaign">
-                                            <i class="fa-solid fa-pencil mr-1"></i>
+                                            <i className="fa-solid fa-pencil mr-1"></i>
                                             Edit Application
                                         </Link>
                                         <Link className="dropdown-item" >
-                                            <i class="fa-regular fa-circle-xmark mr-1"></i>
+                                            <i className="fa-regular fa-circle-xmark mr-1"></i>
                                             Close This Campaign
                                         </Link>
                                         </li>
@@ -95,17 +95,17 @@ export default function Tab4() {
                                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                         <li>
                                         <Link className="dropdown-item" to="/invite_influencer">
-                                           <i class="fa-solid fa-eye mr-1"></i>
+                                           <i className="fa-solid fa-eye mr-1"></i>
                                             Review Applications
                                         </Link>
                                         </li>
                                         <li>
                                         <Link className="dropdown-item" to="/abmassdors_compaign">
-                                            <i class="fa-solid fa-pencil mr-1"></i>
+                                            <i className="fa-solid fa-pencil mr-1"></i>
                                             Edit Application
                                         </Link>
                                         <Link className="dropdown-item" >
-                                            <i class="fa-regular fa-circle-xmark mr-1"></i>
+                                            <i className="fa-regular fa-circle-xmark mr-1"></i>
                                             Close This Campaign
                                         </Link>
                                         </li>
