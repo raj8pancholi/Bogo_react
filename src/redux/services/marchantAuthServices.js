@@ -7,3 +7,8 @@ export const CreateMerchant = data => {
   export const LoginMerchant = data => {
     return HttpClient.post("/merchant/login", data);
   };
+
+
+  export const BusinessMerchant = data => {
+    return HttpClient.post("/merchant/business", data);
+  };
