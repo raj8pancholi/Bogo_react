@@ -61,10 +61,14 @@ const BusinessFormMainSection = () => {
 
   const handleTabSelect = (tabId) => { setActiveTab(tabId); };
   const handleNextClick = () => {
+
     const obj = {bName , address ,country ,pin ,state ,categoryId ,subCategoryId ,whatsappNo , sundayState , mondayState , tuesdayState , wednesdayState , thursdayState , fridayState , saturdayState }
+
     dispatch(UpdateBusinessInfo(obj)) 
      setActiveTab("tabs-2");
      }; 
+
+
   const handleInterNextClick = () => { setActiveTab("tabs-3"); };
  
    
@@ -386,7 +390,7 @@ const BusinessFormMainSection = () => {
 
                 </div>
 
-                <BusinessFormHoursSection  daysState ={ daysState } setWhatsappNo={setWhatsappNo}/>
+                <BusinessFormHoursSection  daysState ={daysState} setWhatsappNo={setWhatsappNo}/>
 
                 {/* Privacy Policy */}
                 <PrivacyPolicy/>
