@@ -6,7 +6,7 @@ import { MERCHANT_REQUEST_OTP } from '../../../../redux/slices/merchantAuthSlice
 const ForgetPasswordRow = () => {
 
   const [error, setError] = useState('');
-  // const [pending, setPending] = useState('');
+  const [pending, setPending] = useState(false);
   const [email, setEmail] = useState('');
 
   const handleEmailChange = (e) => {
@@ -28,7 +28,13 @@ const ForgetPasswordRow = () => {
 
         console.log('response.payload.msg:', response.status);
 
+       
+        if(response.status === "pending"){
+          setPending(true);
+        }
+
         if( response.payload === 'OTP Sent to your Email Address!' ){
+      
           history('/otpForgetPassword')
         }else{
           setError(response.payload.msg);
@@ -59,7 +65,11 @@ const ForgetPasswordRow = () => {
               <button className="user_login_btn btn"
                onClick={handleRequestOTP}>
 
-               Submit</button>
+               {/* if response status show pendding then submit button text
+               is pending otherwise is submit text  */}
+                {pending ? 'Pending ' : ' Submit'}
+
+               </button>
             </div>
           </div>
 

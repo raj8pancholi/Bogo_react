@@ -112,6 +112,7 @@ const marchantAuthSlice = createSlice({
     },
 
 
+    
     [MERCHANT_SIGNIN.fulfilled]: (state, action) => {
       state.merchantData = action.payload;
       state.loginError = '';

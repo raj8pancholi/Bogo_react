@@ -370,7 +370,6 @@ export default function TabsCompenent(props) {
                     <InputBoxComponent label="What will they get?" type="text" id="" name="" value="" required="required" placeholder="AED" />
 
                     <InputBoxComponent label="Estimated Savings?" type="text" id="" name="" value="" required="required" placeholder="AED" />
-
                    
                     {/* multi selector  */}
                     <div className="row ">
