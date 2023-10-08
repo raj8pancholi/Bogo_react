@@ -8,6 +8,8 @@ export const MERCHANT_SIGNUP = createAsyncThunk(
   async (data) => {
     try {
       const res = await CreateMerchant(data);
+      localStorage.setItem('token', res.data?.tokens.access.token)
+      localStorage.setItem('userID', res.data?.user.id)
       return res.data;
     } catch (error) { 
       if (error.response.status === 401) throw new Error(error.response.data.message)
@@ -23,6 +25,8 @@ export const MERCHANT_SIGNIN = createAsyncThunk(
   try {
     // const res = await RequestOtp(data);
     const res = await LoginMerchant(data);
+    localStorage.setItem('token', res.data?.tokens.access.token)
+    localStorage.setItem('userID', res.data?.user.id)
     return res.data;
   } catch (error) { 
     if (error.response.status === 401) throw new Error(error.response.data.message)

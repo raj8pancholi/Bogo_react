@@ -9,10 +9,7 @@ export const LoginMerchant = data => {
   };
 
 
-  export const BusinessMerchant = data => {
-    return HttpClient.post("/merchant/business", data);
-  };
-
+ 
 export const RequestOtp = data => {
     return HttpClient.post("/merchant/requestOtp", data);
 };
@@ -24,4 +21,20 @@ export const VerifyOtp = data => {
 export const ResetPassword = token  => {
     console.log('token is send by paramsssssssssssssssss:', token);
     return HttpClient.post(`/merchant/reset-password?token=${token}`);
+};
+
+
+export const BusinessMerchant = (data) => {
+  const formData = new FormData();
+  const token = localStorage.getItem('token')
+  for (const key in data) {
+    formData.append(key, data[key]);
+  }
+  
+  const headers = {
+    'Content-Type': 'multipart/form-data',
+    'Authorization': `Bearer ${token}`
+  };
+
+  return HttpClient.post("/merchant/business", formData, { headers });
 };

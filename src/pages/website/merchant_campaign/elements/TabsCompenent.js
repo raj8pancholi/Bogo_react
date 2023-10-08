@@ -19,7 +19,8 @@ import TextAreaLabel from '../../../../components/CommonComponent/TextAreaLabel'
 
 
 
-export default function TabsCompenent() {
+export default function TabsCompenent(props) {
+  const {buy, setBuy, get, setGet} = props
 
   const [inputValue, setInputValue] = useState('');
 
@@ -271,12 +272,13 @@ export default function TabsCompenent() {
                   <div className="offer_form_section1">
                       <form method="" action="" className=" offer_input_box offer_input_box1">
 
-                          <InputBoxComponent label="What should they buy?" type="text" id="" name="" value=""
+                          <InputBoxComponent label="What should they buy?" type="text" id="" name="" value={buy}
                           required="required" 
                           placeholder="Example: Sushi Platter" 
+                         getValue={setBuy}
                           />
 
-                          <InputBoxComponent label="What will they get?" type="text" id="" name="" value="" required="required" placeholder="AED" />
+                          <InputBoxComponent label="What will they get?" type="text" id="" name="" value={get} required="required" placeholder="AED" getValue={setGet} />
 
                           <InputBoxComponent label="Estimated Savings?" type="text" id="" name="" value="" required="required" placeholder="AED" />
 
