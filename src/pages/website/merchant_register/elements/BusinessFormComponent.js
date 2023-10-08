@@ -61,8 +61,9 @@ const BusinessFormMainSection = () => {
 
   const handleTabSelect = (tabId) => { setActiveTab(tabId); };
   const handleNextClick = () => {
-    const obj = {bName , address ,country ,pin ,state ,categoryId ,subCategoryId ,whatsappNo ,logo ,banner , gallery, sundayState , mondayState , tuesdayState , wednesdayState , thursdayState , fridayState , saturdayState }
-    console.log(obj);
+
+    const obj = {bName , address ,country ,pin ,state ,categoryId ,subCategoryId ,whatsappNo , sundayState , mondayState , tuesdayState , wednesdayState , thursdayState , fridayState , saturdayState }
+
     dispatch(UpdateBusinessInfo(obj)) 
      setActiveTab("tabs-2");
      }; 

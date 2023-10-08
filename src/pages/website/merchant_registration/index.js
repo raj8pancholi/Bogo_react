@@ -8,7 +8,8 @@ import InputText from './elements/InputText';
 import 'react-phone-input-2/lib/style.css';
 import PhoneInput from 'react-phone-input-2'; 
 import { connect } from 'react-redux';
-import { MERCHANT_SIGNUP } from '../../../redux/slices/merchantAuthSlice';
+import { MERCHANT_SIGNUP , MERCHANT_BUSINESS } from '../../../redux/slices/merchantAuthSlice'; 
+import { reArrangeObj } from '../../../utils';
 
 
  class index extends Component{
@@ -22,12 +23,39 @@ signup=()=>{
     if(password === repeatpassword){
        const obj ={ firstName, lastName, email, password, repeatpassword, phone } 
        this.props.MERCHANT_SIGNUP(obj)
-       this.props.navigate('/otpVerify')
     }else{
          this.setState({passMatchErr:true})
     }
 }
 }
+
+ 
+
+componentDidUpdate(prevProps, prevState) {
+  if (this.props.merchantAuth.businessApi !== prevProps.merchantAuth.businessApi) {
+    if(this.props.merchantAuth.businessApi){
+      const {businessInfo} = this.props
+      //console.log("convertObject", convertToObject(businessInfo.businessData))
+      const obj ={
+        bName: businessInfo.businessData.bName , 
+        address: businessInfo.businessData.address ,
+        country: businessInfo.businessData.country ,
+        pin: businessInfo.businessData.pin ,
+        state: businessInfo.businessData.state ,
+        categoryId: businessInfo.businessData.categoryId ,
+        subCategoryId: businessInfo.businessData.subCategoryId ,
+        logo: businessInfo.galleryData.logoImage ,
+        banner: businessInfo.galleryData.bannerImage ,
+        gallery: businessInfo.galleryData.selectedImages ,
+        hoursOfOperation: reArrangeObj(businessInfo.businessData) ,
+      }
+      this.props.MERCHANT_BUSINESS(obj)
+      this.props.navigate('/otpVerify')
+    }
+  }
+}
+
+ 
 
 render(){
   const  {firstName, lastName, email, password, repeatpassword, phone, whatsaAppNo , error, passMatchErr} = this.state
@@ -89,11 +117,14 @@ render(){
 const mapStateToProps = state => {
   return {
     appData: state.appData,
+    merchantAuth: state.merchantAuth,
+    businessInfo: state.businessInfo
   }
 }
 const mapDispatchToProps = dispatch => {
   return {
-    MERCHANT_SIGNUP: (data) => dispatch(MERCHANT_SIGNUP(data))
+    MERCHANT_SIGNUP: (data) => dispatch(MERCHANT_SIGNUP(data)),
+    MERCHANT_BUSINESS: (data) => dispatch(MERCHANT_BUSINESS(data))
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(index);

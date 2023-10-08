@@ -2,6 +2,8 @@ import React, {useCallback, useState}  from 'react';
 import { Cancel } from '@mui/icons-material';
 import { useDropzone } from 'react-dropzone';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { UpdateGalleryInfo } from '../../../../../redux/slices/businessInfoSlice';
 
 const BusinessFormGallerySection = ({onNextClick}) => {
 
@@ -68,7 +70,13 @@ const BusinessFormGallerySection = ({onNextClick}) => {
       onDrop,
   });
 
-
+  const dispatch = useDispatch()
+const submitGallery=()=>{
+  const obj = {logoImage, bannerImage, selectedImages}
+  
+  dispatch(UpdateGalleryInfo(obj))
+  onNextClick();
+}
 
 
   return (
@@ -146,10 +154,10 @@ const BusinessFormGallerySection = ({onNextClick}) => {
       <div className="row">
         <div className="col-12 tab-content">
           <div className="next-btn-box tab-pane active" id="tabs-2">
-            <button type="button" className="btn btn-primary btnNext" onClick={onNextClick}>
+            <button type="button" className="btn btn-primary btnNext" onClick={submitGallery}>
               Next
             </button>
-            <span className="btnNext btnNextdiv" onClick={onNextClick}>Skip For Now</span>
+            <span className="btnNext btnNextdiv" onClick={submitGallery}>Skip For Now</span>
           </div>
         </div>
       </div>

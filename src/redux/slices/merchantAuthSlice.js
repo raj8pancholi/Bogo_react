@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import {CreateMerchant, LoginMerchant, VerifyOtp, RequestOtp, ResetPassword}  from "../services/marchantAuthServices";
+import {CreateMerchant,BusinessMerchant , LoginMerchant, VerifyOtp, RequestOtp, ResetPassword}  from "../services/marchantAuthServices";
 
  
 
@@ -32,6 +32,18 @@ export const MERCHANT_SIGNIN = createAsyncThunk(
 );
 
 
+export const MERCHANT_BUSINESS = createAsyncThunk(
+  "merchant/MERCHANT_BUSINESS",
+  async (data) => {
+  try {
+    const res = await BusinessMerchant(data);
+    return res.data;
+  } catch (error) { 
+    if (error.response.status === 401) throw new Error(error.response.data.message)
+    else  throw new Error("An unexpected error occurred"); 
+  }
+}
+);
 
 
 export const MERCHANT_REQUEST_OTP = createAsyncThunk(
@@ -49,6 +61,7 @@ export const MERCHANT_REQUEST_OTP = createAsyncThunk(
 );
 
 
+export const MERCHANT_BUSINESS_SUB = createAsyncThunk( "merchant/MERCHANT_BUSINESS_SUB", () => { return true } );
 
 
 export const MERCHANT_VERIFY_OTP = createAsyncThunk(
@@ -82,12 +95,13 @@ export const MERCHANT_RESET_PASSWORD = createAsyncThunk(
 
 const marchantAuthSlice = createSlice({
   name: 'merchant',
-  initialState: { merchantData: [], signUpError:'', loginError:'' },
+  initialState: { merchantData: [], signUpError:'', loginError:'', businessApi:false },
   reducers: {},
   extraReducers:{
 
     [MERCHANT_SIGNUP.fulfilled]: (state, action) => {
         state.merchantData = action.payload;
+        state.businessApi = true;
     },
     [MERCHANT_SIGNUP.rejected]: (state, action) => {
       state.signUpError = action.error.message;
@@ -103,6 +117,9 @@ const marchantAuthSlice = createSlice({
       state.loginError = action.error.message;
     },
 
+    [MERCHANT_BUSINESS_SUB.fulfilled]: (state, action) => {
+      state.businessApi = true;
+    },
 
     [MERCHANT_VERIFY_OTP.fulfilled]: (state, action) => {
       state.merchantData = action.payload;
