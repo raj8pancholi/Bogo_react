@@ -4937,11 +4937,9 @@ color: #969696;
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 100%;
-  /* or 28px */
-
-
+  overflow-wrap:anywhere;
   color: #000000;
 }
 .voucher_preview_row .buy-box h3, .voucher_preview_row .get-box h3{
@@ -4951,6 +4949,7 @@ color: #969696;
   font-size: 18px;
   line-height: 100%;
   color: #029CAB;
+  overflow-wrap:anywhere;
 }
 /* ============================ Campaign Css Ends ============================= */
 

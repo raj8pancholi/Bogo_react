@@ -50,6 +50,7 @@ const BusinessFormMainSection = () => {
     friday: { state: fridayState, update: updateFriday },
     saturday: { state: saturdayState, update: updateSaturday },
   };
+  
   const dispatch = useDispatch();
 
   const category = useSelector((state) => state.category.categories);
@@ -63,7 +64,8 @@ const BusinessFormMainSection = () => {
   const handleNextClick = () => {
 
     const obj = {bName , address ,country ,pin ,state ,categoryId ,subCategoryId ,whatsappNo , sundayState , mondayState , tuesdayState , wednesdayState , thursdayState , fridayState , saturdayState }
-
+    console.log("obj",obj)
+    
     dispatch(UpdateBusinessInfo(obj)) 
      setActiveTab("tabs-2");
      }; 
@@ -351,7 +353,7 @@ const BusinessFormMainSection = () => {
                     
                     <div className="col-md-4 col-sm-12">
                     <div className="input-box">
-                        <label htmlFor="emirate">Emirate</label>
+                        <label htmlFor="emirate">Emirate/State</label>
                         <select className="form-control" name="country" id="emirate">
                                 <option value="">Emirate</option>
                                 <option value="Abu Dhabi">Abu Dhabi</option>
@@ -369,7 +371,7 @@ const BusinessFormMainSection = () => {
                         <div className="input-box">
                             <label htmlFor="inputCountry">Category</label>
                             <select className="form-control" name="country" id="buss_country"  onChange={e=>{setCategoryId(e.target.value); dispatch(fetchSubcategory(e.target.value))}} >
-                            <option value="">Select Country</option>
+                            <option value="">Select Category</option>
                               {category?.map(item=> <option  key={item.id} value={item.id}>{item.name}</option>)} 
                         </select>
                         </div>
@@ -381,6 +383,7 @@ const BusinessFormMainSection = () => {
                     <div className="input-box">
                       <label htmlFor="inputCountry">Sub Category</label>
                       <select className="form-control" name="country" id="buss_country" onChange={e=>setSubCategoryId(e.target.value)} >
+                      <option value="">Select Subcategory</option>
                       {selectedSubCategoryId && selectedSubCategoryId.map((item, index) => (
                           <option key={item.id} value={item.id}>{item.name}</option>
                         ))}

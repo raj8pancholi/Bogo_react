@@ -12,7 +12,8 @@ import DaysInput from '../elements/tabcomponents/DaysInput.js';
 import ExcludeWeekends from './tabcomponents/ExcludeWeekends';
 import Weekends from '../elements/tabcomponents/Weekends.js';
 import ExcludePublicHolidays from './tabcomponents/ExcludePublicHolidays';
-import TextAreaLabel from '../../../../components/CommonComponent/TextAreaLabel'
+import TextAreaLabel from '../../../../components/CommonComponent/TextAreaLabel';
+import HoursSection from '../elements/tabcomponents/HoursSection.js';
 // import { colors } from 'react-select/dist/declarations/src/theme.js';
 
 
@@ -20,9 +21,18 @@ import TextAreaLabel from '../../../../components/CommonComponent/TextAreaLabel'
 
 
 export default function TabsCompenent(props) {
-  const {buy, setBuy, get, setGet} = props
+  const {buy, setBuy, get, setGet, estSaving, setEstSaving, branch, setBranch,
+    finePrint,setFinePrint, redemption, setRedemption, daysState
+  } = props
+
+
+ 
+
+
+
 
   const [inputValue, setInputValue] = useState('');
+ 
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -203,12 +213,13 @@ export default function TabsCompenent(props) {
     // Active TAb //
 
 
-    const [selectedTab, setSelectedTab] = useState(1);
+  const [selectedTab, setSelectedTab] = useState(1);
 
-    const buttonOption = (id) => {
+  const buttonOption = (id) => {
       setSelectedTab(id);
-    };
-    // select box
+  };
+  
+  // select box
   const colourOptions = [
     { value: 'Marina', label: 'Marina' },
     { value: 'Dhubai', label: 'Dhubai' },
@@ -216,22 +227,34 @@ export default function TabsCompenent(props) {
   ]
 
 
-    const MyComponent = () => (
-      <Select closeMenuOnSelect={false}
-      defaultValue={[colourOptions[4], colourOptions[5]]}
-      isMulti
-      options={colourOptions}
-      styles={{
-      // Add a custom style to set the height of the input
-      control: (provided) => ({
-        ...provided,
-        minHeight: '40px !important',
-        backgroundColor: '#f7f7f7',
-        border: 'none',
-      }),
-    }}
-      />
-    )
+  const MyComponent = () => (
+    <Select closeMenuOnSelect={false}
+    defaultValue={[colourOptions[4], colourOptions[5]]}
+    isMulti
+    value={branch}
+    onChange={setBranch}
+    options={colourOptions}
+    styles={{
+    // Add a custom style to set the height of the input
+    control: (provided) => ({
+      ...provided,
+      minHeight: '40px !important',
+      backgroundColor: '#f7f7f7',
+      border: 'none',
+    }),
+  }}
+    />
+  )
+
+
+
+
+  // custom Hours
+  const [excludeWeekends, setExcludeWeekends] = useState(false);
+
+  const handleSwitchChange = () => {
+    setExcludeWeekends((prevValue) => !prevValue);
+  };
 
 
   return (
@@ -280,7 +303,7 @@ export default function TabsCompenent(props) {
 
                           <InputBoxComponent label="What will they get?" type="text" id="" name="" value={get} required="required" placeholder="AED" getValue={setGet} />
 
-                          <InputBoxComponent label="Estimated Savings?" type="text" id="" name="" value="" required="required" placeholder="AED" />
+                          <InputBoxComponent label="Estimated Savings?" type="text" id="" name="" value={estSaving} required="required" placeholder="AED" getValue={setEstSaving} />
 
                           {/* <SingleSelector id="subcategory" label='Select Branch' /> */}
 
@@ -318,7 +341,31 @@ export default function TabsCompenent(props) {
 
                           <ExcludePublicHolidays/>
 
-                          <ExcludeWeekends />
+                          {/* <ExcludeWeekends /> */}
+                          <div className="row">
+                            <div className="offday_row">
+                              <label htmlFor="">Customize Timing</label>
+                              <div className='switchBox'>
+                                <span> <i className="fa-regular fa-gem" style={{position:'inherit', color:'#F1C62E'}}></i> Gold Feature</span>
+                                <label className="switch">
+                                  <input
+                                    type="checkbox"
+                                    id="switchButton"
+                                    checked={excludeWeekends}
+                                    onChange={handleSwitchChange}
+                                  />
+                                  <span className="slider round"></span>
+                                </label>
+                              </div>
+                              
+                            </div>
+                            {excludeWeekends && (
+                              <div className="exclude_weekends_row" >
+                                <HoursSection daysState={daysState} />
+                              </div>
+                            )}
+                          </div>
+
 
                           <div className="row">
                               <h4 className="modificatin-notification">
@@ -327,7 +374,16 @@ export default function TabsCompenent(props) {
                           </div>
 
 
-                          <TextAreaLabel label='Fine Print' placeholder='' rows='5'/>
+                         
+                          <div className="row fine-print-row">
+                            <label htmlFor="">Fine Print</label>
+                            <div className="fine_print_box">
+                              <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" 
+                              value={finePrint} 
+                              onChange={(e) => setFinePrint(e.target.value)}
+                              placeholder=""></textarea>
+                            </div>
+                          </div>
 
                           <div className="input-box mt-2">
                             <div className='d-flex justify-content-between align-center maxRedemption_group'>
@@ -335,7 +391,7 @@ export default function TabsCompenent(props) {
                               <span style={{color: "#F1C62E"}}> <i className="fa-regular fa-gem" style={{position: "inherit", color: "#F1C62E"}}></i> Gold Feature</span>
                             </div>
                             
-                            <input type="text" name="" id="" placeholder="example:500" className="form-control" required="" value={inputValue} onChange={handleInputChange} />
+                            <input type="number" name="" id="" placeholder="example:500" className="form-control" required="" value={redemption} onChange={(e) => setRedemption(e.target.value)} />
                           </div>
 
 
@@ -365,11 +421,15 @@ export default function TabsCompenent(props) {
             <div className="offer_form_section1">
                 <form method="" action="" className=" offer_input_box offer_input_box1">
 
-                    <InputBoxComponent label="What should they buy?" type="text" id="" name="" value="" required="required" placeholder="Example: Sushi Platter" />
+                    <InputBoxComponent label="What should they buy?" type="text" id="" name="" value={buy}
+                    required="required" 
+                    placeholder="Example: Sushi Platter" 
+                    getValue={setBuy}
+                    />
 
-                    <InputBoxComponent label="What will they get?" type="text" id="" name="" value="" required="required" placeholder="AED" />
+                    <InputBoxComponent label="What will they get?" type="text" id="" name="" value={get} required="required" placeholder="AED" getValue={setGet} />
 
-                    <InputBoxComponent label="Estimated Savings?" type="text" id="" name="" value="" required="required" placeholder="AED" />
+                    <InputBoxComponent label="Estimated Savings?" type="text" id="" name="" value={estSaving} required="required" placeholder="AED" getValue={setEstSaving} />
                    
                     {/* multi selector  */}
                     <div className="row ">
@@ -449,11 +509,15 @@ export default function TabsCompenent(props) {
           <div className="offer_form_section1">
             <form method="" action="" className=" offer_input_box offer_input_box1">
 
-                <InputBoxComponent label="What should they buy?" type="text" id="" name="" value="" required="required" placeholder="Example: Sushi Platter" />
+            <InputBoxComponent label="What should they buy?" type="text" id="" name="" value={buy}
+            required="required" 
+            placeholder="Example: Sushi Platter" 
+            getValue={setBuy}
+            />
 
-                <InputBoxComponent label="What will they get?" type="text" id="" name="" value="" required="required" placeholder="AED" />
+            <InputBoxComponent label="What will they get?" type="text" id="" name="" value={get} required="required" placeholder="AED" getValue={setGet} />
 
-                <InputBoxComponent label="Estimated Savings?" type="text" id="" name="" value="" required="required" placeholder="AED" />
+            <InputBoxComponent label="Estimated Savings?" type="text" id="" name="" value={estSaving} required="required" placeholder="AED" getValue={setEstSaving} />
 
                 
 
