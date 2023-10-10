@@ -69,7 +69,7 @@ export default function HoursSection(props) {
         <label htmlFor="inputhours" className="inputhours">Hours of Operation</label>
         <div className="row ">
             <div className="col-12 day-box day-box1">
-                <span>Sunday </span>
+                <span>Sunday </span> {sundayState.openTime} {sundayState.closeTime}
                 <label className="switch">
                     <input type="checkbox" checked={sundayState.status} onClick={()=> updateSunday(!(sundayState.status), sundayState.openTime, sundayState.closeTime)}  />
                     <span className="slider round"></span>
@@ -82,7 +82,7 @@ export default function HoursSection(props) {
                 <div className="hour-box hour-box1">
                     <div className="row">
                         <div className="col-5">
-                            <input type="time" className="form-control" name="sunday_from" placeholder="7:00 AM" onChange={(e)=> updateSunday(sundayState.status, e.target.value, sundayState.closeTime )}/>
+                            <input type="time" className="form-control" name="sunday_from" value={sundayState.openTime} placeholder="7:00 AM" onChange={(e)=> updateSunday(sundayState.status, e.target.value, sundayState.closeTime )}/>
                         </div>
                         <div className="col-2 text-center to-text">
                         To
@@ -92,7 +92,7 @@ export default function HoursSection(props) {
                             type="time"
                             className="form-control"
                             name="sunday_to"
-                            value={sundayToValue}
+                            value={sundayState.closeTime}
                             placeholder="10:30 PM"
                             onChange={(e) => handleTimeChange(sundayState, e.target.value, false, setSundayToValue)}
                         />

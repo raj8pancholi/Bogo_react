@@ -13,6 +13,7 @@ import CampaignHeader from './elements/CampaignHeader';
 
 export default function Index() { // Renamed to start with an uppercase letter
  
+  const [offers ,setOffers] = useState(1)
   const [buy ,setBuy] = useState('')
   const [get ,setGet] = useState('')
   const [estSaving, setEstSaving] = useState('');
@@ -22,7 +23,7 @@ export default function Index() { // Renamed to start with an uppercase letter
 
 
   // // Hours state
-  const [sundayState, setSundayState] = useState({ status: false, openTime: '', closeTime: '', });
+  const [sundayState, setSundayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
   const [mondayState, setMondayState] = useState({ status: false, openTime: '', closeTime: '', });
   const [tuesdayState, setTuesdayState] = useState({ status: false, openTime: '', closeTime: '', });
   const [wednesdayState, setWednesdayState] = useState({ status: false, openTime: '', closeTime: '', });
@@ -124,6 +125,7 @@ export default function Index() { // Renamed to start with an uppercase letter
              finePrint={finePrint} setFinePrint={setFinePrint}
              redemption={redemption} setRedemption={setRedemption}
              daysState={daysState}
+             setOffers={setOffers} offers={offers}
             /> 
           </div>
         </div>
