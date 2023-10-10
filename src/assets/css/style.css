@@ -4900,6 +4900,7 @@ color: #969696;
   background-size: cover;
   background-position: inherit;
   width: auto;
+  max-width: 450px;
   height: 240px;
 
   display: flex;

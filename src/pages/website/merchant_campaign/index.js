@@ -96,7 +96,7 @@ export default function Index() { // Renamed to start with an uppercase letter
                                     </div>
                                     <div className="get-box">
                                         <span>Est. Savings</span>
-                                        <h3>{estSaving ? estSaving : "AED 250"}</h3>
+                                        <h3>AED {estSaving ? estSaving : " 250"}</h3>
                                     </div>
                                 </div>
                             </div>

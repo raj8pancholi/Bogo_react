@@ -297,15 +297,18 @@ export default function TabsCompenent(props) {
 
                           <InputBoxComponent label="What should they buy?" type="text" id="" name="" value={buy}
                           required="required" 
+                          maxlength="30"
                           placeholder="Example: Sushi Platter" 
-                         getValue={setBuy}
+                          getValue={setBuy}
                           />
 
-                          <InputBoxComponent label="What will they get?" type="text" id="" name="" value={get} required="required" placeholder="AED" getValue={setGet} />
+                          <InputBoxComponent label="What will they get?" type="text" id="" name="" value={get} required="required"
+                          maxlength="30" placeholder="AED" getValue={setGet} />
 
-                          <InputBoxComponent label="Estimated Savings?" type="text" id="" name="" value={estSaving} required="required" placeholder="AED" getValue={setEstSaving} />
+                          <InputBoxComponent label="Estimated Savings?" type="number" id="" name="" value={estSaving} required="required"  
+                          placeholder="AED" getValue={setEstSaving} />
 
-                          {/* <SingleSelector id="subcategory" label='Select Branch' /> */}
+                          
 
                           {/* multi selector  */}
                           <div className="row ">
@@ -391,7 +394,7 @@ export default function TabsCompenent(props) {
                               <span style={{color: "#F1C62E"}}> <i className="fa-regular fa-gem" style={{position: "inherit", color: "#F1C62E"}}></i> Gold Feature</span>
                             </div>
                             
-                            <input type="number" name="" id="" placeholder="example:500" className="form-control" required="" value={redemption} onChange={(e) => setRedemption(e.target.value)} />
+                            <input type="number" name="" id="" placeholder="example:500" maxlength="30" className="form-control" required="" value={redemption} onChange={(e) => setRedemption(e.target.value)} />
                           </div>
 
 

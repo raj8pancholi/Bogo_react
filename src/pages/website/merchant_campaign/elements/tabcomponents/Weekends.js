@@ -7,10 +7,13 @@ export default function Weekends() {
 
 
   const handleSwitchChange = () => {
+      
       setExcludeWeekends((prevValue) => !prevValue)
 
       // disable sunday and saturday input box
-      if(excludeWeekends){
+      if(!excludeWeekends){
+          let inputBorder = document.getElementById("sunday");
+          inputBorder.style.border = "1px solid red";
           document.getElementById("sunday").disabled = true;
           document.getElementById("saturday").disabled = true;
       }else{

@@ -64,6 +64,7 @@ const BusinessFormMainSection = () => {
   const handleNextClick = () => {
 
     const obj = {bName , address ,country ,pin ,state ,categoryId ,subCategoryId ,whatsappNo , sundayState , mondayState , tuesdayState , wednesdayState , thursdayState , fridayState , saturdayState }
+    
     console.log("obj",obj)
     
     dispatch(UpdateBusinessInfo(obj)) 
