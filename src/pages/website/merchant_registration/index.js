@@ -87,7 +87,7 @@ render(){
                  {/* Using the PhoneInput component */}
                     <label>Mobile Number</label>
                     <PhoneInput country={'ae'} value={phone} onChange={(e)=> console.log("e",e)} inputStyle={{ width: '100%' , marginBottom: '10px'}} />
-    </div>
+                </div>
 
 
                         <div className="col-12 regisBtn">

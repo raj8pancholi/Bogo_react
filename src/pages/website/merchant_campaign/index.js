@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {MERCHANT_VOUCHER} from '../../../redux/slices/marchantVoucherSlice';
+
 
 // Import Css
 import './style.css';
+
+// Import slice
+
 
 // Import Components Header and Footer
 import Footer from '../../../partials/footer/Footer.js';
@@ -11,25 +17,33 @@ import Header1 from './../../../partials/header/Header1';
 import TabsComponents from './elements/TabsCompenent'; // Correct the import name here
 import CampaignHeader from './elements/CampaignHeader';
 
-export default function Index() { // Renamed to start with an uppercase letter
+export default function Index() { 
+
+  
+
+
+  const dispatch = useDispatch();
+
+
+  
  
   const [offers ,setOffers] = useState(1)
   const [buy ,setBuy] = useState('')
   const [get ,setGet] = useState('')
   const [estSaving, setEstSaving] = useState('');
-  const [branch, setBranch] = useState([ ]);
+  // const [branch, setBranch] = useState([ ]);
   const [finePrint, setFinePrint] = useState('');
   const [redemption, setRedemption] = useState('');
 
 
   // // Hours state
-  const [sundayState, setSundayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
-  const [mondayState, setMondayState] = useState({ status: false, openTime: '', closeTime: '', });
-  const [tuesdayState, setTuesdayState] = useState({ status: false, openTime: '', closeTime: '', });
-  const [wednesdayState, setWednesdayState] = useState({ status: false, openTime: '', closeTime: '', });
-  const [thursdayState, setThursdayState] = useState({ status: false, openTime: '', closeTime: '', });
-  const [fridayState, setFridayState] = useState({ status: false, openTime: '', closeTime: '', });
-  const [saturdayState, setSaturdayState] = useState({ status: false, openTime: '', closeTime: '', });
+  const [sundayState, setSundayState] = useState({ status: false, openTime: '00:00', closeTime: '11:59', });
+  const [mondayState, setMondayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
+  const [tuesdayState, setTuesdayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
+  const [wednesdayState, setWednesdayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
+  const [thursdayState, setThursdayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
+  const [fridayState, setFridayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
+  const [saturdayState, setSaturdayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
 
 
   const updateSunday = (act, ot, Ct) => {console.log("helooo", act, ot, Ct) ; setSundayState({ ...sundayState, status: act, openTime: ot, closeTime: Ct, }) };
@@ -54,12 +68,27 @@ export default function Index() { // Renamed to start with an uppercase letter
 
 
 
-  const obj ={buy, get, estSaving, branch, finePrint,redemption,sundayState,mondayState,tuesdayState,wednesdayState,thursdayState,fridayState,saturdayState}
+  
+
+
+
+  const handleCallback = () => {
+    const token = localStorage.getItem('token');
+    const businessId = ["36afdc38-39d7-432f-a85d-a9b2528e7a5a"];
+
+
+
+    const data ={buy, get, estSaving,  finePrint,redemption,sundayState,mondayState,tuesdayState,wednesdayState,thursdayState,fridayState,saturdayState}
+
+    dispatch(MERCHANT_VOUCHER(data));
+  };
+
+
+  
 
 
   return (
 
-  console.log(obj),
     <>
       {/* Header */}
       <Header1 />
@@ -121,11 +150,12 @@ export default function Index() { // Renamed to start with an uppercase letter
             <TabsComponents 
              setBuy={setBuy} buy={buy}  setGet={setGet} get={get}
              setEstSaving={setEstSaving} estSaving={estSaving}
-             branch={branch} setBranch={setBranch}
+            //  branch={branch} setBranch={setBranch}
              finePrint={finePrint} setFinePrint={setFinePrint}
              redemption={redemption} setRedemption={setRedemption}
              daysState={daysState}
              setOffers={setOffers} offers={offers}
+             callback={handleCallback}
             /> 
           </div>
         </div>
