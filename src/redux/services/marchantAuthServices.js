@@ -18,6 +18,8 @@ export const VerifyOtp = data => {
     return HttpClient.post("/merchant/verifyOtp", data);
 };
 
+
+
 export const ResetPassword = token  => {
     console.log('token is send by paramsssssssssssssssss:', token);
     return HttpClient.post(`/merchant/reset-password?token=${token}`);
@@ -27,14 +29,31 @@ export const ResetPassword = token  => {
 export const BusinessMerchant = (data) => {
   const formData = new FormData();
   const token = localStorage.getItem('token')
+ 
   for (const key in data) {
-    formData.append(key, data[key]);
+    if (data[key] && typeof data[key] === 'object') { 
+      formData.append(key, JSON.stringify(data[key]));
+    } else { 
+      formData.append(key, data[key]);
+    }
   }
-  
+
   const headers = {
     'Content-Type': 'multipart/form-data',
     'Authorization': `Bearer ${token}`
   };
 
   return HttpClient.post("/merchant/business", formData, { headers });
+};
+
+
+
+
+export const AllBusinessDetails = () => { 
+  const token = localStorage.getItem('token')
+  const headers = {
+    'Content-Type': 'multipart/form-data',
+    'Authorization': `Bearer ${token}`
+  };
+  return HttpClient.get("/merchant/business",{ headers });
 };

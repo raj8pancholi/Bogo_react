@@ -24,10 +24,23 @@ import ExclusiveOffer from './elements/ExclusiveOffer';
 
 // tabs
 const AmbassadorsCampaignPage = () => {
-  const [selectedTab, setSelectedTab] = useState(1);
+  const [campaignType, setcampaignType] = useState();
+  const [offer, setoffer] = useState();
+  const [estimationSaving, setestimationSaving] = useState();
+  const [cashIncentive, setcashIncentive] = useState();
+  const [allowedGuest, setallowedGuest] = useState();
+  const [requirement, setrequirement] = useState();
+  const [prefferedPlatforms, setprefferedPlatforms] = useState();
+  const [photo, setphoto] = useState();
+  const [video, setvideo] = useState();
+  const [untilDate, setuntilDate] = useState();
+  const [endDate, setendDate] = useState();
+  const [hashtags, sethashtags] = useState();
+  const [promoCode, setpromoCode] = useState();
+  const [audienceSize, setaudienceSize] = useState();
 
   const buttonOption = (id) => {
-    setSelectedTab(id);
+    setcampaignType(id);
   };
 
   return (
@@ -54,12 +67,12 @@ const AmbassadorsCampaignPage = () => {
               <ul id="tabs-nav">
                 <li
                   className={
-                    selectedTab === 1
+                    campaignType === 1
                       ? 'offer-box influencer_tab aos-init aos-animate active'
                       : 'offer-box influencer_tab aos-init aos-animate'
                   }
                   data-aos="flip-up"
-                  onClick={() => buttonOption(1)}
+                  onClick={() => setcampaignType(1)}
                 >
                   <Link to="">
                     <h3>Give Away</h3>
@@ -67,12 +80,12 @@ const AmbassadorsCampaignPage = () => {
                 </li>
                 <li
                   className={
-                    selectedTab === 2
+                    campaignType === 2
                       ? 'offer-box influencer_tab aos-init aos-animate active'
                       : 'offer-box influencer_tab aos-init aos-animate'
                   }
                   data-aos="flip-down"
-                  onClick={() => buttonOption(2)}
+                  onClick={() => setcampaignType(2)}
                 >
                   <Link to="">
                     <h3>Exclusive Offer</h3>
@@ -83,7 +96,7 @@ const AmbassadorsCampaignPage = () => {
           </div>
 
           {/* Offer form input 1 */}
-          {selectedTab === 1 && (
+          {campaignType === 1 && (
             <div className="offer_form_section1 tab-content" id="tab1">
               <form method="" action="" className="offer_input_box offer_input_box1">
                 <GiveAway />
@@ -92,7 +105,7 @@ const AmbassadorsCampaignPage = () => {
           )}
 
           {/* Offer form input 2 */}
-          {selectedTab === 2 && (
+          {campaignType === 2 && (
             <div className="offer_form_section1 tab-content" id="tab2">
               <form method="" action="" className="offer_input_box offer_input_box1">
                 <ExclusiveOffer/>

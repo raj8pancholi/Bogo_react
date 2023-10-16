@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {  Route, Routes, useNavigate } from 'react-router-dom';
 
 // import pages part
@@ -36,13 +36,13 @@ import Account from '../pages/website/account/index';
 
 
 
-
-
-
-
-
-
 export default function Navigation() {
+const history = useNavigate()
+  useEffect(() => { 
+    return () => {
+     if(localStorage.getItem('token') && localStorage.getItem('isLogin'))  history('/dashboard')
+    };
+  }, []); 
 
   const navigate = useNavigate()
   return (

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import {CreateMerchant,BusinessMerchant , LoginMerchant, VerifyOtp, RequestOtp, ResetPassword}  from "../services/marchantAuthServices";
+import {CreateMerchant,BusinessMerchant , LoginMerchant, VerifyOtp, RequestOtp, ResetPassword , AllBusinessDetails}  from "../services/marchantAuthServices";
 
  
 
@@ -10,6 +10,7 @@ export const MERCHANT_SIGNUP = createAsyncThunk(
       const res = await CreateMerchant(data);
       localStorage.setItem('token', res.data?.tokens.access.token)
       localStorage.setItem('userID', res.data?.user.id)
+      localStorage.setItem('isLogin', 1)
       return res.data;
     } catch (error) { 
       if (error.response.status === 401) throw new Error(error.response.data.message)
@@ -27,6 +28,7 @@ export const MERCHANT_SIGNIN = createAsyncThunk(
     const res = await LoginMerchant(data);
     localStorage.setItem('token', res.data?.tokens.access.token)
     localStorage.setItem('userID', res.data?.user.id)
+    localStorage.setItem('isLogin', 1)
     return res.data;
   } catch (error) { 
     if (error.response.status === 401) throw new Error(error.response.data.message)
@@ -41,6 +43,7 @@ export const MERCHANT_BUSINESS = createAsyncThunk(
   async (data) => {
   try {
     const res = await BusinessMerchant(data);
+    localStorage.setItem('businessId', res?.data?.id)
     return res.data;
   } catch (error) { 
     if (error.response.status === 401) throw new Error(error.response.data.message)
@@ -97,9 +100,23 @@ export const MERCHANT_RESET_PASSWORD = createAsyncThunk(
 );
 
 
+export const GET_ALL_BUSINESS_DETAILS = createAsyncThunk(
+  'merchant/GET_ALL_BUSINESS_DETAILS',
+  async (data) => {
+      try {
+        const res = await AllBusinessDetails();
+        return res.data;
+        
+      } catch (error) {
+        if (error.response.status === 401) throw new Error(error.response.data.message)
+        else  throw new Error("An unexpected error occurred");
+      }
+  }
+);
+
 const marchantAuthSlice = createSlice({
   name: 'merchant',
-  initialState: { merchantData: [], signUpError:'', loginError:'', businessApi:false },
+  initialState: { merchantData: [], signUpError:'', loginError:'', businessApi:false , allBusinessData:[]},
   reducers: {},
   extraReducers:{
 
@@ -131,8 +148,12 @@ const marchantAuthSlice = createSlice({
     },
     [MERCHANT_VERIFY_OTP.rejected]: (state, action) => { 
       state.otpError = action.error.message;
+    },
+    [GET_ALL_BUSINESS_DETAILS.fulfilled]: (state, action) => { 
+      state.allBusinessData = action.payload;
     }
  
+
   },
 });
 

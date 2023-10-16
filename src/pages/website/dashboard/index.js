@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 
 import DashboardHeader from './elements/DashboardHeader';
@@ -7,9 +7,22 @@ import BogoAmbassador from './elements/BogoAmbassador';
 import GrowOnlineSection from './elements/GrowOnlineSection';
 import Footer from '../../../partials/footer/Footer';
 import Header1 from './../../../partials/header/Header1';
+import { GET_ALL_BUSINESS_DETAILS } from '../../../redux/slices/merchantAuthSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
-const DashboardPage = () => (
-  <>
+const DashboardPage = () => {
+
+  const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);
+  
+  const dispatch = useDispatch();
+
+ 
+  useEffect(() => {
+      dispatch(GET_ALL_BUSINESS_DETAILS()); 
+
+  }, [dispatch]);
+
+  return<>
   
     {/* Header */}
     <Header1/>
@@ -22,10 +35,7 @@ const DashboardPage = () => (
             <div className="BranchSelector">
               <select className="form-select" aria-label="Default select example">
                   <option selected="">Select Branch</option>
-                  <option value={1}>Marina</option>
-                  <option value={2}>Dubai</option>
-                  <option value={3}>Marina</option>
-                  <option value={4}>Dubai</option>
+                  {allBusinessData?.map(item=> <option  key={item.id} value={item.id}>{item.bName}</option>)}    
               </select>
             </div>
           </div>
@@ -44,6 +54,6 @@ const DashboardPage = () => (
     {/*  Footer*/}
     <Footer/>
   </>
-);
+};
 
 export default DashboardPage;

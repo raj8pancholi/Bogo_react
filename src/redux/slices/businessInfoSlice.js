@@ -14,6 +14,7 @@ const businessInfoSlice = createSlice({
     },
 
    [UpdateGalleryInfo.fulfilled]: (state, action) => {
+    console.log("logo....", action.payload)
     state.galleryData = action.payload;
    },    
  
