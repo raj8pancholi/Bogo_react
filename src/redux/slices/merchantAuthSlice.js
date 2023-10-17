@@ -114,9 +114,16 @@ export const GET_ALL_BUSINESS_DETAILS = createAsyncThunk(
   }
 );
 
+
+export const SELECTED_BUSINESS_DATA = createAsyncThunk( "merchant/SELECTED_BUSINESS_DATA", (data) => { return data } );
+
+ 
+
+
+
 const marchantAuthSlice = createSlice({
   name: 'merchant',
-  initialState: { merchantData: [], signUpError:'', loginError:'', businessApi:false , allBusinessData:[]},
+  initialState: { merchantData: [], signUpError:'', loginError:'', businessApi:false , allBusinessData:[], selectedBusinessData:[]},
   reducers: {},
   extraReducers:{
 
@@ -149,8 +156,16 @@ const marchantAuthSlice = createSlice({
     [MERCHANT_VERIFY_OTP.rejected]: (state, action) => { 
       state.otpError = action.error.message;
     },
-    [GET_ALL_BUSINESS_DETAILS.fulfilled]: (state, action) => { 
+
+    [GET_ALL_BUSINESS_DETAILS.fulfilled]: (state, action) => {
       state.allBusinessData = action.payload;
+      const activeBusinessId = localStorage.getItem('activeBusiness');
+      const selectedBusiness = action.payload.find((x) => x.id === activeBusinessId);
+      state.selectedBusinessData = selectedBusiness || action.payload[0];
+    },
+
+    [SELECTED_BUSINESS_DATA.fulfilled]: (state, action) => { 
+      state.selectedBusinessData = action.payload;
     }
  
 
