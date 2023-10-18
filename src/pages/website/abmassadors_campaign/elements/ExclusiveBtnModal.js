@@ -4,7 +4,7 @@ import { Button, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
-export default function ExclusiveBtnModal() {
+export default function ExclusiveBtnModal({SubmitCampaign}) {
 
 
     const [showModal, setShowModal] = useState(false);
@@ -15,6 +15,7 @@ export default function ExclusiveBtnModal() {
 
   const handleOpenModal = () => {
     setShowModal(true);
+    SubmitCampaign()
   };
 
 

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import {CreateMerchant,BusinessMerchant , LoginMerchant, VerifyOtp, RequestOtp, ResetPassword , AllBusinessDetails}  from "../services/marchantAuthServices";
+import {CreateMerchant,BusinessMerchant , LoginMerchant, VerifyOtp, RequestOtp, ResetPassword , AllBusinessDetails, CampaignCreate, VoucherCreate}  from "../services/marchantAuthServices";
 
  
 
@@ -117,13 +117,42 @@ export const GET_ALL_BUSINESS_DETAILS = createAsyncThunk(
 
 export const SELECTED_BUSINESS_DATA = createAsyncThunk( "merchant/SELECTED_BUSINESS_DATA", (data) => { return data } );
 
- 
+export const CREATE_CAMPAIGN = createAsyncThunk(
+  'merchant/CREATE_CAMPAIGN',
+  async (data) => {
+      try {
+        const res = await CampaignCreate(data);
+        return res.data;
+        
+      } catch (error) {
+        if (error.response.status === 401) throw new Error(error.response.data.message)
+        else  throw new Error("An unexpected error occurred");
+      }
+  }
+);
 
+
+export const CREATE_VOUCHER = createAsyncThunk(
+  'merchant/CREATE_VOUCHER',
+  async (data) => {
+      try {
+        const res = await VoucherCreate(data);
+        return res.data;
+        
+      } catch (error) {
+        if (error.response.status === 401) throw new Error(error.response.data.message)
+        else  throw new Error("An unexpected error occurred");
+      }
+  }
+);
+
+export const SAVE_VOUCHER = createAsyncThunk( "merchant/SAVE_VOUCHER", (data) => { return data } );
+export const SAVE_CAMPAIGN = createAsyncThunk( "merchant/SAVE_CAMPAIGN", (data) => { return data } );
 
 
 const marchantAuthSlice = createSlice({
   name: 'merchant',
-  initialState: { merchantData: [], signUpError:'', loginError:'', businessApi:false , allBusinessData:[], selectedBusinessData:[]},
+  initialState: { merchantData: [], signUpError:'', loginError:'', businessApi:false , allBusinessData:[], selectedBusinessData:[], campaign:[], voucher:[] , saveCampaign:[], saveVoucher:[]},
   reducers: {},
   extraReducers:{
 
@@ -166,8 +195,20 @@ const marchantAuthSlice = createSlice({
 
     [SELECTED_BUSINESS_DATA.fulfilled]: (state, action) => { 
       state.selectedBusinessData = action.payload;
-    }
- 
+    },
+    [CREATE_CAMPAIGN.fulfilled]: (state, action) => { 
+      state.campaign = action.payload;
+    },
+    [CREATE_VOUCHER.fulfilled]: (state, action) => { 
+      state.voucher = action.payload;
+    },
+    [SAVE_VOUCHER.fulfilled]: (state, action) => { 
+      state.saveVoucher = action.payload;
+    },
+    [SAVE_CAMPAIGN.fulfilled]: (state, action) => { 
+      state.saveCampaign = action.payload;
+    },
+    
 
   },
 });
