@@ -65,13 +65,13 @@ export default function TabsCompenent(props) {
 const updateAllday=(status)=>{
 setAllday(status)
  
-updateSunday(status, sundayState.openTime, sundayState.closeTime) 
-updateMonday(status, mondayState.openTime, mondayState.closeTime) 
-updateTuesday(status, tuesdayState.openTime, tuesdayState.closeTime) 
-updateWednesday(status, wednesdayState.openTime, wednesdayState.closeTime) 
-updateThursday(status, thursdayState.openTime, thursdayState.closeTime) 
-updateFriday(status, fridayState.openTime, fridayState.closeTime) 
-updateSaturday(status, saturdayState.openTime, saturdayState.closeTime)  
+updateSunday(status, sundayState?.openTime, sundayState?.closeTime) 
+updateMonday(status, mondayState?.openTime, mondayState?.closeTime) 
+updateTuesday(status, tuesdayState?.openTime, tuesdayState?.closeTime) 
+updateWednesday(status, wednesdayState?.openTime, wednesdayState?.closeTime) 
+updateThursday(status, thursdayState?.openTime, thursdayState?.closeTime) 
+updateFriday(status, fridayState?.openTime, fridayState?.closeTime) 
+updateSaturday(status, saturdayState?.openTime, saturdayState?.closeTime)  
 
 } 
     
@@ -94,8 +94,7 @@ updateFriday(status ? true: false, fridayState.openTime, fridayState.closeTime)
 updateSaturday(status ? false: false, saturdayState.openTime, saturdayState.closeTime)  
   }
 
-
-console.log('sundayState.status', sundayState.status)
+ 
   return (
     <div>
     <div className="offer-type">
@@ -143,14 +142,14 @@ console.log('sundayState.status', sundayState.status)
                               <div className="days-input-row">
                                   <label>Day of the week</label>
                                   <div className="checkbox-container">
-           <DaysInput day='All'  selected={allday} onChange={()=> updateAllday(!allday)} />
-           <DaysInput day='Sunday'  selected={sundayState.status} onChange={()=> updateSunday(!(sundayState.status), sundayState.openTime, sundayState.closeTime)} />
-           <DaysInput day='Monday'  selected={mondayState.status} onChange={()=> updateMonday(!(mondayState.status), mondayState.openTime, mondayState.closeTime)} /> 
-           <DaysInput day='Tuesday'  selected={tuesdayState.status} onChange={()=> updateTuesday(!(tuesdayState.status), tuesdayState.openTime, tuesdayState.closeTime)} /> 
-           <DaysInput day='Wednesday'  selected={wednesdayState.status} onChange={()=> updateWednesday(!(wednesdayState.status), wednesdayState.openTime, wednesdayState.closeTime)} /> 
-           <DaysInput day='Thursday'  selected={thursdayState.status} onChange={()=> updateThursday(!(thursdayState.status), thursdayState.openTime, thursdayState.closeTime)} /> 
-           <DaysInput day='Friday'  selected={fridayState.status} onChange={()=> updateFriday(!(fridayState.status), fridayState.openTime, fridayState.closeTime)} /> 
-           <DaysInput day='Saturday'  selected={saturdayState.status} onChange={()=> updateSaturday(!(saturdayState.status), saturdayState.openTime, saturdayState.closeTime)} /> 
+                                    <DaysInput day='All'  selected={allday} onChange={()=> updateAllday(!allday)} />
+                                    <DaysInput day='Sunday'  selected={sundayState?.status} onChange={()=> updateSunday(!(sundayState.status), sundayState.openTime, sundayState.closeTime)} />
+                                    <DaysInput day='Monday'  selected={mondayState?.status} onChange={()=> updateMonday(!(mondayState.status), mondayState.openTime, mondayState.closeTime)} /> 
+                                    <DaysInput day='Tuesday'  selected={tuesdayState?.status} onChange={()=> updateTuesday(!(tuesdayState.status), tuesdayState.openTime, tuesdayState.closeTime)} /> 
+                                    <DaysInput day='Wednesday'  selected={wednesdayState?.status} onChange={()=> updateWednesday(!(wednesdayState.status), wednesdayState.openTime, wednesdayState.closeTime)} /> 
+                                    <DaysInput day='Thursday'  selected={thursdayState?.status} onChange={()=> updateThursday(!(thursdayState.status), thursdayState.openTime, thursdayState.closeTime)} /> 
+                                    <DaysInput day='Friday'  selected={fridayState?.status} onChange={()=> updateFriday(!(fridayState.status), fridayState.openTime, fridayState.closeTime)} /> 
+                                    <DaysInput day='Saturday'  selected={saturdayState?.status} onChange={()=> updateSaturday(!(saturdayState.status), saturdayState.openTime, saturdayState.closeTime)} /> 
                                   </div>
                               </div>
                           </div>

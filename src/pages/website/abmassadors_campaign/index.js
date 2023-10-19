@@ -28,13 +28,16 @@ import { useDispatch } from 'react-redux';
 
 // tabs
 const AmbassadorsCampaignPage = () => {
+  const socialMediaOptions = [ { value: 'Facebook', label: 'Facebook' }, { value: 'Instagram', label: 'Instagram' }, { value: 'Youtube', label: 'Youtube' }, { value: 'TickTok', label: 'TickTok' }, ]
+
   const [campaignType, setcampaignType] = useState(1);
   const [offer, setOffer] = useState();
   const [estimationSaving, setEstimationSaving] = useState();
   const [cashIncentive, setCashIncentive] = useState();
   const [allowedGuest, setallowedGuest] = useState();
   const [requirement, setrequirement] = useState();
-  const [prefferedPlatforms, setprefferedPlatforms] = useState();
+  const [prefferedPlatforms, setprefferedPlatforms] = useState([]);
+  const [socialPlatforms, setSocialPlatforms] = useState( [socialMediaOptions[4], socialMediaOptions[5]]);
   const [photo, setphoto] = useState();
   const [video, setvideo] = useState();
   const [untilDate, setuntilDate] = useState();
@@ -56,10 +59,20 @@ const AmbassadorsCampaignPage = () => {
   const MyComponent = () => ( <Select closeMenuOnSelect={false} defaultValue={[colourOptions[4], colourOptions[5]]} isMulti options={colourOptions} styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }} /> )
 
 
-  const socialMediaOptions = [ { value: 'Facebook', label: 'Facebook' }, { value: 'Instagram', label: 'Instagram' }, { value: 'Youtube', label: 'Youtube' }, { value: 'TickTok', label: 'TickTok' }, ]
-  const SocialComponent = () => ( <Select  onChange={(e) => setprefferedPlatforms(e.value)}  closeMenuOnSelect={false} defaultValue={[socialMediaOptions[4], socialMediaOptions[5]]} isMulti options={socialMediaOptions} styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }} /> )
 
-   
+  const SocialComponent = () => ( <Select  onChange={handleSelectChange} closeMenuOnSelect={false} defaultValue={socialPlatforms} isMulti options={socialMediaOptions} styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }} /> )
+
+   const  handleSelectChange = (selectedOptions) => { 
+    setSocialPlatforms(selectedOptions)
+    if(selectedOptions && selectedOptions.length){
+      var socialarr =[]
+      selectedOptions.forEach(element => {
+        socialarr.push(element.label)
+      });
+      setprefferedPlatforms(socialarr);
+    }
+    
+  }
     const audienceSizeOption = [
       { value: '2000+', label: '2000+' },
       { value: '5000+', label: '5000+' },
@@ -79,8 +92,8 @@ const AmbassadorsCampaignPage = () => {
    dispatch(CREATE_CAMPAIGN(obj))
  }
 
-
-
+ const obj ={ campaignType, offer, estimationSaving, cashIncentive, allowedGuest, requirement, prefferedPlatforms, photo, video, untilDate, endDate, hashtags, promoCode, audienceSize, isPublished, maxRedeem, businessIds}
+console.log('obj--------+++', obj)
   return (
     <>
       <Header1 />
@@ -204,7 +217,7 @@ const AmbassadorsCampaignPage = () => {
                <div className="col-12">
                   <div className="input-box">
                       <label htmlFor=" " className="label_text">Preffered Social Media Platform</label>
-                      <SocialComponent  />
+                      <SocialComponent/>
                   </div>
                </div>
             </div>
@@ -288,7 +301,7 @@ const AmbassadorsCampaignPage = () => {
 
             <div className="row review_submit_btn_row">
               <div className="next-btn-box review_submit_btn_box tab-pane active">
-                  <ExclusiveBtnModal SubmitCampaign={()=>SubmitCampaign()}/>
+                  <ExclusiveBtnModal SubmitCampaign={()=>SubmitCampaign()} campaignType ={campaignType} offer ={ offer} estimationSaving ={ estimationSaving} cashIncentive ={ cashIncentive} allowedGuest ={ allowedGuest} requirement ={ requirement} prefferedPlatforms ={ prefferedPlatforms} photo ={ photo} video ={ video} untilDate ={ untilDate} endDate ={ endDate} hashtags ={ hashtags} promoCode ={ promoCode}  />                           
               </div>
             </div>
       </div>

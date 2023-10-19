@@ -10,13 +10,13 @@ export default function ValidityBox({saveVoucher}) {
         <div className="validity_box">
               <h4>VALIDITY</h4>
               <ul>
-                <li>S <span>{saveVoucher?.sundayState.status ? `${saveVoucher?.sundayState.openTime} - ${saveVoucher?.sundayState.closeTime}` :"Not available"}</span></li>
-                <li>S <span>{saveVoucher?.mondayState.status ? `${saveVoucher?.mondayState.openTime} - ${saveVoucher?.mondayState.closeTime}` :"Not available"}</span></li>
-                <li>S <span>{saveVoucher?.tuesdayState.status ? `${saveVoucher?.tuesdayState.openTime} - ${saveVoucher?.tuesdayState.closeTime}` :"Not available"}</span></li>
-                <li>S <span>{saveVoucher?.wednesdayState.status ? `${saveVoucher?.wednesdayState.openTime} - ${saveVoucher?.wednesdayState.closeTime}` :"Not available"}</span></li>
-                <li>S <span>{saveVoucher?.thursdayState.status ? `${saveVoucher?.thursdayState.openTime} - ${saveVoucher?.thursdayState.closeTime}` :"Not available"}</span></li>
-                <li>S <span>{saveVoucher?.fridayState.status ? `${saveVoucher?.fridayState.openTime} - ${saveVoucher?.fridayState.closeTime}` :"Not available"}</span></li>
-                <li>S <span>{saveVoucher?.saturdayState.status ? `${saveVoucher?.saturdayState.openTime} - ${saveVoucher?.saturdayState.closeTime}` :"Not available"}</span></li>
+                <li>S <span>{saveVoucher?.sundayState?.status ? `${saveVoucher?.sundayState.openTime} - ${saveVoucher?.sundayState.closeTime}` :"Not available"}</span></li>
+                <li>S <span>{saveVoucher?.mondayState?.status ? `${saveVoucher?.mondayState.openTime} - ${saveVoucher?.mondayState.closeTime}` :"Not available"}</span></li>
+                <li>S <span>{saveVoucher?.tuesdayState?.status ? `${saveVoucher?.tuesdayState.openTime} - ${saveVoucher?.tuesdayState.closeTime}` :"Not available"}</span></li>
+                <li>S <span>{saveVoucher?.wednesdayState?.status ? `${saveVoucher?.wednesdayState.openTime} - ${saveVoucher?.wednesdayState.closeTime}` :"Not available"}</span></li>
+                <li>S <span>{saveVoucher?.thursdayState?.status ? `${saveVoucher?.thursdayState.openTime} - ${saveVoucher?.thursdayState.closeTime}` :"Not available"}</span></li>
+                <li>S <span>{saveVoucher?.fridayState?.status ? `${saveVoucher?.fridayState.openTime} - ${saveVoucher?.fridayState.closeTime}` :"Not available"}</span></li>
+                <li>S <span>{saveVoucher?.saturdayState?.status ? `${saveVoucher?.saturdayState.openTime} - ${saveVoucher?.saturdayState.closeTime}` :"Not available"}</span></li>
               </ul>
         </div>
  
