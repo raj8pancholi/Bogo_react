@@ -1,7 +1,12 @@
+
 import React, { useEffect, useState } from 'react';
+
 
 // Import Css
 import './style.css';
+
+// Import slice
+
 
 // Import Components Header and Footer
 import Footer from '../../../partials/footer/Footer.js';
@@ -13,21 +18,33 @@ import CampaignHeader from './elements/CampaignHeader';
 import {SAVE_VOUCHER, CREATE_VOUCHER } from '../../../redux/slices/merchantAuthSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
-export default function Index() { // Renamed to start with an uppercase letter
+export default function Index() { 
+
+  
+
+
+  const dispatch = useDispatch();
+
+
+  
  
   const [offers ,setOffers] = useState(1)
   const [buy ,setBuy] = useState('')
   const [get ,setGet] = useState('')
   const [estSaving, setEstSaving] = useState('');
+
   const [excludeWeekends, setExcludeWeekends] = useState(false);
   const [excludePublicHolidays, setExcludePublicHolidays] = useState(false);
   const [branch, setBranch] = useState([ ]);
+
+ 
   const [finePrint, setFinePrint] = useState('');
   const [redemption, setRedemption] = useState('');
   const [customizeTime, setCustomizeTime] = useState(false);
 
 
   // // Hours state
+
   const [sundayState, setSundayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
   const [mondayState, setMondayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
   const [tuesdayState, setTuesdayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
@@ -35,6 +52,8 @@ export default function Index() { // Renamed to start with an uppercase letter
   const [thursdayState, setThursdayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
   const [fridayState, setFridayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
   const [saturdayState, setSaturdayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
+
+  
 
 
   const updateSunday = (act, ot, Ct) => {setSundayState({ ...sundayState, status: act, openTime: ot, closeTime: Ct, }) };
@@ -54,6 +73,7 @@ export default function Index() { // Renamed to start with an uppercase letter
     friday: { state: fridayState, update: updateFriday },
     saturday: { state: saturdayState, update: updateSaturday },
   };
+
 
   const saveVoucher = useSelector((state) => state.merchantAuth.saveVoucher);
 
@@ -90,6 +110,7 @@ export default function Index() { // Renamed to start with an uppercase letter
   return (
 
  
+
     <>
       {/* Header */}
       <Header1 />
@@ -151,14 +172,16 @@ export default function Index() { // Renamed to start with an uppercase letter
             <TabsComponents 
              setBuy={setBuy} buy={buy}  setGet={setGet} get={get}
              setEstSaving={setEstSaving} estSaving={estSaving}
-             branch={branch} setBranch={setBranch}
+            //  branch={branch} setBranch={setBranch}
              finePrint={finePrint} setFinePrint={setFinePrint}
              redemption={redemption} setRedemption={setRedemption}
              daysState={daysState} excludeWeekends={excludeWeekends} setExcludeWeekends={setExcludeWeekends} 
              excludePublicHolidays={excludePublicHolidays} setExcludePublicHolidays={setExcludePublicHolidays}
              customizeTime={customizeTime} setCustomizeTime={setCustomizeTime}
              setOffers={setOffers} offers={offers}
+
              SaveVoucher={SaveVoucher}
+
             /> 
           </div>
         </div>

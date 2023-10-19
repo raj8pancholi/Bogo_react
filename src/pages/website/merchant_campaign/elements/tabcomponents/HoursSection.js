@@ -69,7 +69,7 @@ export default function HoursSection(props) {
         <label htmlFor="inputhours" className="inputhours">Hours of Operation</label>
         <div className="row ">
             <div className="col-12 day-box day-box1">
-                <span>Sunday </span> {sundayState.openTime} {sundayState.closeTime}
+                <span>Sunday </span> 
                 <label className="switch">
                     <input type="checkbox" checked={sundayState.status} onClick={()=> updateSunday(!(sundayState.status), sundayState.openTime, sundayState.closeTime)}  />
                     <span className="slider round"></span>
