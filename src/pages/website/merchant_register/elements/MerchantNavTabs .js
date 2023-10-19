@@ -4,22 +4,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchCategories }from '../../../../redux/slices/categorySlice'  
 import { fetchSubcategory } from '../../../../redux/slices/subCategorySlice';
+import { fetchAllCountries } from '../../../../redux/slices/countrySlice';
 
 
 
 const MerchantNavTabs = () => {
   const [activeCategory, setActiveCategory] = useState(null);
 
-  const categories = useSelector((state) => state.category.categories);
+  const {categories,loading} = useSelector((state) => state.category);
  
   const dispatch = useDispatch();
 
 
   useEffect(() => {
-  if (!categories.length) {
+  if (loading) {
       dispatch(fetchCategories());
+      dispatch(fetchAllCountries());
     }
-  }, [dispatch, categories]);
+  }, [dispatch, loading]);
 
   const handleCategoryClick = async(categoryId) => {
     setActiveCategory(categoryId); 
@@ -31,11 +33,11 @@ const MerchantNavTabs = () => {
     }
   };
 
- 
+ console.log("loading..",loading)
 
   return (
     <ul className="nav nav-tabs merchent-nav-box" role="tablist">
-      {categories.map((category) => (
+      {categories?.map((category) => (
         <MerchantNavItem
           key={category.id}
           category={category}

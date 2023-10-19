@@ -6,6 +6,10 @@ import './Header1.css'
 
 
 export default function Header1() {
+
+  const businessLogout=()=>{
+    localStorage.clear();
+  }
   return (
     <div>
             <nav className="navbar navbar-expand-lg" style={{"background-color":"#88c641"}}>
@@ -79,7 +83,7 @@ export default function Header1() {
         </li>
         <li>
           <div className="d-flex navbuttons">
-            <a href='/' className="nav-link">Logout</a>
+            <a href='/' onClick={businessLogout} className="nav-link">Logout</a>
           </div>
         </li>
       </ul>

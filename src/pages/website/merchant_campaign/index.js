@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import {MERCHANT_VOUCHER} from '../../../redux/slices/marchantVoucherSlice';
+
+import React, { useEffect, useState } from 'react';
 
 
 // Import Css
@@ -16,6 +15,8 @@ import Header1 from './../../../partials/header/Header1';
 // Import Component
 import TabsComponents from './elements/TabsCompenent'; // Correct the import name here
 import CampaignHeader from './elements/CampaignHeader';
+import {SAVE_VOUCHER, CREATE_VOUCHER } from '../../../redux/slices/merchantAuthSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Index() { 
 
@@ -31,22 +32,31 @@ export default function Index() {
   const [buy ,setBuy] = useState('')
   const [get ,setGet] = useState('')
   const [estSaving, setEstSaving] = useState('');
-  // const [branch, setBranch] = useState([ ]);
+
+  const [excludeWeekends, setExcludeWeekends] = useState(false);
+  const [excludePublicHolidays, setExcludePublicHolidays] = useState(false);
+  const [branch, setBranch] = useState([ ]);
+
+ 
   const [finePrint, setFinePrint] = useState('');
   const [redemption, setRedemption] = useState('');
+  const [customizeTime, setCustomizeTime] = useState(false);
 
 
   // // Hours state
-  const [sundayState, setSundayState] = useState({ status: false, openTime: '00:00', closeTime: '11:59', });
-  const [mondayState, setMondayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
-  const [tuesdayState, setTuesdayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
-  const [wednesdayState, setWednesdayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
-  const [thursdayState, setThursdayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
-  const [fridayState, setFridayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
-  const [saturdayState, setSaturdayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
+
+  const [sundayState, setSundayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
+  const [mondayState, setMondayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
+  const [tuesdayState, setTuesdayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
+  const [wednesdayState, setWednesdayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
+  const [thursdayState, setThursdayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
+  const [fridayState, setFridayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
+  const [saturdayState, setSaturdayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
+
+  
 
 
-  const updateSunday = (act, ot, Ct) => {console.log("helooo", act, ot, Ct) ; setSundayState({ ...sundayState, status: act, openTime: ot, closeTime: Ct, }) };
+  const updateSunday = (act, ot, Ct) => {setSundayState({ ...sundayState, status: act, openTime: ot, closeTime: Ct, }) };
   const updateMonday = (act, ot, Ct) => { setMondayState({ ...mondayState, status: act, openTime: ot, closeTime: Ct, }) };
   const updateTuesday = (act, ot, Ct) => { setTuesdayState({ ...tuesdayState, status: act, openTime: ot, closeTime: Ct, }) };
   const updateWednesday = (act, ot, Ct) => { setWednesdayState({ ...wednesdayState, status: act, openTime: ot, closeTime: Ct, }) };
@@ -65,29 +75,41 @@ export default function Index() {
   };
 
 
+  const saveVoucher = useSelector((state) => state.merchantAuth.saveVoucher);
+
+  useEffect(() => {
+    setOffers(saveVoucher.offers)
+    setBuy(saveVoucher.buy)
+    setGet(saveVoucher.get)
+    setEstSaving(saveVoucher.estSaving)
+    setExcludeWeekends(saveVoucher.excludeWeekends)
+    setExcludePublicHolidays(saveVoucher.excludePublicHolidays)
+    setBranch(saveVoucher.branch)
+    setFinePrint(saveVoucher.finePrint)
+    setRedemption(saveVoucher.redemption)
+    setCustomizeTime(saveVoucher.customizeTime)
+    setSundayState(saveVoucher.sundayState)
+    setMondayState(saveVoucher.mondayState)
+    setTuesdayState(saveVoucher.tuesdayState)
+    setWednesdayState(saveVoucher.wednesdayState)
+    setThursdayState(saveVoucher.thursdayState)
+    setFridayState(saveVoucher.fridayState)
+    setSaturdayState(saveVoucher.saturdayState)
+    
+}, []);
+
+  const dispatch = useDispatch()
 
 
-
-  
-
-
-
-  const handleCallback = () => {
-    const token = localStorage.getItem('token');
-    const businessId = ["36afdc38-39d7-432f-a85d-a9b2528e7a5a"];
-
-
-
-    const data ={buy, get, estSaving,  finePrint,redemption,sundayState,mondayState,tuesdayState,wednesdayState,thursdayState,fridayState,saturdayState}
-
-    dispatch(MERCHANT_VOUCHER(data));
-  };
-
-
-  
-
+  const SaveVoucher=()=>{
+     const obj ={offers,buy, get, estSaving,excludeWeekends, excludePublicHolidays, branch, finePrint,redemption,sundayState,mondayState,tuesdayState,wednesdayState,thursdayState,fridayState,saturdayState}
+     console.log('obj===', obj)
+     dispatch(SAVE_VOUCHER(obj))
+  }
 
   return (
+
+ 
 
     <>
       {/* Header */}
@@ -153,9 +175,13 @@ export default function Index() {
             //  branch={branch} setBranch={setBranch}
              finePrint={finePrint} setFinePrint={setFinePrint}
              redemption={redemption} setRedemption={setRedemption}
-             daysState={daysState}
+             daysState={daysState} excludeWeekends={excludeWeekends} setExcludeWeekends={setExcludeWeekends} 
+             excludePublicHolidays={excludePublicHolidays} setExcludePublicHolidays={setExcludePublicHolidays}
+             customizeTime={customizeTime} setCustomizeTime={setCustomizeTime}
              setOffers={setOffers} offers={offers}
-             callback={handleCallback}
+
+             SaveVoucher={SaveVoucher}
+
             /> 
           </div>
         </div>

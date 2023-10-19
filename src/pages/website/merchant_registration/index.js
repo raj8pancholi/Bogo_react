@@ -39,21 +39,46 @@ componentDidUpdate(prevProps, prevState) {
       const obj ={
         bName: businessInfo.businessData.bName , 
         address: businessInfo.businessData.address ,
-        country: businessInfo.businessData.country ,
-        pin: businessInfo.businessData.pin ,
-        state: businessInfo.businessData.state ,
+        countryId: businessInfo.businessData.country , 
+        cityId: businessInfo.businessData.state ,
         categoryId: businessInfo.businessData.categoryId ,
         subCategoryId: businessInfo.businessData.subCategoryId ,
-        logo: businessInfo.galleryData.logoImage ,
-        banner: businessInfo.galleryData.bannerImage ,
-        gallery: businessInfo.galleryData.selectedImages ,
+        // logo: businessInfo.galleryData.logo,
+        // banner: businessInfo.galleryData.bannerImage ,
+        // gallery: businessInfo.galleryData.selectedImages ,
         hoursOfOperation: reArrangeObj(businessInfo.businessData) ,
       }
+
       this.props.MERCHANT_BUSINESS(obj)
-      this.props.navigate('/otpVerify')
+       this.props.navigate('/otpVerify')
     }
   }
 }
+
+businessAdd=()=>{
+
+  const {businessInfo} = this.props
+  const timing = reArrangeObj(businessInfo.businessData);
+
+
+
+      const obj ={
+        bName: businessInfo.businessData.bName , 
+        address: businessInfo.businessData.address ,
+        countryId: businessInfo.businessData.country , 
+        cityId: businessInfo.businessData.state ,
+        categoryId: businessInfo.businessData.categoryId ,
+        subCategoryId: businessInfo.businessData.subCategoryId ,
+        logo: businessInfo.galleryData.logo,
+        // banner: businessInfo.galleryData.bannerImage ,
+        // gallery: businessInfo.galleryData.selectedImages ,
+        hoursOfOperation: reArrangeObj(businessInfo.businessData) ,
+      }
+
+      console.log("obj",obj)
+      this.props.MERCHANT_BUSINESS(obj);
+}
+
 
  
 
@@ -94,6 +119,10 @@ render(){
                             
                                 <button  className="registration-btn btn btn-primary" style={{marginBottom: '20px'}} onClick={this.signup} >
                                     Complete Registration 
+                                </button>
+
+                                <button  className="registration-btn btn btn-primary" style={{marginBottom: '20px'}} onClick={this.businessAdd}>
+                                            business Add
                                 </button>
                             
                         </div>

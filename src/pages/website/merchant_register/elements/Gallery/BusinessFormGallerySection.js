@@ -9,8 +9,10 @@ const BusinessFormGallerySection = ({onNextClick}) => {
 
   // Upload logo image
   const [logoImage, setLogoImage] = useState(null);
+  const [logo, setLogo] = useState(null);
 
   const handleLogoImageUpload = (event) => {
+    setLogo(event.target.files[0])
     const file = event.target.files[0];
     const reader = new FileReader();
 
@@ -72,7 +74,7 @@ const BusinessFormGallerySection = ({onNextClick}) => {
 
   const dispatch = useDispatch()
 const submitGallery=()=>{
-  const obj = {logoImage, bannerImage, selectedImages}
+  const obj = {logo, bannerImage, selectedImages}
   
   dispatch(UpdateGalleryInfo(obj))
   onNextClick();

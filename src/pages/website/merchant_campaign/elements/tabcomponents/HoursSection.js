@@ -25,13 +25,13 @@ export default function HoursSection(props) {
     const updateSaturday = daysState.saturday.update;
 
 
-    const [sundayToValue, setSundayToValue] = useState(sundayState.closeTime);
-    const [mondayToValue, setMondayToValue] = useState(mondayState.closeTime);
-    const [tuesdayToValue, setTuesdayToValue] = useState(tuesdayState.closeTime);
-    const [wednesdayToValue, setWednesdayToValue] = useState(wednesdayState.closeTime);
-    const [thursdayToValue, setThursdayToValue] = useState(thursdayState.closeTime);
-    const [fridayToValue, setFridayToValue] = useState(fridayState.closeTime);
-    const [saturdayToValue, setSaturdayToValue] = useState(saturdayState.closeTime);
+    const [sundayToValue, setSundayToValue] = useState(sundayState?.closeTime);
+    const [mondayToValue, setMondayToValue] = useState(mondayState?.closeTime);
+    const [tuesdayToValue, setTuesdayToValue] = useState(tuesdayState?.closeTime);
+    const [wednesdayToValue, setWednesdayToValue] = useState(wednesdayState?.closeTime);
+    const [thursdayToValue, setThursdayToValue] = useState(thursdayState?.closeTime);
+    const [fridayToValue, setFridayToValue] = useState(fridayState?.closeTime);
+    const [saturdayToValue, setSaturdayToValue] = useState(saturdayState?.closeTime);
 
     
     const handleTimeChange = (dayState, newValue, isFrom, setValue) => {
