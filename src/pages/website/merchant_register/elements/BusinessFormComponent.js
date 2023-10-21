@@ -57,6 +57,7 @@ const BusinessFormMainSection = () => {
   const category = useSelector((state) => state.category.categories);
   const countries = useSelector((state) => state.country.countries);
 
+
   const selectedSubCategoryId = useSelector((state) => state.subCategory.subcategories);
  
   
@@ -65,9 +66,11 @@ const BusinessFormMainSection = () => {
   useEffect(() => {
  
   if(countries && countries.length){
+   
+
    setCountry(countries[0].id)
    setAllcity(countries[0].cities)
-   setState(countries[0].cities ? countries[0].cities[0].id :'')
+   setState(countries[1].cities ? countries[1].cities[0].id :'')
   }
     
   }, [dispatch,  countries]);
@@ -87,7 +90,7 @@ const BusinessFormMainSection = () => {
   const handleInterNextClick = () => { setActiveTab("tabs-3"); };
  
   const countryUpdate=(id)=>{
-    const getCountry =countries?.find((x)=>x.id==id);
+    const getCountry =countries?.find((x)=>x.id===id);
    if(getCountry){
     setCountry(getCountry.id)
     setAllcity(getCountry.cities)
@@ -167,7 +170,7 @@ const BusinessFormMainSection = () => {
 
                 </div>
 
-                <BusinessFormHoursSection  daysState ={daysState} setWhatsappNo={setWhatsappNo}/>
+                <BusinessFormHoursSection  daysState ={daysState} setWhatsappNo={setWhatsappNo} whatsappNo={whatsappNo}/>
 
                 {/* Privacy Policy */}
                 <PrivacyPolicy/>

@@ -43,9 +43,9 @@ componentDidUpdate(prevProps, prevState) {
         cityId: businessInfo.businessData.state ,
         categoryId: businessInfo.businessData.categoryId ,
         subCategoryId: businessInfo.businessData.subCategoryId ,
-        // logo: businessInfo.galleryData.logo,
-        // banner: businessInfo.galleryData.bannerImage ,
-        // gallery: businessInfo.galleryData.selectedImages ,
+        logo: businessInfo.galleryData.logo,
+        banner: businessInfo.galleryData.bannerImage ,
+        gallery: businessInfo.galleryData.selectedImages ,
         hoursOfOperation: reArrangeObj(businessInfo.businessData) ,
       }
 
@@ -70,12 +70,12 @@ businessAdd=()=>{
         categoryId: businessInfo.businessData.categoryId ,
         subCategoryId: businessInfo.businessData.subCategoryId ,
         logo: businessInfo.galleryData.logo,
-        // banner: businessInfo.galleryData.bannerImage ,
-        // gallery: businessInfo.galleryData.selectedImages ,
+        banner: businessInfo.galleryData.bannerImage ,
+        gallery: businessInfo.galleryData.selectedImages ,
         hoursOfOperation: reArrangeObj(businessInfo.businessData) ,
       }
 
-      console.log("obj",obj)
+      console.log("objjjjjj",obj)
       this.props.MERCHANT_BUSINESS(obj);
 }
 
@@ -112,7 +112,7 @@ render(){
                  {/* Using the PhoneInput component */}
                     <label>Mobile Number</label>
                     <PhoneInput country={'ae'} value={phone} onChange={(e)=> console.log("e",e)} inputStyle={{ width: '100%' , marginBottom: '10px'}} />
-                </div>
+    </div>
 
 
                         <div className="col-12 regisBtn">

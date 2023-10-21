@@ -28,12 +28,12 @@ const submitCampaign =(status)=>{
         estimationSaving:saveVoucher.estSaving,
     //    excludeWeekends:saveVoucher.excludeWeekends,
     //    excludePublicHolidays:saveVoucher.excludePublicHolidays,
-     //   branch:localStorage.getItem('businessId'),
+        branch:localStorage.getItem('businessId'),
         finePrint:saveVoucher.finePrint,
         maxRedeem:saveVoucher.redemption,
         voucherTimings: reArrangeObj(saveVoucher) ,
         isPublished:status,
-        businessIds:localStorage.getItem('businessId'),
+        businessIds:[localStorage.getItem('businessId')],
     }
 
     console.log("ppppp",obj)
@@ -80,7 +80,7 @@ const submitCampaign =(status)=>{
 
                 <div className="row">
                 <div className="col-12">
-                    <a type="submit" className="fullsubmitbtn" onClick={()=>submitCampaign(true)}>
+                    <a type="submit" className="fullsubmitbtn" onClick={()=>submitCampaign(true)} style={{color:'white'}}>
                     Publish Campaign
                     </a>
                 </div>

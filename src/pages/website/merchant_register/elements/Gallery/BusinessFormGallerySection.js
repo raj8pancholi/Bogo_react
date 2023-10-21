@@ -12,6 +12,11 @@ const BusinessFormGallerySection = ({onNextClick}) => {
   const [logo, setLogo] = useState(null);
 
   const handleLogoImageUpload = (event) => {
+    console.log('event.target.files[0]', event.target.files[0]);
+    let form = new FormData();
+    form.append('logo', event.target.files[0]);
+    console.log('form', form.get('logo'));
+
     setLogo(event.target.files[0])
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -31,6 +36,9 @@ const BusinessFormGallerySection = ({onNextClick}) => {
 
   const handleBannerImageUpload = (event) => {
     const file = event.target.files[0];
+    let form = new FormData();
+    form.append('bannerImage', event.target.files[0]);
+    console.log('form banner', form.get('bannerImage'));
     const reader = new FileReader();
 
     reader.onload = () => {
@@ -54,7 +62,7 @@ const BusinessFormGallerySection = ({onNextClick}) => {
   console.log('====', selectedImages);
 
   const onDrop = useCallback(acceptedFiles => {
-      // Update the state with the selected images
+
       setSelectedImages([...selectedImages, ...acceptedFiles]);
   }, [selectedImages]);
 
@@ -75,6 +83,7 @@ const BusinessFormGallerySection = ({onNextClick}) => {
   const dispatch = useDispatch()
 const submitGallery=()=>{
   const obj = {logo, bannerImage, selectedImages}
+  console.log("obj gallery:-", obj)
   
   dispatch(UpdateGalleryInfo(obj))
   onNextClick();
@@ -170,7 +179,6 @@ const submitGallery=()=>{
 
 
 const dropzoneStyle = {
-
   borderRadius: '4px',
   cursor: 'pointer',
   width: '100%',

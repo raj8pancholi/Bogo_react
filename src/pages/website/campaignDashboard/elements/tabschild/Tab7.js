@@ -7,24 +7,24 @@ export default function Tab4() {
         <div id="tab4" className="tab-content1">
             <div className="row">
                 <div className="col-6">
-                    <div className='offerBoxRow'>
-                        <div className="offerLabel">
-                            <div className="offerlabelbox">Give Away</div>
-                        </div>
-
-                        <div className='offersName'>
-                            <h6>Giveaway: <span>Sushi Platter</span></h6>
-                        </div>
-
-                        <div className="campaign_louch_date">
-                            <h6 className="me-1">Launched: </h6>
-                            <h6>Apr 23, 2021</h6>
-                        </div>
-                    </div>
+                <div className="offerLabel">
+                    <div className="offerlabelbox">Giveaway</div>
+                </div>
+                <div className="voucher_redim_row">
+                    <Link to="/redemtionHisory" className="voucher_redim_box">
+                    <span>Vouchers Redeemed</span>
+                    <h4>45</h4>
+                    </Link>
+                </div>
+                <div className="influencer_appli"></div>
                 </div>
                 <div className="col-6">
                     <div className="edtiteable-row">
                         <div className="editeable_box">
+                            <div className="campaign_louch_date">
+                                <h6 className="me-1">Launched: </h6>
+                                <h6>Apr 23, 2021</h6>
+                            </div>
                             <div className="editBox">
                                 <div className="dropdown MangeOfferEditRow">
                                     <button
@@ -55,12 +55,6 @@ export default function Tab4() {
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
-                            <div className="voucher_redim_row">
-                                <Link to="/redemtionHisory" className="voucher_redim_box">
-                                <span>Vouchers Redeemed</span>
-                                <h4>45</h4>
-                                </Link>
                             </div>
                         </div>
                     </div>
@@ -69,24 +63,24 @@ export default function Tab4() {
             {/*  */}
             <div className="row">
                 <div className="col-6">
-                    <div className='offerBoxRow'>
-                        <div className="offerLabel">
-                            <div className="offerlabelbox">Give Away</div>
-                        </div>
-
-                        <div className='offersName'>
-                            <h6>Giveaway: <span>Sushi Platter</span></h6>
-                        </div>
-
-                        <div className="campaign_louch_date">
-                            <h6 className="me-1">Launched: </h6>
-                            <h6>Apr 23, 2021</h6>
-                        </div>
-                    </div>
+                <div className="offerLabel">
+                    <div className="offerlabelbox">Giveaway</div>
+                </div>
+                <div className="voucher_redim_row">
+                    <Link to="/redemtionHisory" className="voucher_redim_box">
+                    <span>Vouchers Redeemed</span>
+                    <h4>45</h4>
+                    </Link>
+                </div>
+                <div className="influencer_appli"></div>
                 </div>
                 <div className="col-6">
                     <div className="edtiteable-row">
                         <div className="editeable_box">
+                            <div className="campaign_louch_date">
+                                <h6 className="me-1">Launched: </h6>
+                                <h6>Apr 23, 2021</h6>
+                            </div>
                             <div className="editBox">
                                 <div className="dropdown MangeOfferEditRow">
                                     <button
@@ -117,12 +111,6 @@ export default function Tab4() {
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
-                            <div className="voucher_redim_row">
-                                <Link to="/redemtionHisory" className="voucher_redim_box">
-                                <span>Vouchers Redeemed</span>
-                                <h4>45</h4>
-                                </Link>
                             </div>
                         </div>
                     </div>

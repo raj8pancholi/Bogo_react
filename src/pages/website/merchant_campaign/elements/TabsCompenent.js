@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Select from 'react-select'
 
@@ -18,6 +18,8 @@ import HoursSection from '../elements/tabcomponents/HoursSection.js';
 
 
 
+
+
 export default function TabsCompenent(props) {
   const {buy, setBuy, get, setGet, estSaving, setEstSaving, branch, setBranch,
     finePrint,setFinePrint, redemption, setRedemption, daysState , setOffers , offers, excludeWeekends, setExcludeWeekends , excludePublicHolidays , setExcludePublicHolidays, customizeTime, setCustomizeTime, SaveVoucher
@@ -26,14 +28,11 @@ export default function TabsCompenent(props) {
 
   
   const [inputValue, setInputValue] = useState('');
-  // const [isWeekendDisabled, setWeekendDisabled] = useState(true);
  
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
-
-  
 
  
    
@@ -59,9 +58,9 @@ export default function TabsCompenent(props) {
 
   const saturdayState = daysState.saturday.state;
   const updateSaturday = daysState.saturday.update;
+ 
 
-
-
+  const [allday, setAllday] = useState(false);  
 
 const updateAllday=(status)=>{
 setAllday(status)
@@ -126,16 +125,15 @@ updateSaturday(status ? false: false, saturdayState.openTime, saturdayState.clos
                           <InputBoxComponent label="What will they get?" type="text" id="" name="" value={get} required="required" maxlength="30" placeholder="AED" getValue={setGet} />
                           <InputBoxComponent label="Estimated Savings?" type="number" id="" name="" value={estSaving} required="required" placeholder="AED" getValue={setEstSaving} />
 
-
-  //Weekend Function
-  
-  const handleWeekendChange = (status) => {
-    setWeekends((prevValue) => !prevValue);
-    updateSunday(status, sundayState.openTime, sundayState.closeTime)
-    updateSaturday(status, saturdayState.openTime, saturdayState.closeTime)
-  };
-
-
+                          
+                          <div className="row ">
+                            <div className="col-12">
+                                <div className="input-box">
+                                    <label htmlFor=" " className="label_text">Select Branch</label>
+                                    <MyComponent  />
+                                </div>
+                            </div>
+                          </div>
 
                           
                           <div className="row mt-3">
@@ -180,12 +178,7 @@ updateSaturday(status ? false: false, saturdayState.openTime, saturdayState.clos
                               
                             </div>
                             {customizeTime && ( <div className="exclude_weekends_row" > <HoursSection daysState={daysState} /> </div> )}
-
-
-
                           </div>
-                        </div>
-
 
                           <div className="row">
                               <h4 className="modificatin-notification"> Campaign modifications take 24 hours to take effect. </h4>
@@ -195,55 +188,17 @@ updateSaturday(status ? false: false, saturdayState.openTime, saturdayState.clos
                             <label htmlFor="">Fine Print</label>
                             <div className="fine_print_box">
                               <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" value={finePrint} onChange={(e) => setFinePrint(e.target.value)} placeholder=""></textarea>
-
-                        
-                       
                             </div>
-                        </div>
-
-                        <div className="row">
-                          <div className="offday_row">
-                            <label htmlFor="">Exclude weekends</label>
-                            <label className="switch">
-                              <input
-                                type="checkbox"
-                                id="switchButton "
-                                checked={weekends}
-                                // disabled={isWeekendDisabled}
-                                onChange={() => handleWeekendChange(weekends)}
-                              />
-                              <span className="slider round"></span>
-                            </label>
                           </div>
-                        </div>
 
-                        <ExcludePublicHolidays/>
-
-                        {/* <ExcludeWeekends /> */}
-                        <div className="row">
-                          <div className="offday_row">
-                            <label htmlFor="">Customize Timing</label>
-                            <div className='switchBox'>
-                              <span> <i className="fa-regular fa-gem" style={{position:'inherit', color:'#F1C62E'}}></i> Gold Feature</span>
-                              <label className="switch">
-                                <input
-                                  type="checkbox"
-                                  id="switchButton"
-                                  checked={excludeWeekends}
-                                  onChange={handleSwitchChange}
-                                />
-                                <span className="slider round"></span>
-                              </label>
+                          <div className="input-box mt-2">
+                            <div className='d-flex justify-content-between align-center maxRedemption_group'>
+                              <label htmlFor="">Maximum redemptions</label>
+                              <span style={{color: "#F1C62E"}}> <i className="fa-regular fa-gem" style={{position: "inherit", color: "#F1C62E"}}></i> Gold Feature</span>
                             </div>
                             
+                            <input type="number" name="" id="" placeholder="example:500" maxlength="30" className="form-control" required="" value={redemption} onChange={(e) => setRedemption(parseInt(e.target.value))} />
                           </div>
-                          {excludeWeekends && (
-                            <div className="exclude_weekends_row" >
-                              <HoursSection daysState={daysState} />
-                            </div>
-                          )}
-                        </div>
-
 
                           <div className="row review_submit_btn_row">
                               <div className="next-btn-box review_submit_btn_box tab-pane active" >
@@ -251,36 +206,17 @@ updateSaturday(status ? false: false, saturdayState.openTime, saturdayState.clos
                                       <Link to="/review_campaign">Review and Submit</Link>
                                   </button>
                               </div>
-
-
-                       
                           </div>
-                        </div>
-
 
                       </form>
                   </div>
             </div>
           </div>
-                        
 
-                        <div className="row review_submit_btn_row">
-                            <div className="next-btn-box review_submit_btn_box tab-pane active" >
-                                <button type="button" className="btn btn-primary btnNext review_submit_btn" onClick={sendDataToParent}>
-                                    <Link to="/review_campaign">Review and Submit</Link>
-                                </button>
-                            </div>
-                        </div>
+  
 
-                        
-                        
 
-                    </form>
-                </div>
-          </div>
-        </div>
-
-      </div>
+    </div>
     </div>
   )
 }

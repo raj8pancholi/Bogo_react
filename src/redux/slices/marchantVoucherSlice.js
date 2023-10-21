@@ -7,7 +7,6 @@ export const MERCHANT_VOUCHER = createAsyncThunk(
     async (data) => {
     try {
       const res = await MerchantVoucher(data);
-      console.log(res.data);
       return res.data;
     } catch (error) { 
       if (error.response.status === 401) throw new Error(error.response.data.message)
@@ -22,7 +21,7 @@ export const MERCHANT_VOUCHER = createAsyncThunk(
 
 const marchantVoucherSlice = createSlice({
     name: 'merchant',
-    initialState: { merchantVoucherData: [], signUpError:'', loginError:'' },
+    initialState: { merchantVoucherData: [], signUpError:'', loginError:'', businessApi:false },
     reducers: {},
     extraReducers:{
         

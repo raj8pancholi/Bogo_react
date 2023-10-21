@@ -1,12 +1,7 @@
-
 import React, { useEffect, useState } from 'react';
-
 
 // Import Css
 import './style.css';
-
-// Import slice
-
 
 // Import Components Header and Footer
 import Footer from '../../../partials/footer/Footer.js';
@@ -18,33 +13,21 @@ import CampaignHeader from './elements/CampaignHeader';
 import {SAVE_VOUCHER, CREATE_VOUCHER } from '../../../redux/slices/merchantAuthSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
-export default function Index() { 
-
-  
-
-
-  const dispatch = useDispatch();
-
-
-  
+export default function Index() { // Renamed to start with an uppercase letter
  
   const [offers ,setOffers] = useState(1)
   const [buy ,setBuy] = useState('')
   const [get ,setGet] = useState('')
   const [estSaving, setEstSaving] = useState('');
-
   const [excludeWeekends, setExcludeWeekends] = useState(false);
   const [excludePublicHolidays, setExcludePublicHolidays] = useState(false);
-  const [branch, setBranch] = useState([ ]);
-
- 
+  // const [branch, setBranch] = useState([ ]);
   const [finePrint, setFinePrint] = useState('');
   const [redemption, setRedemption] = useState('');
   const [customizeTime, setCustomizeTime] = useState(false);
 
 
   // // Hours state
-
   const [sundayState, setSundayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
   const [mondayState, setMondayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
   const [tuesdayState, setTuesdayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
@@ -52,8 +35,6 @@ export default function Index() {
   const [thursdayState, setThursdayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
   const [fridayState, setFridayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
   const [saturdayState, setSaturdayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
-
-  
 
 
   const updateSunday = (act, ot, Ct) => {setSundayState({ ...sundayState, status: act, openTime: ot, closeTime: Ct, }) };
@@ -74,7 +55,6 @@ export default function Index() {
     saturday: { state: saturdayState, update: updateSaturday },
   };
 
-
   const saveVoucher = useSelector((state) => state.merchantAuth.saveVoucher);
 
   useEffect(() => {
@@ -84,7 +64,7 @@ export default function Index() {
     setEstSaving(saveVoucher.estSaving)
     setExcludeWeekends(saveVoucher.excludeWeekends)
     setExcludePublicHolidays(saveVoucher.excludePublicHolidays)
-    setBranch(saveVoucher.branch)
+    // setBranch(saveVoucher.branch)
     setFinePrint(saveVoucher.finePrint)
     setRedemption(saveVoucher.redemption)
     setCustomizeTime(saveVoucher.customizeTime)
@@ -102,7 +82,7 @@ export default function Index() {
 
 
   const SaveVoucher=()=>{
-     const obj ={offers,buy, get, estSaving,excludeWeekends, excludePublicHolidays, branch, finePrint,redemption,sundayState,mondayState,tuesdayState,wednesdayState,thursdayState,fridayState,saturdayState}
+     const obj ={offers,buy, get, estSaving,excludeWeekends, excludePublicHolidays, finePrint,redemption,sundayState,mondayState,tuesdayState,wednesdayState,thursdayState,fridayState,saturdayState}
      console.log('obj===', obj)
      dispatch(SAVE_VOUCHER(obj))
   }
@@ -110,7 +90,6 @@ export default function Index() {
   return (
 
  
-
     <>
       {/* Header */}
       <Header1 />
@@ -179,9 +158,7 @@ export default function Index() {
              excludePublicHolidays={excludePublicHolidays} setExcludePublicHolidays={setExcludePublicHolidays}
              customizeTime={customizeTime} setCustomizeTime={setCustomizeTime}
              setOffers={setOffers} offers={offers}
-
              SaveVoucher={SaveVoucher}
-
             /> 
           </div>
         </div>

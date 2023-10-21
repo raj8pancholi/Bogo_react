@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import WhatappInputbox from '../../../../../components/CommonComponent/WhatappInputbox';
 
 export default function BusinessFormHoursSection(props) {
-    const { daysState , setWhatsappNo } = props; 
+    const { daysState , setWhatsappNo ,whatsappNo } = props; 
 
     const sundayState = daysState.sunday.state;
     const updateSunday = daysState.sunday.update; 
@@ -330,7 +330,7 @@ export default function BusinessFormHoursSection(props) {
       </div>
 
       <div className="col-md-4 order-sm-2 col-lg-4 col-sm-12 whatapp_row ">
-               <WhatappInputbox setWhatsappNo={setWhatsappNo}/>
+               <WhatappInputbox setWhatsappNo={setWhatsappNo} whatsappNo={whatsappNo}/>
       </div>
 
       <div className="col-md-4 order-sm-3 col-lg-4 col-sm-12  black-div ">

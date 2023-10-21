@@ -145,12 +145,12 @@ console.log('obj--------+++', obj)
 
             <InputTextRow label={campaignType === 1 ? "Estimation saving" :"Exclusive Offers"}  name="ExsOffers" type="text" placeholder="AED" value={estimationSaving}  getValue={setEstimationSaving}  required={true}/>
 
-            <InputTextRow  label={campaignType === 1 ? "Cash Incentive (optional)" :"Estimation saving"}  name="saving" type="text" placeholder="AED" value={cashIncentive}  getValue={setCashIncentive}  required={true}/>
+            <InputTextRow  label={campaignType === 1 ? "Cash Incentive (optional)" :"Estimation saving"}  name="saving" type="number" placeholder="AED" value={cashIncentive}  getValue={setCashIncentive}  required={true}/>
 
             
 
 
-            <div className="row ">
+            <div className="row mt-2">
               <div className="col-12">
                 <div className="input-box jst_cont_btw">
                   <label for="">Allow Guest  (+1) </label>

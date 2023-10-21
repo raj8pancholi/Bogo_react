@@ -11,14 +11,15 @@ export default function Weekends() {
       setExcludeWeekends((prevValue) => !prevValue)
 
       // disable sunday and saturday input box
-      // if(!excludeWeekends){
-      //     document.getElementById("sunday");
-      //     document.getElementById("sunday").disabled = true;
-      //     document.getElementById("saturday").disabled = true;
-      // }else{
-      //     document.getElementById("sunday").disabled = false;
-      //     document.getElementById("saturday").disabled = false;
-      // }
+      if(!excludeWeekends){
+          let inputBorder = document.getElementById("sunday");
+          inputBorder.style.border = "1px solid red";
+          document.getElementById("sunday").disabled = true;
+          document.getElementById("saturday").disabled = true;
+      }else{
+          document.getElementById("sunday").disabled = false;
+          document.getElementById("saturday").disabled = false;
+      }
   }
 
 
