@@ -3294,6 +3294,21 @@ nav.navbar {
   align-items: center;
 }
 
+.social_media_previow_box{
+  width: 30%;
+  height: 50px;
+  border: 1px solid #e9ecef;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow-wrap: anywhere;
+  overflow-x: auto;
+
+
+}
+
 
 .hastag-row label, .promo_code_preview_row label, .social_media_preview_row label{
   font-family: Montserrat;
@@ -3301,7 +3316,10 @@ nav.navbar {
   font-weight: 600;
   line-height: 13px;
   letter-spacing: 0em;
+  margin: 0;
 }
+
+
 
 .hastag-row span, .promo_code_preview_row span, .social_media_preview_row span{
   font-family: Montserrat;
@@ -6183,6 +6201,16 @@ padding-bottom: 30px;
 .hastag_row .input-box{
   display: flex;
   align-items: center;
+}
+.overflowScrollBox span{
+  height: 30px;
+  width: 30%;
+  overflow-wrap: anywhere;
+  overflow-x: auto;
+  border: 1px solid #ededed;
+}
+.overflowScrollBox span::-webkit-scrollbar {
+  display:none;
 }
 .hastag-row .input-box{
   height: 100%;

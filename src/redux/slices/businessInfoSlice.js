@@ -3,7 +3,10 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const UpdateBusinessInfo = createAsyncThunk( "businessInfo/get", (businessInfo) =>   businessInfo );
 export const UpdateGalleryInfo = createAsyncThunk( "businessInfo/gallery", (galleryInfo) =>   galleryInfo );
 
+
+
 const businessInfoSlice = createSlice({
+
   name: 'businessInfo',
   initialState: { businessData: [], galleryData:[] },
   reducers: {},
@@ -14,6 +17,7 @@ const businessInfoSlice = createSlice({
     },
 
    [UpdateGalleryInfo.fulfilled]: (state, action) => {
+    
     console.log("logo....", action.payload)
     state.galleryData = action.payload;
    },    

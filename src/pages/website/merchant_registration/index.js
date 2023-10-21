@@ -44,7 +44,7 @@ componentDidUpdate(prevProps, prevState) {
         categoryId: businessInfo.businessData.categoryId ,
         subCategoryId: businessInfo.businessData.subCategoryId ,
         logo: businessInfo.galleryData.logo,
-        banner: businessInfo.galleryData.bannerImage ,
+        banner: businessInfo.galleryData.bannerobj ,
         gallery: businessInfo.galleryData.selectedImages ,
         hoursOfOperation: reArrangeObj(businessInfo.businessData) ,
       }
@@ -70,7 +70,7 @@ businessAdd=()=>{
         categoryId: businessInfo.businessData.categoryId ,
         subCategoryId: businessInfo.businessData.subCategoryId ,
         logo: businessInfo.galleryData.logo,
-        banner: businessInfo.galleryData.bannerImage ,
+        banner: businessInfo.galleryData.bannerobj ,
         gallery: businessInfo.galleryData.selectedImages ,
         hoursOfOperation: reArrangeObj(businessInfo.businessData) ,
       }

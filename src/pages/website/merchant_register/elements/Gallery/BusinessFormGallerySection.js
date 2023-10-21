@@ -33,11 +33,13 @@ const BusinessFormGallerySection = ({onNextClick}) => {
 
   // Upload Banner image
   const [bannerImage, setBannerImage] = useState(null);
+  const [bannerobj, setBannerobj] = useState();
 
   const handleBannerImageUpload = (event) => {
     const file = event.target.files[0];
+    setBannerobj(file)
     let form = new FormData();
-    form.append('bannerImage', event.target.files[0]);
+    form.append('bannerImage', JSON.stringify(file));
     console.log('form banner', form.get('bannerImage'));
     const reader = new FileReader();
 
@@ -82,7 +84,7 @@ const BusinessFormGallerySection = ({onNextClick}) => {
 
   const dispatch = useDispatch()
 const submitGallery=()=>{
-  const obj = {logo, bannerImage, selectedImages}
+  const obj = {logo, bannerobj, selectedImages}
   console.log("obj gallery:-", obj)
   
   dispatch(UpdateGalleryInfo(obj))

@@ -80,23 +80,6 @@ export default function ExclusiveBtnModal({SubmitCampaign, campaignType, offer, 
 
 
 
-                {/* <div className="row">
-                    <div className="col-12">
-                    <div className="input-box" >
-                            
-                        <label htmlFor="" >Branch Name</label>
-        
-                        <div className="preview_branch">
-                            <label  className="selectDate" >Demo 1</label>
-                            <label  className="selectDate" >Demo 2</label>
-                            <label  className="selectDate" >Demo 3</label>
-                            <label  className="selectDate" >Demo 4</label>
-                        </div>
-        
-                    </div>
-                    </div>
-                </div> */}
-
 
                 <div className="row fine-print-row_preview mt-2">
                     <div className="col-12">
@@ -109,12 +92,12 @@ export default function ExclusiveBtnModal({SubmitCampaign, campaignType, offer, 
                     </div>
                 </div>
 
-                <div className="hastag-row  mt-3">
+                <div className="hastag-row  mt-3 overflowScrollBox">
                     <label htmlFor=" " ><i className="fa-solid fa-hashtag"></i> Hashtag</label>
                     <span>{hashtags}</span>
                 </div>
 
-                <div className="promo_code_preview_row mt-2">
+                <div className="promo_code_preview_row mt-2 overflowScrollBox">
                     <label htmlFor=" "><i className="fa-solid fa-code"></i> Promo Code</label>
                     <span>{promoCode}</span>
                 </div>

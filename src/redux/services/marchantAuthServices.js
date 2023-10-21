@@ -31,8 +31,9 @@ export const BusinessMerchant = (data) => {
   const token = localStorage.getItem('token')
  
   for (const key in data) {
-    if (data[key] && typeof data[key] === 'object') { 
+    if (data[key] && typeof data[key] === 'object' && key != "logo" && key != "banner" && key != "gallery") { 
       formData.append(key, JSON.stringify(data[key]));
+
     } else { 
       formData.append(key, data[key]);
     }
