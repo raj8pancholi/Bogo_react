@@ -48,33 +48,6 @@ export const BusinessMerchant = (data) => {
 };
 
 
-
-export const CampaignCreate = (data) => { 
-  const token = localStorage.getItem('token')
- 
-  const headers = { 
-    'Authorization': `Bearer ${token}`
-  };
-
-  return HttpClient.post("/merchant/campaign", data, { headers });
-};
-
-export const VoucherCreate = (data) => { 
-  const token = localStorage.getItem('token')
- 
-  const headers = {
-    'Authorization': `Bearer ${token}`
-  };
-
-  return HttpClient.post("/merchant/voucher", data, { headers });
-};
-
-
-export const AllBusinessDetails = () => { 
-  const token = localStorage.getItem('token')
-  const headers = {
-    'Content-Type': 'multipart/form-data',
-    'Authorization': `Bearer ${token}`
-  };
-  return HttpClient.get("/merchant/business",{ headers });
-};
+export const CampaignCreate = (data) => { return HttpClient.post("/merchant/campaign", data); };
+export const VoucherCreate = (data) => { return HttpClient.post("/merchant/voucher", data ); };
+export const AllBusinessDetails = () => { return HttpClient.get("/merchant/business"); };

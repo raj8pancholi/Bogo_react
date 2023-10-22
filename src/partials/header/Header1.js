@@ -62,7 +62,7 @@ export default function Header1() {
               </li>
               <li>
               <i className="fa-solid fa-pen"></i>
-                <Link className="dropdown-item" to="/voucherDetails">Manage  Business Profile</Link>
+                <Link className="dropdown-item" to="/business_profile">Manage  Business Profile</Link>
               </li>
               <li>
                 <i className="fa-solid fa-bullhorn" />
@@ -71,7 +71,7 @@ export default function Header1() {
               <li>
                 {/* <img src="/website/images/shop.png" alt="" className="img-fluid" /> */}
                 <i className="fa-solid fa-code-branch" />
-                <Link className="dropdown-item" to="/merchant_register">Add  Branch</Link>
+                <Link className="dropdown-item" to="/add_branch">Add  Branch</Link>
               </li>
               <li>
                 {/* <img src="/website/images/shop.png" alt="" className="img-fluid" /> */}

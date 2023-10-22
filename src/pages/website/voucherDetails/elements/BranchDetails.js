@@ -1,38 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { ImgUrl } from '../../../../utils'
 
-function BranchDetails() {
-    const branchCardData = [
-        { image: "/images/directory_img/dir_card_icon1.jpg" },
-        { image: "/images/directory_img/dir_card_icon2.jpg" },
-        { image: "/images/directory_img/dir_card_icon1.jpg" },
-        { image: "/images/directory_img/dir_card_icon2.jpg" },
-        { image: "/images/directory_img/dir_card_icon1.jpg" },
-        { image: "/images/directory_img/dir_card_icon2.jpg" },
-        { image: "/images/directory_img/dir_card_icon2.jpg" },
-        { image: "/images/directory_img/dir_card_icon2.jpg" },
-        { image: "/images/directory_img/dir_card_icon2.jpg" },
-        { image: "/images/directory_img/dir_card_icon2.jpg" },
-    ]
+function BranchDetails({allBusinessData}) {
+ 
     return (
         <>
-            {branchCardData.map((slide, id) => (
-                <div className="col-md-6 mt-2">
-                    <Link to="/voucherDetails" className='voucherDetailsLink'>
+            {allBusinessData?.map((business, i) => (
+                <div className="col-md-6 mt-2" key={business?.id}>
+                    {/* <Link to="/voucherDetails" className='voucherDetailsLink'> */}
                         <div className="dir-card">
                             <span className="card p-3 card_row">
                                 <div className="row">
                                     <div className="col-3">
                                         <div className="card_img">
-                                            <img src={slide.image} alt="" className="img-fluid" />
+                                            <img src={`${ImgUrl}/${business.logo}`} alt="" className="img-fluid" />
                                         </div>
                                     </div>
                                     <div className="col-6">
                                         <div className="card_details">
-                                            <h5>Tasty Treats</h5>
-                                            <span>JLT</span>
-                                            <span>Coffee, Desserts | $</span>
-                                            <span className="loacation"> <i className="fa-solid fa-location-dot text-primary"></i> <small>0.3km</small></span>
+                                            <h5>{business?.bName}</h5>
+                                            <span>{business?.subCategory?.name}</span>
+                                            <span>{business?.address}</span>
+                                            <span className="loacation"><i className="fa-solid fa-location-dot text-primary"></i>  {business?.city?.name}
+                                                 {/* <small>0.3km</small> */}
+                                                 </span>
                                         </div>
                                     </div>
                                     <div className="col-3">
@@ -50,7 +42,7 @@ function BranchDetails() {
                                 </div>
                             </span>
                         </div>
-                    </Link>
+                    {/* </Link> */}
                 </div>
             ))}
 

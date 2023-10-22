@@ -9,18 +9,23 @@ import Footer from '../../../partials/footer/Footer';
 
 import VoucheHeader from './elements/VoucheHeader'
 import MainSection from './elements/MainSection'
+import Header1 from '../../../partials/header/Header1';
+import { useSelector } from 'react-redux';
 
 function VoucherDetails() {
+const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);  
+const selectedBusinessData = useSelector((state) => state.merchantAuth.selectedBusinessData);  
+
+
     return (
         <>
         {/* Header */}
-        <Headers/>
+        <Header1/>
 
             <section className="voucher_previews_section">
 
-                <VoucheHeader />
-
-                <MainSection />
+                <VoucheHeader selectedBusinessData={selectedBusinessData}/>
+                <MainSection allBusinessData={allBusinessData}  selectedBusinessData={selectedBusinessData} />
 
                 <div className='container'>
                     <div className="row">

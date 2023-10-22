@@ -19,7 +19,7 @@ import AbmassadorsHeading from './elements/AbmassadorsHeading';
 import GiveAway from './elements/GiveAway';
 import ExclusiveOffer from './elements/ExclusiveOffer';
 import { CREATE_CAMPAIGN } from '../../../redux/slices/merchantAuthSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
@@ -28,7 +28,10 @@ import { useDispatch } from 'react-redux';
 
 // tabs
 const AmbassadorsCampaignPage = () => {
+  const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);  
+
   const socialMediaOptions = [ { value: 'Facebook', label: 'Facebook' }, { value: 'Instagram', label: 'Instagram' }, { value: 'Youtube', label: 'Youtube' }, { value: 'TickTok', label: 'TickTok' }, ]
+  const businessOption =  allBusinessData?.map((business) => ({ value: business.id, label: business.bName, }));
 
   const [campaignType, setcampaignType] = useState(1);
   const [offer, setOffer] = useState();
@@ -37,7 +40,7 @@ const AmbassadorsCampaignPage = () => {
   const [allowedGuest, setallowedGuest] = useState();
   const [requirement, setrequirement] = useState();
   const [prefferedPlatforms, setprefferedPlatforms] = useState([]);
-  const [socialPlatforms, setSocialPlatforms] = useState( [socialMediaOptions[4], socialMediaOptions[5]]);
+  const [socialPlatforms, setSocialPlatforms] = useState( [socialMediaOptions[4], socialMediaOptions[5]]); 
   const [photo, setphoto] = useState();
   const [video, setvideo] = useState();
   const [untilDate, setuntilDate] = useState();
@@ -46,19 +49,29 @@ const AmbassadorsCampaignPage = () => {
   const [promoCode, setpromoCode] = useState();
   const [audienceSize, setaudienceSize] = useState(); 
   const [isPublished, setIsPublished] = useState(true);
-  const [maxRedeem, setMaxRedeem] = useState();
-  const [businessIds, setBusinessIds] = useState(localStorage.getItem('businessId'));
+  const [maxRedeem, setMaxRedeem] = useState(5000);
+  const [businessIds, setBusinessIds] = useState([localStorage.getItem('businessId')]);
   
 
   const buttonOption = (id) => { setcampaignType(id); };
   const handleDateChange = (date) => { setuntilDate(date); };
   const handleDateOpen = (id) =>{ setendDate(id) };
- 
+
    
-  const colourOptions = [ { value: 'Marina', label: 'Marina' }, { value: 'Dhubai', label: 'Dhubai' }, { value: 'Marina1', label: 'Marina1' } ]
-  const MyComponent = () => ( <Select closeMenuOnSelect={false} defaultValue={[colourOptions[4], colourOptions[5]]} isMulti options={colourOptions} styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }} /> )
 
+  // const MyComponent = () => ( <Select  onChange={handleSelectBranch} closeMenuOnSelect={false} defaultValue={selectBusiness} isMulti options={businessOption} styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }} /> )
 
+  // const  handleSelectBranch = (selectedOptions) => {
+  //   setSocialPlatforms(selectedOptions)
+  //   if(selectedOptions && selectedOptions.length){
+  //     var socialarr =[]
+  //     selectedOptions.forEach(element => {
+  //       socialarr.push(element.label)
+  //     });
+  //     setselectBusiness(socialarr);
+  //   }
+    
+  // }
 
   const SocialComponent = () => ( <Select  onChange={handleSelectChange} closeMenuOnSelect={false} defaultValue={socialPlatforms} isMulti options={socialMediaOptions} styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }} /> )
 
@@ -74,26 +87,29 @@ const AmbassadorsCampaignPage = () => {
     
   }
     const audienceSizeOption = [
-      { value: '2000+', label: '2000+' },
-      { value: '5000+', label: '5000+' },
-      { value: '10000+', label: '10000+' },
-      { value: '25000+', label: '25000+' },
-      { value: '50000+', label: '50000+' },
-      { value: '100000+', label: '100000+' },
-      { value: '250000+', label: '250000+' },
-      { value: '500000+', label: '500000+' },
-      { value: '1m+', label: '1m+' }, 
+      { value: '2000', label: '2000+' },
+      { value: '5000', label: '5000+' },
+      { value: '10000', label: '10000+' },
+      { value: '25000', label: '25000+' },
+      { value: '50000', label: '50000+' },
+      { value: '100000', label: '100000+' },
+      { value: '250000', label: '250000+' },
+      { value: '500000', label: '500000+' },
+      { value: '1m', label: '1m+' }, 
   ];
   const dispatch = useDispatch()
 
  const SubmitCampaign=()=>{
-   const obj ={ campaignType, offer, estimationSaving, cashIncentive, allowedGuest, requirement, prefferedPlatforms, photo, video, untilDate, endDate, hashtags, promoCode, audienceSize, isPublished, maxRedeem, businessIds}
+   const obj ={ campaignType:campaignType==1 ? "GiveAway":"ExclusiveOffer", offer, estimationSaving:estimationSaving, cashIncentive:parseInt(cashIncentive), allowedGuest:parseInt(2), requirement, prefferedPlatforms, photo, video, untilDate, endDate, hashtags:[hashtags?.replace(/#/g, '')], promoCode, audienceSize:parseInt(audienceSize), isPublished, maxRedeem, businessIds}
    console.log("obj>>>>", obj)
    dispatch(CREATE_CAMPAIGN(obj))
  }
 
- const obj ={ campaignType, offer, estimationSaving, cashIncentive, allowedGuest, requirement, prefferedPlatforms, photo, video, untilDate, endDate, hashtags, promoCode, audienceSize, isPublished, maxRedeem, businessIds}
-console.log('obj--------+++', obj)
+ const obj ={ campaignType, offer, estimationSaving:parseInt(estimationSaving), cashIncentive:parseInt(cashIncentive), allowedGuest:parseInt(2), requirement, prefferedPlatforms, photo, video, untilDate, endDate, hashtags, promoCode, audienceSize, isPublished, maxRedeem, businessIds}
+ 
+ const handleSelectBusiness = (selectedOptions) => { const selectedIds = selectedOptions.map(option => option.value); setBusinessIds(selectedIds); };
+
+console.log("obj------", obj)
   return (
     <>
       <Header1 />
@@ -164,7 +180,10 @@ console.log('obj--------+++', obj)
                <div className="col-12">
                   <div className="input-box">
                       <label htmlFor=" " className="label_text">Select Branch</label>
-                      <MyComponent  />
+                      <Select onChange={handleSelectBusiness} closeMenuOnSelect={false} isMulti
+                                        options={businessOption}
+                                        styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }}
+                                    /> 
                   </div>
                </div>
             </div>

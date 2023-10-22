@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import OtpInput from './OtpInput';
-import { MERCHANT_VERIFY_OTP } from '../../../../redux/slices/merchantAuthSlice';
+import { MERCHANT_REQUEST_OTP, MERCHANT_VERIFY_OTP } from '../../../../redux/slices/merchantAuthSlice';
 
 export default function VerifyOtpForm({ id }) {
 
@@ -52,6 +52,14 @@ export default function VerifyOtpForm({ id }) {
     }
   };
 
+
+
+  const resendOtp =()=>{
+    const obj = {email:localStorage.getItem('userMail')} 
+    dispatch(MERCHANT_REQUEST_OTP(obj)); 
+  } 
+
+
   return (
     <form id="addform" className="verify_otp_login_form" 
     onSubmit={handleOtpVerification}>
@@ -65,9 +73,9 @@ export default function VerifyOtpForm({ id }) {
 
       <div className="resend_code_box">
         <span>Did not receive the code?</span>
-        <Link to="#" className="resend_code_link">
+        <span className="resend_code_link"  onClick={resendOtp} >
           Resend Code
-        </Link>
+        </span>
       </div>
 
       <div className="row">

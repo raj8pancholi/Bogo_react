@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import {CreateMerchant,BusinessMerchant , LoginMerchant, VerifyOtp, RequestOtp, ResetPassword , AllBusinessDetails, CampaignCreate, VoucherCreate}  from "../services/marchantAuthServices";
+import { TOAST_ERROR, TOAST_SUCCESS } from '../../utils';
 
  
 
@@ -10,10 +11,14 @@ export const MERCHANT_SIGNUP = createAsyncThunk(
       const res = await CreateMerchant(data);
       localStorage.setItem('token', res.data?.tokens.access.token)
       localStorage.setItem('userID', res.data?.user.id)
+      localStorage.setItem('userMail', res.data?.user.email)
       localStorage.setItem('isLogin', 1)
       return res.data;
     } catch (error) { 
-      if (error.response.status === 401) throw new Error(error.response.data.message)
+      if (error.response.status === 401) {
+        TOAST_ERROR(error.response.data.message)
+         throw new Error(error.response.data.message)
+      }
       else  throw new Error("An unexpected error occurred"); 
     }
   }
@@ -28,10 +33,15 @@ export const MERCHANT_SIGNIN = createAsyncThunk(
     const res = await LoginMerchant(data);
     localStorage.setItem('token', res.data?.tokens.access.token)
     localStorage.setItem('userID', res.data?.user.id)
+    localStorage.setItem('userMail', res.data?.user.email)
     localStorage.setItem('isLogin', 1)
+    TOAST_SUCCESS('Login successfully!')
     return res.data;
   } catch (error) { 
-    if (error.response.status === 401) throw new Error(error.response.data.message)
+    if (error.response.status === 401) {
+      TOAST_ERROR(error.response.data.message)
+       throw new Error(error.response.data.message)
+    }
     else  throw new Error("An unexpected error occurred"); 
   }
 }
@@ -46,7 +56,10 @@ export const MERCHANT_BUSINESS = createAsyncThunk(
     localStorage.setItem('businessId', res?.data?.id)
     return res.data;
   } catch (error) { 
-    if (error.response.status === 401) throw new Error(error.response.data.message)
+    if (error.response.status === 401) {
+      TOAST_ERROR(error.response.data.message)
+       throw new Error(error.response.data.message)
+    }
     else  throw new Error("An unexpected error occurred"); 
   }
 }
@@ -55,13 +68,17 @@ export const MERCHANT_BUSINESS = createAsyncThunk(
 
 export const MERCHANT_REQUEST_OTP = createAsyncThunk(
   "merchant/MERCHANT_REQUEST_OTP",
-  async (data) => {
+  async (data) => { 
   try {
     console.log(data + 'request otp data from slice');
     const res = await RequestOtp(data);
+    TOAST_SUCCESS('OTP sent successfully! Check your email.')
     return res.data;
-  } catch (error) { 
-    if (error.response.status === 401) throw new Error(error.response.data.message)
+  } catch (error) {  
+    if (error.response.status === 401) {
+      TOAST_ERROR(error.response.data.message)
+       throw new Error(error.response.data.message)
+    }
     else  throw new Error("An unexpected error occurred"); 
   }
 }
@@ -79,7 +96,10 @@ export const MERCHANT_VERIFY_OTP = createAsyncThunk(
     console.log(res + 'verify otp data from slice');
     return res.data;
   } catch (error) {
-    if (error.response.status === 401) throw new Error(error.response.data.message)
+    if (error.response.status === 401) {
+      TOAST_ERROR(error.response.data.message)
+       throw new Error(error.response.data.message)
+    }
     else  throw new Error("An unexpected error occurred");
   }
 }
@@ -122,11 +142,19 @@ export const CREATE_CAMPAIGN = createAsyncThunk(
   async (data) => {
       try {
         const res = await CampaignCreate(data);
+        localStorage.setItem("activeCampaing",res.data.id)
+        TOAST_SUCCESS("Campaign created successfully!")
         return res.data;
         
       } catch (error) {
-        if (error.response.status === 401) throw new Error(error.response.data.message)
-        else  throw new Error("An unexpected error occurred");
+        if (error.response.status === 401) {
+          TOAST_ERROR(error.response.data.message)
+           throw new Error(error.response.data.message)
+        }
+        else {
+          TOAST_ERROR("An unexpected error occurred")
+          throw new Error("An unexpected error occurred"); 
+        } 
       }
   }
 );
@@ -137,10 +165,14 @@ export const CREATE_VOUCHER = createAsyncThunk(
   async (data) => {
       try {
         const res = await VoucherCreate(data);
+        TOAST_SUCCESS("Voucher created successfully!")
         return res.data;
         
       } catch (error) {
-        if (error.response.status === 401) throw new Error(error.response.data.message)
+        if (error.response.status === 401) {
+          TOAST_ERROR(error.response.data.message)
+           throw new Error(error.response.data.message)
+        }
         else  throw new Error("An unexpected error occurred");
       }
   }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 
 // Import Conponents Header and Footer
@@ -11,8 +11,20 @@ import Header from '../../../partials/header/Header.js'
 
 import VerifyOtpImage from './elements/VerifyOtpImage';
 import VerifyOtpForm from './elements/VerifyOtpForm';
+import { MERCHANT_REQUEST_OTP } from '../../../redux/slices/merchantAuthSlice.js';
+import { useDispatch } from 'react-redux';
 
 export default function VerifyOtp() {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const obj = {email:localStorage.getItem('userMail')} 
+    dispatch(MERCHANT_REQUEST_OTP(obj));
+  }, []);
+
+  
+
   return (
     <>
 

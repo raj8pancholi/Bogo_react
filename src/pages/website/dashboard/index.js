@@ -9,6 +9,7 @@ import Footer from '../../../partials/footer/Footer';
 import Header1 from './../../../partials/header/Header1';
 import { GET_ALL_BUSINESS_DETAILS, SELECTED_BUSINESS_DATA } from '../../../redux/slices/merchantAuthSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { TOAST_SUCCESS } from '../../../utils';
 
 const DashboardPage = () => {
 
@@ -16,7 +17,7 @@ const DashboardPage = () => {
   
   const dispatch = useDispatch(); 
  
-  useEffect(() => {
+  useEffect(() => { 
       dispatch(GET_ALL_BUSINESS_DETAILS()); 
       if(!localStorage.getItem('activeBusiness') && allBusinessData && allBusinessData.length){
     console.log("dataBusiness1111",allBusinessData[0])

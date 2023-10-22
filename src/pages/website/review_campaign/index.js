@@ -36,7 +36,6 @@ const submitCampaign =(status)=>{
         businessIds:[localStorage.getItem('businessId')],
     }
 
-    console.log("ppppp",obj)
     dispatch(CREATE_VOUCHER(obj))
 
 }
@@ -80,13 +79,13 @@ const submitCampaign =(status)=>{
 
                 <div className="row">
                 <div className="col-12">
-                    <a type="submit" className="fullsubmitbtn" onClick={()=>submitCampaign(true)} style={{color:'white'}}>
+                    <Link to="/dashboard"  className="fullsubmitbtn" onClick={()=>submitCampaign(true)} style={{color:'white'}}>
                     Publish Campaign
-                    </a>
+                    </Link>
                 </div>
                 <div className="col-12">
                     <div className="savedraftbtn_row">
-                    <span className="saveDraftbtn"  onClick={()=>submitCampaign(false)}>Save Draft</span>
+                    <Link to="/dashboard"  className="saveDraftbtn"  onClick={()=>submitCampaign(false)}>Save Draft</Link>
                     </div>
                 </div>
                 </div>
