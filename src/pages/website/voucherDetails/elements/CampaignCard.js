@@ -1,10 +1,9 @@
 import React from 'react'
 
-function CampaignCard() {
-  const cardData = [{}, {}, {}, {},]
+function CampaignCard({selectedBusinessData}) { 
   return (
     <>
-      {cardData.map((slide, id) => (
+      {selectedBusinessData?.vouchers?.map((voucher, index) => (
         <div className="col-md-6">
           <div className="voucher_preview_row able_voucher_box">
             <div className="voucher_preview_box">
@@ -24,11 +23,11 @@ function CampaignCard() {
                   <div className="col-4">
                     <div className="buy-box">
                       <span>BUY</span>
-                      <h3>Sushi Platter</h3>
+                      <h3>{voucher.toBuy}</h3>
                     </div>
                     <div className="get-box">
                       <span>GET</span>
-                      <h3>Sushi Platter</h3>
+                      <h3>{voucher.toGet}</h3>
                     </div>
                   </div>
                   <div className="col-5">
@@ -40,7 +39,7 @@ function CampaignCard() {
                     <div className="get-box">
                       <span>Est. Savings
                       </span>
-                      <h3>AED 250</h3>
+                      <h3>AED {voucher.estimationSaving}</h3>
                     </div>
                   </div>
                 </div>

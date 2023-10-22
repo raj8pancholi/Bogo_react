@@ -33,16 +33,29 @@ import OtpForgetPassword from '../pages/website/otpForgetPassword/index'
 import ResetPassword from '../pages/website/newPassword/index'
 
 import Account from '../pages/website/account/index';
+import { useDispatch, useSelector } from 'react-redux';
+import { GET_ALL_BUSINESS_DETAILS, SELECTED_BUSINESS_DATA } from '../redux/slices/merchantAuthSlice';
 
 
 
 export default function Navigation() {
 const history = useNavigate()
+const dispatch = useDispatch(); 
+const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);  
+
   useEffect(() => { 
     return () => {
-     if(localStorage.getItem('token') && localStorage.getItem('isLogin'))  history('/dashboard')
+     if(localStorage.getItem('token') && localStorage.getItem('isLogin')){
+      dispatch(GET_ALL_BUSINESS_DETAILS()); 
+      if(!localStorage.getItem('activeBusiness') && allBusinessData && allBusinessData.length){ 
+          localStorage.setItem('activeBusiness',allBusinessData[0].id) 
+          dispatch(SELECTED_BUSINESS_DATA(allBusinessData[0]))
+      } 
+
+      history('/dashboard')
+     } 
     };
-  }, []); 
+  }, [dispatch]); 
 
   const navigate = useNavigate()
   return (
@@ -56,6 +69,7 @@ const history = useNavigate()
           <Route path='/contact' element={<ConactPage/>} />
           <Route path='/loginForgetPassword' element={<LoginForgetPassword/>} />
           <Route path='/merchant_register' element={<MerchantRegister/>} />
+          <Route path='/add_branch' element={<MerchantRegister/>} />
           <Route path='/TermsConditions' element={<TermsConditions/>} />
           <Route path='/privacyPolicy' element={<PrivacyPolicy/>} />
           <Route path='/merchant_registration' element={<MerchantRegistration navigate={navigate}/>} />
@@ -69,7 +83,7 @@ const history = useNavigate()
           <Route path='/ambassdors_compaign' element={<AbmassdorsCampaign/>} />
           <Route path='/campaignDashboard' element={<CampaignDashboard/>} />
           <Route path='/bogo_directory' element={<BogoDirectory/>} />
-          <Route path='/voucherDetails' element={<VoucherDetails/>} />
+          <Route path='/business_profile' element={<VoucherDetails/>} />
           <Route path='/redemtionHisory' element={<RedemtionHisory/>} />
           <Route path='/userRegistration' element={<UserRegistration/>} />
           <Route path='/userRegComplete' element={<UserRegComplete/>} />

@@ -8,7 +8,7 @@ import TimeSection from './TimeSection'
 import CampaignCard from './CampaignCard'
 import BranchDetails from './BranchDetails'
 
-function VoucherDetails_index() {
+function VoucherDetails_index({allBusinessData, selectedBusinessData}) {
 
     const [selectBranch, setSelectBranch] = useState(1)
 
@@ -40,7 +40,7 @@ function VoucherDetails_index() {
                                     <div className="row">
                                         <div className="col-md-6">
 
-                                            <TimeSection />
+                                            <TimeSection selectedBusinessData={selectedBusinessData}/>
 
                                         </div>
                                         <div className="col-md-6">
@@ -67,7 +67,7 @@ function VoucherDetails_index() {
                                 {/* <!-- voucher_details_row --> */}
                                 <div className="row">
 
-                                    <CampaignCard />
+                                    <CampaignCard selectedBusinessData={selectedBusinessData}/>
 
                                 </div>
                             </div>
@@ -79,7 +79,7 @@ function VoucherDetails_index() {
 
                                     <div className="row">
 
-                                        <BranchDetails />
+                                        <BranchDetails allBusinessData={allBusinessData} />
                                 
 
                                     </div>

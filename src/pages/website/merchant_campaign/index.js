@@ -21,7 +21,7 @@ export default function Index() { // Renamed to start with an uppercase letter
   const [estSaving, setEstSaving] = useState('');
   const [excludeWeekends, setExcludeWeekends] = useState(false);
   const [excludePublicHolidays, setExcludePublicHolidays] = useState(false);
-  // const [branch, setBranch] = useState([ ]);
+  const [branch, setBranch] = useState([ ]);
   const [finePrint, setFinePrint] = useState('');
   const [redemption, setRedemption] = useState('');
   const [customizeTime, setCustomizeTime] = useState(false);
@@ -56,6 +56,8 @@ export default function Index() { // Renamed to start with an uppercase letter
   };
 
   const saveVoucher = useSelector((state) => state.merchantAuth.saveVoucher);
+  const allBusniessData = useSelector((state) => state.merchantAuth.allBusinessData);
+
 
   useEffect(() => {
     setOffers(saveVoucher.offers)
@@ -64,7 +66,7 @@ export default function Index() { // Renamed to start with an uppercase letter
     setEstSaving(saveVoucher.estSaving)
     setExcludeWeekends(saveVoucher.excludeWeekends)
     setExcludePublicHolidays(saveVoucher.excludePublicHolidays)
-    // setBranch(saveVoucher.branch)
+    setBranch(saveVoucher.branch)
     setFinePrint(saveVoucher.finePrint)
     setRedemption(saveVoucher.redemption)
     setCustomizeTime(saveVoucher.customizeTime)
@@ -87,6 +89,9 @@ export default function Index() { // Renamed to start with an uppercase letter
      dispatch(SAVE_VOUCHER(obj))
   }
 
+  const businessOptions = allBusniessData.map((business) => ({ value: business.id, label: business.bName, }));
+
+
   return (
 
  
@@ -100,16 +105,12 @@ export default function Index() { // Renamed to start with an uppercase letter
                     <div className="voucher_preview_box">
                         <div className="voucher_preview_row">
                             <div className="voucher_preview_box_btn_box">
-                                <button className="btn btn-outline-primary voucher_preview_btn">
-                                    Voucher Preview
-                                </button>
+                                <button className="btn btn-outline-primary voucher_preview_btn"> Voucher Preview </button>
                             </div>
                         </div>
                         <div className="voucher_preview_row">
                             <div className="row">
-                                <div className="col-3">
-                                    <img src="/images/voucher_img.png" alt="" className="img-fluid" />
-                                </div>
+                                <div className="col-3"> <img src="/images/voucher_img.png" alt="" className="img-fluid" /> </div>
                                 <div className="col-4">
                                     <div className="buy-box">
                                         <span>BUY</span>
@@ -136,22 +137,19 @@ export default function Index() { // Renamed to start with an uppercase letter
              </div>
         </div>
       </div>
-
-      {/* campaign body section */}
+ 
       <div className="campaign-body-section">
-        <div className="container">
-          {/* Title */}
+        <div className="container"> 
           <div className="compaing-body-title">
             <h3>CREATE NEW CAMPAIGN</h3>
             <h4 className="offer-text">CHOOSE OFFER TYPE</h4>
           </div>
-
-          {/* offer type */}
+ 
           <div className="offer-row">
             <TabsComponents 
              setBuy={setBuy} buy={buy}  setGet={setGet} get={get}
              setEstSaving={setEstSaving} estSaving={estSaving}
-            //  branch={branch} setBranch={setBranch}
+              branch={branch} setBranch={setBranch}
              finePrint={finePrint} setFinePrint={setFinePrint}
              redemption={redemption} setRedemption={setRedemption}
              daysState={daysState} excludeWeekends={excludeWeekends} setExcludeWeekends={setExcludeWeekends} 
@@ -159,12 +157,13 @@ export default function Index() { // Renamed to start with an uppercase letter
              customizeTime={customizeTime} setCustomizeTime={setCustomizeTime}
              setOffers={setOffers} offers={offers}
              SaveVoucher={SaveVoucher}
+             allBusniessData={allBusniessData}
+             businessOptions={businessOptions}
             /> 
           </div>
         </div>
       </div>
-
-      {/* Footer */}
+ 
       <Footer />
     </>
   );

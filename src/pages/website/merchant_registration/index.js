@@ -29,7 +29,9 @@ signup=()=>{
 }
 }
 
- 
+ componentDidMount(){
+  if(localStorage.getItem('token') && localStorage.getItem('businessId') ) { this.props.navigate('/dashboard') }
+ }
 
 componentDidUpdate(prevProps, prevState) {
   if (this.props.merchantAuth.businessApi !== prevProps.merchantAuth.businessApi) {

@@ -22,7 +22,7 @@ import HoursSection from '../elements/tabcomponents/HoursSection.js';
 
 export default function TabsCompenent(props) {
   const {buy, setBuy, get, setGet, estSaving, setEstSaving, branch, setBranch,
-    finePrint,setFinePrint, redemption, setRedemption, daysState , setOffers , offers, excludeWeekends, setExcludeWeekends , excludePublicHolidays , setExcludePublicHolidays, customizeTime, setCustomizeTime, SaveVoucher
+    finePrint,setFinePrint, redemption, setRedemption, daysState , setOffers ,businessOptions, offers, excludeWeekends, setExcludeWeekends , excludePublicHolidays , setExcludePublicHolidays, customizeTime, setCustomizeTime, SaveVoucher
   } = props
 
 
@@ -75,8 +75,8 @@ updateSaturday(status, saturdayState?.openTime, saturdayState?.closeTime)
 
 } 
     
-  const colourOptions = [ { value: 'Marina', label: 'Marina' }, { value: 'Dhubai', label: 'Dhubai' }, { value: 'Marina1', label: 'Marina1' } ]
-  const MyComponent = () => ( <Select closeMenuOnSelect={false} defaultValue={[colourOptions[4], colourOptions[5]]} isMulti value={branch} onChange={setBranch} options={colourOptions} styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }} /> )
+  // const colourOptions = [ { value: 'Marina', label: 'Marina' }, { value: 'Dhubai', label: 'Dhubai' }, { value: 'Marina1', label: 'Marina1' } ]
+  // const MyComponent = () => ( <Select closeMenuOnSelect={false} defaultValue={[colourOptions[4], colourOptions[5]]} isMulti value={branch} onChange={setBranch} options={colourOptions} styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }} /> )
 
 
 
@@ -94,7 +94,9 @@ updateFriday(status ? true: false, fridayState.openTime, fridayState.closeTime)
 updateSaturday(status ? false: false, saturdayState.openTime, saturdayState.closeTime)  
   }
 
- 
+  const handleSelectChange = (selectedOptions) => { const selectedIds = selectedOptions.map(option => option.value); setBranch(selectedIds); };
+
+
   return (
     <div>
     <div className="offer-type">
@@ -130,7 +132,11 @@ updateSaturday(status ? false: false, saturdayState.openTime, saturdayState.clos
                             <div className="col-12">
                                 <div className="input-box">
                                     <label htmlFor=" " className="label_text">Select Branch</label>
-                                    <MyComponent  />
+                                    {/* <MyComponent  /> */}
+                                    <Select onChange={handleSelectChange} closeMenuOnSelect={false} isMulti
+                                        options={businessOptions}
+                                        styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }}
+                                    /> 
                                 </div>
                             </div>
                           </div>

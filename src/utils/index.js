@@ -1,3 +1,13 @@
+import { toast } from "react-toastify";
+
+export const ImgUrl =  `http://3.108.250.128:3000/`
+
+export const TOAST_SUCCESS = (msg) => toast.success(msg);
+export const TOAST_ERROR = (msg) => toast.error(msg);
+export const TOAST_WARNING = (msg) => toast.warn(msg);
+
+
+
 export const reArrangeObj= (originalObject)=> {
     const time = [];
   
@@ -5,7 +15,7 @@ export const reArrangeObj= (originalObject)=> {
   
     daysOfWeek.forEach((day) => {
         const dayState = originalObject[`${day}State`];
-        time.push({ day, isActive:dayState.status, startTime: dayState.openTime, endTime: dayState.closeTime, });
+        time.push({ day, isActive:dayState?.status, startTime: dayState?.openTime, endTime: dayState?.closeTime, });
     });
   
     return time;
@@ -40,3 +50,21 @@ for (const key in jsonData) {
  return formData;
 
 }
+
+
+export const convertToAmPm = (timeStr) => {
+    const [hours, minutes] = timeStr.split(':');
+    let amPm = 'AM';
+    let hours12 = parseInt(hours, 10);
+
+    if (hours12 >= 12) {
+      amPm = 'PM';
+      if (hours12 > 12) {
+        hours12 -= 12;
+      }
+    }
+
+    return `${hours12}:${minutes} ${amPm}`;
+  };
+
+  
