@@ -9,7 +9,7 @@ import 'react-phone-input-2/lib/style.css';
 import PhoneInput from 'react-phone-input-2'; 
 import { connect } from 'react-redux';
 import { MERCHANT_SIGNUP , MERCHANT_BUSINESS } from '../../../redux/slices/merchantAuthSlice'; 
-import { reArrangeObj } from '../../../utils';
+import { TOAST_ERROR, reArrangeObj } from '../../../utils';
 
 
  class index extends Component{
@@ -18,12 +18,13 @@ state = {firstName:'', lastName:'', email:'', password:'', repeatpassword:'', ph
 signup=()=>{
   this.setState({error:false, passMatchErr:false})
   const  {firstName, lastName, email, password, repeatpassword, phone, whatsaAppNo } = this.state
-  if(!firstName || !lastName || !email || !password|| !repeatpassword|| !phone) this.setState({error:true})
+  if(!firstName || !lastName || !email || !password|| !repeatpassword|| !phone){ this.setState({error:true});  TOAST_ERROR('You must fill in all of the fields')}
   else{
     if(password === repeatpassword){
        const obj ={ firstName, lastName, email, password, repeatpassword, phone } 
        this.props.MERCHANT_SIGNUP(obj)
     }else{
+      TOAST_ERROR('Passwords do not match. Please try again')
          this.setState({passMatchErr:true})
     }
 }

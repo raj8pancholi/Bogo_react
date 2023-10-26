@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import OtpInput from './OtpInput';
@@ -8,6 +8,21 @@ export default function VerifyOtpForm({ id }) {
 
   const history = useNavigate();
   const dispatch = useDispatch();
+
+  const [seconds, setSeconds] = useState(60);
+ 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (seconds === 1) { clearInterval(timer); }
+      if(seconds > 0)setSeconds(seconds - 1);
+    }, 1000);
+
+    return () => { clearInterval(timer); };
+  }, [seconds]);
+
+
+
+
   const [otp, setOtp] = useState(['', '', '', '']);
   const [verificationError, setVerificationError] = useState('');
 
@@ -55,6 +70,7 @@ export default function VerifyOtpForm({ id }) {
 
 
   const resendOtp =()=>{
+    setSeconds(60)
     const obj = {email:localStorage.getItem('userMail')} 
     dispatch(MERCHANT_REQUEST_OTP(obj)); 
   } 
@@ -67,7 +83,7 @@ export default function VerifyOtpForm({ id }) {
       <div className="verification-code">
         <OtpInput otp={otp} onChange={handleOtpChange} />
         <div className="otp-time">
-          <span className="pe-4">(00:52)</span>
+          <span className="pe-4">(00:{seconds})</span>
         </div>
       </div>
 

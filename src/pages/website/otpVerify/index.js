@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 // Import Conponents Header and Footer
@@ -16,12 +16,17 @@ import { useDispatch } from 'react-redux';
 
 export default function VerifyOtp() {
 
+  const [isRequestedOTP, setRequestedOTP] = useState(false);
+
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const obj = {email:localStorage.getItem('userMail')} 
-    dispatch(MERCHANT_REQUEST_OTP(obj));
-  }, []);
+useEffect(() => {
+    if (!isRequestedOTP) {
+      const obj = { email: localStorage.getItem('userMail') };
+      dispatch(MERCHANT_REQUEST_OTP(obj));
+      setRequestedOTP(true); 
+    }
+  }, [isRequestedOTP, dispatch]);
 
   
 

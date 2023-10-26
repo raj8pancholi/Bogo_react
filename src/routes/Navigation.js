@@ -72,7 +72,7 @@ const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessDat
           <Route path='/add_branch' element={<MerchantRegister/>} />
           <Route path='/TermsConditions' element={<TermsConditions/>} />
           <Route path='/privacyPolicy' element={<PrivacyPolicy/>} />
-          <Route path='/merchant_registration' element={<MerchantRegistration navigate={navigate}/>} />
+          <Route path='/merchant_registration' element={<MerchantRegistration navigate={navigate} dispatch={dispatch}/>} />
           <Route path='/otpVerify' element={<OtpVerify/>} />
           <Route path='/userOtpVerify' element={<UserOtpVerify/>} />
           <Route path='/merchant_subscription' element={<MerchantSubscription/>} />

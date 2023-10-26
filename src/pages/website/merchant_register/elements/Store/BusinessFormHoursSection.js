@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import WhatappInputbox from '../../../../../components/CommonComponent/WhatappInputbox';
 
 export default function BusinessFormHoursSection(props) {
-    const { daysState , setWhatsappNo ,whatsappNo } = props; 
+    const { daysState , setWhatsappNo ,whatsappNo , setRating, rating, } = props; 
 
     const sundayState = daysState.sunday.state;
     const updateSunday = daysState.sunday.update; 
@@ -320,11 +320,11 @@ export default function BusinessFormHoursSection(props) {
         <div className="row rating-row">
             <div className="col-md-12 col-sm-12">
             <p className="m-0">Rating</p>
-            <i className="fa-regular fa-star" aria-hidden="true"></i>
-            <i className="fa-regular fa-star" aria-hidden="true"></i>
-            <i className="fa-regular fa-star" aria-hidden="true"></i>
-            <i className="fa-regular fa-star" aria-hidden="true"></i>
-            <i className="fa-regular fa-star" aria-hidden="true"></i>
+            <i className={`fa${rating >=1? '':'-regular'} fa-star`} aria-hidden="true" onClick={()=>setRating(1)}></i>
+            <i className={`fa${rating >=2? '':'-regular'} fa-star`} aria-hidden="true" onClick={()=>setRating(2)}></i>
+            <i className={`fa${rating >=3? '':'-regular'} fa-star`} aria-hidden="true" onClick={()=>setRating(3)}></i>
+            <i className={`fa${rating >=4? '':'-regular'} fa-star`} aria-hidden="true" onClick={()=>setRating(4)}></i>
+            <i className={`fa${rating >=5? '':'-regular'} fa-star`} aria-hidden="true" onClick={()=>setRating(5)}></i>
             </div>
         </div>
       </div>

@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import {CreateMerchant,BusinessMerchant , LoginMerchant, VerifyOtp, RequestOtp, ResetPassword , AllBusinessDetails, CampaignCreate, VoucherCreate}  from "../services/marchantAuthServices";
 import { TOAST_ERROR, TOAST_SUCCESS } from '../../utils';
-
  
+
+
 
 export const MERCHANT_SIGNUP = createAsyncThunk(
   "merchant/MERCHANT_SIGNUP",
@@ -12,10 +13,10 @@ export const MERCHANT_SIGNUP = createAsyncThunk(
       localStorage.setItem('token', res.data?.tokens.access.token)
       localStorage.setItem('userID', res.data?.user.id)
       localStorage.setItem('userMail', res.data?.user.email)
-      localStorage.setItem('isLogin', 1)
+      localStorage.setItem('isLogin', 1) 
       return res.data;
     } catch (error) { 
-      if (error.response.status === 401) {
+      if (error.response.data.code === 401 || error.response.data.code === 400) {
         TOAST_ERROR(error.response.data.message)
          throw new Error(error.response.data.message)
       }
@@ -38,7 +39,7 @@ export const MERCHANT_SIGNIN = createAsyncThunk(
     TOAST_SUCCESS('Login successfully!')
     return res.data;
   } catch (error) { 
-    if (error.response.status === 401) {
+    if (error.response.data.code === 401 || error.response.data.code === 400) {
       TOAST_ERROR(error.response.data.message)
        throw new Error(error.response.data.message)
     }
