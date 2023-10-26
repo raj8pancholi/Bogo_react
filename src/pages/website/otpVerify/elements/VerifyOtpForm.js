@@ -33,29 +33,27 @@ export default function VerifyOtpForm({ id }) {
   const handleOtpVerification = async (e) => {
     e.preventDefault();
 
-    const email = 'himanshusaini8741@gmail.com'
+    const email = localStorage.getItem('userMail')
     const isReset = false;
 
     try {
-      const response = await dispatch(MERCHANT_VERIFY_OTP({ id, otp: otp.join('') , email ,isReset })); // Join OTP array into a single string
-
-      console.log('OTP verification response:', response);
+      const response = await dispatch(MERCHANT_VERIFY_OTP({ id, otp: otp.join('') , email ,isReset })); 
+ 
       const  verifyEmailToken  = response.payload;
+ 
+
+      // const verifyEmailResponse = await fetch(`3.108.250.128:3000/v1/merchant/verifyEmail/?token=${verifyEmailToken}`, {
+      //   method: 'GET',
+      // });
 
 
-      console.log('OTP verification Token with payload:', verifyEmailToken);
-
-      const verifyEmailResponse = await fetch(`3.108.250.128:3000/v1/merchant/verifyEmail/?token=${verifyEmailToken}`, {
-        method: 'GET',
-      });
-
-
-      console.log('OTP verify Email response:', verifyEmailResponse);
+      // console.log('OTP verify Email response:', verifyEmailResponse);
 
       if(verifyEmailToken.msg === 'OTP is invalid or timeout'){
         setVerificationError(verifyEmailToken.msg);
       }else{
-        history('/dashboard')
+        const baseUrl = window.location.origin;  
+        window.location.href = baseUrl + '/dashboard';       
       }
 
       

@@ -23,7 +23,7 @@ function TimeSection({selectedBusinessData}) {
         <div className="address_box mt-2">
           <p>
             <strong>Address: </strong>
-          {selectedBusinessData.address}
+          {selectedBusinessData?.address}
           </p>
           <p><strong>Postal Code: </strong> 54620</p>
 

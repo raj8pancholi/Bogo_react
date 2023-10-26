@@ -5,6 +5,7 @@ function CampaignCard({selectedBusinessData}) {
     <>
       {selectedBusinessData?.vouchers?.map((voucher, index) => (
         <div className="col-md-6">
+           { console.log("voucher", voucher)}
           <div className="voucher_preview_row able_voucher_box">
             <div className="voucher_preview_box">
               <div className="voucher_preview_row">

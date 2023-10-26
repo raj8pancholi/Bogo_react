@@ -166,7 +166,8 @@ export const CREATE_VOUCHER = createAsyncThunk(
   async (data) => {
       try {
         const res = await VoucherCreate(data);
-        TOAST_SUCCESS("Voucher created successfully!")
+        if(!data.isPublished) TOAST_SUCCESS("Voucher save in dreaft successfully!")
+        else TOAST_SUCCESS("Voucher created successfully!")
         return res.data;
         
       } catch (error) {

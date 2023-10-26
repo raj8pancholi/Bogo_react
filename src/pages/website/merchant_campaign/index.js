@@ -123,8 +123,17 @@ export default function Index() { // Renamed to start with an uppercase letter
                                 </div>
                                 <div className="col-5">
                                     <div className="buy-box">
-                                        <span>VALIDITY</span>
-                                        <h3>S M T W T F S</h3>
+                                        <span>VALIDITY</span> 
+                                        <h3>
+                                          {sundayState?.status ? 'S ' : ''}
+                                          {mondayState?.status ? 'M ' : ''}
+                                          {tuesdayState?.status ? 'T ' : ''}
+                                          {wednesdayState?.status ? 'W ' : ''}
+                                          {thursdayState?.status ? 'T ' : ''}
+                                          {fridayState?.status ? 'F ' : ''}
+                                          {saturdayState?.status ? 'S ' :''}
+                                          
+                                          </h3>
                                     </div>
                                     <div className="get-box">
                                         <span>Est. Savings</span>
