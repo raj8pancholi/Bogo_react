@@ -10,7 +10,9 @@ const ForgetPasswordRow = () => {
   const [email, setEmail] = useState('');
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+    let newEmail = e.target.value;
+    setEmail(newEmail);
+    localStorage.setItem('userEmail', newEmail);
   }
 
   const dispatch = useDispatch();
@@ -60,13 +62,10 @@ const ForgetPasswordRow = () => {
 
           <div className="col-12">
             <div className="user_login_btn-box">
-              {/* <button  className="user_login_btn btn" 
-              onClick={handleRequestOTP> Submit </button> */}
+             
               <button className="user_login_btn btn"
                onClick={handleRequestOTP}>
 
-               {/* if response status show pendding then submit button text
-               is pending otherwise is submit text  */}
                 {pending ? 'Pending ' : ' Submit'}
 
                </button>

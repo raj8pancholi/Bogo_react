@@ -166,7 +166,7 @@ import { useDispatch } from 'react-redux';
 import { MERCHANT_RESET_PASSWORD } from '../../../../redux/slices/merchantAuthSlice';
 
 const ResetNewPassword = () => {
-  const { token: veriToken } = useParams(); // Access veriToken from route parameters
+  const { token: veriToken } = useParams(); // Get the token from the route parameters
   const history = useNavigate();
   console.log('VeriToken in resetpassword:', veriToken);
   const dispatch = useDispatch();
@@ -176,6 +176,12 @@ const ResetNewPassword = () => {
 
   const handleNewPasswordChange = (e) => {
     setNewPassword(e.target.value);
+  };
+
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+      setPasswordVisible(!passwordVisible);
   };
 
   const handleResetPassword = async (e) => {
@@ -188,9 +194,7 @@ const ResetNewPassword = () => {
       );
       console.log('Reset password response:', response);
 
-      if (response.payload.msg === 'Password reset successfully') {
-        // Redirect to the dashboard or another appropriate route upon success
-        // You may need to use useHistory for this.
+      if (response.payload === 'Password Reset Success!') {
         history('/dashboard');
       }
     } catch (error) {
@@ -205,14 +209,19 @@ const ResetNewPassword = () => {
       <form id="addform" className="forget_pass_form">
         <div className="row">
           <div className="col-12">
-            <label htmlFor="email">New Password</label>
-            <input
-              type="password"
-              className="form-control user_login_email"
-              placeholder="New Password"
-              onChange={handleNewPasswordChange}
-              value={newPassword}
-            />
+            <div className="input-box password-input-box">
+                <label htmlFor="password">New Password</label>
+                <input type={passwordVisible ? 'text' : 'password'} className="form-control use_registration_password" 
+                id="password" name="password"
+                placeholder="Create Password" 
+                onChange={handleNewPasswordChange}
+                value={newPassword}
+                 />
+                <i
+                    className={`fa-solid ${passwordVisible ? 'fa-eye' : 'fa-eye-slash'} eyes-toggle-password`}
+                    onClick={togglePasswordVisibility}
+                />
+            </div>
           </div>
 
           <div className="col-12">

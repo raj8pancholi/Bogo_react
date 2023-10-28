@@ -37,7 +37,7 @@ export default function MainContent2() {
                     </div>
                     <div className="col-md-6">
                     <div className="redeem_voucher_base">
-                        <h1>45</h1>
+                        <h1>0</h1>
                         <h3>Vouchers Redeemed</h3>
                     </div>
                     </div>

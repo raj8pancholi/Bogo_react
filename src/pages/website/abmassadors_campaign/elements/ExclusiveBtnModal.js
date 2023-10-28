@@ -117,10 +117,16 @@ export default function ExclusiveBtnModal({SubmitCampaign, campaignType, offer, 
 
           <Modal.Footer className='review_footerBtn_row'>
             <Button type="button" variant="secondary" onClick={handleCloseModal} className="btn " data-bs-dismiss="modal"style={{backgroundColor:'#88c541' , color: 'white'}}>Edit</Button>
+
+            <Button type="button" variant="secondary" onClick={ SubmitCampaign} className="btn " data-bs-dismiss="modal"style={{backgroundColor:'#029CAB' , color: 'white'}}>
+                Draft
+            </Button>
+
+            
+
             <Button type="button" variant="secondary" onClick={ SubmitCampaign} className="btn " data-bs-dismiss="modal"style={{backgroundColor:'#029CAB' , color: 'white'}}>
                 <Link to='/invite_influencer' style={{textDecoration:'none', color: '#fff'}}> Save </Link>
-                Save
-                    </Button>
+            </Button>
           </Modal.Footer>
       </Modal>
     </>

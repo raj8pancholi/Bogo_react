@@ -20,9 +20,12 @@ export const VerifyOtp = data => {
 
 
 
-export const ResetPassword = token  => {
-    console.log('token is send by paramsssssssssssssssss:', token);
-    return HttpClient.post(`/merchant/reset-password?token=${token}`);
+export const ResetPassword = data  => {
+    console.log('token is send by params:', data.token);
+
+    
+
+    return HttpClient.post(`/merchant/reset-password?token=${data.token}`, {password: data.newPassword});
 };
 
 

@@ -33,7 +33,9 @@ export default function VerifyOtpForm({ id }) {
   const handleOtpVerification = async (e) => {
     e.preventDefault();
 
+
     const email = localStorage.getItem('userMail')
+
     const isReset = false;
 
     try {
@@ -42,19 +44,22 @@ export default function VerifyOtpForm({ id }) {
       const  verifyEmailToken  = response.payload;
  
 
+
       // const verifyEmailResponse = await fetch(`3.108.250.128:3000/v1/merchant/verifyEmail/?token=${verifyEmailToken}`, {
       //   method: 'GET',
       // });
 
 
+
       // console.log('OTP verify Email response:', verifyEmailResponse);
+
 
       if(verifyEmailToken.msg === 'OTP is invalid or timeout'){
         setVerificationError(verifyEmailToken.msg);
       }else{
         const baseUrl = window.location.origin;  
         window.location.href = baseUrl + '/dashboard';       
-      }
+
 
       
      

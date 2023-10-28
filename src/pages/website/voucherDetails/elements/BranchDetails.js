@@ -8,7 +8,6 @@ function BranchDetails({allBusinessData}) {
         <>
             {allBusinessData?.map((business, i) => (
                 <div className="col-md-6 mt-2" key={business?.id}>
-                    {/* <Link to="/voucherDetails" className='voucherDetailsLink'> */}
                         <div className="dir-card">
                             <span className="card p-3 card_row">
                                 <div className="row">
@@ -23,7 +22,7 @@ function BranchDetails({allBusinessData}) {
                                             <span>{business?.subCategory?.name}</span>
                                             <span>{business?.address}</span>
                                             <span className="loacation"><i className="fa-solid fa-location-dot text-primary"></i>  {business?.city?.name}
-                                                 {/* <small>0.3km</small> */}
+                                               
                                                  </span>
                                         </div>
                                     </div>
@@ -42,7 +41,6 @@ function BranchDetails({allBusinessData}) {
                                 </div>
                             </span>
                         </div>
-                    {/* </Link> */}
                 </div>
             ))}
 

@@ -131,30 +131,9 @@ console.log("obj------", obj)
             </div>
           </div>
 
-          {/* Offer form input 1 */}
-          {/* {campaignType === 1 && (
-            <div className="offer_form_section1 tab-content" id="tab1">
-              <form method="" action="" className="offer_input_box offer_input_box1">
-                <GiveAway />
-              </form>
-            </div>
-          )} */}
-
-          {/* Offer form input 2 */}
-          {/* {campaignType === 2 && (
-            <div className="offer_form_section1 tab-content" id="tab2">
-              <form method="" action="" className="offer_input_box offer_input_box1">
-                <ExclusiveOffer/>
-              </form>
-            </div>
-          )} */}
-
-
-
-
-
-
           <div className="offer_input_box offer_input_box1">
+
+            
 
           <div className="">
             <InputTextRow label={campaignType === 1 ? "Giveaway Offer" :"Price"} name="Price" type="text" value={offer}  getValue={setOffer} placeholder="e.g. 3-course meal and cocktails for 2 people" required={true}/>
@@ -323,7 +302,7 @@ console.log("obj------", obj)
                   <ExclusiveBtnModal SubmitCampaign={()=>SubmitCampaign()} campaignType ={campaignType} offer ={ offer} estimationSaving ={ estimationSaving} cashIncentive ={ cashIncentive} allowedGuest ={ allowedGuest} requirement ={ requirement} prefferedPlatforms ={ prefferedPlatforms} photo ={ photo} video ={ video} untilDate ={ untilDate} endDate ={ endDate} hashtags ={ hashtags} promoCode ={ promoCode}  />                           
               </div>
             </div>
-      </div>
+          </div>
            
           </div> 
         </div>
