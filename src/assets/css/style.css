@@ -1249,7 +1249,7 @@ button.popup_button_two_section.popup_button_one:hover {
   text-align: center;
 }
 .next-btn-box .btnNext, .payment-btn-box .btnNext {
-  padding: 10px 120px;
+  padding: 10px 0px;
   background: #029cab !important;
   border-radius: 5px;
   font-family: "Montserrat";
@@ -1259,9 +1259,9 @@ button.popup_button_two_section.popup_button_one:hover {
   line-height: 29px;
   letter-spacing: 0.004em;
   color: #ffffff;
-  /* 
-  width: 300px; */
+  min-width: 300px;
 }
+
 .payment-form-box .pay-btn-row .payment-btn-box .btnNext{
   padding: 10px 120px;
   background: #029cab !important;
@@ -1925,7 +1925,7 @@ img.choose_two_images {
 
 #imagePreview {
   background-image: url("../../../public/images/upload_logo.png");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   width: 297px;
@@ -3271,7 +3271,7 @@ nav.navbar {
   background: #e9ecef;
   font-size: 12px;
   padding: 5px 10px;
-  text-align: center; 
+  text-align: left; 
   border-radius: 10px;
 }
 
@@ -3305,9 +3305,9 @@ nav.navbar {
 
   overflow-wrap: anywhere;
   overflow-x: auto;
-
-
+  flex-direction: column;
 }
+
 
 
 .hastag-row label, .promo_code_preview_row label, .social_media_preview_row label{
@@ -4169,15 +4169,14 @@ video {
 .resend_code_box a {
   font-family: "Montserrat";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 13px;
   line-height: 150%;
-  /* or 20px */
-
   text-align: center;
-
-  color: #8e8e8e;
+  color: #1478a8;
+  cursor: pointer;
 }
+
 .resend_code_box a {
   text-decoration: none;
   color: #1478a8;

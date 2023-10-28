@@ -21,7 +21,7 @@ console.log("setSelectedBusinessData(dataBusiness);", selectedBusinessData)
       <div className="col-md-6">
         <Link to='/campaignDashboard'>
           <div className="redeem_voucher_base">
-            <h1>45</h1>
+            <h1>0</h1>
             <h3>Vouchers Redeemed</h3>
           </div>
         </Link>

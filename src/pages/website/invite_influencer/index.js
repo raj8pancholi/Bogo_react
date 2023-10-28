@@ -80,7 +80,7 @@ useEffect(() => {
         </div>
 
         <div className="container">
-          {/* <div className="filter_influencer">
+          <div className="filter_influencer">
             <div className="row">
               <ul>
                 <li className="serarch_inflencer"> 
@@ -97,9 +97,9 @@ useEffect(() => {
                 </li>
               </ul>
             </div>
-          </div> */}
+          </div>
 
-          {/* <!-- offer form input 1 --> */}
+         
           {selectedTab === 1 ? (
             <div className="offer_form_section1 tab-content" id="tab1" >
               <div className="row">
@@ -113,7 +113,7 @@ useEffect(() => {
             </div>
           ) : null}
 
-          {/* <!-- offer form input 2 --> */}
+          
           {selectedTab === 2 ? (
             <div className="offer_form_section1 tab-content" id="tab2" >
               <div className="row"> 
@@ -126,8 +126,6 @@ useEffect(() => {
         </div>
 
       </div>
-
-      {/* <%- include('partials/footer.ejs') %> */}
 
       <Footer />
     </>

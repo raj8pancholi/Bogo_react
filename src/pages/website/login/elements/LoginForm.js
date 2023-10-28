@@ -49,7 +49,6 @@ export default function LoginForm() {
         <div className="col-md-6">
             <div className="login-group-box">
                 <h4>Login</h4>
-                <p style={{color:'red'}}>{errorMsg}</p>
                 <div className="user_login_form">
                 <div className="row">
                     <div className="col-6">
@@ -72,7 +71,6 @@ export default function LoginForm() {
                     />
                     <i
                         toggle="#password-field"
-                        // className="fa-solid fa-eye-slash eyes-toggle-login_password"
                         className={`fa-solid ${passwordVisible ? 'fa-eye' : 'fa-eye-slash'} eyes-toggle-password eyes-toggle-login_password`}
                         onClick={togglePasswordVisibility}
                     ></i>

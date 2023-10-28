@@ -18,7 +18,7 @@ export default function VerifyOtpForm({ id }) {
   const handleOtpVerification = async (e) => {
     e.preventDefault();
 
-    const email = 'himanshusaini8741@gmail.com'
+    const email = localStorage.getItem('userMail');
     const isReset = false;
 
     try {
@@ -28,7 +28,7 @@ export default function VerifyOtpForm({ id }) {
       const  verifyEmailToken  = response.payload;
 
 
-      console.log('OTP verification Token with payload:', verifyEmailToken);
+      console.log('OTP verification registration response:', verifyEmailToken);
 
       const verifyEmailResponse = await fetch(`3.108.250.128:3000/v1/merchant/verifyEmail/?token=${verifyEmailToken}`, {
         method: 'GET',
@@ -37,10 +37,10 @@ export default function VerifyOtpForm({ id }) {
 
       console.log('OTP verify Email response:', verifyEmailResponse);
 
-      if(verifyEmailToken.msg === 'OTP is invalid or timeout'){
-        setVerificationError(verifyEmailToken.msg);
-      }else{
+      if(verifyEmailToken.msg === 'Email Verified!'){
         history('/dashboard')
+      }else{
+        setVerificationError(verifyEmailToken.msg);
       }
 
       

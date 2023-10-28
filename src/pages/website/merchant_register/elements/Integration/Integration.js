@@ -23,6 +23,7 @@ export default function Integration() {
 
   const nextStapReg=()=>{ history('/merchant_registration') }
   
+  
 
   const businessAdd=()=>{
   
@@ -41,6 +42,7 @@ export default function Integration() {
   
         console.log("objjjjjj",obj)
         dispatch(MERCHANT_BUSINESS(obj));
+        history('/dashboard')
   }
 
   

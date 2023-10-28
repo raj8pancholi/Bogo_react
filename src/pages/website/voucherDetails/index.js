@@ -19,9 +19,7 @@ const selectedBusinessData = useSelector((state) => state.merchantAuth.selectedB
 
     return (
         <>
-        {/* Header */}
         <Header1/>
-
             <section className="voucher_previews_section">
 
                 <VoucheHeader selectedBusinessData={selectedBusinessData}/>
@@ -39,9 +37,7 @@ const selectedBusinessData = useSelector((state) => state.merchantAuth.selectedB
                 <div className="location_map">
                 </div>
             </section>
-
         <Footer/>
-
         </>
     )
 }

@@ -25,8 +25,6 @@ function TimeSection({selectedBusinessData}) {
             <strong>Address: </strong>
           {selectedBusinessData.address}
           </p>
-          <p><strong>Postal Code: </strong> 54620</p>
-
         </div>
 
       </div>

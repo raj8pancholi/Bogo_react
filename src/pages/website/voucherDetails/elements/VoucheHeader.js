@@ -7,7 +7,9 @@ import { ImgUrl } from '../../../../utils';
 function VoucheHeader({selectedBusinessData}) {
     return (
         <>
-            <div className="voucher_head_img_box" style={{ background: `url(${ImgUrl}/${selectedBusinessData.banner})` }}>
+            <div className="voucher_head_img_box" style={{ background: `url(${ImgUrl}/${selectedBusinessData.banner})`,
+            backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' 
+            }}>
                 <div className="backTodirectory_box">
                     <Link to="/Bogo_directory" className="backTodirectory">
                         <i className="fa fa-chevron-left mr-2" aria-hidden="true"></i>
@@ -31,7 +33,6 @@ function VoucheHeader({selectedBusinessData}) {
 
 
                         <div className="branch_review">
-                            {/* <!-- start icon --> */}
                             <i className="fa fa-star" aria-hidden="true"></i>
                             <i className="fa fa-star" aria-hidden="true"></i>
                             <i className="fa fa-star" aria-hidden="true"></i>
