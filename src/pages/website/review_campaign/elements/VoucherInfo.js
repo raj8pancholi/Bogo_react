@@ -21,7 +21,15 @@ export default function VoucherInfo({saveVoucher}) {
             <div className="buy-box">
                 <span>VALIDITY
                     </span>
-                <h3>S M T W T F S</h3>
+                <h3>
+                                          {saveVoucher?.sundayState?.status ? 'S ' : ''}
+                                          {saveVoucher?.mondayState?.status ? 'M ' : ''}
+                                          {saveVoucher?.tuesdayState?.status ? 'T ' : ''}
+                                          {saveVoucher?.wednesdayState?.status ? 'W ' : ''}
+                                          {saveVoucher?.thursdayState?.status ? 'T ' : ''}
+                                          {saveVoucher?.fridayState?.status ? 'F ' : ''}
+                                          {saveVoucher?.saturdayState?.status ? 'S ' :''}
+                </h3>
             </div>
             <div className="get-box">
                 <span>Est. Savings

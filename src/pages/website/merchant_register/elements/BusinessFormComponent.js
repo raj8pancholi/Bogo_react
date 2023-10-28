@@ -23,6 +23,7 @@ const BusinessFormMainSection = () => {
   const [subCategoryId ,setSubCategoryId] = useState('')
   const [whatsappNo ,setWhatsappNo] = useState('')
   const [logo ,setLogo] = useState('')
+  const [rating ,setRating] = useState(0)
   const [banner ,setBanner] = useState('')
   const [gallery ,setGallery] = useState('')
 
@@ -78,7 +79,7 @@ const BusinessFormMainSection = () => {
   const handleTabSelect = (tabId) => { setActiveTab(tabId); };
   const handleNextClick = () => {
 
-    const obj = {bName , address ,country ,pin ,state ,categoryId ,subCategoryId ,whatsappNo , sundayState , mondayState , tuesdayState , wednesdayState , thursdayState , fridayState , saturdayState }
+    const obj = {bName , address ,country ,pin ,rating , state ,categoryId ,subCategoryId ,whatsappNo , sundayState , mondayState , tuesdayState , wednesdayState , thursdayState , fridayState , saturdayState }
     
     console.log("obj",obj)
     
@@ -170,7 +171,7 @@ const BusinessFormMainSection = () => {
 
                 </div>
 
-                <BusinessFormHoursSection  daysState ={daysState} setWhatsappNo={setWhatsappNo} whatsappNo={whatsappNo}/>
+                <BusinessFormHoursSection  daysState ={daysState} setWhatsappNo={setWhatsappNo} whatsappNo={whatsappNo} setRating={setRating} rating={rating}/>
 
                 {/* Privacy Policy */}
                 <PrivacyPolicy/>

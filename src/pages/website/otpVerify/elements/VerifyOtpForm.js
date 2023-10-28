@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import OtpInput from './OtpInput';
@@ -8,6 +8,21 @@ export default function VerifyOtpForm({ id }) {
 
   const history = useNavigate();
   const dispatch = useDispatch();
+
+  const [seconds, setSeconds] = useState(60);
+ 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (seconds === 1) { clearInterval(timer); }
+      if(seconds > 0)setSeconds(seconds - 1);
+    }, 1000);
+
+    return () => { clearInterval(timer); };
+  }, [seconds]);
+
+
+
+
   const [otp, setOtp] = useState(['', '', '', '']);
   const [verificationError, setVerificationError] = useState('');
 
@@ -18,30 +33,33 @@ export default function VerifyOtpForm({ id }) {
   const handleOtpVerification = async (e) => {
     e.preventDefault();
 
-    const email = localStorage.getItem('userMail');
+
+    const email = localStorage.getItem('userMail')
+
     const isReset = false;
 
     try {
-      const response = await dispatch(MERCHANT_VERIFY_OTP({ id, otp: otp.join('') , email ,isReset })); // Join OTP array into a single string
-
-      console.log('OTP verification response:', response);
+      const response = await dispatch(MERCHANT_VERIFY_OTP({ id, otp: otp.join('') , email ,isReset })); 
+ 
       const  verifyEmailToken  = response.payload;
+ 
 
 
-      console.log('OTP verification registration response:', verifyEmailToken);
-
-      const verifyEmailResponse = await fetch(`3.108.250.128:3000/v1/merchant/verifyEmail/?token=${verifyEmailToken}`, {
-        method: 'GET',
-      });
+      // const verifyEmailResponse = await fetch(`3.108.250.128:3000/v1/merchant/verifyEmail/?token=${verifyEmailToken}`, {
+      //   method: 'GET',
+      // });
 
 
-      console.log('OTP verify Email response:', verifyEmailResponse);
 
-      if(verifyEmailToken.msg === 'Email Verified!'){
-        history('/dashboard')
-      }else{
+      // console.log('OTP verify Email response:', verifyEmailResponse);
+
+
+      if(verifyEmailToken.msg === 'OTP is invalid or timeout'){
         setVerificationError(verifyEmailToken.msg);
-      }
+      }else{
+        const baseUrl = window.location.origin;  
+        window.location.href = baseUrl + '/dashboard';       
+
 
       
      
@@ -55,6 +73,7 @@ export default function VerifyOtpForm({ id }) {
 
 
   const resendOtp =()=>{
+    setSeconds(60)
     const obj = {email:localStorage.getItem('userMail')} 
     dispatch(MERCHANT_REQUEST_OTP(obj)); 
   } 
@@ -67,7 +86,7 @@ export default function VerifyOtpForm({ id }) {
       <div className="verification-code">
         <OtpInput otp={otp} onChange={handleOtpChange} />
         <div className="otp-time">
-          <span className="pe-4">(00:52)</span>
+          <span className="pe-4">(00:{seconds})</span>
         </div>
       </div>
 

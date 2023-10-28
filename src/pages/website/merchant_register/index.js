@@ -15,6 +15,7 @@ import BusinessFormComponent from './elements/BusinessFormComponent'
 
 // Import Css
 import './style.css'
+import GoogleMap from './elements/GoogleMap'
 
 export default function index() {
   return (
@@ -35,7 +36,8 @@ export default function index() {
 
                 {/* map */}
                 <div className='row'>
-                    <BusinessMap />
+                    {/* <GoogleMap /> */}
+                   <BusinessMap /> 
                 </div>
 
                 {/* Business Section */}
