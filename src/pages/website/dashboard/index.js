@@ -7,9 +7,10 @@ import BogoAmbassador from './elements/BogoAmbassador';
 import GrowOnlineSection from './elements/GrowOnlineSection';
 import Footer from '../../../partials/footer/Footer';
 import Header1 from './../../../partials/header/Header1';
-import { GET_ALL_BUSINESS_DETAILS, SELECTED_BUSINESS_DATA } from '../../../redux/slices/merchantAuthSlice';
+import { GET_ALL_BUSINESS_DETAILS, GET_BUSINESS_VOUCHER, SELECTED_BUSINESS_DATA } from '../../../redux/slices/merchantAuthSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { TOAST_SUCCESS } from '../../../utils';
+import { GET_ALL_HOLIDAY } from '../../../redux/slices/otherSlice';
 
 const DashboardPage = () => {
 
@@ -19,11 +20,13 @@ const DashboardPage = () => {
  
   useEffect(() => { 
       dispatch(GET_ALL_BUSINESS_DETAILS()); 
+      dispatch(GET_ALL_HOLIDAY())
       if(!localStorage.getItem('activeBusiness') && allBusinessData && allBusinessData.length){
     console.log("dataBusiness1111",allBusinessData[0])
 
        localStorage.setItem('activeBusiness',allBusinessData[0].id) 
        dispatch(SELECTED_BUSINESS_DATA(allBusinessData[0]))
+       dispatch(GET_BUSINESS_VOUCHER(allBusinessData[0]).id)
         
       } 
   }, []);
@@ -32,6 +35,7 @@ const DashboardPage = () => {
     const dataBusiness = allBusinessData?.find(x=> x.id==id) 
     localStorage.setItem('activeBusiness',id)
     dispatch(SELECTED_BUSINESS_DATA(dataBusiness))
+    dispatch(GET_BUSINESS_VOUCHER(id))
   }
 
   return<>

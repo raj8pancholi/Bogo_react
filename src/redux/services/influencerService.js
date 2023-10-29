@@ -1,7 +1,7 @@
 import HttpClient from "./http-client";
 
-export const Influencers = () => {
-    return HttpClient.get("/merchant/influencer/?role=INFLUENCER");
+export const Influencers = (name) => {
+    return HttpClient.get(`/merchant/influencer${name ? '/?name='+name :''}`);
 };
 
 export const InviteInfluencers = (data) => {

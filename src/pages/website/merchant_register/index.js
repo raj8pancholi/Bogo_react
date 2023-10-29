@@ -3,6 +3,7 @@ import React from 'react'
 // Import Footer and Header Component
 import Footer from '../../../partials/footer/Footer'
 import Headers from '../../../partials/header/Header'
+import Headers1 from '../../../partials/header/Header1'
 
 
 // Import Components
@@ -20,7 +21,7 @@ import GoogleMap from './elements/GoogleMap'
 export default function index() {
   return (
     <>  
-        <Headers />
+       {localStorage.getItem('token') && localStorage.getItem('isLogin') ? <Headers1 /> : <Headers /> }
 
         <form id="ADDbusiness"> 
           <MerchantMainTopSection />

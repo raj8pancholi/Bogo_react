@@ -7,10 +7,12 @@ import TimeSection from './TimeSection'
 // import VoucherDetails_map from './VoucherDetails_map'
 import CampaignCard from './CampaignCard'
 import BranchDetails from './BranchDetails'
+import { useSelector } from 'react-redux'
 
 function VoucherDetails_index({allBusinessData, selectedBusinessData}) {
 
     const [selectBranch, setSelectBranch] = useState(1)
+    const voucherList = useSelector((state) => state.merchantAuth.voucherList);  
 
     const TabButton = (id) => { 
         setSelectBranch(id)
@@ -67,7 +69,7 @@ function VoucherDetails_index({allBusinessData, selectedBusinessData}) {
                                 {/* <!-- voucher_details_row --> */}
                                 <div className="row">
 
-                                    <CampaignCard selectedBusinessData={selectedBusinessData}/>
+                                    <CampaignCard voucherList={voucherList}/>
 
                                 </div>
                             </div>

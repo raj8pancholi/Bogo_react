@@ -5,6 +5,7 @@ import subcategoryReducer from '../slices/subCategorySlice';
 import merchantAuthReducer from '../slices/merchantAuthSlice';
 import businessInfoSlice from '../slices/businessInfoSlice';
 import influencerSlice from '../slices/influencerSlice';
+import otherSlice from '../slices/otherSlice';
 
 const reducer = {
   category: categoryReducer,
@@ -12,7 +13,8 @@ const reducer = {
   merchantAuth:merchantAuthReducer,
   businessInfo:businessInfoSlice,
   country:countryReducer,
-  influencer:influencerSlice
+  influencer:influencerSlice,
+  otherInfo:otherSlice
 }
 
 const store = configureStore({

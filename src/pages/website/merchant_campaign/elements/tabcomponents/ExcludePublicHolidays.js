@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
  
-  const ExcludePublicHoliday = ({ excludePublicHolidays, setExcludePublicHolidays}) => { 
+  const ExcludePublicHoliday = ({ excludePublicHolidays, holidayList, setExcludePublicHolidays}) => { 
     // Holiday Info Modal
     const [showModal, setShowModal] = useState(false);
 

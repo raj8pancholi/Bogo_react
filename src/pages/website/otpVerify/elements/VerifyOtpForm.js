@@ -58,9 +58,9 @@ export default function VerifyOtpForm({ id }) {
         setVerificationError(verifyEmailToken.msg);
       }else{
         const baseUrl = window.location.origin;  
-        window.location.href = baseUrl + '/dashboard';       
-
-
+        window.location.href = baseUrl + '/dashboard';     
+      }
+    
       
      
 

@@ -6,9 +6,9 @@ import { TOAST_ERROR, TOAST_SUCCESS } from '../../utils';
 
 export const INFLUENCER_LIST = createAsyncThunk(
   "influencer/INFLUENCER_LIST",
-  async (daa) => {
+  async (name) => {
     try {
-      const res = await Influencers(); 
+      const res = await Influencers(name); 
       return res.data;
     } catch (error) { 
       if (error.response.status === 401) throw new Error(error.response.data.message)
@@ -46,7 +46,7 @@ const influencerSlice = createSlice({
   extraReducers:{
 
     [INFLUENCER_LIST.fulfilled]: (state, action) => {
-        state.influencer = action.payload; 
+        state.influencer = action.payload;
     },
     [INVITE_INFLUENCER.fulfilled]: (state, action) => {
       state.invite = action.payload; 

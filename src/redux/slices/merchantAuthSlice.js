@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import {CreateMerchant,BusinessMerchant , LoginMerchant, VerifyOtp, RequestOtp, ResetPassword , AllBusinessDetails, CampaignCreate, VoucherCreate}  from "../services/marchantAuthServices";
+import {CreateMerchant,BusinessMerchant , LoginMerchant, VerifyOtp, RequestOtp, ResetPassword , AllBusinessDetails, CampaignCreate, VoucherCreate, getBusinessVoucher}  from "../services/marchantAuthServices";
 import { TOAST_ERROR, TOAST_SUCCESS } from '../../utils';
  
 
@@ -128,8 +128,11 @@ export const GET_ALL_BUSINESS_DETAILS = createAsyncThunk(
         const res = await AllBusinessDetails();
         return res.data;
         
-      } catch (error) {
-        if (error.response.status === 401) throw new Error(error.response.data.message)
+      } catch (error) { 
+        if (error.response?.data?.code == 401) { 
+          localStorage.clear(); 
+          window.location.href = window.location.origin
+        }
         else  throw new Error("An unexpected error occurred");
       }
   }
@@ -140,11 +143,12 @@ export const SELECTED_BUSINESS_DATA = createAsyncThunk( "merchant/SELECTED_BUSIN
 
 export const CREATE_CAMPAIGN = createAsyncThunk(
   'merchant/CREATE_CAMPAIGN',
-  async (data) => {
+  async (data, history) => {
       try {
         const res = await CampaignCreate(data);
         localStorage.setItem("activeCampaing",res.data.id)
         TOAST_SUCCESS("Campaign created successfully!")
+        history('/invite_influencer')
         return res.data;
         
       } catch (error) {
@@ -180,13 +184,27 @@ export const CREATE_VOUCHER = createAsyncThunk(
   }
 );
 
+export const GET_BUSINESS_VOUCHER = createAsyncThunk(
+  'merchant/GET_BUSINESS_VOUCHER',
+  async (id) => {
+      try {
+        const res = await getBusinessVoucher(id);  
+        return res.data;
+        
+      } catch (error) {
+         
+      }
+  }
+);
+
+
 export const SAVE_VOUCHER = createAsyncThunk( "merchant/SAVE_VOUCHER", (data) => { return data } );
 export const SAVE_CAMPAIGN = createAsyncThunk( "merchant/SAVE_CAMPAIGN", (data) => { return data } );
 
 
 const marchantAuthSlice = createSlice({
   name: 'merchant',
-  initialState: { merchantData: [], signUpError:'', loginError:'', businessApi:false , allBusinessData:[], selectedBusinessData:[], campaign:[], voucher:[] , saveCampaign:[], saveVoucher:[]},
+  initialState: { merchantData: [], signUpError:'', loginError:'', businessApi:false , allBusinessData:[], selectedBusinessData:[], campaign:[], voucher:[] , voucherList:[] , saveCampaign:[], saveVoucher:[]},
   reducers: {},
   extraReducers:{
 
@@ -223,8 +241,8 @@ const marchantAuthSlice = createSlice({
     [GET_ALL_BUSINESS_DETAILS.fulfilled]: (state, action) => {
       state.allBusinessData = action.payload;
       const activeBusinessId = localStorage.getItem('activeBusiness');
-      const selectedBusiness = action.payload.find((x) => x.id === activeBusinessId);
-      state.selectedBusinessData = selectedBusiness || action.payload[0];
+      const selectedBusiness = action.payload?.find((x) => x.id == activeBusinessId); 
+      state.selectedBusinessData = selectedBusiness ? selectedBusiness : action.payload ? action.payload[0]:'';
     },
 
     [SELECTED_BUSINESS_DATA.fulfilled]: (state, action) => { 
@@ -241,6 +259,9 @@ const marchantAuthSlice = createSlice({
     },
     [SAVE_CAMPAIGN.fulfilled]: (state, action) => { 
       state.saveCampaign = action.payload;
+    },
+    [GET_BUSINESS_VOUCHER.fulfilled]: (state, action) => { 
+      state.voucherList = action.payload;
     },
     
 
