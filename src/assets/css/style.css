@@ -404,8 +404,6 @@ button.btn.btn-primary.me-3.text-white a {
   font-weight: 400;
   font-size: 18px;
   line-height: 150%;
-  /* or 27px */
-
   text-align: center;
 
   color: #777777;
@@ -3563,7 +3561,7 @@ nav.navbar {
   border: none;
   background: #0000002b;
   padding: 10px 20px;
-  box-shadow: rgba(0, 0, 0, 0.24) 2px 1px 0px;
+  box-shadow: rgba(0, 0, 0, 0.43) 2px 1px 0px;
 }
 .navbar-collapse ul li .btn-group ul li {
   list-style: none;

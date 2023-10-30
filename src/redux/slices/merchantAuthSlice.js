@@ -52,7 +52,9 @@ export const MERCHANT_SIGNIN = createAsyncThunk(
 export const MERCHANT_BUSINESS = createAsyncThunk(
   "merchant/MERCHANT_BUSINESS",
   async (data) => {
+
   try {
+    console.log(data + 'business data from slice');
     const res = await BusinessMerchant(data);
     localStorage.setItem('businessId', res?.data?.id)
     return res.data;
@@ -124,8 +126,12 @@ export const MERCHANT_RESET_PASSWORD = createAsyncThunk(
 export const GET_ALL_BUSINESS_DETAILS = createAsyncThunk(
   'merchant/GET_ALL_BUSINESS_DETAILS',
   async (data) => {
+
+    console.log(data + 'GET_ALL_BUSINESS_DETAILS');
+      
       try {
         const res = await AllBusinessDetails();
+        console.log(res.data + 'all business data from slice');
         return res.data;
         
       } catch (error) {

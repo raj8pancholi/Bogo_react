@@ -14,10 +14,13 @@ import { useSelector } from 'react-redux';
 
 function VoucherDetails() {
 const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);  
-const selectedBusinessData = useSelector((state) => state.merchantAuth.selectedBusinessData);  
+const selectedBusinessData = useSelector((state) => state.merchantAuth.selectedBusinessData); 
 
+
+console.log('allGalleryData:', selectedBusinessData);
 
     return (
+        
         <>
         <Header1/>
             <section className="voucher_previews_section">

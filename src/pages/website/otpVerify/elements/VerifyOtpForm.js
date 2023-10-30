@@ -45,13 +45,13 @@ export default function VerifyOtpForm({ id }) {
  
 
 
-      // const verifyEmailResponse = await fetch(`3.108.250.128:3000/v1/merchant/verifyEmail/?token=${verifyEmailToken}`, {
-      //   method: 'GET',
-      // });
+      const verifyEmailResponse = await fetch(`3.108.250.128:3000/v1/merchant/verifyEmail/?token=${verifyEmailToken}`, {
+        method: 'GET',
+      });
 
 
 
-      // console.log('OTP verify Email response:', verifyEmailResponse);
+      console.log('OTP verify Email response:', verifyEmailResponse);
 
 
       if(verifyEmailToken.msg === 'OTP is invalid or timeout'){
@@ -61,8 +61,7 @@ export default function VerifyOtpForm({ id }) {
         window.location.href = baseUrl + '/dashboard';       
 
 
-      
-     
+      }
 
     } catch (error) {
       setVerificationError(error.message);
