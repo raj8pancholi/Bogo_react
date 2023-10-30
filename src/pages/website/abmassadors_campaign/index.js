@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; 
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom'; 
 import Header1 from '../../../partials/header/Header1';
 import Footer from '../../../partials/footer/Footer'; 
 import './style.css';
@@ -13,13 +13,14 @@ import HashtagRow from './elements/HashtagRow';
 import PromoCodeRow from './elements/PromoCodeRow';
 import SingleSelector from './elements/SingleSelector';
 import ExclusiveBtnModal from './elements/ExclusiveBtnModal';
-
+import { useParams } from 'react-router-dom';
 // Import components
 import AbmassadorsHeading from './elements/AbmassadorsHeading';
 import GiveAway from './elements/GiveAway';
 import ExclusiveOffer from './elements/ExclusiveOffer';
 import { CREATE_CAMPAIGN } from '../../../redux/slices/merchantAuthSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import moment from 'moment/moment';
 
 
 
@@ -28,7 +29,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // tabs
 const AmbassadorsCampaignPage = () => {
+
+  let { campainId } = useParams();
   const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);  
+  const selectedBusinessData = useSelector((state) => state.merchantAuth.selectedBusinessData);  
 
   const socialMediaOptions = [ { value: 'Facebook', label: 'Facebook' }, { value: 'Instagram', label: 'Instagram' }, { value: 'Youtube', label: 'Youtube' }, { value: 'TickTok', label: 'TickTok' }, ]
   const businessOption =  allBusinessData?.map((business) => ({ value: business.id, label: business.bName, }));
@@ -58,20 +62,33 @@ const AmbassadorsCampaignPage = () => {
   const handleDateOpen = (id) =>{ setendDate(id) };
 
    
+ useEffect(()=>{
+  if(campainId && selectedBusinessData?.campaigns){
+    const campaindata = selectedBusinessData?.campaigns?.find((x)=>x.id ==campainId)
+   if(campaindata){
+    setcampaignType(campaindata.campaignType=='GiveAway' ? 1 : 2)
+    setOffer(campaindata.offer)
+    setEstimationSaving(campaindata.estimationSaving)
+    setCashIncentive(campaindata.cashIncentive)
+    setallowedGuest(campaindata.allowedGuest)
+    setrequirement(campaindata.requirement)
+    setprefferedPlatforms(campaindata.prefferedPlatforms)
+    setSocialPlatforms(campaindata.prefferedPlatforms)
+    setphoto(campaindata.photo)
+    setvideo(campaindata.video)
+   // setuntilDate(campaindata.untilDate)
+  //  setendDate(campaindata.endDate)
+    sethashtags(campaindata.hashtags)
+    setpromoCode(campaindata.promoCode)
+    setaudienceSize(campaindata.audienceSize)
 
-  // const MyComponent = () => ( <Select  onChange={handleSelectBranch} closeMenuOnSelect={false} defaultValue={selectBusiness} isMulti options={businessOption} styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }} /> )
 
-  // const  handleSelectBranch = (selectedOptions) => {
-  //   setSocialPlatforms(selectedOptions)
-  //   if(selectedOptions && selectedOptions.length){
-  //     var socialarr =[]
-  //     selectedOptions.forEach(element => {
-  //       socialarr.push(element.label)
-  //     });
-  //     setselectBusiness(socialarr);
-  //   }
-    
-  // }
+   }
+
+  }
+  
+ },[])
+   
 
   const SocialComponent = () => ( <Select  onChange={handleSelectChange} closeMenuOnSelect={false} defaultValue={socialPlatforms} isMulti options={socialMediaOptions} styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }} /> )
 
@@ -98,18 +115,17 @@ const AmbassadorsCampaignPage = () => {
       { value: '1m', label: '1m+' }, 
   ];
   const dispatch = useDispatch()
-
+const navigate = useNavigate()
  const SubmitCampaign=()=>{
    const obj ={ campaignType:campaignType==1 ? "GiveAway":"ExclusiveOffer", offer, estimationSaving:estimationSaving, cashIncentive:parseInt(cashIncentive), allowedGuest:parseInt(2), requirement, prefferedPlatforms, photo, video, untilDate, endDate, hashtags:[hashtags?.replace(/#/g, '')], promoCode, audienceSize:parseInt(audienceSize), isPublished, maxRedeem, businessIds}
-   console.log("obj>>>>", obj)
-   dispatch(CREATE_CAMPAIGN(obj))
+   dispatch(CREATE_CAMPAIGN(obj , navigate))
  }
 
  const obj ={ campaignType, offer, estimationSaving:parseInt(estimationSaving), cashIncentive:parseInt(cashIncentive), allowedGuest:parseInt(2), requirement, prefferedPlatforms, photo, video, untilDate, endDate, hashtags, promoCode, audienceSize, isPublished, maxRedeem, businessIds}
  
  const handleSelectBusiness = (selectedOptions) => { const selectedIds = selectedOptions.map(option => option.value); setBusinessIds(selectedIds); };
 
-console.log("obj------", obj)
+ 
   return (
     <>
       <Header1 />
@@ -251,7 +267,7 @@ console.log("obj------", obj)
                   <div className="select_datebox">
                   <div>
                           <label onClick={() => document.getElementById('datepicker-trigger').click()} style={{color:'#029cab', cursor: 'pointer'}}>
-                          {untilDate ? format(untilDate, 'dd/MM/yyyy') : 'Select Date'}
+                          {untilDate ? moment(untilDate).format('dd/MM/yyyy') : 'Select Date'}
                           </label>
                           <DatePicker
                             id="datepicker-trigger"
@@ -278,7 +294,7 @@ console.log("obj------", obj)
                     
                   <div>
                         <label onClick={() => document.getElementById('datepickerTriggers').click()} style={{color:'#029cab'}}>
-                                {endDate ? format(endDate, 'dd/MM/yyyy') : 'Select Date'}
+                                {endDate ?  moment(endDate).format('dd/MM/yyyy') : 'Select Date'}
                         </label>
                         <DatePicker
                             id="datepickerTriggers"
@@ -299,7 +315,7 @@ console.log("obj------", obj)
 
             <div className="row review_submit_btn_row">
               <div className="next-btn-box review_submit_btn_box tab-pane active">
-                  <ExclusiveBtnModal SubmitCampaign={()=>SubmitCampaign()} campaignType ={campaignType} offer ={ offer} estimationSaving ={ estimationSaving} cashIncentive ={ cashIncentive} allowedGuest ={ allowedGuest} requirement ={ requirement} prefferedPlatforms ={ prefferedPlatforms} photo ={ photo} video ={ video} untilDate ={ untilDate} endDate ={ endDate} hashtags ={ hashtags} promoCode ={ promoCode}  />                           
+                  <ExclusiveBtnModal SubmitCampaign={()=>SubmitCampaign()} campaignType ={campaignType} offer ={ offer} estimationSaving ={ estimationSaving} cashIncentive ={ cashIncentive} allowedGuest ={ allowedGuest} requirement ={ requirement} prefferedPlatforms ={ prefferedPlatforms} photo ={ photo} video ={ video} untilDate ={ untilDate} endDate ={ endDate} hashtags ={ hashtags} promoCode ={ promoCode}  isPublished={isPublished} setIsPublished={setIsPublished}/>                           
               </div>
             </div>
           </div>

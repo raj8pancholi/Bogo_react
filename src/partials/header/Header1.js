@@ -12,7 +12,7 @@ export default function Header1() {
   }
   return (
     <div>
-            <nav className="navbar navbar-expand-lg" style={{"background-color":"#88c641"}}>
+            <nav className="navbar navbar-expand-lg" style={{"backgroundColor":"#88c641"}}>
   <div className="container">
     <Link className="navbar-brand text-white" to="/">
         <img src="/images/Bogo-White 2.png" alt='' />

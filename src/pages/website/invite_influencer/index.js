@@ -20,11 +20,12 @@ import { useDispatch, useSelector } from 'react-redux';
 // tabs
 function Invite_influencer() {
   const [selectedTab, setSelectedTab] = useState(1);
+  const [searchTxt, setsearchTxt] = useState('');
    const dispatch = useDispatch()
   const influencerList = useSelector((state) => state.influencer.influencer);
  
 useEffect(() => {
-  dispatch(INFLUENCER_LIST());     
+  dispatch(INFLUENCER_LIST(""));     
 }, []);
 
   const buttonOption = (id) => {
@@ -35,6 +36,11 @@ useEffect(() => {
   const invitationInfluncer =(id)=>{
     const obj ={campaignId:localStorage.getItem('activeCampaing') , userId:id}
     dispatch(INVITE_INFLUENCER(obj))
+  }
+
+  const searchInfluencer=(name)=>{
+    setsearchTxt(name)
+    dispatch(INFLUENCER_LIST(name)); 
   }
 
   return (
@@ -83,17 +89,17 @@ useEffect(() => {
           <div className="filter_influencer">
             <div className="row">
               <ul>
-                <li className="serarch_inflencer"> 
-                  <form action="" className="searchBox">
-                    <div className="input-group">
+                <li className="serarch_inflencer">  
+                <form action="" className="searchBox">
+                  <div className="input-group">
                       <div className="input-group-append">
                         <button className="btn " type="button">
                           <img src="/images/search.png" alt="" className="img-fluid" />
                         </button>
                       </div>
-                      <input type="text" className="form-control search_input" placeholder="Search" />
-                    </div>
-                  </form>
+                      <input type="text" className="form-control search_input" value={searchTxt} placeholder="Search" onChange={(e)=>searchInfluencer(e.target.value)}/>
+                    </div> 
+                    </form>
                 </li>
               </ul>
             </div>

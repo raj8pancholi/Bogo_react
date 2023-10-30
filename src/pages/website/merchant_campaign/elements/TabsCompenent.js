@@ -21,7 +21,7 @@ import HoursSection from '../elements/tabcomponents/HoursSection.js';
 
 
 export default function TabsCompenent(props) {
-  const {buy, setBuy, get, setGet, estSaving, setEstSaving, branch, setBranch,
+  const {buy, setBuy, get, setGet, estSaving, setEstSaving, branch, setBranch, holidayList,
     finePrint,setFinePrint, redemption, setRedemption, daysState , setOffers ,businessOptions, offers, excludeWeekends, setExcludeWeekends , excludePublicHolidays , setExcludePublicHolidays, customizeTime, setCustomizeTime, SaveVoucher
   } = props
 
@@ -168,7 +168,7 @@ updateSaturday(status ? false: false, saturdayState.openTime, saturdayState.clos
                             </div>
                           </div>
 
-                          <ExcludePublicHoliday excludePublicHolidays={excludePublicHolidays} setExcludePublicHolidays={setExcludePublicHolidays}/>
+                          <ExcludePublicHoliday excludePublicHolidays={excludePublicHolidays} holidayList={holidayList} setExcludePublicHolidays={setExcludePublicHolidays}/>
 
                          
                           <div className="row">

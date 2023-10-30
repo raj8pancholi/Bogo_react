@@ -54,3 +54,4 @@ export const BusinessMerchant = (data) => {
 export const CampaignCreate = (data) => { return HttpClient.post("/merchant/campaign", data); };
 export const VoucherCreate = (data) => { return HttpClient.post("/merchant/voucher", data ); };
 export const AllBusinessDetails = () => { return HttpClient.get("/merchant/business"); };
+export const getBusinessVoucher = (id) => { return HttpClient.get(`/merchant/voucher/?businessId=${id}`); };

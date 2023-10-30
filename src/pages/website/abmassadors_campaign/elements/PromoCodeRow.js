@@ -3,7 +3,7 @@ import React,{useState} from 'react';
 export default function PromoCodeRow({ label , setpromoCode, promoCode }) {
 
     // State to manage the switch's value
-  const [isTextareaActive, setTextareaActive] = useState(false);
+  const [isTextareaActive, setTextareaActive] = useState(promoCode ? true :false);
 
   // Function to toggle the switch
   const toggleSwitch = () => {

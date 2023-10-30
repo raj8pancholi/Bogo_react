@@ -1,9 +1,9 @@
 import React from 'react'
 
-function CampaignCard({selectedBusinessData}) { 
+function CampaignCard({voucherList}) { 
   return (
     <>
-      {selectedBusinessData?.vouchers?.map((voucher, index) => (
+      {voucherList?.map((voucher, index) => (
         <div className="col-md-6">
            { console.log("voucher", voucher)}
           <div className="voucher_preview_row able_voucher_box">
@@ -35,7 +35,9 @@ function CampaignCard({selectedBusinessData}) {
                     <div className="buy-box">
                       <span>VALIDITY
                       </span>
-                      <h3>S M T W T F S</h3>
+                      <h3 style={{textTransform:'uppercase' }}>
+                        {voucher?.voucherTimings?.map((time,i)=>{ if(time?.isActive) return (time.day).charAt(0)+' '   
+                        })}</h3>
                     </div>
                     <div className="get-box">
                       <span>Est. Savings

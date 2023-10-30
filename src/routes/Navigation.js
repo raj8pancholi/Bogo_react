@@ -81,6 +81,7 @@ const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessDat
           <Route path='/review_campaign' element={<ReviewCampaign/>} />
           <Route path='/invite_influencer' element={<InviteInfluencer/>} />
           <Route path='/ambassdors_compaign' element={<AbmassdorsCampaign/>} />
+          <Route path='/ambassdors_compaign/:campainId' element={<AbmassdorsCampaign/>} />
           <Route path='/campaignDashboard' element={<CampaignDashboard/>} />
           <Route path='/bogo_directory' element={<BogoDirectory/>} />
           <Route path='/business_profile' element={<VoucherDetails/>} />
