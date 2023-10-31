@@ -10,6 +10,7 @@ import PhoneInput from 'react-phone-input-2';
 import { connect } from 'react-redux';
 import { MERCHANT_SIGNUP , MERCHANT_BUSINESS } from '../../../redux/slices/merchantAuthSlice'; 
 import { TOAST_ERROR, reArrangeObj } from '../../../utils';
+import { ReportGmailerrorred } from '@mui/icons-material';
 
 
  class index extends Component{
@@ -73,13 +74,13 @@ businessAdd=()=>{
         cityId: businessInfo.businessData.state ,
         categoryId: businessInfo.businessData.categoryId ,
         subCategoryId: businessInfo.businessData.subCategoryId ,
+        rating:businessInfo.businessData.rating,
         logo: businessInfo.galleryData.logo,
         banner: businessInfo.galleryData.bannerobj ,
         gallery: businessInfo.galleryData.selectedImages ,
         hoursOfOperation: reArrangeObj(businessInfo.businessData) ,
       }
-
-      console.log("objjjjjj",obj)
+ 
       this.props.MERCHANT_BUSINESS(obj);
 }
 

@@ -85,7 +85,7 @@ export default function Index() { // Renamed to start with an uppercase letter
 
 
   const SaveVoucher=()=>{
-     const obj ={offers,buy, get, estSaving,excludeWeekends, excludePublicHolidays, finePrint,redemption,sundayState,mondayState,tuesdayState,wednesdayState,thursdayState,fridayState,saturdayState}
+     const obj ={offers,buy, get, estSaving,excludeWeekends,  excludePublicHolidays, finePrint, branch, redemption,sundayState,mondayState,tuesdayState,wednesdayState,thursdayState,fridayState,saturdayState}
      console.log('obj===', obj)
      dispatch(SAVE_VOUCHER(obj))
   }

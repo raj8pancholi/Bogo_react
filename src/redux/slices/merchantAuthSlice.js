@@ -150,11 +150,12 @@ export const SELECTED_BUSINESS_DATA = createAsyncThunk( "merchant/SELECTED_BUSIN
 
 export const CREATE_CAMPAIGN = createAsyncThunk(
   'merchant/CREATE_CAMPAIGN',
-  async (data, history) => {
+  async (data, status, history) => {
       try {
         const res = await CampaignCreate(data);
         localStorage.setItem("activeCampaing",res.data.id)
-        TOAST_SUCCESS("Campaign created successfully!")
+        if(!status)  TOAST_SUCCESS("Campaign save in draft successfully!")
+        else TOAST_SUCCESS("Campaign created successfully!")
         history('/invite_influencer')
         return res.data;
         
@@ -177,7 +178,7 @@ export const CREATE_VOUCHER = createAsyncThunk(
   async (data) => {
       try {
         const res = await VoucherCreate(data);
-        if(!data.isPublished) TOAST_SUCCESS("Voucher save in dreaft successfully!")
+        if(!data.isPublished) TOAST_SUCCESS("Voucher save in draft successfully!")
         else TOAST_SUCCESS("Voucher created successfully!")
         return res.data;
         

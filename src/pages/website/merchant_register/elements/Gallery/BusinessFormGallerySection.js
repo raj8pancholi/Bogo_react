@@ -1,11 +1,11 @@
-import React, {useCallback, useState}  from 'react';
+import React, {useCallback, useEffect, useState}  from 'react';
 import { Cancel } from '@mui/icons-material';
 import { useDropzone } from 'react-dropzone';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { UpdateGalleryInfo } from '../../../../../redux/slices/businessInfoSlice';
 
-const BusinessFormGallerySection = ({onNextClick}) => {
+const BusinessFormGallerySection = ({onNextClick, oldlogo, oldbanner,oldgallery }) => {
 
   // Upload logo image
   const [logoImage, setLogoImage] = useState(null);
@@ -53,9 +53,7 @@ const BusinessFormGallerySection = ({onNextClick}) => {
   };
 
 
-
-
-
+ 
 
 
 
@@ -84,13 +82,24 @@ const BusinessFormGallerySection = ({onNextClick}) => {
 
   const dispatch = useDispatch()
 const submitGallery=()=>{
-  const obj = {logo, bannerobj, selectedImages}
+  const obj = {logo, bannerobj, selectedImages: JSON.stringify(selectedImages)}
   console.log("obj gallery:-", obj)
   
   dispatch(UpdateGalleryInfo(obj))
   onNextClick();
 }
 
+ 
+useEffect(()=>{ 
+    setLogoImage(oldlogo)  
+    setLogo(oldlogo)
+    setBannerImage(oldbanner)
+    setBannerobj(oldbanner)
+    setSelectedImages(oldgallery) 
+  } ,[])
+
+const obj = {logo, bannerobj, selectedImage1: JSON.stringify(selectedImages)}
+console.log("obj gallery:------", obj)
 
   return (
     <div>

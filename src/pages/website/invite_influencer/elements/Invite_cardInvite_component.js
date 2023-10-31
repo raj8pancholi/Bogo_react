@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 function Invite_cardInvite_component({influencerList ,invitationInfluncer}) {
  
  const [info,setInfo] = useState([])
+ const [closeApp, setcloseApp] = useState(false) 
+
  console.log("info..",info)
     return (
         <>
@@ -81,7 +83,7 @@ function Invite_cardInvite_component({influencerList ,invitationInfluncer}) {
                                     <p>Close applications</p>
                                     <div className="switch-button">
                                         <label className="switch">
-                                            <input type="checkbox" id="toggleSwitch" />
+                                            <input type="checkbox" id="toggleSwitch" onChange={()=>setcloseApp(!closeApp)}/>
                                             <span className="slider round"></span>
                                         </label>
                                     </div>
@@ -94,7 +96,7 @@ function Invite_cardInvite_component({influencerList ,invitationInfluncer}) {
                         <div className="modal-footer">
                             <button type="button"
                                 // onclick="window.location.href='/website/pages/deshboard'"
-                                className="btn  sureBtn" data-bs-dismiss="modal"  onClick={()=>invitationInfluncer(info.id)}>Yes, I’m sure</button>
+                                className="btn  sureBtn" data-bs-dismiss="modal"  onClick={()=>{ if(!closeApp) invitationInfluncer(info.id )} }>Yes, I’m sure</button>
                         </div>
 
                     </div>

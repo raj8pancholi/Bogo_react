@@ -7,9 +7,7 @@ import './Header1.css'
 
 export default function Header1() {
 
-  const businessLogout=()=>{
-    localStorage.clear();
-  }
+  const businessLogout=()=>{ localStorage.clear(); }
   return (
     <div>
             <nav className="navbar navbar-expand-lg" style={{"backgroundColor":"#88c641"}}>

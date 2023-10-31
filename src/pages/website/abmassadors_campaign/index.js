@@ -116,9 +116,11 @@ const AmbassadorsCampaignPage = () => {
   ];
   const dispatch = useDispatch()
 const navigate = useNavigate()
- const SubmitCampaign=()=>{
-   const obj ={ campaignType:campaignType==1 ? "GiveAway":"ExclusiveOffer", offer, estimationSaving:estimationSaving, cashIncentive:parseInt(cashIncentive), allowedGuest:parseInt(2), requirement, prefferedPlatforms, photo, video, untilDate, endDate, hashtags:[hashtags?.replace(/#/g, '')], promoCode, audienceSize:parseInt(audienceSize), isPublished, maxRedeem, businessIds}
-   dispatch(CREATE_CAMPAIGN(obj , navigate))
+
+
+ const SubmitCampaign=(status)=>{
+   const obj ={ campaignType:campaignType==1 ? "GiveAway":"ExclusiveOffer", offer, estimationSaving:estimationSaving, cashIncentive:parseInt(cashIncentive), allowedGuest:parseInt(2), requirement, prefferedPlatforms, photo, video, untilDate, endDate, hashtags:[hashtags?.replace(/#/g, '')], promoCode, audienceSize:parseInt(audienceSize), isPublished:status, maxRedeem, businessIds}
+   dispatch(CREATE_CAMPAIGN(obj ,status, navigate))
  }
 
  const obj ={ campaignType, offer, estimationSaving:parseInt(estimationSaving), cashIncentive:parseInt(cashIncentive), allowedGuest:parseInt(2), requirement, prefferedPlatforms, photo, video, untilDate, endDate, hashtags, promoCode, audienceSize, isPublished, maxRedeem, businessIds}
@@ -315,7 +317,7 @@ const navigate = useNavigate()
 
             <div className="row review_submit_btn_row">
               <div className="next-btn-box review_submit_btn_box tab-pane active">
-                  <ExclusiveBtnModal SubmitCampaign={()=>SubmitCampaign()} campaignType ={campaignType} offer ={ offer} estimationSaving ={ estimationSaving} cashIncentive ={ cashIncentive} allowedGuest ={ allowedGuest} requirement ={ requirement} prefferedPlatforms ={ prefferedPlatforms} photo ={ photo} video ={ video} untilDate ={ untilDate} endDate ={ endDate} hashtags ={ hashtags} promoCode ={ promoCode}  isPublished={isPublished} setIsPublished={setIsPublished}/>                           
+                  <ExclusiveBtnModal SubmitCampaign={(status)=>SubmitCampaign(status)} campaignType ={campaignType} offer ={ offer} estimationSaving ={ estimationSaving} cashIncentive ={ cashIncentive} allowedGuest ={ allowedGuest} requirement ={ requirement} prefferedPlatforms ={ prefferedPlatforms} photo ={ photo} video ={ video} untilDate ={ untilDate} endDate ={ endDate} hashtags ={ hashtags} promoCode ={ promoCode}  isPublished={isPublished} setIsPublished={setIsPublished}/>                           
               </div>
             </div>
           </div>
