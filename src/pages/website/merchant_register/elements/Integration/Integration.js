@@ -33,6 +33,7 @@ export default function Integration() {
           countryId: businessInfo.businessData.country , 
           cityId: businessInfo.businessData.state ,
           categoryId: businessInfo.businessData.categoryId ,
+          rating:businessInfo.businessData.rating,
           subCategoryId: businessInfo.businessData.subCategoryId ,
           logo: businessInfo.galleryData.logo,
           banner: businessInfo.galleryData.bannerobj ,
@@ -92,7 +93,7 @@ export default function Integration() {
             <div className="col-12 tab-content">
               <div className="next-btn-box tab-pane active" id="tabs-2"> 
                     
-                  {localStorage.getItem('token') && localStorage.getItem('businessId') ? 
+                  {localStorage.getItem('token') ? 
                   <button   type="submit" className="btn btn-primary btnNext integration-btn-next" onClick={businessAdd}> Add Business </button> 
                   : <button   type="submit" className="btn btn-primary btnNext integration-btn-next" onClick={nextStapReg}> Next </button> 
                     }

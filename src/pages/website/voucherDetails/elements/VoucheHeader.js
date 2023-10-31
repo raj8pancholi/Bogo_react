@@ -4,7 +4,7 @@ import { ImgUrl } from '../../../../utils';
 
 
 
-function VoucheHeader({selectedBusinessData}) {
+function VoucheHeader({selectedBusinessData}) { 
     return (
         <>
 
@@ -28,18 +28,18 @@ function VoucheHeader({selectedBusinessData}) {
                     </div>
                     <div className="branch_name_review_row">
                         <span>{selectedBusinessData?.bName} 
-                            <Link to="/merchant_register" className="backTodirectory">
+                            <Link to={`/edit_branch/${selectedBusinessData.id}`} className="backTodirectory">
                                  <i className="fa-solid fa-pen-to-square text-white pl-1" data-toggle="tooltip" title="Edit Branch" ></i>
                             </Link>
                         </span>
 
 
                         <div className="branch_review">
-                            <i className="fa fa-star" aria-hidden="true"></i>
-                            <i className="fa fa-star" aria-hidden="true"></i>
-                            <i className="fa fa-star" aria-hidden="true"></i>
-                            <i className="fa fa-star" aria-hidden="true"></i>
-                            <i className="fa fa-star" aria-hidden="true"></i>
+                            <i className={`fa fa-star ${ selectedBusinessData?.rating >= 1 ? 'active':''}`} aria-hidden="true"></i>
+                            <i className={`fa fa-star ${ selectedBusinessData?.rating >= 2 ? 'active':''}`} aria-hidden="true"></i>
+                            <i className={`fa fa-star ${ selectedBusinessData?.rating >= 3 ? 'active':''}`} aria-hidden="true"></i>
+                            <i className={`fa fa-star ${ selectedBusinessData?.rating >= 4 ? 'active':''}`} aria-hidden="true"></i>
+                            <i className={`fa fa-star ${ selectedBusinessData?.rating >= 5 ? 'active':''}`} aria-hidden="true"></i>
                         </div>
                     </div>
 

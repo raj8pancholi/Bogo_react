@@ -6838,11 +6838,15 @@ ul#tabs2-nav li.active {
   color: #fff;
 
 }
-
-.branch_review i{
-  color: #FFDB59;
+.branch_review i{ 
   font-size: 12px;
 }
+
+.branch_review i.active{
+  color: #FFDB59; 
+}
+
+ 
 
 .backTodirectory_box a{
   text-decoration: none;

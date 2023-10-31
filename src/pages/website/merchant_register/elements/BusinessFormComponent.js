@@ -11,7 +11,7 @@ import { UpdateBusinessInfo } from '../../../../redux/slices/businessInfoSlice';
 
 
 
-const BusinessFormMainSection = () => {
+const BusinessFormMainSection = ({branchId}) => {
   
   const [bName ,setBName] = useState('')
   const [address ,setAddress] = useState('')
@@ -26,7 +26,7 @@ const BusinessFormMainSection = () => {
   const [rating ,setRating] = useState(0)
   const [banner ,setBanner] = useState('')
   const [gallery ,setGallery] = useState('')
-
+  
   const [sundayState, setSundayState] = useState({ status: false, openTime: '', closeTime: '', });
   const [mondayState, setMondayState] = useState({ status: false, openTime: '', closeTime: '', });
   const [tuesdayState, setTuesdayState] = useState({ status: false, openTime: '', closeTime: '', });
@@ -60,8 +60,39 @@ const BusinessFormMainSection = () => {
 
 
   const selectedSubCategoryId = useSelector((state) => state.subCategory.subcategories);
+  const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);  
  
   
+  useEffect(()=>{
+    if(branchId && allBusinessData){
+      const busiData = allBusinessData?.find((x)=>x.id ==branchId)
+     if(busiData){
+      setBName(busiData?.bName) 
+      setAddress(busiData?.address)
+      setCountry(busiData?.country?.id)
+      setState(busiData?.city?.id)  
+      setCategoryId(busiData?.category?.id)
+      setSubCategoryId(busiData?.subCategory?.id)
+      setWhatsappNo( )
+      setLogo(busiData?.logo)
+      setRating(busiData?.rating)
+      setBanner(busiData?.banner)
+      setGallery(busiData?.gallery) 
+      updateSunday(busiData?.hoursOfOperation[0].isActive , busiData?.hoursOfOperation[0].startTime , busiData?.hoursOfOperation[0].endTime) 
+      updateMonday(busiData?.hoursOfOperation[1].isActive , busiData?.hoursOfOperation[1].startTime , busiData?.hoursOfOperation[1].endTime) 
+      updateTuesday(busiData?.hoursOfOperation[2].isActive , busiData?.hoursOfOperation[2].startTime , busiData?.hoursOfOperation[2].endTime) 
+      updateWednesday(busiData?.hoursOfOperation[3].isActive , busiData?.hoursOfOperation[3].startTime , busiData?.hoursOfOperation[3].endTime) 
+      updateThursday(busiData?.hoursOfOperation[4].isActive , busiData?.hoursOfOperation[4].startTime , busiData?.hoursOfOperation[4].endTime) 
+      updateFriday(busiData?.hoursOfOperation[5].isActive , busiData?.hoursOfOperation[5].startTime , busiData?.hoursOfOperation[5].endTime) 
+      updateSaturday(busiData?.hoursOfOperation[6].isActive , busiData?.hoursOfOperation[6].startTime , busiData?.hoursOfOperation[6].endTime) 
+     }
+  
+    }
+    
+   },[])
+
+
+
   const [activeTab, setActiveTab] = useState("tabs-1");
 
   useEffect(() => {
@@ -125,7 +156,7 @@ const BusinessFormMainSection = () => {
                             <div className="input-box">
                                 <label htmlFor="inputCountry">Country</label>
                                 <select className="form-control" name="" id="buss_country" onChange={e=>countryUpdate(e.target.value)} >
-                                {countries?.map(item=> <option  key={item.id} value={item.id}>{item.name}</option>)} 
+                                {countries?.map(item=> <option  key={item.id} selected={item.id == country ? true :false} value={item.id}>{item.name}</option>)} 
                                 </select>
                             </div>
                     
@@ -140,7 +171,7 @@ const BusinessFormMainSection = () => {
                     <div className="input-box">
                         <label htmlFor="emirate">Emirate/State</label>
                         <select className="form-control" name="country" id="emirate"  onChange={e=>setState(e.target.value)}>
-                        {allcity?.map(item=> <option  key={item.id} value={item.id}>{item.name}</option>)} 
+                        {allcity?.map(item=> <option  key={item.id}   selected={item.id == state ? true :false} value={item.id}>{item.name}</option>)} 
                         </select>
                     </div>
                     </div>
@@ -184,7 +215,7 @@ const BusinessFormMainSection = () => {
         </Tab>
         <Tab eventKey="tabs-2" title="Gallery">
           {/* Content for Gallery tab */}
-          <BusinessFormGallerySection onNextClick={handleInterNextClick} /> 
+          <BusinessFormGallerySection onNextClick={handleInterNextClick} oldlogo={logo} oldbanner={banner} oldgallery={gallery}/> 
         </Tab>
         <Tab eventKey="tabs-3" title="Integration">
           {/* Content for Integration tab */}

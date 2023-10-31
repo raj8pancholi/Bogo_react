@@ -33,7 +33,7 @@ const submitCampaign =(status)=>{
         maxRedeem:saveVoucher.redemption,
         voucherTimings: reArrangeObj(saveVoucher) ,
         isPublished:status,
-        businessIds:[localStorage.getItem('businessId')],
+        businessIds:saveVoucher.branch,
     }
 
     dispatch(CREATE_VOUCHER(obj))

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Select from 'react-select'
@@ -36,8 +36,7 @@ export default function TabsCompenent(props) {
 
  
    
-
-
+     
   const sundayState = daysState.sunday.state;
   const updateSunday = daysState.sunday.update; 
 
@@ -58,7 +57,9 @@ export default function TabsCompenent(props) {
 
   const saturdayState = daysState.saturday.state;
   const updateSaturday = daysState.saturday.update;
- 
+
+
+
 
   const [allday, setAllday] = useState(false);  
 
@@ -147,13 +148,13 @@ updateSaturday(status ? false: false, saturdayState.openTime, saturdayState.clos
                                   <label>Day of the week</label>
                                   <div className="checkbox-container">
                                     <DaysInput day='All'  selected={allday} onChange={()=> updateAllday(!allday)} />
-                                    <DaysInput day='Sun'  selected={sundayState?.status} onChange={()=> updateSunday(!(sundayState.status), sundayState.openTime, sundayState.closeTime)} />
-                                    <DaysInput day='Mon'  selected={mondayState?.status} onChange={()=> updateMonday(!(mondayState.status), mondayState.openTime, mondayState.closeTime)} /> 
-                                    <DaysInput day='Tue'  selected={tuesdayState?.status} onChange={()=> updateTuesday(!(tuesdayState.status), tuesdayState.openTime, tuesdayState.closeTime)} /> 
-                                    <DaysInput day='Wed'  selected={wednesdayState?.status} onChange={()=> updateWednesday(!(wednesdayState.status), wednesdayState.openTime, wednesdayState.closeTime)} /> 
-                                    <DaysInput day='Thu'  selected={thursdayState?.status} onChange={()=> updateThursday(!(thursdayState.status), thursdayState.openTime, thursdayState.closeTime)} /> 
-                                    <DaysInput day='Fri'  selected={fridayState?.status} onChange={()=> updateFriday(!(fridayState.status), fridayState.openTime, fridayState.closeTime)} /> 
-                                    <DaysInput day='Sat'  selected={saturdayState?.status} onChange={()=> updateSaturday(!(saturdayState.status), saturdayState.openTime, saturdayState.closeTime)} /> 
+                                    <DaysInput day='Sun'  selected={sundayState?.status} onChange={()=> updateSunday(!(sundayState?.status), sundayState?.openTime, sundayState?.closeTime)} />
+                                    <DaysInput day='Mon'  selected={mondayState?.status} onChange={()=> updateMonday(!(mondayState?.status), mondayState?.openTime, mondayState?.closeTime)} /> 
+                                    <DaysInput day='Tue'  selected={tuesdayState?.status} onChange={()=> updateTuesday(!(tuesdayState?.status), tuesdayState?.openTime, tuesdayState?.closeTime)} /> 
+                                    <DaysInput day='Wed'  selected={wednesdayState?.status} onChange={()=> updateWednesday(!(wednesdayState?.status), wednesdayState?.openTime, wednesdayState?.closeTime)} /> 
+                                    <DaysInput day='Thu'  selected={thursdayState?.status} onChange={()=> updateThursday(!(thursdayState?.status), thursdayState?.openTime, thursdayState?.closeTime)} /> 
+                                    <DaysInput day='Fri'  selected={fridayState?.status} onChange={()=> updateFriday(!(fridayState?.status), fridayState?.openTime, fridayState?.closeTime)} /> 
+                                    <DaysInput day='Sat'  selected={saturdayState?.status} onChange={()=> updateSaturday(!(saturdayState?.status), saturdayState?.openTime, saturdayState?.closeTime)} /> 
                                   </div>
                               </div>
                           </div>

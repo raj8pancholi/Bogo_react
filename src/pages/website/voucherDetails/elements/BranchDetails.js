@@ -30,7 +30,7 @@ function BranchDetails({allBusinessData}) {
                                         <div className="card_rating_row">
                                             <div className="rating_icon">
                                                 <i className="fa-solid fa-star text-primary" ></i>
-                                                <span>5.0</span>
+                                                <span>{business.rating ? business.rating : '0'}</span>
                                             </div>
                                             <div className="card_icon_row">
                                                 <img src="/images/directory_img/dir_card_icon3.png" alt="" className="img-fluid" />

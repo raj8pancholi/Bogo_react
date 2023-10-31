@@ -4,6 +4,7 @@ import React from 'react'
 import Footer from '../../../partials/footer/Footer'
 import Headers from '../../../partials/header/Header'
 import Headers1 from '../../../partials/header/Header1'
+import { useParams } from 'react-router-dom';
 
 
 // Import Components
@@ -18,7 +19,8 @@ import BusinessFormComponent from './elements/BusinessFormComponent'
 import './style.css'
 import GoogleMap from './elements/GoogleMap'
 
-export default function index() {
+const Index=() =>{
+  let { branchId } = useParams();
   return (
     <>  
        {localStorage.getItem('token') && localStorage.getItem('isLogin') ? <Headers1 /> : <Headers /> }
@@ -42,7 +44,7 @@ export default function index() {
                 </div>
 
                 {/* Business Section */}
-                <BusinessFormComponent />
+                <BusinessFormComponent branchId={branchId}/>
 
             </div>
           </div>
@@ -52,3 +54,5 @@ export default function index() {
     </>
   )
 }
+
+export default Index;
