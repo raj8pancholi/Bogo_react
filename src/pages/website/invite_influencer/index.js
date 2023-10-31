@@ -106,7 +106,7 @@ useEffect(() => {
           </div>
 
          
-          {selectedTab === 1 ? (
+          {/* {selectedTab === 1 ? (
             <div className="offer_form_section1 tab-content" id="tab1" >
               <div className="row">
                 <div className="col-md-6">
@@ -125,6 +125,33 @@ useEffect(() => {
               <div className="row"> 
                   <InviteCardInviteComponent influencerList={influencerList} invitationInfluncer={invitationInfluncer} />
                 
+              </div>
+            </div>
+          ) : null} */}
+
+
+          {selectedTab === 1 ? (
+            
+
+
+            <div className="offer_form_section1 tab-content" id="tab2" >
+              <div className="row"> 
+                  <InviteCardInviteComponent influencerList={influencerList} invitationInfluncer={invitationInfluncer} />
+                
+              </div>
+            </div>
+          ) : null}
+
+          
+          {selectedTab === 2 ? (
+            <div className="offer_form_section1 tab-content" id="tab1" >
+              <div className="row">
+                <div className="col-md-6">
+                  <InviteCardAppliedComponent influencerList={influencerList} />
+                </div>
+                <div className="col-md-6">
+                  <InviteCardAppliedComponent />
+                </div>
               </div>
             </div>
           ) : null}

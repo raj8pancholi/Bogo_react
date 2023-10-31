@@ -2,6 +2,17 @@
 
 /* Common Css Start */
 
+
+.Business_Information_map_section .css-b62m3t-container{
+  position: absolute;
+  top: 50px;
+  width: 30%;
+  left: 30%;
+}
+.Business_Information_map_section .css-b62m3t-container .css-13cymwt-control{
+    border-radius: 30px;
+}
+
 body {
   font-family: "Montserrat", sans-serif !important;
 }
@@ -3894,6 +3905,9 @@ video {
 .rating-row{
   margin-top: 15px;
 }
+.rating-row i.fa.fa-star{
+  color: gold;
+}
 .rating-row p {
     font-family: "Montserrat";
     font-style: normal;
@@ -6651,7 +6665,7 @@ ul#tabs2-nav li.active {
 }
 .MangeOfferEditRow ul{
   border: none;
-  background: #0000002b;
+  background: #d8d8d8;
   padding: 10px 0px;
 }
 

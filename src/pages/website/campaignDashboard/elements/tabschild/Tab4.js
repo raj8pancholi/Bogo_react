@@ -14,25 +14,20 @@ export default function Tab4({campaign}) {
                 const endDate = new Date(item.endDate);
                 const isActive = today >= startDate && today <= endDate;
                 return isActive && item.isPublished? <div className="row">
-                    <div className="col-6">
-                            <div className="offerLabel">
-                                <div className="offerlabelbox">{item.campaignType}</div>
-                            </div>
-                            <div className="voucher_redim_row">
-                                <Link to="/redemtionHisory" className="voucher_redim_box">
-                                <span>Vouchers Redeemed</span>
-                                <h4>{item.noOfRedeem}</h4>
-                                </Link>
-                            </div>
-                            <div className="influencer_appli"></div>
+                    <div className="col-6 d-flex flex-column justify-content-between">
+                        <div className="offerLabel">
+                            <div className="offerlabelbox">{item.campaignType}</div>
+                        </div>
+                        
+                        <div className="campaign_louch_date">
+                            <h6 className="me-1">Launched: </h6>
+                            <h6>{startDate ? moment(startDate).format("D MMM YYYY"):''}</h6>
+                        </div>
                     </div>
-                    <div className="col-6">
+                    <div className="col-6 ">
                         <div className="edtiteable-row">
                             <div className="editeable_box">
-                                <div className="campaign_louch_date">
-                                    <h6 className="me-1">Launched: </h6>
-                                    <h6>{startDate ? moment(startDate).format("D MMM YYYY"):''}</h6>
-                                </div>
+                                
                                 <div className="editBox">
                                     <div className="dropdown MangeOfferEditRow">
                                         <button
@@ -59,6 +54,13 @@ export default function Tab4({campaign}) {
                                             </li>
                                         </ul>
                                     </div>
+                                </div>
+
+                                <div className="voucher_redim_row">
+                                    <Link to="/redemtionHisory" className="voucher_redim_box">
+                                    <span>Vouchers Redeemed</span>
+                                    <h4>{item.noOfRedeem}</h4>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

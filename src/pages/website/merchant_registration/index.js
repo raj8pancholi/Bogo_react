@@ -1,10 +1,8 @@
-import React, { Component } from 'react'
-// import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 import Header from '../../../partials/header/Header';
 import Footer from '../../../partials/footer/Footer';
 import PasswordInput from './elements/PasswordInput';
 import InputText from './elements/InputText';
-// import MobileInput from './../../../components/CommonComponent/MobileInputbox';
 import 'react-phone-input-2/lib/style.css';
 import PhoneInput from 'react-phone-input-2'; 
 import { connect } from 'react-redux';
@@ -115,20 +113,18 @@ render(){
                  {/* Using the PhoneInput component */}
                     <label>Mobile Number</label>
                     <PhoneInput country={'ae'} value={phone} onChange={(e)=> console.log("e",e)} inputStyle={{ width: '100%' , marginBottom: '10px'}} />
-    </div>
+              </div>
+                    <div className="col-12 regisBtn">
+                        
+                      <button  className="registration-btn btn btn-primary" style={{marginBottom: '20px'}} onClick={this.signup} >
+                          Complete Registration 
+                      </button>
 
-
-                        <div className="col-12 regisBtn">
-                            
-                                <button  className="registration-btn btn btn-primary" style={{marginBottom: '20px'}} onClick={this.signup} >
-                                    Complete Registration 
-                                </button>
-
-                                <button  className="registration-btn btn btn-primary" style={{marginBottom: '20px'}} onClick={this.businessAdd}>
-                                            business Add
-                                </button>
-                            
-                        </div>
+                      <button  className="registration-btn btn btn-primary" style={{marginBottom: '20px'}} onClick={this.businessAdd}>
+                                  business Add
+                      </button>
+                        
+                    </div>
                     </div>
                 </div>
               </div>

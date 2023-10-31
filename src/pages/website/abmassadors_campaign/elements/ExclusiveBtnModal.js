@@ -2,20 +2,26 @@ import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
 import { Link } from 'react-router-dom';
+import { TOAST_ERROR} from '../../../../utils';
 
 
 export default function ExclusiveBtnModal({SubmitCampaign, isPublished, setIsPublished, campaignType, offer, estimationSaving, cashIncentive, allowedGuest, requirement, prefferedPlatforms, photo, video, untilDate, endDate, hashtags, promoCode}) {
 
 
-    const [showModal, setShowModal] = useState(false);
+const [showModal, setShowModal] = useState(false);
 
-  const handleCloseModal = () => {
+const handleCloseModal = () => {
     setShowModal(false);
-  };
+};
 
-  const handleOpenModal = () => {
-    setShowModal(true);
-  };
+const handleOpenModal = () => {
+    if( !offer || !estimationSaving  || !requirement || !prefferedPlatforms || !untilDate || !endDate || !hashtags || !promoCode){
+        return TOAST_ERROR('You must fill in all of the fields')
+    }else{
+
+        setShowModal(true);
+    }
+};
 
 
 
