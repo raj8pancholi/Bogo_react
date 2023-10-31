@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 
+
 // Import components
 import TimeSection from './TimeSection'
-// import VoucherDetails_map from './VoucherDetails_map'
 import CampaignCard from './CampaignCard'
 import BranchDetails from './BranchDetails'
 import { useSelector } from 'react-redux'
 
 function VoucherDetails_index({allBusinessData, selectedBusinessData}) {
+
 
     const [selectBranch, setSelectBranch] = useState(1)
     const voucherList = useSelector((state) => state.merchantAuth.voucherList);  
@@ -18,6 +19,8 @@ function VoucherDetails_index({allBusinessData, selectedBusinessData}) {
         setSelectBranch(id)
     }
     return (
+        
+
         <>
             <div className="container">
 

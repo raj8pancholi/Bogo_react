@@ -14,7 +14,7 @@ function TimeSection({selectedBusinessData}) {
           {selectedBusinessData?.hoursOfOperation ?
           selectedBusinessData?.hoursOfOperation.map((time,i)=>{
             return   <div className="day_boxes" key={i}>
-            <span>{time.day}</span>
+            <span style={{textTransform:'capitalize'}}>{time.day}</span>
             <span>{  time.startTime ? `${convertToAmPm(time.startTime)} - ${convertToAmPm(time.endTime)}`:''}</span>
           </div>
           }):''}

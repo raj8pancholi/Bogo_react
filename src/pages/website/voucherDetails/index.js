@@ -15,7 +15,7 @@ import { GET_BUSINESS_VOUCHER } from '../../../redux/slices/merchantAuthSlice';
 
 function VoucherDetails() {
 const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);  
-const selectedBusinessData = useSelector((state) => state.merchantAuth.selectedBusinessData);  
+const selectedBusinessData = useSelector((state) => state.merchantAuth.selectedBusinessData); 
 
 const dispatch = useDispatch();
 
@@ -26,7 +26,10 @@ useEffect(() => {
 
 
 
+console.log('allGalleryData:', selectedBusinessData);
+
     return (
+        
         <>
         <Header1/>
             <section className="voucher_previews_section">
