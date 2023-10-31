@@ -26,10 +26,6 @@ export default function LoginForm() {
 
     const merchantData = useSelector((state) => state.merchantAuth);
 
-    useEffect(() => {
-        if (merchantData?.loginError) { setErrorMsg(merchantData?.loginError) }
-        if (merchantData?.merchantData?.user) { history('/dashboard') }
-      }, [merchantData, history]);
 
       
     

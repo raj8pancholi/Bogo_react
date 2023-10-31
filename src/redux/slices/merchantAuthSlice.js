@@ -37,6 +37,7 @@ export const MERCHANT_SIGNIN = createAsyncThunk(
     localStorage.setItem('userMail', res.data?.user.email)
     localStorage.setItem('isLogin', 1)
     TOAST_SUCCESS('Login successfully!')
+    window.location.href = '/dashboard' 
     return res.data;
   } catch (error) { 
     if (error.response.data.code === 401 || error.response.data.code === 400) {
