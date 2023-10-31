@@ -47,6 +47,7 @@ componentDidUpdate(prevProps, prevState) {
         categoryId: businessInfo.businessData.categoryId ,
         subCategoryId: businessInfo.businessData.subCategoryId ,
         logo: businessInfo.galleryData.logo,
+        rating:businessInfo.businessData.rating,
         banner: businessInfo.galleryData.bannerobj ,
         gallery: businessInfo.galleryData.selectedImages ,
         hoursOfOperation: reArrangeObj(businessInfo.businessData) ,
