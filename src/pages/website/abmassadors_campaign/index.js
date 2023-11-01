@@ -34,6 +34,9 @@ const AmbassadorsCampaignPage = () => {
   const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);  
   const selectedBusinessData = useSelector((state) => state.merchantAuth.selectedBusinessData);  
 
+  console.log('selectedBusinessData',selectedBusinessData)
+  console.log('allBusinessData',allBusinessData)
+
   const socialMediaOptions = [ { value: 'Facebook', label: 'Facebook' }, { value: 'Instagram', label: 'Instagram' }, { value: 'Youtube', label: 'Youtube' }, { value: 'TickTok', label: 'TickTok' }, ]
   const businessOption =  allBusinessData?.map((business) => ({ value: business.id, label: business.bName, }));
 
@@ -81,8 +84,6 @@ const AmbassadorsCampaignPage = () => {
     sethashtags(campaindata.hashtags)
     setpromoCode(campaindata.promoCode)
     setaudienceSize(campaindata.audienceSize)
-
-
    }
 
   }
