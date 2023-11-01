@@ -13,7 +13,7 @@ console.log("setSelectedBusinessData(dataBusiness);", selectedBusinessData)
       <div className="col-md-6">
         <Link to='/campaignDashboard'>
           <div className="campaign_base">
-            <h1>{selectedBusinessData?.campaigns ? selectedBusinessData?.campaigns.length :'0'}</h1>
+            <h1>{selectedBusinessData?.vouchers ? selectedBusinessData?.vouchers.length :'0'}</h1>
             <h3>Total Campaigns</h3>
           </div>
         </Link>

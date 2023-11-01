@@ -125,7 +125,7 @@ const handleOpenModal = () => {
             <Button type="button" variant="secondary" onClick={handleCloseModal} className="btn " data-bs-dismiss="modal"style={{backgroundColor:'#88c541' , color: 'white'}}>Edit</Button>
 
             <Button type="button" variant="secondary" onClick={()=>SubmitCampaign(false)} className="btn " data-bs-dismiss="modal"style={{backgroundColor:'#029CAB' , color: 'white'}}>
-                Draft
+            <Link to='/invite_influencer' style={{textDecoration:'none', color: '#fff'}}> Draft  </Link>
             </Button>
 
             

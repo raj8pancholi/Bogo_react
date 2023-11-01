@@ -151,11 +151,12 @@ export const SELECTED_BUSINESS_DATA = createAsyncThunk( "merchant/SELECTED_BUSIN
 export const CREATE_CAMPAIGN = createAsyncThunk(
   'merchant/CREATE_CAMPAIGN',
   async (data, status, history) => {
+    console.log('status', status)
       try {
         const res = await CampaignCreate(data);
         localStorage.setItem("activeCampaing",res.data.id)
-        if(!status)  TOAST_SUCCESS("Campaign save in draft successfully!")
-        else TOAST_SUCCESS("Campaign created successfully!")
+        if(res?.isPublished) TOAST_SUCCESS("Campaign created successfully!")
+        else  TOAST_SUCCESS("Campaign save in draft successfully!") 
         history('/invite_influencer')
         return res.data;
         

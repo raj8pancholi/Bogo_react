@@ -66,6 +66,7 @@ const BusinessFormMainSection = ({branchId}) => {
   useEffect(()=>{
     if(branchId && allBusinessData){
       const busiData = allBusinessData?.find((x)=>x.id ==branchId)
+      console.log("busiData---",busiData)
      if(busiData){
       setBName(busiData?.bName) 
       setAddress(busiData?.address)
@@ -97,7 +98,7 @@ const BusinessFormMainSection = ({branchId}) => {
 
   useEffect(() => {
  
-  if(countries && countries.length){
+  if(countries && countries.length && !country){
    
 
    setCountry(countries[0].id)
@@ -130,7 +131,7 @@ const BusinessFormMainSection = ({branchId}) => {
     
   }
    
-
+console.log("country",country)
 
   return (
     <div className="business_form_main_section">

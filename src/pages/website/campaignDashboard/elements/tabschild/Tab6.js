@@ -1,23 +1,27 @@
 import React from 'react'
 
-export default function Tab6({campaign}) {
+export default function Tab6({vouchers}) {
 
     const today = new Date();
 
   return (
     <>
         <div id="tab6" className="tab-content1">
-        {campaign?.map((item, i)=>{    
+        {vouchers?.map((item, i)=>{    
             return  !item.isPublished?  
             <div className="row">
                 <div className="col-6">
                 <div className="offerLabel">
-                    <div className="offerlabelbox">{item.campaignType}</div>
+                    <div className="offerlabelbox">{item.voucherType}</div>
                 </div>
                 <div className="campaign_offer_type">
                     <div className="offerType1">
                     <h6 className="me-1">Offer:</h6>
-                    <h6>{item.offer}</h6>
+                    <h6>{item.toBuy}</h6>
+                    </div>
+                    <div className="offerType2">
+                    <h6 className="me-1">Get1:</h6>
+                    <h6>{item.toGet}</h6>
                     </div>
                      
                 </div>

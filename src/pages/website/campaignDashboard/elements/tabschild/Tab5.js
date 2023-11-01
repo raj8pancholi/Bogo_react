@@ -1,24 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Tab5({campaign}) {
+export default function Tab5({vouchers}) {
     const today = new Date();
   return (
     <>
         <div id="tab5" className="tab-content1">
-        {campaign?.map((item, i)=>{    
-            const endDate = new Date(item.endDate);
-            const isActive =  today > endDate;
-            return isActive && item.isPublished?  
-            <div className="row">
+        {vouchers?.map((item, i)=>( item.isPublished ?  <div className="row">
                 <div className="col-6">
                 <div className="offerLabel">
-                    <div className="offerlabelbox">{item.campaignType}</div>
+                    <div className="offerlabelbox">{item.voucherType}</div>
                 </div>
                 <div className="campaign_offer_type">
                     <div className="offerType1">
                     <h6 className="me-1">Offer:</h6>
-                    <h6>{item.offer}</h6>
+                    <h6>{item.toBuy}</h6>
+                    </div>
+                    <div className="offerType2">
+                    <h6 className="me-1">Get1:</h6>
+                    <h6>{item.toGet}</h6>
                     </div>
                      
                 </div>
@@ -37,8 +37,7 @@ export default function Tab5({campaign}) {
                     </div>
                 </div>
                 </div>
-            </div>  : null;
-          } ) }
+            </div>  : null ) ) }
 
         </div>
     </>

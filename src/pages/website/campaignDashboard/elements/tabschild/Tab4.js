@@ -2,72 +2,46 @@ import moment from 'moment/moment';
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Tab4({campaign}) { 
+export default function Tab4({vouchers}) { 
 
     const today = new Date();
 
   return ( 
-        <div id="tab4" className="tab-content1">
-           {campaign?.map((item, i)=>{
+    <div id="tab5" className="tab-content1">
+    {vouchers?.map((item, i)=>( item.isPublished ?  <div className="row">
+            <div className="col-6">
+            <div className="offerLabel">
+                <div className="offerlabelbox">{item.voucherType}</div>
+            </div>
+            <div className="campaign_offer_type">
+                <div className="offerType1">
+                <h6 className="me-1">Buy:</h6>
+                <h6>{item.toBuy}</h6>
+                </div>
+                <div className="offerType2">
+                <h6 className="me-1">Get:</h6>
+                <h6>{item.toGet}</h6>
+                </div>
+                 
+            </div>
+            <div className="influencer_appli"></div>
+            </div>
+            <div className="col-6">
+            <div className="completed_redem_row">
+                <div className="completed_redem_box">
+                <Link
+                    to="/redemtionHisory"
+                    className="com_voucher_redim_box"
+                >
+                    <span>Vouchers Redeemed</span>
+                    <small>{item.noOfRedeem}</small>
+                </Link>
+                </div>
+            </div>
+            </div>
+        </div>  : null) ) }
 
-                const startDate = new Date(item.untilDate);
-                const endDate = new Date(item.endDate);
-                const isActive = today >= startDate && today <= endDate;
-                return isActive && item.isPublished? <div className="row">
-                    <div className="col-6 d-flex flex-column justify-content-between">
-                        <div className="offerLabel">
-                            <div className="offerlabelbox">{item.campaignType}</div>
-                        </div>
-                        
-                        <div className="campaign_louch_date">
-                            <h6 className="me-1">Launched: </h6>
-                            <h6>{startDate ? moment(startDate).format("D MMM YYYY"):''}</h6>
-                        </div>
-                    </div>
-                    <div className="col-6 ">
-                        <div className="edtiteable-row">
-                            <div className="editeable_box">
-                                
-                                <div className="editBox">
-                                    <div className="dropdown MangeOfferEditRow">
-                                        <button
-                                            className="btn  dropdown-toggle"
-                                            type="button"
-                                            id="dropdownMenuButton1"
-                                            data-bs-toggle="dropdown"
-                                            aria-expanded="false"
-                                        >
-                                            Manage Offer
-                                        </button>
-                                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                            <li>
-                                            <Link className="dropdown-item" to={`/ambassdors_compaign/${item.id}`}>
-                                                <i className="fa-solid fa-pencil mr-1"></i>
-                                                Edit Application
-                                            </Link>
-                                            </li>
-                                            <li>
-                                            <Link className="dropdown-item" to="/">
-                                                <i className="fa-regular fa-circle-xmark mr-1"></i>
-                                                Close This Campaign
-                                            </Link>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div className="voucher_redim_row">
-                                    <Link to="/redemtionHisory" className="voucher_redim_box">
-                                    <span>Vouchers Redeemed</span>
-                                    <h4>{item.noOfRedeem}</h4>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> : null;
-          } ) }
-           </div>
+    </div>
           
   )
 }
