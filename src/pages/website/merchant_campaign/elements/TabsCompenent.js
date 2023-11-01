@@ -86,13 +86,13 @@ updateSaturday(status, saturdayState?.openTime, saturdayState?.closeTime)
   const handleExcludeWeekends=(status)=>{
     setExcludeWeekends(status)
 setAllday(status ? false: false)
-updateSunday(status ? false: false, sundayState.openTime, sundayState.closeTime) 
-updateMonday(status ? true: false, mondayState.openTime, mondayState.closeTime) 
-updateTuesday(status ? true: false, tuesdayState.openTime, tuesdayState.closeTime) 
-updateWednesday(status ? true: false, wednesdayState.openTime, wednesdayState.closeTime) 
-updateThursday(status ? true: false, thursdayState.openTime, thursdayState.closeTime) 
-updateFriday(status ? true: false, fridayState.openTime, fridayState.closeTime) 
-updateSaturday(status ? false: false, saturdayState.openTime, saturdayState.closeTime)  
+updateSunday(status ? false: false, sundayState?.openTime, sundayState?.closeTime) 
+updateMonday(status ? true: false, mondayState?.openTime, mondayState?.closeTime) 
+updateTuesday(status ? true: false, tuesdayState?.openTime, tuesdayState?.closeTime) 
+updateWednesday(status ? true: false, wednesdayState?.openTime, wednesdayState?.closeTime) 
+updateThursday(status ? true: false, thursdayState?.openTime, thursdayState?.closeTime) 
+updateFriday(status ? true: false, fridayState?.openTime, fridayState?.closeTime) 
+updateSaturday(status ? false: false, saturdayState?.openTime, saturdayState?.closeTime)  
   }
 
   const handleSelectChange = (selectedOptions) => { const selectedIds = selectedOptions.map(option => option.value); setBranch(selectedIds); };

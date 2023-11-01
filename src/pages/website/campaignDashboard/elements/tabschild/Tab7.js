@@ -1,20 +1,32 @@
+import moment from 'moment';
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Tab4() {
+export default function Tab4({campaign}) {
+    const today = new Date();
+
   return (
     <>
-        <div id="tab4" className="tab-content1">
+<div id="tab4" className="tab-content1">
+{campaign?.map((item, i)=>{
+
+const startDate = new Date(item.untilDate);
+const endDate = new Date(item.endDate);
+
+console.log("startDate",startDate ,today)
+console.log("endDate",endDate ,today)
+const isActive = today >= startDate && today <= endDate;
+return isActive && item.isPublished? 
             <div className="row">
                 <div className="col-6 d-flex flex-column justify-content-between">
                     <div className="offerLabel">
-                        <div className="offerlabelbox">Giveaway</div>
+                        <div className="offerlabelbox">{item.offer}</div>
                     </div>
 
                     <div className="campaign_louch_date">
-                        <h6 className="me-1">Launched: </h6>
-                        <h6>Apr 23, 2021</h6>
-                    </div>
+                            <h6 className="me-1">Launched: </h6>
+                            <h6>{startDate ? moment(startDate).format("D MMM YYYY"):''}</h6>
+                        </div>
                 </div>
                 <div className="col-6">
                     <div className="edtiteable-row">
@@ -39,7 +51,7 @@ export default function Tab4() {
                                         </Link>
                                         </li>
                                         <li>
-                                        <Link className="dropdown-item" to="/abmassdors_compaign">
+                                        <Link className="dropdown-item" to={`/ambassdors_compaign/${item.id}`}>
                                             <i className="fa-solid fa-pencil mr-1"></i>
                                             Edit Application
                                         </Link>
@@ -60,7 +72,8 @@ export default function Tab4() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>: null;
+          } ) }
         </div>
 
     </>

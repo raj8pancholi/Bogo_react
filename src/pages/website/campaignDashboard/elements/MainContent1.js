@@ -27,7 +27,7 @@ export default function MainContent1() {
         <div className="row">
           <div className="col-md-6">
             <div className="campaign_base">
-              <h1>{selectedBusinessData?.campaign? selectedBusinessData?.campaign.length : 0}</h1>
+              <h1>{selectedBusinessData?.vouchers? selectedBusinessData?.vouchers.length : 0}</h1>
               <h3>Total Campaigns</h3>
             </div>
           </div>
@@ -62,9 +62,9 @@ export default function MainContent1() {
 
         {/* tab content child */}
         <div id="tabs-content_child">
-          {selectedTab === 1 && <Tab4 campaign={selectedBusinessData?.campaigns} />}
-          {selectedTab === 2 && <Tab5  campaign={selectedBusinessData?.campaigns} />}
-          {selectedTab === 3 && <Tab6  campaign={selectedBusinessData?.campaigns} />}
+          {selectedTab === 1 && <Tab4 vouchers={selectedBusinessData?.vouchers} />}
+          {selectedTab === 2 && <Tab5  vouchers={selectedBusinessData?.vouchers1} />}
+          {selectedTab === 3 && <Tab6  vouchers={selectedBusinessData?.vouchers} />}
         </div>
       </div>
     </div>

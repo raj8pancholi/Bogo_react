@@ -8,12 +8,14 @@ import React, {useState} from 'react'
 import Tab7 from './tabschild/Tab7';
 import Tab8 from './tabschild/Tab8';
 import Tab9 from './tabschild/Tab9';
+import { useSelector } from 'react-redux';
 
 
 
 
 
 export default function MainContent2() {
+    const selectedBusinessData = useSelector((state) => state.merchantAuth.selectedBusinessData);
 
   const [selectedTab, setSelectedTab] = useState(1);
 
@@ -31,7 +33,7 @@ export default function MainContent2() {
                 <div className="row">
                     <div className="col-md-6">
                     <div className="campaign_base">
-                        <h1>6</h1>
+                        <h1>{selectedBusinessData?.campaigns? selectedBusinessData?.campaigns.length : 0}</h1>
                         <h3>Total Campaigns</h3>
                     </div>
                     </div>
@@ -56,9 +58,9 @@ export default function MainContent2() {
 
                 {/* tab content child */}
                 <div id="tabs-content_child">
-                    {selectedTab === 1 && <Tab7 />}
-                    {selectedTab === 2 && <Tab8 />}
-                    {selectedTab === 3 && <Tab9 />}
+                    {selectedTab === 1 && <Tab7 campaign={selectedBusinessData?.campaigns}  />}
+                    {selectedTab === 2 && <Tab8 campaign={selectedBusinessData?.campaigns} />}
+                    {selectedTab === 3 && <Tab9 campaign={selectedBusinessData?.campaigns} />}
                 </div>
             </div>
 
