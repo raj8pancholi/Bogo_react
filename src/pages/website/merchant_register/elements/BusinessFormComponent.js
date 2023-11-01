@@ -66,7 +66,6 @@ const BusinessFormMainSection = ({branchId}) => {
   useEffect(()=>{
     if(branchId && allBusinessData){
       const busiData = allBusinessData?.find((x)=>x.id ==branchId)
-      console.log("busiData---",busiData)
      if(busiData){
       setBName(busiData?.bName) 
       setAddress(busiData?.address)
@@ -86,6 +85,8 @@ const BusinessFormMainSection = ({branchId}) => {
       updateThursday(busiData?.hoursOfOperation[4].isActive , busiData?.hoursOfOperation[4].startTime , busiData?.hoursOfOperation[4].endTime) 
       updateFriday(busiData?.hoursOfOperation[5].isActive , busiData?.hoursOfOperation[5].startTime , busiData?.hoursOfOperation[5].endTime) 
       updateSaturday(busiData?.hoursOfOperation[6].isActive , busiData?.hoursOfOperation[6].startTime , busiData?.hoursOfOperation[6].endTime) 
+      countryUpdate(busiData?.country?.id)
+      if(busiData?.category?.id) dispatch(fetchSubcategory(busiData?.category?.id))
      }
   
     }
@@ -103,7 +104,7 @@ const BusinessFormMainSection = ({branchId}) => {
 
    setCountry(countries[0].id)
    setAllcity(countries[0].cities)
-   setState(countries[1].cities ? countries[1].cities[0].id :'')
+   setState(countries[0].cities && countries[0].cities[0] ? countries[0].cities[0].id :'')
   }
     
   }, [dispatch,  countries]);
@@ -131,7 +132,6 @@ const BusinessFormMainSection = ({branchId}) => {
     
   }
    
-console.log("country",country)
 
   return (
     <div className="business_form_main_section">
@@ -182,7 +182,7 @@ console.log("country",country)
                             <label htmlFor="inputCountry">Category</label>
                             <select className="form-control" name="country" id="buss_country"  onChange={e=>{setCategoryId(e.target.value); dispatch(fetchSubcategory(e.target.value))}} >
                             <option value="">Select Category</option>
-                              {category?.map(item=> <option  key={item.id} value={item.id}>{item.name}</option>)} 
+                              {category?.map(item=> <option  selected={item.id == categoryId ? true :false}  key={item.id} value={item.id}>{item.name}</option>)} 
                         </select>
                         </div>
                     
@@ -195,7 +195,7 @@ console.log("country",country)
                       <select className="form-control" name="country" id="buss_country" onChange={e=>setSubCategoryId(e.target.value)} >
                       <option value="">Select Subcategory</option>
                       {selectedSubCategoryId && selectedSubCategoryId.map((item, index) => (
-                          <option key={item.id} value={item.id}>{item.name}</option>
+                          <option key={item.id}  selected={item.id == subCategoryId ? true :false}  value={item.id}>{item.name}</option>
                         ))}
                       </select>
                     </div>
