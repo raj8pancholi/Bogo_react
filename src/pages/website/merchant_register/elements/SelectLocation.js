@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import PlacesAutocomplete, { geocodeByPlaceId, getLatLng, } from 'react-places-autocomplete';
+import React, { useEffect } from 'react'; 
 
 
 function LocationAutocomplete({setMapdata , setlatitude, setlongitude, longitude}) {
@@ -13,9 +12,9 @@ function LocationAutocomplete({setMapdata , setlatitude, setlongitude, longitude
         const lat = place.geometry.location.lat();
         const lng = place.geometry.location.lng();
         const placeId = place.place_id;
-        // setMapdata(place);
-        // setlatitude(lat);
-        // setlongitude(lng);
+        setMapdata(place);
+        setlatitude(lat);
+        setlongitude(lng);
         console.log('Latitude:', lat);
         console.log('Longitude:', lng);
         console.log('Place ID:', placeId);

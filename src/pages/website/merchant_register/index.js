@@ -47,8 +47,8 @@ const Index=() =>{
                 </div>
 
                 {/* Business Section */}
-                <BusinessFormComponent branchId={branchId}/>
-
+                <BusinessFormComponent branchId={branchId}  latitude={latitude} longitude={longitude} mapData={mapData}/>
+               
             </div>
           </div>
         </form>

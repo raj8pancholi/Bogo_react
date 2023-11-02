@@ -11,7 +11,7 @@ import { UpdateBusinessInfo } from '../../../../redux/slices/businessInfoSlice';
 
 
 
-const BusinessFormMainSection = ({branchId}) => {
+const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
   
   const [bName ,setBName] = useState('')
   const [address ,setAddress] = useState('')
@@ -94,6 +94,32 @@ const BusinessFormMainSection = ({branchId}) => {
    },[])
 
 
+   useEffect(()=>{ 
+     if(mapData){
+      setBName(mapData?.name) 
+      setAddress(mapData?.vicinity)
+      setRating(mapData?.rating)
+   if(mapData?.opening_hours?.weekday_text){
+    mapData?.opening_hours?.weekday_text.forEach((dayTiming) => {
+      const [day, timing] = dayTiming.split(': ');
+      const ppll = timing.split(' – '); 
+      const [openTime, closeTime] = timing.split(' – '); 
+
+      console.log(day, timing, openTime, closeTime)
+      console.log('ppll',ppll)
+      const status = openTime === 'Closed' ? false : true;
+      if (updateFunctions[day]) {
+        updateFunctions[day](status, openTime, closeTime);
+      }
+    });
+   } 
+     }
+   
+    
+   },[mapData])
+
+
+   const updateFunctions = { Sunday: updateSunday, Monday: updateMonday, Tuesday: updateTuesday, Wednesday: updateWednesday, Thursday: updateThursday, Friday: updateFriday, Saturday: updateSaturday, };
 
   const [activeTab, setActiveTab] = useState("tabs-1");
 
@@ -112,7 +138,7 @@ const BusinessFormMainSection = ({branchId}) => {
   const handleTabSelect = (tabId) => { setActiveTab(tabId); };
   const handleNextClick = () => {
 
-    const obj = {bName , address ,country ,pin ,rating , state ,categoryId ,subCategoryId ,whatsappNo , sundayState , mondayState , tuesdayState , wednesdayState , thursdayState , fridayState , saturdayState }
+    const obj = {bName , address ,country ,pin ,rating , state ,categoryId ,subCategoryId ,whatsappNo , sundayState , mondayState , tuesdayState , wednesdayState , thursdayState , latitude, longitude ,fridayState , saturdayState }
     
     console.log("obj",obj)
     
@@ -132,6 +158,9 @@ const BusinessFormMainSection = ({branchId}) => {
     
   }
    
+  const obj = {bName , address ,country ,pin ,rating , state ,categoryId ,subCategoryId ,whatsappNo , sundayState , mondayState , tuesdayState , wednesdayState , thursdayState , latitude, longitude ,fridayState , saturdayState }
+    
+  console.log("---------obj-------",obj)
 
   return (
     <div className="business_form_main_section">
