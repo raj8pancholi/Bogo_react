@@ -1,112 +1,36 @@
-import React, { useState } from 'react';
-import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+import React, { useEffect } from 'react';
+import PlacesAutocomplete, { geocodeByPlaceId, getLatLng, } from 'react-places-autocomplete';
 
 
-const Component = () => {
-    const [location, setLocation] = useState(null);
-    console.log(location + "location");
-    const handleLocationSelect = (place) => {
-        setLocation(place);
-        console.log("Place Name: " + place.label);
-        console.log("Address: " + place.description);
-        console.log("Latitude: " + place.location.lat);
-        console.log("Longitude: " + place.location.lng);
-      };
+function LocationAutocomplete({setMapdata , setlatitude, setlongitude, longitude}) {
+  useEffect(() => {
+    const input = document.getElementById('autocomplete');
+    const autocomplete = new window.google.maps.places.Autocomplete(input);
 
+    autocomplete.addListener('place_changed', () => {
+      const place = autocomplete.getPlace();
+      if (place.geometry && place.geometry.location) {
+        const lat = place.geometry.location.lat();
+        const lng = place.geometry.location.lng();
+        const placeId = place.place_id;
+        // setMapdata(place);
+        // setlatitude(lat);
+        // setlongitude(lng);
+        console.log('Latitude:', lat);
+        console.log('Longitude:', lng);
+        console.log('Place ID:', placeId);
+      } else {
+        console.error('Place ID not found for the entered location.');
+      }
+    });
+  }, []);
 
   return (
-    <div>
-      <GooglePlacesAutocomplete
-        selectProps={{
-          location,
-          onChange: setLocation,
-          onSelect: handleLocationSelect,
-        }}
-        apiKey="AIzaSyDttOtnnoXMiMRXstU7hfBh2eymTg2tCUA"
-        style={{ position: 'absolute', top: '10px', left: '30%', width: '100%' }}
-      />
+    <div className='googlePlaceSearch_div' style={{zIndex:' 999' , top: '7px', position: 'absolute', width: '500px'}}>
+      <input id="autocomplete" placeholder="Enter a location" type="text" />
     </div>
+    
   );
 }
 
-export default Component;
-
-
-// import React, { useState } from 'react';
-// import PlacesAutocomplete from 'react-places-autocomplete';
-// import {
-//     geocodeByAddress,
-//     geocodeByPlaceId,
-//     getLatLng,
-//   } from 'react-places-autocomplete';
-
-
-// const Component = () => {
-//   const [address, setAddress] = useState("");
-//   const [coordinates, setCoordinates] = useState({
-//     lat: null,
-//     lng: null
-// });
-
-// const handleSelect = async value => {
-//     const results = await geocodeByAddress(value);
-//     const latLng = await getLatLng(results[0]);
-//     setAddress(value);
-//     setCoordinates(latLng);
-//     console.log(latLng);
-// };
-
-
-
-//   return (
-//     <div>
-//       <PlacesAutocomplete
-//         value={address}
-//         onChange={setAddress}
-//         onSelect={handleSelect}
-//       >
-//         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-//           <div>
-//             <input
-//               {...getInputProps({
-//                 placeholder: 'Search Places ...',
-//                 className: 'location-search-input',
-//               })}
-//             />
-//             <div className="autocomplete-dropdown-container">
-//               {loading && <div>Loading...</div>}
-//               {suggestions.map(suggestion => {
-//                 const className = suggestion.active
-//                   ? 'suggestion-item--active'
-//                   : 'suggestion-item';
-//                 // inline style for demonstration purpose
-//                 const style = suggestion.active
-//                   ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-//                   : { backgroundColor: '#ffffff', cursor: 'pointer' };
-//                 return (
-//                   <div
-//                     {...getSuggestionItemProps(suggestion, {
-//                       className,
-//                       style,
-//                     })}
-//                   >
-//                     <span>{suggestion.description}</span>
-//                   </div>
-//                 );
-//               })}
-//             </div>
-//           </div>
-//         )}
-//       </PlacesAutocomplete>
-//     </div>
-//   );
-// }
-
-// export default Component;
-
-
-
-
-
-
-
+export default LocationAutocomplete;

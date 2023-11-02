@@ -44,7 +44,7 @@
 import React from 'react';
 import Map from './Map';
 
-export default function BusinessMap() {
+export default function BusinessMap({setMapdata , setlatitude, setlongitude,latitude, longitude}) {
   return (
     <>
       <div className="col-md-12 ">
@@ -60,7 +60,7 @@ export default function BusinessMap() {
           />
         </div>
       </div>
-      <Map width="100%"
+      <Map width="100%" setlatitude={setlatitude} setlongitude={setlongitude}  setMapdata={setMapdata} latitude={latitude} longitude={longitude}
         height="450"
         style={{ border: 0 }}/>
 

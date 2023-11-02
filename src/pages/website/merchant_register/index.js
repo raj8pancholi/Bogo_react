@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // Import Footer and Header Component
 import Footer from '../../../partials/footer/Footer'
@@ -20,6 +20,9 @@ import './style.css'
 import GoogleMap from './elements/GoogleMap'
 
 const Index=() =>{
+  const [mapData, setMapdata] = useState();
+  const [latitude, setlatitude] = useState();
+  const [longitude, setlongitude] = useState();
   let { branchId } = useParams();
   return (
     <>  
@@ -40,7 +43,7 @@ const Index=() =>{
                 {/* map */}
                 <div className='row'>
                     {/* <GoogleMap /> */}
-                   <BusinessMap /> 
+                   <BusinessMap setlatitude={setlatitude} setlongitude={setlongitude}  setMapdata={setMapdata} latitude={latitude} longitude={longitude}/> 
                 </div>
 
                 {/* Business Section */}
