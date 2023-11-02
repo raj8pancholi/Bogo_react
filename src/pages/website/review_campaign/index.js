@@ -28,7 +28,7 @@ const submitCampaign =(status)=>{
         estimationSaving:saveVoucher.estSaving,
     //    excludeWeekends:saveVoucher.excludeWeekends,
     //    excludePublicHolidays:saveVoucher.excludePublicHolidays,
-        branch:localStorage.getItem('businessId'),
+        // businessId:localStorage.getItem('businessId'),
         finePrint:saveVoucher.finePrint,
         maxRedeem:saveVoucher.redemption,
         voucherTimings: reArrangeObj(saveVoucher) ,

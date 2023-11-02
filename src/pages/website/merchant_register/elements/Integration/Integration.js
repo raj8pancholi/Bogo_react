@@ -13,6 +13,9 @@ import { reArrangeObj } from '../../../../../utils';
 
 export default function Integration() {
 
+  const [latitude, setLatitude] = useState(80);
+  const [longitude, setLongitude] = useState(80);
+
  const businessInfo = useSelector((state) => state.businessInfo);
   const [showGallery, setShowGallery] = useState(false);
 
@@ -39,6 +42,8 @@ export default function Integration() {
           banner: businessInfo.galleryData.bannerobj ,
           gallery: businessInfo.galleryData.selectedImages ,
           hoursOfOperation: reArrangeObj(businessInfo.businessData) ,
+          latitude: latitude ,
+          longitude: longitude ,
         }
   
         console.log("objjjjjj",obj)

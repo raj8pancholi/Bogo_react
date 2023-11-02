@@ -132,7 +132,7 @@ export const GET_ALL_BUSINESS_DETAILS = createAsyncThunk(
       
       try {
         const res = await AllBusinessDetails();
-        console.log(res.data + 'all business data from slice');
+        console.log('all business data from slice', res.data);
         return res.data;
         
       } catch (error) { 
@@ -151,6 +151,7 @@ export const SELECTED_BUSINESS_DATA = createAsyncThunk( "merchant/SELECTED_BUSIN
 export const CREATE_CAMPAIGN = createAsyncThunk(
   'merchant/CREATE_CAMPAIGN',
   async (data, status, history) => {
+    console.log('datamy data', data)
     console.log('status', status)
       try {
         const res = await CampaignCreate(data);
@@ -207,7 +208,10 @@ export const GET_BUSINESS_VOUCHER = createAsyncThunk(
 );
 
 
-export const SAVE_VOUCHER = createAsyncThunk( "merchant/SAVE_VOUCHER", (data) => { return data } );
+export const SAVE_VOUCHER = createAsyncThunk( "merchant/SAVE_VOUCHER", (data) => { 
+  
+
+  return data } );
 export const SAVE_CAMPAIGN = createAsyncThunk( "merchant/SAVE_CAMPAIGN", (data) => { return data } );
 
 
@@ -262,9 +266,11 @@ const marchantAuthSlice = createSlice({
     },
     [CREATE_VOUCHER.fulfilled]: (state, action) => { 
       state.voucher = action.payload;
+      console.log(state.saveVoucher, 'voucher data form slice')
     },
     [SAVE_VOUCHER.fulfilled]: (state, action) => { 
       state.saveVoucher = action.payload;
+     
     },
     [SAVE_CAMPAIGN.fulfilled]: (state, action) => { 
       state.saveCampaign = action.payload;

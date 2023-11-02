@@ -5,11 +5,12 @@ export default function Tab6({campaign}) {
     <>
         <div id="tab6" className="tab-content1">
         {campaign?.map((item, i)=>{    
+          
             return  !item.isPublished?  
             <div className="row">
                 <div className="col-6">
                 <div className="offerLabel">
-                    <div className="offerlabelbox">{item.offer}</div>
+                    <div className="offerlabelbox">{item.campaignType}</div>
                 </div>
                 <div className="campaign_offer_type">
                     <div className="offerType1">

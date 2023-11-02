@@ -6417,8 +6417,11 @@ ul#tabs2-nav li.active {
   font-family: Montserrat;
   font-size: 14px;
   font-weight: 400;
-  line-height: 32px;
+  
   letter-spacing: 0em;
+  box-sizing: border-box;
+    padding: 7px 5px;
+    text-align: center;
 }
 
 
