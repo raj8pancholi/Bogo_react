@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { GoogleMap, LoadScript, StandaloneSearchBox } from '@react-google-maps/api';
-import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+import { GoogleMap, LoadScript, StandaloneSearchBox } from '@react-google-maps/api'; 
 const MapWithAutocomplete = () => {
   const [center, setCenter] = useState({ lat: 0, lng: 0 });
   const [autocomplete, setAutocomplete] = useState(null);
@@ -26,9 +25,9 @@ const MapWithAutocomplete = () => {
         <StandaloneSearchBox onLoad={onLoad} onPlacesChanged={onPlacesChanged}>
           {/* <input type="text" placeholder="Search for a location" />
            */}
-           <GooglePlacesAutocomplete
+           {/* <GooglePlacesAutocomplete
               apiKey="AIzaSyDttOtnnoXMiMRXstU7hfBh2eymTg2tCUA"
-            />
+            /> */}
         </StandaloneSearchBox>
       </GoogleMap>
     </LoadScript>
