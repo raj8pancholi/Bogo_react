@@ -34,6 +34,9 @@ const AmbassadorsCampaignPage = () => {
   const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);  
   const selectedBusinessData = useSelector((state) => state.merchantAuth.selectedBusinessData);  
 
+  console.log('selectedBusinessData',selectedBusinessData)
+  console.log('allBusinessData',allBusinessData)
+
   const socialMediaOptions = [ { value: 'Facebook', label: 'Facebook' }, { value: 'Instagram', label: 'Instagram' }, { value: 'Youtube', label: 'Youtube' }, { value: 'TickTok', label: 'TickTok' }, ]
   const businessOption =  allBusinessData?.map((business) => ({ value: business.id, label: business.bName, }));
 
@@ -53,7 +56,7 @@ const AmbassadorsCampaignPage = () => {
   const [promoCode, setpromoCode] = useState();
   const [audienceSize, setaudienceSize] = useState(); 
   const [isPublished, setIsPublished] = useState(true);
-  const [maxRedeem, setMaxRedeem] = useState(5000);
+  // const [maxRedeem, setMaxRedeem] = useState(5000);
   const [businessIds, setBusinessIds] = useState([localStorage.getItem('businessId')]);
   
 
@@ -65,6 +68,7 @@ const AmbassadorsCampaignPage = () => {
  useEffect(()=>{
   if(campainId && selectedBusinessData?.campaigns){
     const campaindata = selectedBusinessData?.campaigns?.find((x)=>x.id ==campainId)
+    console.log("campaindata",campaindata)
    if(campaindata){
     setcampaignType(campaindata.campaignType=='GiveAway' ? 1 : 2)
     setOffer(campaindata.offer)
@@ -81,8 +85,6 @@ const AmbassadorsCampaignPage = () => {
     sethashtags(campaindata.hashtags)
     setpromoCode(campaindata.promoCode)
     setaudienceSize(campaindata.audienceSize)
-
-
    }
 
   }
@@ -90,7 +92,9 @@ const AmbassadorsCampaignPage = () => {
  },[])
    
 
-  const SocialComponent = () => ( <Select  onChange={handleSelectChange} closeMenuOnSelect={false} defaultValue={socialPlatforms} isMulti options={socialMediaOptions} styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }} /> )
+  const SocialComponent = ({prefferedPlatforms}) => (
+     <Select  onChange={handleSelectChange} closeMenuOnSelect={false} defaultValue={prefferedPlatforms} isMulti options={socialMediaOptions} styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }} /> 
+)
 
    const  handleSelectChange = (selectedOptions) => { 
     setSocialPlatforms(selectedOptions)
@@ -119,13 +123,17 @@ const navigate = useNavigate()
 
 
  const SubmitCampaign=(status)=>{
-   const obj ={ campaignType:campaignType==1 ? "GiveAway":"ExclusiveOffer", offer, estimationSaving:estimationSaving, cashIncentive:parseInt(cashIncentive), allowedGuest:parseInt(2), requirement, prefferedPlatforms, photo, video, untilDate, endDate, hashtags:[hashtags?.replace(/#/g, '')], promoCode, audienceSize:parseInt(audienceSize), isPublished:status, maxRedeem, businessIds}
+   const obj ={ campaignType:campaignType==1 ? "GiveAway":"Exclusive", offer, estimationSaving:estimationSaving, cashIncentive:parseInt(cashIncentive), allowedGuest:parseInt(2), requirement, prefferedPlatforms, photo, video, untilDate:untilDate.toISOString(), endDate:endDate.toISOString(), hashtags:[hashtags?.replace(/#/g, '')], promoCode, audienceSize:parseInt(audienceSize), isPublished:status,  businessIds}
+   console.log('obj1 ',obj)
    dispatch(CREATE_CAMPAIGN(obj ,status, navigate))
  }
 
- const obj ={ campaignType, offer, estimationSaving:parseInt(estimationSaving), cashIncentive:parseInt(cashIncentive), allowedGuest:parseInt(2), requirement, prefferedPlatforms, photo, video, untilDate, endDate, hashtags, promoCode, audienceSize, isPublished, maxRedeem, businessIds}
+ const obj ={ campaignType, offer, estimationSaving:parseInt(estimationSaving), cashIncentive:parseInt(cashIncentive), allowedGuest:parseInt(2), requirement, prefferedPlatforms, photo, video, untilDate, endDate, hashtags, promoCode, audienceSize, isPublished, businessIds}
+ console.log('obj2 ',obj)
  
  const handleSelectBusiness = (selectedOptions) => { const selectedIds = selectedOptions.map(option => option.value); setBusinessIds(selectedIds); };
+
+ console.log('requirement ',requirement)
 
  
   return (
@@ -154,9 +162,9 @@ const navigate = useNavigate()
             
 
           <div className="">
-            <InputTextRow label={campaignType === 1 ? "Giveaway Offer" :"Price"} name="Price" type="text" value={offer}  getValue={setOffer} placeholder="e.g. 3-course meal and cocktails for 2 people" required={true}/>
+            <InputTextRow label={campaignType === 1 ? "Giveaway Offer" :"Exclusive Offers"} name="Price" type="text" value={offer}  getValue={setOffer} placeholder="e.g. 3-course meal and cocktails for 2 people" required={true}/>
 
-            <InputTextRow label={campaignType === 1 ? "Estimation saving" :"Exclusive Offers"}  name="ExsOffers" type="text" placeholder="AED" value={estimationSaving}  getValue={setEstimationSaving}  required={true}/>
+            <InputTextRow label={campaignType === 1 ? "Estimation saving" :" Price"}  name="ExsOffers" type="text" placeholder="AED" value={estimationSaving}  getValue={setEstimationSaving}  required={true}/>
 
             <InputTextRow  label={campaignType === 1 ? "Cash Incentive (optional)" :"Estimation saving"}  name="saving" type="number" placeholder="AED" value={cashIncentive}  getValue={setCashIncentive}  required={true}/>
 
@@ -188,7 +196,9 @@ const navigate = useNavigate()
             <div className="row fine-print-row">
             <label htmlFor="">Campaign Requirement</label>
             <div className="fine_print_box">
-              <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Tell the influencer what you’re looking for" onChange={(e)=>setrequirement(e.target.value)}>{requirement}</textarea>
+              <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Tell the influencer what you’re looking for"
+              value={requirement}
+               onChange={(e)=>setrequirement(e.target.value)}></textarea>
             </div>
           </div> 
 
@@ -233,7 +243,7 @@ const navigate = useNavigate()
                <div className="col-12">
                   <div className="input-box">
                       <label htmlFor=" " className="label_text">Preffered Social Media Platform</label>
-                      <SocialComponent/>
+                      <SocialComponent prefferedPlatforms={prefferedPlatforms}/>
                   </div>
                </div>
             </div>

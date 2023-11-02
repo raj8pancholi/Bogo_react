@@ -7,17 +7,18 @@ export default function Tab5({campaign}) {
   return (
     <>
         <div id="tab5" className="tab-content1">
-        {campaign?.map((item, i)=>{    
+        {campaign?.map((item, i)=>{  
+            console.log(item , "item in tab8");  
             const endDate = new Date(item.endDate);
             const isActive =  today < endDate;
             return isActive && item.isPublished?   <div className="row">
                 <div className="col-6">
                 <div className="offerLabel">
-                    <div className="offerlabelbox">{item.offer}</div>
+                    <div className="offerlabelbox">{item.campaignType}</div>
                 </div>
                 <div className="campaign_offer_type">
                     <div className="offerType1">
-                    <h6 className="me-1">Buy1:</h6>
+                    <h6 className="me-1">Offer:</h6>
                     <h6>{item.offer}</h6>
                     </div>
                    

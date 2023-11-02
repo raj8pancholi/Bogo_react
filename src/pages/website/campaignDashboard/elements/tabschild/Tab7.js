@@ -20,13 +20,19 @@ return isActive && item.isPublished?
             <div className="row">
                 <div className="col-6 d-flex flex-column justify-content-between">
                     <div className="offerLabel">
-                        <div className="offerlabelbox">{item.offer}</div>
+                        <div className="offerlabelbox">{item.campaignType}</div>
+                    </div>
+                    <div className="campaign_offer_type">
+                        <div className="offerType1">
+                        <h6 className="me-1">Offer:</h6>
+                        <h6>{item.offer}</h6>
+                        </div>
                     </div>
 
                     <div className="campaign_louch_date">
                             <h6 className="me-1">Launched: </h6>
                             <h6>{startDate ? moment(startDate).format("D MMM YYYY"):''}</h6>
-                        </div>
+                    </div>
                 </div>
                 <div className="col-6">
                     <div className="edtiteable-row">
@@ -66,7 +72,7 @@ return isActive && item.isPublished?
                             <div className="voucher_redim_row">
                                 <Link to="/redemtionHisory" className="voucher_redim_box">
                                 <span>Vouchers Redeemed</span>
-                                <h4>45</h4>
+                                <h4>{item.noOfRedeem}</h4>
                                 </Link>
                             </div>
                         </div>
