@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { GoogleMap, LoadScript, StandaloneSearchBox } from '@react-google-maps/api'; 
 const MapWithAutocomplete = () => {
   const [center, setCenter] = useState({ lat: 0, lng: 0 });
+  console.log(center, 'lat_logvalue')
   const [autocomplete, setAutocomplete] = useState(null);
 
   const onLoad = (searchBox) => {
@@ -14,6 +15,7 @@ const MapWithAutocomplete = () => {
       if (places.length > 0) {
         const location = places[0].geometry.location;
         setCenter({ lat: location.lat(), lng: location.lng() });
+      
       }
     }
   };

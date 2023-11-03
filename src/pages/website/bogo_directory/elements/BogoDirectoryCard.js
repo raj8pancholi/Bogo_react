@@ -50,7 +50,7 @@ const openBusiness=(id)=>{
 
             {businessData?.map((business, i) => (
                 <div className="col-md-6 mt-2">
-                    <Link to='/voucherDetails'>
+                    <Link to='/business_profile'>
                         <span className="card p-3 card_row">
                             <div className="row">
                                 <div className="col-3">

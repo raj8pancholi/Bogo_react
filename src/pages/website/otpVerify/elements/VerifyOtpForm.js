@@ -72,6 +72,7 @@ export default function VerifyOtpForm({ id }) {
 
 
   const resendOtp =()=>{
+    setOtp(['', '', '', '']);
     setSeconds(60)
     const obj = {email:localStorage.getItem('userMail')} 
     dispatch(MERCHANT_REQUEST_OTP(obj)); 
