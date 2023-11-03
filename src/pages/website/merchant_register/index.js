@@ -18,12 +18,30 @@ import BusinessFormComponent from './elements/BusinessFormComponent'
 // Import Css
 import './style.css'
 import GoogleMap from './elements/GoogleMap'
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 const Index=() =>{
   const [mapData, setMapdata] = useState();
-  const [latitude, setlatitude] = useState();
-  const [longitude, setlongitude] = useState();
+  const [latitude, setlatitude] = useState('25.2048493');
+  const [longitude, setlongitude] = useState('55.2707828');
   let { branchId } = useParams();
+
+  const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);  
+ 
+  
+  useEffect(()=>{
+    if(branchId && allBusinessData){
+      const busiData = allBusinessData?.find((x)=>x.id ==branchId)
+     if(busiData){
+      setlatitude(busiData?.bName) 
+      setlongitude(busiData?.address) 
+     }
+  
+    }
+    
+   },[])
+
   return (
     <>  
        {localStorage.getItem('token') && localStorage.getItem('isLogin') ? <Headers1 /> : <Headers /> }

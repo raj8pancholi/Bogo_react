@@ -8,11 +8,11 @@ import Integration from './Integration/Integration';
 import { useDispatch, useSelector } from 'react-redux'; 
 import { fetchSubcategory } from '../../../../redux/slices/subCategorySlice';
 import { UpdateBusinessInfo } from '../../../../redux/slices/businessInfoSlice';
+import { ImgUrl, convert12HourTo24Hour } from '../../../../utils';
 
 
 
-const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
-  
+const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => { 
   const [bName ,setBName] = useState('')
   const [address ,setAddress] = useState('')
   const [country ,setCountry] = useState('')
@@ -35,7 +35,7 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
   const [fridayState, setFridayState] = useState({ status: false, openTime: '', closeTime: '', });
   const [saturdayState, setSaturdayState] = useState({ status: false, openTime: '', closeTime: '', });
 
-  const updateSunday = (act, ot, Ct) => {console.log("helooo", act, ot, Ct) ; setSundayState({ ...sundayState, status: act, openTime: ot, closeTime: Ct, }) };
+  const updateSunday = (act, ot, Ct) => { setSundayState({ ...sundayState, status: act, openTime: ot, closeTime: Ct, }) };
   const updateMonday = (act, ot, Ct) => { setMondayState({ ...mondayState, status: act, openTime: ot, closeTime: Ct, }) };
   const updateTuesday = (act, ot, Ct) => { setTuesdayState({ ...tuesdayState, status: act, openTime: ot, closeTime: Ct, }) };
   const updateWednesday = (act, ot, Ct) => { setWednesdayState({ ...wednesdayState, status: act, openTime: ot, closeTime: Ct, }) };
@@ -66,6 +66,8 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
   useEffect(()=>{
     if(branchId && allBusinessData){
       const busiData = allBusinessData?.find((x)=>x.id ==branchId)
+
+      console.log("busiData", busiData)
      if(busiData){
       setBName(busiData?.bName) 
       setAddress(busiData?.address)
@@ -102,13 +104,11 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
    if(mapData?.opening_hours?.weekday_text){
     mapData?.opening_hours?.weekday_text.forEach((dayTiming) => {
       const [day, timing] = dayTiming.split(': ');
-      const ppll = timing.split(' – '); 
-      const [openTime, closeTime] = timing.split(' – '); 
-
-      console.log(day, timing, openTime, closeTime)
-      console.log('ppll',ppll)
-      const status = openTime === 'Closed' ? false : true;
+      const daytime = timing.split('–');   
+      const status = daytime == 'Closed' ? false : true;
       if (updateFunctions[day]) {
+        const openTime = status && daytime && daytime[0] ? convert12HourTo24Hour(daytime[0]) :'';
+        const closeTime = status && daytime && daytime[1] ? convert12HourTo24Hour(daytime[1]) :'';
         updateFunctions[day](status, openTime, closeTime);
       }
     });
@@ -138,9 +138,9 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
   const handleTabSelect = (tabId) => { setActiveTab(tabId); };
   const handleNextClick = () => {
 
-    const obj = {bName , address ,country ,pin ,rating , state ,categoryId ,subCategoryId ,whatsappNo , sundayState , mondayState , tuesdayState , wednesdayState , thursdayState , latitude, longitude ,fridayState , saturdayState }
+    const obj = {bName , address ,country ,pin ,rating , state ,categoryId ,subCategoryId ,whatsappNo , sundayState , mondayState , tuesdayState , wednesdayState , thursdayState , latitude:latitude, longitude:longitude ,fridayState , saturdayState }
     
-    console.log("obj",obj)
+ //   console.log("obj",obj)
     
     dispatch(UpdateBusinessInfo(obj)) 
      setActiveTab("tabs-2");
@@ -158,9 +158,7 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
     
   }
    
-  const obj = {bName , address ,country ,pin ,rating , state ,categoryId ,subCategoryId ,whatsappNo , sundayState , mondayState , tuesdayState , wednesdayState , thursdayState , latitude, longitude ,fridayState , saturdayState }
-    
-  console.log("---------obj-------",obj)
+ 
 
   return (
     <div className="business_form_main_section">
@@ -245,11 +243,11 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
         </Tab>
         <Tab eventKey="tabs-2" title="Gallery">
           {/* Content for Gallery tab */}
-          <BusinessFormGallerySection onNextClick={handleInterNextClick} oldlogo={logo} oldbanner={banner} oldgallery={gallery}/> 
+          <BusinessFormGallerySection onNextClick={handleInterNextClick} oldlogo={logo ?`${ImgUrl}${logo}`:''} oldbanner={banner ?`${ImgUrl}${banner}`:''} oldgallery={gallery ? `${ImgUrl}${gallery}`:''}/> 
         </Tab>
         <Tab eventKey="tabs-3" title="Integration">
           {/* Content for Integration tab */}
-          <Integration/>
+          <Integration branchId={branchId}/>
         </Tab>
       </Tabs>
     </div>

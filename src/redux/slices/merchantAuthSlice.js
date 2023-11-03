@@ -57,7 +57,7 @@ export const MERCHANT_BUSINESS = createAsyncThunk(
   try {
     console.log(data + 'business data from slice');
     const res = await BusinessMerchant(data);
-    localStorage.setItem('businessId', res?.data?.id)
+    localStorage.setItem('businessId', res?.data?.id) 
     return res.data;
   } catch (error) { 
     if (error.response.status === 401) {
