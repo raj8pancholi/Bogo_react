@@ -4,7 +4,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import SelectLocation from './SelectLocation';
 
 class GoogleMap extends Component {
-  state = { mapLat: 37.7749, mapLong: -122.4194 }
+  state = { mapLat:'25.2048493' , mapLong: '55.2707828' }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.latitude !== prevProps.latitude || this.props.longitude !== prevProps.longitude) {

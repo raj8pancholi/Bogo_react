@@ -21,8 +21,7 @@ useEffect(() => {
     setTotalCampaignLength(TotalCampaignLength);
   }
 }, [selectedBusinessData]);
-
-console.log("setSelectedBusinessData(dataBusiness);", selectedBusinessData)
+ 
 
 
 

@@ -11,11 +11,9 @@ const BusinessFormGallerySection = ({onNextClick, oldlogo, oldbanner,oldgallery 
   const [logoImage, setLogoImage] = useState(null);
   const [logo, setLogo] = useState(null);
 
-  const handleLogoImageUpload = (event) => {
-    console.log('event.target.files[0]', event.target.files[0]);
+  const handleLogoImageUpload = (event) => { 
     let form = new FormData();
-    form.append('logo', event.target.files[0]);
-    console.log('form', form.get('logo'));
+    form.append('logo', event.target.files[0]); 
 
     setLogo(event.target.files[0])
     const file = event.target.files[0];
@@ -39,8 +37,7 @@ const BusinessFormGallerySection = ({onNextClick, oldlogo, oldbanner,oldgallery 
     const file = event.target.files[0];
     setBannerobj(file)
     let form = new FormData();
-    form.append('bannerImage', JSON.stringify(file));
-    console.log('form banner', form.get('bannerImage'));
+    form.append('bannerImage', JSON.stringify(file)); 
     const reader = new FileReader();
 
     reader.onload = () => {
@@ -51,7 +48,7 @@ const BusinessFormGallerySection = ({onNextClick, oldlogo, oldbanner,oldgallery 
       reader.readAsDataURL(file);
     }
   };
-
+             
 
  
 
@@ -82,24 +79,24 @@ const BusinessFormGallerySection = ({onNextClick, oldlogo, oldbanner,oldgallery 
 
   const dispatch = useDispatch()
 const submitGallery=()=>{
-  const obj = {logo, bannerobj, selectedImages: JSON.stringify(selectedImages)}
-  console.log("obj gallery:-", obj)
+  const obj = {logo, bannerobj, selectedImages: JSON.stringify(selectedImages)} 
   
   dispatch(UpdateGalleryInfo(obj))
   onNextClick();
 }
 
  
-useEffect(()=>{ 
-    setLogoImage(oldlogo)  
-    setLogo(oldlogo)
-    setBannerImage(oldbanner)
-    setBannerobj(oldbanner)
-    setSelectedImages(oldgallery) 
-  } ,[])
+// useEffect(()=>{ 
+//   console.log(" oldlogo, oldbanner,oldgallery", oldlogo, oldbanner,oldgallery)
+//     setLogoImage(oldlogo)  
+//     setLogo(oldlogo)
+//     setBannerImage(oldbanner)
+//     setBannerobj(oldbanner)
+//     setSelectedImages(oldgallery) 
+//   } ,[])
 
 const obj = {logo, bannerobj, selectedImage1: JSON.stringify(selectedImages)}
-console.log("obj gallery:------", obj)
+console.log("obj gallery:------", obj) 
 
   return (
     <div>
@@ -109,7 +106,7 @@ console.log("obj gallery:------", obj)
             <div className="logo-image-box">
               <h3>Logo</h3>
               <div className="upload_preview_box">
-                <div id="imagePreview" style={{ backgroundImage:logoImage ? `url(${logoImage})`: 'url(/images/upload_logo.png)', border: logoImage ? 'none' : '2px dashed #cccccc',}}></div>
+                <div id="imagePreview" style={{ backgroundImage:logoImage ? `url(${logoImage})`: oldlogo ? `url(${oldlogo})` :'url(/images/upload_logo.png)', border: logoImage ? 'none' : '2px dashed #cccccc',}}></div>
                 <span>Upload New</span>
               </div>
             </div>
@@ -121,7 +118,7 @@ console.log("obj gallery:------", obj)
             <div className="multi-img-box">
               <h3>Banner</h3>
               <div className="multi-img-box-group">
-                <div id="multi_img" style={{ backgroundImage:bannerImage ? `url(${bannerImage})`: 'url(/images/from_images_bannerrr.png)', border: bannerImage ? 'none' : '2px dashed #cccccc', }}></div>
+                <div id="multi_img" style={{ backgroundImage:bannerImage ? `url(${bannerImage})`:  oldbanner ? `url(${oldbanner})`: 'url(/images/from_images_bannerrr.png)', border: bannerImage ? 'none' : '2px dashed #cccccc', }}></div>
                 <input type="file" name="gallery" id="BannerImage" onChange={handleBannerImageUpload} />
                 <button
                   type="button"
@@ -144,7 +141,7 @@ console.log("obj gallery:------", obj)
                 <div style={{ border: '2px dashed #cccccc', minHeight: '60px', width: '100%' ,borderRadius:'5px'}}>
 
                   <ul style={{ display: 'flex', justifyContent:'center', flexWrap: 'wrap',border: 'none', }}>
-                      {selectedImages.map((file, index) => (
+                      {selectedImages?.map((file, index) => (
                           <li key={index} style={{ listStyle: 'none', margin: '10px' }}>
                               <img
                                   src={URL.createObjectURL(file)}

@@ -11,7 +11,7 @@ import { reArrangeObj } from '../../../../../utils';
 
 
 
-export default function Integration() {
+export default function Integration({branchId}) {
 
   const [latitude, setLatitude] = useState(80);
   const [longitude, setLongitude] = useState(80);
@@ -31,6 +31,7 @@ export default function Integration() {
   const businessAdd=()=>{
   
         const obj ={
+          id:branchId,
           bName: businessInfo.businessData.bName , 
           address: businessInfo.businessData.address ,
           countryId: businessInfo.businessData.country , 
@@ -42,13 +43,15 @@ export default function Integration() {
           banner: businessInfo.galleryData.bannerobj ,
           gallery: businessInfo.galleryData.selectedImages ,
           hoursOfOperation: reArrangeObj(businessInfo.businessData) ,
-          latitude: latitude ,
-          longitude: longitude ,
+          latitude: businessInfo.businessData.latitude ,
+          longitude: businessInfo.businessData.longitude ,
         }
-  
-        console.log("objjjjjj",obj)
+   
         dispatch(MERCHANT_BUSINESS(obj));
-        history('/dashboard')
+        setTimeout(() => {
+          history('/dashboard')
+        }, 5000);
+        
   }
 
   

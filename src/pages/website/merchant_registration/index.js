@@ -50,6 +50,8 @@ componentDidUpdate(prevProps, prevState) {
         banner: businessInfo.galleryData.bannerobj ,
         gallery: businessInfo.galleryData.selectedImages ,
         hoursOfOperation: reArrangeObj(businessInfo.businessData) ,
+        latitude: businessInfo.businessData.latitude ,
+        longitude: businessInfo.businessData.longitude ,
       }
 
       this.props.MERCHANT_BUSINESS(obj)
@@ -122,9 +124,9 @@ render(){
                           Complete Registration 
                       </button>
 
-                      <button  className="registration-btn btn btn-primary" style={{marginBottom: '20px'}} onClick={this.businessAdd}>
+                      {/* <button  className="registration-btn btn btn-primary" style={{marginBottom: '20px'}} onClick={this.businessAdd}>
                                   business Add
-                      </button>
+                      </button> */}
                         
                     </div>
                     </div>

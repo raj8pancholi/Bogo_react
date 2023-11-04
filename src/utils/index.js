@@ -68,3 +68,12 @@ export const convertToAmPm = (timeStr) => {
   };
 
   
+  export const convert12HourTo24Hour = (time12h) => {  
+    const time = new Date("1970-01-01 " + time12h); 
+    const hours = time.getHours();
+    const minutes = time.getMinutes();
+   
+    const time24h = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+  
+    return time24h;
+  }
