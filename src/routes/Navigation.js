@@ -16,6 +16,7 @@ import TermsConditions from '../pages/website/TermsConditions/index';
 import PrivacyPolicy from '../pages/website/privacyPolicy/index';
 import MerchantRegistration from '../pages/website/merchant_registration/index';
 import OtpVerify from '../pages/website/otpVerify/index';
+import AppUserOtpVerify from '../pages/website/appUserOtpverfiy/index';
 import UserOtpVerify from '../pages/website/userOtpVerify/index';
 import MerchantSubscription from '../pages/website/merchant_subscription/index';
 import Dashboard from '../pages/website/dashboard/index';
@@ -75,6 +76,7 @@ const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessDat
           <Route path='/privacyPolicy' element={<PrivacyPolicy/>} />
           <Route path='/merchant_registration' element={<MerchantRegistration navigate={navigate} dispatch={dispatch}/>} />
           <Route path='/otpVerify' element={<OtpVerify/>} />
+          <Route path='/appUserOtpVerify' element={<AppUserOtpVerify/>} />
           <Route path='/userOtpVerify' element={<UserOtpVerify/>} />
           <Route path='/merchant_subscription' element={<MerchantSubscription/>} />
           <Route path='/dashboard' element={<Dashboard/>} />

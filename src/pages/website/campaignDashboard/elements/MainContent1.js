@@ -63,7 +63,7 @@ export default function MainContent1() {
         {/* tab content child */}
         <div id="tabs-content_child">
           {selectedTab === 1 && <Tab4 vouchers={selectedBusinessData?.vouchers} />}
-          {selectedTab === 2 && <Tab5  vouchers={selectedBusinessData?.vouchers1} />}
+          {selectedTab === 2 && <Tab5  vouchers={selectedBusinessData?.vouchers} />}
           {selectedTab === 3 && <Tab6  vouchers={selectedBusinessData?.vouchers} />}
         </div>
       </div>
