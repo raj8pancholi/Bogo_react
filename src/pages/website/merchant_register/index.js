@@ -46,7 +46,7 @@ const Index=() =>{
     <>  
        {localStorage.getItem('token') && localStorage.getItem('isLogin') ? <Headers1 /> : <Headers /> }
 
-        <form id="ADDbusiness"> 
+ 
           <MerchantMainTopSection />
 
 
@@ -68,8 +68,7 @@ const Index=() =>{
                 <BusinessFormComponent branchId={branchId}  latitude={latitude} longitude={longitude} mapData={mapData}/>
                
             </div>
-          </div>
-        </form>
+          </div> 
 
         <Footer />
     </>

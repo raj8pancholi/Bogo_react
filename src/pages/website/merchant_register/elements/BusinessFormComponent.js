@@ -66,8 +66,6 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
   useEffect(()=>{
     if(branchId && allBusinessData){
       const busiData = allBusinessData?.find((x)=>x.id ==branchId)
-
-      console.log("busiData", busiData)
      if(busiData){
       setBName(busiData?.bName) 
       setAddress(busiData?.address)
@@ -90,10 +88,12 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
       countryUpdate(busiData?.country?.id)
       if(busiData?.category?.id) dispatch(fetchSubcategory(busiData?.category?.id))
      }
+
+     
   
     }
     
-   },[])
+   },[allBusinessData])
 
 
    useEffect(()=>{ 
@@ -135,12 +135,16 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
 
   const handleTabSelect = (tabId) => { setActiveTab(tabId); };
   const handleNextClick = () => {
-if(!latitude && !latitude) TOAST_ERROR('Please Select Your Business Location')
- else{
+
+    if (!bName) TOAST_ERROR('Business name is required.')
+    else if (!address) TOAST_ERROR('Address is required.')
+    else if (!country) TOAST_ERROR('Country is required.')
+    else if (!state) TOAST_ERROR('State is required.')
+    else if (!categoryId) TOAST_ERROR('Category is required.')
+    else if (!subCategoryId) TOAST_ERROR('Subcategory is required.') 
+    else if (!latitude || !longitude) TOAST_ERROR('Please Select Your Business Location.')
+    else {
     const obj = {bName , address ,country ,pin ,rating , state ,categoryId ,subCategoryId ,whatsappNo , sundayState , mondayState , tuesdayState , wednesdayState , thursdayState , latitude:latitude, longitude:longitude ,fridayState , saturdayState }
-    
- //   console.log("obj",obj)
-    
     dispatch(UpdateBusinessInfo(obj)) 
      setActiveTab("tabs-2");
  }
