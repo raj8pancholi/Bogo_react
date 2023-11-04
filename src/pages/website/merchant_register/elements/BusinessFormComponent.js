@@ -8,7 +8,7 @@ import Integration from './Integration/Integration';
 import { useDispatch, useSelector } from 'react-redux'; 
 import { fetchSubcategory } from '../../../../redux/slices/subCategorySlice';
 import { UpdateBusinessInfo } from '../../../../redux/slices/businessInfoSlice';
-import { ImgUrl, convert12HourTo24Hour } from '../../../../utils';
+import { ImgUrl, TOAST_ERROR, convert12HourTo24Hour } from '../../../../utils';
 
 
 
@@ -126,8 +126,6 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
   useEffect(() => {
  
   if(countries && countries.length && !country){
-   
-
    setCountry(countries[0].id)
    setAllcity(countries[0].cities)
    setState(countries[0].cities && countries[0].cities[0] ? countries[0].cities[0].id :'')
@@ -137,13 +135,15 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
 
   const handleTabSelect = (tabId) => { setActiveTab(tabId); };
   const handleNextClick = () => {
-
+if(!latitude && !latitude) TOAST_ERROR('Please Select Your Business Location')
+ else{
     const obj = {bName , address ,country ,pin ,rating , state ,categoryId ,subCategoryId ,whatsappNo , sundayState , mondayState , tuesdayState , wednesdayState , thursdayState , latitude:latitude, longitude:longitude ,fridayState , saturdayState }
     
  //   console.log("obj",obj)
     
     dispatch(UpdateBusinessInfo(obj)) 
      setActiveTab("tabs-2");
+ }
      }; 
 
 

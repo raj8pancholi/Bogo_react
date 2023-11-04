@@ -23,8 +23,8 @@ import { useEffect } from 'react';
 
 const Index=() =>{
   const [mapData, setMapdata] = useState();
-  const [latitude, setlatitude] = useState('25.2048493');
-  const [longitude, setlongitude] = useState('55.2707828');
+  const [latitude, setlatitude] = useState();
+  const [longitude, setlongitude] = useState();
   let { branchId } = useParams();
 
   const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);  
