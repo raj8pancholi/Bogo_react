@@ -96,7 +96,6 @@ const AmbassadorsCampaignPage = () => {
     setpromoCode(campaindata.promoCode)
     setaudienceSize(campaindata.audienceSize)
    }
-
   }
   
  },[])
