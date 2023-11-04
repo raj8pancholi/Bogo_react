@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 function LocationAutocomplete({setMapdata , setlatitude, setlongitude, longitude}) {
   useEffect(() => {
     const input = document.getElementById('autocomplete');
+    if(input){
     const autocomplete = new window.google.maps.places.Autocomplete(input);
 
     autocomplete.addListener('place_changed', () => {
@@ -22,7 +23,7 @@ function LocationAutocomplete({setMapdata , setlatitude, setlongitude, longitude
         console.error('Place ID not found for the entered location.');
       }
     });
-  }, []);
+  } }, []);
 
   return (
     <div className='googlePlaceSearch_div' style={{zIndex:' 999' , top: '7px', position: 'absolute', width: '500px'}}>

@@ -51,8 +51,12 @@ const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessDat
           localStorage.setItem('activeBusiness',allBusinessData[0].id) 
           dispatch(SELECTED_BUSINESS_DATA(allBusinessData[0]))
       } 
-
-      history('/dashboard')
+      if(window.location.pathname.includes('merchant_register') || window.location.pathname.includes('login') ){
+        console.log("heloooo")
+         if(localStorage.getItem('token') && localStorage.getItem('businessId')) { history('/dashboard') }
+        }
+ 
+      
      } 
     };
   }, [dispatch]); 

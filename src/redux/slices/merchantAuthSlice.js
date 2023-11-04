@@ -53,13 +53,14 @@ export const MERCHANT_SIGNIN = createAsyncThunk(
 export const MERCHANT_BUSINESS = createAsyncThunk(
   "merchant/MERCHANT_BUSINESS",
   async (data) => {
-
   try {
     console.log(data + 'business data from slice');
     const res = await BusinessMerchant(data);
     localStorage.setItem('businessId', res?.data?.id) 
+    if(data.id)  TOAST_SUCCESS('Business Updated successfully!')
     return res.data;
   } catch (error) { 
+    console.log("error",error)
     if (error.response.status === 401) {
       TOAST_ERROR(error.response.data.message)
        throw new Error(error.response.data.message)

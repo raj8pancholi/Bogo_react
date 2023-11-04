@@ -12,7 +12,10 @@ import { useNavigate } from 'react-router-dom'
  
   useEffect(() => { 
     return () => {
-     if(localStorage.getItem('token') && localStorage.getItem('isLogin'))  window.location.href= '/dashboard'
+      if(window.location.pathname.includes('merchant_register') || window.location.pathname.includes('login') ){
+        console.log("heloooo")
+         if(localStorage.getItem('token') && localStorage.getItem('isLogin')) { this.props.navigate('/dashboard') }
+        }
     };
   }, []); 
 
