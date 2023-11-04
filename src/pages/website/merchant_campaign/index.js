@@ -58,6 +58,7 @@ export default function Index() { // Renamed to start with an uppercase letter
   const saveVoucher = useSelector((state) => state.merchantAuth.saveVoucher);
   const allBusniessData = useSelector((state) => state.merchantAuth.allBusinessData);
   const holidayList = useSelector((state) => state.otherInfo.holidayList);
+  console.log('saveVoucher===', saveVoucher)
 
   
   useEffect(() => {

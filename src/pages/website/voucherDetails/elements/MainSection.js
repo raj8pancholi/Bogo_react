@@ -26,7 +26,7 @@ function VoucherDetails_index({allBusinessData, selectedBusinessData}) {
 
 
                 <div className="tabs1">
-                    <ul id="tabs-navtab">
+                    {/* <ul id="tabs-navtab">
                         <li onClick={() => TabButton(1)}>
                             <Link to="#">Overview</Link>
                         </li>
@@ -36,13 +36,16 @@ function VoucherDetails_index({allBusinessData, selectedBusinessData}) {
                         <li onClick={() => TabButton(3)}>
                             <Link to="#">Branches</Link>
                         </li>
-                    </ul>
+                    </ul> */}
                     {/* <!-- END tabs-nav --> */}
                     <div id="tabs-content_child">
                         {selectBranch === 1 ? (
+
                             <div id="tab11" className="tab-content6">
                                 <div className="overviewTab_box">
+                                <h2 style={{textAlign:'left'}}>Overview</h2>
                                     <div className="row">
+                                        
                                         <div className="col-md-6">
 
                                             <TimeSection selectedBusinessData={selectedBusinessData}/>
@@ -68,18 +71,15 @@ function VoucherDetails_index({allBusinessData, selectedBusinessData}) {
                         ) : null}
 
                         {selectBranch === 2 ? (
-                            <div id="tab12" className="tab-content6">
-                                {/* <!-- voucher_details_row --> */}
+                            {/* <div id="tab12" className="tab-content6">
                                 <div className="row">
-
                                     <CampaignCard voucherList={voucherList}/>
-
                                 </div>
-                            </div>
+                            </div> */}
                         ) : null}
 
                         {selectBranch === 3 ? (
-                            <div id="tab13" className="tab-content6">
+                            {/* <div id="tab13" className="tab-content6">
                                 <div className="bogo_directory_card_row">
 
                                     <div className="row">
@@ -92,7 +92,7 @@ function VoucherDetails_index({allBusinessData, selectedBusinessData}) {
 
 
                                 </div>
-                            </div>
+                            </div> */}
                         ) : null}
                     </div>
                     {/* < !--END tabs - content-- > */}

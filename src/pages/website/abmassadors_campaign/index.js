@@ -37,8 +37,16 @@ const AmbassadorsCampaignPage = () => {
   console.log('selectedBusinessData',selectedBusinessData)
   console.log('allBusinessData',allBusinessData)
 
-  const socialMediaOptions = [ { value: 'Facebook', label: 'Facebook' }, { value: 'Instagram', label: 'Instagram' }, { value: 'Youtube', label: 'Youtube' }, { value: 'TickTok', label: 'TickTok' }, ]
-  const businessOption =  allBusinessData?.map((business) => ({ value: business.id, label: business.bName, }));
+  const socialMediaOptions = [ 
+    { value: 'Facebook', label: 'Facebook' },
+     { value: 'Instagram', label: 'Instagram' }, 
+     { value: 'Youtube', label: 'Youtube' }, 
+     { value: 'TickTok', label: 'TickTok' }, 
+    ]
+
+  const businessOption =  allBusinessData?.map((business) => (
+    { value: business.id, label: business.bName, }
+    ));
 
   const [campaignType, setcampaignType] = useState(1);
   const [offer, setOffer] = useState();
@@ -58,7 +66,7 @@ const AmbassadorsCampaignPage = () => {
   const [isPublished, setIsPublished] = useState(true);
   // const [maxRedeem, setMaxRedeem] = useState(5000);
   const [businessIds, setBusinessIds] = useState([localStorage.getItem('businessId')]);
-  
+  const [campaindata, setCampaindata] = useState({});
 
   const buttonOption = (id) => { setcampaignType(id); };
   const handleDateChange = (date) => { setuntilDate(date); };
@@ -69,6 +77,7 @@ const AmbassadorsCampaignPage = () => {
   if(campainId && selectedBusinessData?.campaigns){
     const campaindata = selectedBusinessData?.campaigns?.find((x)=>x.id ==campainId)
     console.log("campaindata",campaindata)
+    setCampaindata(campaindata);
    if(campaindata){
     setcampaignType(campaindata.campaignType=='GiveAway' ? 1 : 2)
     setOffer(campaindata.offer)
@@ -78,10 +87,11 @@ const AmbassadorsCampaignPage = () => {
     setrequirement(campaindata.requirement)
     setprefferedPlatforms(campaindata.prefferedPlatforms)
     setSocialPlatforms(campaindata.prefferedPlatforms)
+    console.log("campaindata.prefferedPlatforms",campaindata.prefferedPlatforms)
     setphoto(campaindata.photo)
     setvideo(campaindata.video)
-   // setuntilDate(campaindata.untilDate)
-  //  setendDate(campaindata.endDate)
+    setuntilDate(new Date(campaindata.untilDate))
+    setendDate(new Date(campaindata.endDate))
     sethashtags(campaindata.hashtags)
     setpromoCode(campaindata.promoCode)
     setaudienceSize(campaindata.audienceSize)
@@ -92,9 +102,41 @@ const AmbassadorsCampaignPage = () => {
  },[])
    
 
-  const SocialComponent = ({prefferedPlatforms}) => (
-     <Select  onChange={handleSelectChange} closeMenuOnSelect={false} defaultValue={prefferedPlatforms} isMulti options={socialMediaOptions} styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }} /> 
-)
+//   const SocialComponent = () => (
+//     <Select  
+//     onChange={handleSelectChange} 
+//     closeMenuOnSelect={false}  
+//     defaultValue={socialPlatforms}
+//     isMulti options={socialMediaOptions} 
+//     styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }
+//     }
+//     /> 
+// )
+const SocialComponent = () => (
+  <Select
+    onChange={handleSelectChange}
+    closeMenuOnSelect={false}
+    // defaultValue={campaindata.prefferedPlatforms
+    //   ? campaindata.prefferedPlatforms.map((platform) =>
+    //       socialMediaOptions.find((option) => option.label === platform)
+    //     )
+    //   : socialPlatforms}
+    value={prefferedPlatforms.map((platform) =>
+      socialMediaOptions.find((option) => option.label === platform)
+    )}
+    isMulti
+    options={socialMediaOptions}
+    styles={{
+      control: (provided) => ({
+        ...provided,
+        minHeight: '40px !important',
+        backgroundColor: '#f7f7f7',
+        border: 'none',
+      }),
+    }}
+  />
+);
+
 
    const  handleSelectChange = (selectedOptions) => { 
     setSocialPlatforms(selectedOptions)
@@ -185,10 +227,13 @@ const navigate = useNavigate()
                <div className="col-12">
                   <div className="input-box">
                       <label htmlFor=" " className="label_text">Select Branch</label>
-                      <Select onChange={handleSelectBusiness} closeMenuOnSelect={false} isMulti
-                                        options={businessOption}
-                                        styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }}
-                                    /> 
+                      <Select onChange={handleSelectBusiness} 
+                      closeMenuOnSelect={false} 
+                      isMulti
+                      options={businessOption}
+                      styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }}
+                      
+                      /> 
                   </div>
                </div>
             </div>
@@ -243,7 +288,7 @@ const navigate = useNavigate()
                <div className="col-12">
                   <div className="input-box">
                       <label htmlFor=" " className="label_text">Preffered Social Media Platform</label>
-                      <SocialComponent prefferedPlatforms={prefferedPlatforms}/>
+                      <SocialComponent />
                   </div>
                </div>
             </div>

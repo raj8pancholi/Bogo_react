@@ -78,6 +78,7 @@ const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessDat
           <Route path='/userOtpVerify' element={<UserOtpVerify/>} />
           <Route path='/merchant_subscription' element={<MerchantSubscription/>} />
           <Route path='/dashboard' element={<Dashboard/>} />
+          <Route path='/merchant_campaign' element={<MerchantCampaign/>} />
           <Route path='/merchant_campaign/:voucherId' element={<MerchantCampaign/>} />
           <Route path='/review_campaign' element={<ReviewCampaign/>} />
           <Route path='/invite_influencer' element={<InviteInfluencer/>} />
