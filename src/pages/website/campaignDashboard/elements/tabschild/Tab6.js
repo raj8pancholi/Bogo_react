@@ -28,7 +28,7 @@ export default function Tab6({vouchers}) {
                 <div className="influencer_appli"></div>
                 </div>
                 <div className="col-6">
-                <div className="completed_redem_row">
+                <div className="completed_redem_row justify-content-start align-items-end ">
                 <div className="public_nowCampaign_row">
                     <button tyu="" className="public_nowCampaign_box">
                     Publish Now
