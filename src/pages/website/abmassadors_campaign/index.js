@@ -33,7 +33,7 @@ const AmbassadorsCampaignPage = () => {
   let { campainId } = useParams();
   const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);  
   const selectedBusinessData = useSelector((state) => state.merchantAuth.selectedBusinessData);  
-
+  const campaignList = useSelector((state) => state.merchantAuth.campaignList);  
   console.log('selectedBusinessData',selectedBusinessData)
   console.log('allBusinessData',allBusinessData)
 
@@ -74,9 +74,9 @@ const AmbassadorsCampaignPage = () => {
 
    
  useEffect(()=>{
-  if(campainId && selectedBusinessData?.campaigns){
-    const campaindata = selectedBusinessData?.campaigns?.find((x)=>x.id ==campainId)
-    console.log("campaindata",campaindata)
+  if(campainId && campaignList){
+    const campaindata = campaignList?.find((x)=>x.id ==campainId)
+    console.log("campaindata======",campaindata)
     setCampaindata(campaindata);
    if(campaindata){
     setcampaignType(campaindata.campaignType=='GiveAway' ? 1 : 2)
@@ -85,6 +85,7 @@ const AmbassadorsCampaignPage = () => {
     setCashIncentive(campaindata.cashIncentive)
     setallowedGuest(campaindata.allowedGuest)
     setrequirement(campaindata.requirement)
+    setBusinessIds(campaindata.business?.map((x)=>x.id))
     setprefferedPlatforms(campaindata.prefferedPlatforms)
     setSocialPlatforms(campaindata.prefferedPlatforms)
     console.log("campaindata.prefferedPlatforms",campaindata.prefferedPlatforms)
@@ -92,13 +93,13 @@ const AmbassadorsCampaignPage = () => {
     setvideo(campaindata.video)
     setuntilDate(new Date(campaindata.untilDate))
     setendDate(new Date(campaindata.endDate))
-    sethashtags(campaindata.hashtags)
+    sethashtags(campaindata.hashtags?.map((x)=>x.name))
     setpromoCode(campaindata.promoCode)
     setaudienceSize(campaindata.audienceSize)
    }
   }
   
- },[])
+ },[campaignList])
    
 
 //   const SocialComponent = () => (
@@ -164,7 +165,7 @@ const navigate = useNavigate()
 
 
  const SubmitCampaign=(status)=>{
-   const obj ={ campaignType:campaignType==1 ? "GiveAway":"Exclusive", offer, estimationSaving:estimationSaving, cashIncentive:parseInt(cashIncentive), allowedGuest:parseInt(2), requirement, prefferedPlatforms, photo, video, untilDate:untilDate.toISOString(), endDate:endDate.toISOString(), hashtags:[hashtags?.replace(/#/g, '')], promoCode, audienceSize:parseInt(audienceSize), isPublished:status,  businessIds}
+   const obj ={ ...(campainId ? { id: campainId } : {}), campaignType:campaignType==1 ? "GiveAway":"Exclusive", offer, estimationSaving:estimationSaving, cashIncentive:parseInt(cashIncentive), allowedGuest:parseInt(2), requirement, prefferedPlatforms, photo, video, untilDate:untilDate.toISOString(), endDate:endDate.toISOString(), hashtags:[hashtags?.replace(/#/g, '')], promoCode, audienceSize:parseInt(audienceSize), isPublished:status,  businessIds}
    console.log('obj1 ',obj)
    dispatch(CREATE_CAMPAIGN(obj ,status, navigate))
  }
@@ -228,6 +229,7 @@ const navigate = useNavigate()
                       <label htmlFor=" " className="label_text">Select Branch</label>
                       <Select onChange={handleSelectBusiness} 
                       closeMenuOnSelect={false} 
+                      value={businessOption.filter((option) => businessIds?.includes(option.value))}
                       isMulti
                       options={businessOption}
                       styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }}

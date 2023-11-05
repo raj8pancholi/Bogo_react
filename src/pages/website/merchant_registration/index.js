@@ -48,14 +48,18 @@ componentDidUpdate(prevProps, prevState) {
         cityId: businessInfo.businessData.state ,
         categoryId: businessInfo.businessData.categoryId ,
         subCategoryId: businessInfo.businessData.subCategoryId ,
-        logo: businessInfo.galleryData.logo,
+      //  logo: businessInfo.galleryData.logo,
         rating:businessInfo.businessData.rating,
-        banner: businessInfo.galleryData.bannerobj ,
-        gallery: businessInfo.galleryData.selectedImages ,
+      //  banner: businessInfo.galleryData.bannerobj ,
+      //  gallery: businessInfo.galleryData.selectedImages ,
         hoursOfOperation: reArrangeObj(businessInfo.businessData) ,
         latitude: businessInfo.businessData.latitude ,
         longitude: businessInfo.businessData.longitude ,
+        ...(businessInfo.galleryData.logo ? { logo: businessInfo.galleryData.logo } : {}),
+        ...( businessInfo.galleryData.bannerobj ? { banner: businessInfo.galleryData.bannerobj } : {}),
+         ...( businessInfo.galleryData.selectedImage ? { gallery: businessInfo.galleryData.selectedImages } : {}),
       }
+
 
       this.props.MERCHANT_BUSINESS(obj)
        this.props.navigate('/otpVerify')

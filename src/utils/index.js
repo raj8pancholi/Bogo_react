@@ -77,3 +77,16 @@ export const convertToAmPm = (timeStr) => {
   
     return time24h;
   }
+
+
+
+  export const getVoucherDetail = (voucherId, businessData) => {
+    for (const business of businessData) {
+      for (const voucher of business.vouchers) {
+        if (voucher.id === voucherId) {
+          return voucher;
+        }
+      }
+    }
+    return null;  
+  }

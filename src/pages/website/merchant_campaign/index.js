@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 // Import Css
 import './style.css';
@@ -12,9 +13,12 @@ import TabsComponents from './elements/TabsCompenent'; // Correct the import nam
 import CampaignHeader from './elements/CampaignHeader';
 import {SAVE_VOUCHER, CREATE_VOUCHER } from '../../../redux/slices/merchantAuthSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { getVoucherDetail } from '../../../utils';
 
 export default function Index() { // Renamed to start with an uppercase letter
  
+  let { voucherId } = useParams();
+
   const [offers ,setOffers] = useState(1)
   const [buy ,setBuy] = useState('')
   const [get ,setGet] = useState('')
@@ -28,13 +32,13 @@ export default function Index() { // Renamed to start with an uppercase letter
 
 
   // // Hours state
-  const [sundayState, setSundayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
-  const [mondayState, setMondayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
-  const [tuesdayState, setTuesdayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
-  const [wednesdayState, setWednesdayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
-  const [thursdayState, setThursdayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
-  const [fridayState, setFridayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
-  const [saturdayState, setSaturdayState] = useState({ status: false, openTime: '00:00', closeTime: '22:00', });
+  const [sundayState, setSundayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
+  const [mondayState, setMondayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
+  const [tuesdayState, setTuesdayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
+  const [wednesdayState, setWednesdayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
+  const [thursdayState, setThursdayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
+  const [fridayState, setFridayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
+  const [saturdayState, setSaturdayState] = useState({ status: false, openTime: '00:00', closeTime: '23:59', });
 
 
   const updateSunday = (act, ot, Ct) => {setSundayState({ ...sundayState, status: act, openTime: ot, closeTime: Ct, }) };
@@ -56,13 +60,16 @@ export default function Index() { // Renamed to start with an uppercase letter
   };
 
   const saveVoucher = useSelector((state) => state.merchantAuth.saveVoucher);
-  const allBusniessData = useSelector((state) => state.merchantAuth.allBusinessData);
+  const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);
   const holidayList = useSelector((state) => state.otherInfo.holidayList);
-  console.log('saveVoucher===', saveVoucher)
+  const voucherList = useSelector((state) => state.merchantAuth.voucherList);   
 
   
-  useEffect(() => {
-    setOffers(saveVoucher.offers)
+  useEffect(() => { 
+    console.log("saveVoucher",saveVoucher)
+    if(saveVoucher && Object.keys(saveVoucher).length > 0){
+      
+    setOffers( saveVoucher.offers=="BuyOneGetOne" ? 1 : saveVoucher.offers=="BuyXGetX" ? 2 :  saveVoucher.offers=="BuyBundleGetUnit" ? 3:'' )
     setBuy(saveVoucher.buy)
     setGet(saveVoucher.get)
     setEstSaving(saveVoucher.estSaving)
@@ -79,20 +86,53 @@ export default function Index() { // Renamed to start with an uppercase letter
     setThursdayState(saveVoucher.thursdayState)
     setFridayState(saveVoucher.fridayState)
     setSaturdayState(saveVoucher.saturdayState)
-    
+    }
 }, []);
+
+
+
+useEffect(()=>{ 
+  if(voucherId && voucherList){ 
+    const voucher = voucherList?.find((x)=>x.id ==voucherId)
+
+
+    if(voucher){ 
+      setOffers( voucher.voucherType=="BuyOneGetOne" ? 1 : voucher.voucherType=="BuyXGetX" ? 2 :  voucher.voucherType=="BuyBundleGetUnit" ? 3:'' )
+      setBuy(voucher.toBuy)
+      setGet(voucher.toGet)
+      setEstSaving(voucher.estimationSaving)
+      setExcludeWeekends(voucher.excludeWeekends)
+      setExcludePublicHolidays(voucher.excludePublicHolidays)
+      setBranch(voucher.business.map((x)=>x.id))
+      setFinePrint(voucher.finePrint)
+      setRedemption(voucher.maxRedeem)
+      setCustomizeTime(true)
+      updateSunday(voucher?.voucherTimings[0]?.isActive , voucher?.voucherTimings[0]?.startTime , voucher?.voucherTimings[0]?.endTime) 
+      updateMonday(voucher?.voucherTimings[1]?.isActive , voucher?.voucherTimings[1]?.startTime , voucher?.voucherTimings[1]?.endTime) 
+      updateTuesday(voucher?.voucherTimings[2]?.isActive , voucher?.voucherTimings[2]?.startTime , voucher?.voucherTimings[2]?.endTime) 
+      updateWednesday(voucher?.voucherTimings[3]?.isActive , voucher?.voucherTimings[3]?.startTime , voucher?.voucherTimings[3]?.endTime) 
+      updateThursday(voucher?.voucherTimings[4]?.isActive , voucher?.voucherTimings[4]?.startTime , voucher?.voucherTimings[4]?.endTime) 
+      updateFriday(voucher?.voucherTimings[5]?.isActive , voucher?.voucherTimings[5]?.startTime , voucher?.voucherTimings[5]?.endTime) 
+      updateSaturday(voucher?.voucherTimings[6]?.isActive , voucher?.voucherTimings[6]?.startTime , voucher?.voucherTimings[6]?.endTime) 
+    }
+      
+  }
+  
+ },[voucherList])
+
 
   const dispatch = useDispatch()
 
 
   const SaveVoucher=()=>{
-     const obj ={offers,buy, get, estSaving,excludeWeekends,  excludePublicHolidays, finePrint, branch, redemption,sundayState,mondayState,tuesdayState,wednesdayState,thursdayState,fridayState,saturdayState}
-     console.log('obj===', obj)
+     const obj ={offers: offers==1 ? "BuyOneGetOne": offers==2 ? "BuyXGetX":  offers==3 ? "BuyBundleGetUnit":''  ,buy, get, estSaving,excludeWeekends,  excludePublicHolidays, finePrint, branch, redemption,sundayState,mondayState,tuesdayState,wednesdayState,thursdayState,fridayState,saturdayState}
      dispatch(SAVE_VOUCHER(obj))
   }
 
-  const businessOptions = allBusniessData.map((business) => ({ value: business.id, label: business.bName, }));
+  const businessOptions = allBusinessData.map((business) => ({ value: business.id, label: business.bName, }));
 
+  const obj ={offers: offers==1 ? "BuyOneGetOne": offers==2 ? "BuyXGetX":  offers==3 ? "BuyBundleGetUnit":''  ,buy, get, estSaving,excludeWeekends,  excludePublicHolidays, finePrint, branch, redemption,sundayState,mondayState,tuesdayState,wednesdayState,thursdayState,fridayState,saturdayState}
+  console.log('obj===', obj)
 
   return (
 
@@ -168,9 +208,10 @@ export default function Index() { // Renamed to start with an uppercase letter
              customizeTime={customizeTime} setCustomizeTime={setCustomizeTime}
              setOffers={setOffers} offers={offers}
              SaveVoucher={SaveVoucher}
-             allBusniessData={allBusniessData}
+             allBusniessData={allBusinessData}
              businessOptions={businessOptions}
              holidayList={holidayList}
+             voucherId={voucherId}
             /> 
           </div>
         </div>

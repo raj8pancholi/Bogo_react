@@ -19,12 +19,29 @@ export default function Integration({branchId}) {
  const businessInfo = useSelector((state) => state.businessInfo);
   const [showGallery, setShowGallery] = useState(false);
 
-  const handleNextClick = () => { setShowGallery(!showGallery); };
+//  const handleNextClick = () => { setShowGallery(!showGallery); };
+
 
   const dispatch = useDispatch()
   const history = useNavigate()
 
   const nextStapReg=()=>{ history('/merchant_registration') }
+
+  const handleNextClick=()=>{  
+  const accessToken = 'IGQWRPOTdwZAUNFUDR1RXVxMTBjalhlMzQwSS1BdmJhSmdFalFkaGIxdENUaEFrbVFhbzdaOXVnZAnpld0FEQXh5d09ZAdjc0TnJTcERmd3oxdGlmWjEwQW1Mbmh6djl4Y0NtNDE0Y0c2bXRNQ2FtX2lqVzR6cmk0bmMZD';
+  const userId = 'artxcellent'; 
+  const endpoint = `https://graph.instagram.com/v12.0/${userId}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&access_token=${accessToken}`;
+  
+  fetch(endpoint)
+  .then((response) => response.json())
+  .then((data) => { 
+    console.log("data---pp",data);
+  })
+  .catch((error) => { 
+    console.error("----error======pp",error);
+  });
+
+   }
   
   
 
@@ -34,7 +51,7 @@ export default function Integration({branchId}) {
           ...(branchId ? { id: branchId } : {}),
           ...(businessInfo.galleryData.logo ? { logo: businessInfo.galleryData.logo } : {}),
           ...( businessInfo.galleryData.bannerobj ? { banner: businessInfo.galleryData.bannerobj } : {}),
-          // ...( businessInfo.galleryData.selectedImage ? { gallery: businessInfo.galleryData.selectedImages } : {}),
+           ...( businessInfo.galleryData.selectedImage ? { gallery: businessInfo.galleryData.selectedImages } : {}),
           bName: businessInfo.businessData.bName , 
           address: businessInfo.businessData.address ,
           countryId: businessInfo.businessData.country , 
@@ -46,8 +63,7 @@ export default function Integration({branchId}) {
           latitude: businessInfo.businessData.latitude ,
           longitude: businessInfo.businessData.longitude ,
         }
-        if(branchId){}
-   console.log("obj", obj)
+
         if (!obj.bName) TOAST_ERROR('Business name is required.')
         else if (!obj.address) TOAST_ERROR('Address is required.')
         else if (!obj.countryId) TOAST_ERROR('Country is required.')
@@ -63,14 +79,37 @@ export default function Integration({branchId}) {
       }
   }
 
+  function openLoginPopup(responseHandler) {
+    window.open(
+      'https://www.facebook.com/v12.0/dialog/oauth?' +
+        'client_id=1088597931155576' +
+        '&redirect_uri=http://localhost:3003/add_branch' +
+        '&scope=instagram_basic' +
+        '&response_type=token',
+      'popup',
+      'width=600,height=400'
+    );
   
-  
+    // Attach the response handler to the window for when the popup completes the login
+    window.responseHandler = responseHandler;
+  }
+
+  const responseFacebook = (response) => {
+    if (response.accessToken) {
+      // Handle the access token here
+      const accessToken = response.accessToken;
+      console.log(accessToken);
+    } else {
+      console.log("not connectinnnnnnnnnnn")
+    }
+  };
   return (
     <>
         <div className="row">
             <div className="col-12">
                 <div className="form_left_content_section">
                 <h4>Instagram</h4>
+                {/* <button onClick={() => openLoginPopup(responseFacebook)}>Login with Instagram</button> */}
                 <button className="form_facebook" onClick={handleNextClick} style={{ backgroundColor: '#029CAB' }}>Connect To Instagram</button>
                 </div>
             </div>

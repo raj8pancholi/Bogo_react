@@ -35,7 +35,7 @@ import ResetPassword from '../pages/website/newPassword/index'
 
 import Account from '../pages/website/account/index';
 import { useDispatch, useSelector } from 'react-redux';
-import { GET_ALL_BUSINESS_DETAILS, SELECTED_BUSINESS_DATA } from '../redux/slices/merchantAuthSlice';
+import { GET_ALL_BUSINESS_DETAILS, GET_BUSINESS_CAMPAIGN, GET_BUSINESS_VOUCHER, SELECTED_BUSINESS_DATA } from '../redux/slices/merchantAuthSlice';
 
 
 
@@ -44,6 +44,7 @@ const history = useNavigate()
 const dispatch = useDispatch(); 
 const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);  
 
+ 
   useEffect(() => { 
     return () => {
      if(localStorage.getItem('token') && localStorage.getItem('isLogin')){
@@ -51,6 +52,12 @@ const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessDat
       if(!localStorage.getItem('activeBusiness') && allBusinessData && allBusinessData.length){ 
           localStorage.setItem('activeBusiness',allBusinessData[0].id) 
           dispatch(SELECTED_BUSINESS_DATA(allBusinessData[0]))
+          dispatch(GET_BUSINESS_VOUCHER(allBusinessData[0].id))
+          dispatch(GET_BUSINESS_CAMPAIGN(allBusinessData[0].id))
+          
+      }else{
+        dispatch(GET_BUSINESS_VOUCHER(localStorage.getItem('activeBusiness')))
+        dispatch(GET_BUSINESS_CAMPAIGN(localStorage.getItem('activeBusiness')))
       } 
       if(window.location.pathname.includes('merchant_register') || window.location.pathname.includes('login') ){
         console.log("heloooo")
@@ -86,6 +93,7 @@ const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessDat
           <Route path='/dashboard' element={<Dashboard/>} />
           <Route path='/merchant_campaign' element={<MerchantCampaign/>} />
           <Route path='/merchant_campaign/:voucherId' element={<MerchantCampaign/>} />
+          <Route path='/review_campaign/:voucherId' element={<ReviewCampaign/>} />
           <Route path='/review_campaign' element={<ReviewCampaign/>} />
           <Route path='/invite_influencer' element={<InviteInfluencer/>} />
           <Route path='/ambassdors_compaign' element={<AbmassdorsCampaign/>} />

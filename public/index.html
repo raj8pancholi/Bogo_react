@@ -28,7 +28,13 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css"
   />
 
-
+  <script>
+    // Extract the access token from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const accessToken = urlParams.get('access_token');
+    window.opener.responseHandler({ accessToken });
+    window.close();
+  </script>
   <!-- boostrap table 4 -->
   <link
       rel="stylesheet"
