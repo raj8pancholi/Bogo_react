@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 // Import Components
 import Header1 from '../../../partials/header/Header1';
 import Footer from '../../../partials/footer/Footer';
+import { useParams } from 'react-router-dom';
 
 
 import CampaignHeader from './elements/CampaignHeader';
@@ -18,11 +19,13 @@ import { CREATE_VOUCHER } from '../../../redux/slices/merchantAuthSlice';
 export default function ReviewCampaign() {
     const dispatch = useDispatch()
     const saveVoucher = useSelector((state) => state.merchantAuth.saveVoucher);
-
+  let { voucherId } = useParams();
+   
 const submitCampaign =(status)=>{
     
     const obj={
-        voucherType:'BuyOneGetOne',
+        ...(voucherId ? { id: voucherId } : {}),
+        voucherType:saveVoucher.offers,
         toBuy:saveVoucher.buy,
         toGet:saveVoucher.get,
         estimationSaving:saveVoucher.estSaving,

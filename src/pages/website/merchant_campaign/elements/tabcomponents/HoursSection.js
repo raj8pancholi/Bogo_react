@@ -69,7 +69,7 @@ export default function HoursSection(props) {
         <label htmlFor="inputhours" className="inputhours">Hours of Operation</label>
         <div className="row ">
             <div className="col-12 day-box day-box1">
-                <span>Sunday </span> {sundayState.openTime} {sundayState.closeTime}
+                <span>Sunday </span> 
                 <label className="switch">
                     <input type="checkbox" checked={sundayState.status} onClick={()=> updateSunday(!(sundayState.status), sundayState.openTime, sundayState.closeTime)}  />
                     <span className="slider round"></span>
@@ -84,19 +84,9 @@ export default function HoursSection(props) {
                         <div className="col-5">
                             <input type="time" className="form-control" name="sunday_from" value={sundayState.openTime} placeholder="7:00 AM" onChange={(e)=> updateSunday(sundayState.status, e.target.value, sundayState.closeTime )}/>
                         </div>
-                        <div className="col-2 text-center to-text">
-                        To
-                        </div>
+                        <div className="col-2 text-center to-text"> To </div>
                         <div className="col-5 pr-0">
-                        <input
-                            type="time"
-                            className="form-control"
-                            name="sunday_to"
-                            value={sundayState.closeTime}
-                            placeholder="10:30 PM"
-                            onChange={(e) => handleTimeChange(sundayState, e.target.value, false, setSundayToValue)}
-                        />
-
+                            <input type="time" className="form-control" name="sunday_to" value={sundayState.closeTime} placeholder="10:30 PM" onChange={(e) => handleTimeChange(sundayState, e.target.value, false, setSundayToValue)} />
                         </div>
                     </div>
                 </div>
@@ -122,15 +112,11 @@ export default function HoursSection(props) {
                 <div className="hour-box hour-box2">
                     <div className="row">
                         <div className="col-5">
-                            <input type="time" className="form-control" name="monday_from" placeholder="7:00 AM" onChange={(e)=> updateMonday(mondayState.status, e.target.value, mondayState.closeTime )}/>
+                            <input type="time" className="form-control" name="monday_from" placeholder="7:00 AM" value={mondayState.openTime} onChange={(e)=> updateMonday(mondayState.status, e.target.value, mondayState.closeTime )}/>
                         </div>
-                        <div className="col-2 text-center to-text">
-                        To
-                        </div>
+                        <div className="col-2 text-center to-text"> To </div>
                         <div className="col-5 pr-0">
-                        <input type="time" className="form-control" name="monday_to" placeholder="10:30 PM" 
-                        value={mondayToValue}
-                        onChange={(e) => handleTimeChange(mondayState, e.target.value, false, setMondayToValue)}/>
+                        <input type="time" className="form-control" name="monday_to" placeholder="10:30 PM" value={mondayState.closeTime} onChange={(e) => handleTimeChange(mondayState, e.target.value, false, setMondayToValue)}/>
                         </div>
                     </div>
                 </div>
@@ -157,16 +143,11 @@ export default function HoursSection(props) {
                 <div className="hour-box hour-box3">
                     <div className="row">
                     <div className="col-5">
-                        <input type="time" className="form-control" name="tuesday_from" placeholder="7:00 AM"  onChange={(e)=> updateTuesday(tuesdayState.status, e.target.value, tuesdayState.closeTime )}/>
+                        <input type="time" className="form-control" name="tuesday_from" placeholder="7:00 AM" value={tuesdayState.openTime} onChange={(e)=> updateTuesday(tuesdayState.status, e.target.value, tuesdayState.closeTime )}/>
                     </div>
-                    <div className="col-2 text-center to-text">
-                        To
-                    </div>
+                    <div className="col-2 text-center to-text"> To </div>
                     <div className="col-5 pr-0">
-                        <input type="time" className="form-control" name="tuesday_to" placeholder="10:30 PM"
-                        value={tuesdayToValue}
-                        
-                        onChange={(e) => handleTimeChange(tuesdayState, e.target.value, false, setTuesdayToValue)}/>
+                        <input type="time" className="form-control" name="tuesday_to" value={tuesdayState.closeTime} onChange={(e) => handleTimeChange(tuesdayState, e.target.value, false, setTuesdayToValue)}/>
                        
                     </div>
                     </div>
@@ -196,17 +177,11 @@ export default function HoursSection(props) {
                 <div className="hour-box hour-box4">
                     <div className="row">
                         <div className="col-5">
-                            <input type="time" className="form-control" name="wednesday_from" placeholder="7:00 AM"  onChange={(e)=> updateWednesday(wednesdayState.status, e.target.value, wednesdayState.closeTime )}/>
+                            <input type="time" className="form-control" name="wednesday_from" placeholder="7:00 AM" value={wednesdayState.openTime}   onChange={(e)=> updateWednesday(wednesdayState.status, e.target.value, wednesdayState.closeTime )}/>
                         </div>
-                        <div className="col-2 text-center to-text">
-                            To
-                        </div>
+                        <div className="col-2 text-center to-text"> To </div>
                         <div className="col-5 pr-0">
-                            <input type="time" className="form-control" name="wednesday_to" placeholder="10:30 PM"  
-                            value={wednesdayToValue}
-                            onChange={(e) => handleTimeChange(wednesdayState, e.target.value, false, setWednesdayToValue)}
-
-                            />
+                            <input type="time" className="form-control" name="wednesday_to" placeholder="10:30 PM" value={wednesdayState.closeTime} onChange={(e) => handleTimeChange(wednesdayState, e.target.value, false, setWednesdayToValue)} />
                         </div>
                     </div>
                 </div>
@@ -231,14 +206,11 @@ export default function HoursSection(props) {
                 <div className="hour-box hour-box5">
                     <div className="row">
                         <div className="col-5">
-                            <input type="time" className="form-control" name="thursday_from" placeholder="7:00 AM"  onChange={(e)=> updateThursday(thursdayState.status, e.target.value, thursdayState.closeTime )}/>
+                            <input type="time" className="form-control" name="thursday_from" placeholder="7:00 AM" value={thursdayState.openTime} onChange={(e)=> updateThursday(thursdayState.status, e.target.value, thursdayState.closeTime )}/>
                         </div>
-                        <div className="col-2 text-center to-text">
-                            To
-                        </div>
+                        <div className="col-2 text-center to-text"> To </div>
                         <div className="col-5 pr-0">
-                            <input type="time" className="form-control" name="thursday_to" placeholder="10:30 PM"  
-                            onChange={(e)=> updateThursday(thursdayState.status, thursdayState.openTime, e.target.value )}/>
+                            <input type="time" className="form-control" name="thursday_to" placeholder="10:30 PM" value={thursdayState.closeTime} onChange={(e)=> updateThursday(thursdayState.status, thursdayState.openTime, e.target.value )}/>
                         </div>
                     </div>
                 </div>
@@ -264,16 +236,11 @@ export default function HoursSection(props) {
                 <div className="hour-box hour-box6">
                     <div className="row">
                     <div className="col-5">
-                        <input type="time" className="form-control" name="friday_from" placeholder="7:00 AM"  onChange={(e)=> updateFriday(fridayState.status, e.target.value, fridayState.closeTime )}/>
+                        <input type="time" className="form-control" name="friday_from" placeholder="7:00 AM" value={fridayState.openTime} onChange={(e)=> updateFriday(fridayState.status, e.target.value, fridayState.closeTime )}/>
                     </div>
-                    <div className="col-2 text-center to-text">
-                        To
-                    </div>
+                    <div className="col-2 text-center to-text"> To </div>
                     <div className="col-5 pr-0">
-                        <input type="time" className="form-control" name="friday_to" placeholder="10:30 PM" 
-                        value={fridayToValue}
-                         onChange={(e) => handleTimeChange(fridayState, e.target.value, false, setFridayToValue)}
-                         />
+                        <input type="time" className="form-control" name="friday_to" placeholder="10:30 PM" value={fridayState.closeTime} onChange={(e) => handleTimeChange(fridayState, e.target.value, false, setFridayToValue)} />
                     </div>
                     </div>
                 </div>
@@ -301,17 +268,11 @@ export default function HoursSection(props) {
                 <div className="hour-box hour-box7">
                     <div className="row">
                         <div className="col-5">
-                            <input type="time" className="form-control" name="saturday_from" placeholder="7:00 AM"  onChange={(e)=> updateSaturday(saturdayState.status, e.target.value, saturdayState.closeTime )}/>
+                            <input type="time" className="form-control" name="saturday_from" placeholder="7:00 AM" value={saturdayState.openTime} onChange={(e)=> updateSaturday(saturdayState.status, e.target.value, saturdayState.closeTime )}/>
                         </div>
-                        <div className="col-2 text-center to-text">
-                            To
-                        </div>
+                        <div className="col-2 text-center to-text"> To </div>
                         <div className="col-5 pr-0">
-                            <input type="time" className="form-control" name="saturday_to" placeholder="10:30 PM"
-                            value={saturdayToValue}
-                            onChange={(e) => handleTimeChange(saturdayState, e.target.value, false, setSaturdayToValue)}
-
-                            />
+                            <input type="time" className="form-control" name="saturday_to" placeholder="10:30 PM" value={saturdayState.closeTime} onChange={(e) => handleTimeChange(saturdayState, e.target.value, false, setSaturdayToValue)} />
                         </div>
                     </div>
                 </div>

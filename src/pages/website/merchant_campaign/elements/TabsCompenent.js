@@ -21,10 +21,9 @@ import HoursSection from '../elements/tabcomponents/HoursSection.js';
 
 
 export default function TabsCompenent(props) {
-  const {buy, setBuy, get, setGet, estSaving, setEstSaving, branch, setBranch, holidayList,
+  const {buy, setBuy, get, setGet, estSaving, setEstSaving, branch, setBranch, holidayList, voucherId,
     finePrint,setFinePrint, redemption, setRedemption, daysState , setOffers ,businessOptions, offers, excludeWeekends, setExcludeWeekends , excludePublicHolidays , setExcludePublicHolidays, customizeTime, setCustomizeTime, SaveVoucher
   } = props
-
 
   
   const [inputValue, setInputValue] = useState('');
@@ -85,14 +84,14 @@ updateSaturday(status, saturdayState?.openTime, saturdayState?.closeTime)
 
   const handleExcludeWeekends=(status)=>{
     setExcludeWeekends(status)
-setAllday(status ? false: false)
-updateSunday(status ? false: false, sundayState?.openTime, sundayState?.closeTime) 
-updateMonday(status ? true: false, mondayState?.openTime, mondayState?.closeTime) 
-updateTuesday(status ? true: false, tuesdayState?.openTime, tuesdayState?.closeTime) 
-updateWednesday(status ? true: false, wednesdayState?.openTime, wednesdayState?.closeTime) 
-updateThursday(status ? true: false, thursdayState?.openTime, thursdayState?.closeTime) 
-updateFriday(status ? true: false, fridayState?.openTime, fridayState?.closeTime) 
-updateSaturday(status ? false: false, saturdayState?.openTime, saturdayState?.closeTime)  
+    setAllday(status ? false: false)
+    updateSunday(status ? false: false, sundayState?.openTime, sundayState?.closeTime) 
+    updateMonday(status ? true: false, mondayState?.openTime, mondayState?.closeTime) 
+    updateTuesday(status ? true: false, tuesdayState?.openTime, tuesdayState?.closeTime) 
+    updateWednesday(status ? true: false, wednesdayState?.openTime, wednesdayState?.closeTime) 
+    updateThursday(status ? true: false, thursdayState?.openTime, thursdayState?.closeTime) 
+    updateFriday(status ? true: false, fridayState?.openTime, fridayState?.closeTime) 
+    updateSaturday(status ? false: false, saturdayState?.openTime, saturdayState?.closeTime)  
   }
 
   const handleSelectChange = (selectedOptions) => { const selectedIds = selectedOptions.map(option => option.value); setBranch(selectedIds); };
@@ -135,6 +134,7 @@ updateSaturday(status ? false: false, saturdayState?.openTime, saturdayState?.cl
                                     <label htmlFor=" " className="label_text">Select Branch</label>
                                     {/* <MyComponent  /> */}
                                     <Select onChange={handleSelectChange} closeMenuOnSelect={false} isMulti
+                                    value={businessOptions.filter((option) => branch?.includes(option.value))}
                                         options={businessOptions}
                                         styles={{ control: (provided) => ({ ...provided, minHeight: '40px !important', backgroundColor: '#f7f7f7', border: 'none', }), }}
                                     /> 
@@ -210,7 +210,9 @@ updateSaturday(status ? false: false, saturdayState?.openTime, saturdayState?.cl
                           <div className="row review_submit_btn_row">
                               <div className="next-btn-box review_submit_btn_box tab-pane active" >
                                   <button type="button" className="btn btn-primary btnNext review_submit_btn" onClick={SaveVoucher}>
-                                      <Link to="/review_campaign">Review and Submit</Link>
+                                     {voucherId ? <Link to={`/review_campaign/${voucherId}`}>Review and Submit</Link> :
+                                     <Link to="/review_campaign">Review and Submit</Link> }
+                                       
                                   </button>
                               </div>
                           </div>

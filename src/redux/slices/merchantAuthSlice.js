@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import {CreateMerchant,BusinessMerchant , LoginMerchant, VerifyOtp, RequestOtp, ResetPassword , AllBusinessDetails, CampaignCreate, VoucherCreate, getBusinessVoucher}  from "../services/marchantAuthServices";
+import {CreateMerchant,BusinessMerchant , LoginMerchant, VerifyOtp, RequestOtp, ResetPassword , AllBusinessDetails, CampaignCreate, VoucherCreate, getBusinessVoucher, getBusinessCampaign}  from "../services/marchantAuthServices";
 import { TOAST_ERROR, TOAST_SUCCESS } from '../../utils';
  
 
@@ -209,6 +209,19 @@ export const GET_BUSINESS_VOUCHER = createAsyncThunk(
 );
 
 
+export const GET_BUSINESS_CAMPAIGN = createAsyncThunk(
+  'merchant/GET_BUSINESS_VOUCHER',
+  async (id) => {
+      try {
+        const res = await getBusinessCampaign(id);  
+        return res.data;
+        
+      } catch (error) {
+         
+      }
+  }
+);
+
 export const SAVE_VOUCHER = createAsyncThunk( "merchant/SAVE_VOUCHER", (data) => { 
   
 
@@ -218,7 +231,7 @@ export const SAVE_CAMPAIGN = createAsyncThunk( "merchant/SAVE_CAMPAIGN", (data) 
 
 const marchantAuthSlice = createSlice({
   name: 'merchant',
-  initialState: { merchantData: [], signUpError:'', loginError:'', businessApi:false , allBusinessData:[], selectedBusinessData:[], campaign:[], voucher:[] , voucherList:[] , saveCampaign:[], saveVoucher:[]},
+  initialState: { merchantData: [], signUpError:'', loginError:'', businessApi:false , allBusinessData:[], selectedBusinessData:[], campaign:[], voucher:[] , voucherList:[] ,  campaignList:[] , saveCampaign:[], saveVoucher:[]},
   reducers: {},
   extraReducers:{
 
@@ -278,6 +291,10 @@ const marchantAuthSlice = createSlice({
     },
     [GET_BUSINESS_VOUCHER.fulfilled]: (state, action) => { 
       state.voucherList = action.payload;
+    },
+
+    [GET_BUSINESS_CAMPAIGN.fulfilled]: (state, action) => { 
+      state.campaignList = action.payload;
     },
     
 
