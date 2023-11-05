@@ -109,7 +109,7 @@ export default function Integration({branchId}) {
             <div className="col-12">
                 <div className="form_left_content_section">
                 <h4>Instagram</h4>
-                <button onClick={() => openLoginPopup(responseFacebook)}>Login with Instagram</button>
+                {/* <button onClick={() => openLoginPopup(responseFacebook)}>Login with Instagram</button> */}
                 <button className="form_facebook" onClick={handleNextClick} style={{ backgroundColor: '#029CAB' }}>Connect To Instagram</button>
                 </div>
             </div>
