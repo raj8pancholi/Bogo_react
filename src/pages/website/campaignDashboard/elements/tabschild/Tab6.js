@@ -8,7 +8,7 @@ export default function Tab6({vouchers}) {
     <>
         <div id="tab6" className="tab-content1">
         {vouchers?.map((item, i)=>{    
-            return  !item.isPublished?  
+            return  !item.isPublished && !item.isActive?  
             <div className="row">
                 <div className="col-6">
                 <div className="offerLabel">

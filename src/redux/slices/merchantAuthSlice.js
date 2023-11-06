@@ -157,7 +157,7 @@ export const CREATE_CAMPAIGN = createAsyncThunk(
       try {
         const res = await CampaignCreate(data);
         localStorage.setItem("activeCampaing",res.data.id)
-        if(res?.isPublished) TOAST_SUCCESS("Campaign created successfully!")
+        if(res.data?.isPublished) TOAST_SUCCESS("Campaign created successfully!")
         else  TOAST_SUCCESS("Campaign save in draft successfully!") 
         history('/invite_influencer')
         return res.data;
