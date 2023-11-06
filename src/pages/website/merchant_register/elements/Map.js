@@ -14,17 +14,23 @@ class GoogleMap extends Component {
     
   
   onMapClick = (mapProps, map, clickEvent) => {
+    const { setMapdata, setlatitude, setlongitude } = this.props;
     const { latLng } = clickEvent;
     const lat = latLng.lat();
     const lng = latLng.lng();
     this.setState({ mapLat:lat, mapLong: lng});
+    setlatitude(lat);
+    setlongitude(lng);
   };
 
   onMarkerDragend = (markerProps, marker, dragEvent) => {
+    const { setMapdata, setlatitude, setlongitude } = this.props;
     const { latLng } = dragEvent;
     const lat = latLng.lat();
     const lng = latLng.lng();
     this.setState({ mapLat:lat, mapLong: lng});
+    setlatitude(lat);
+    setlongitude(lng);
   };
 
 
