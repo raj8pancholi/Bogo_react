@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useNavigate } from 'react-router-dom';
 import 'react-phone-input-2/lib/style.css';
 import PhoneInput from 'react-phone-input-2';
 import { useDispatch } from 'react-redux';
 import { USER_SIGNUP } from '../../../redux/slices/userAuthSlice';
+import { MERCHANT_REQUEST_OTP } from '../../../redux/slices/merchantAuthSlice'; 
 import { TOAST_ERROR} from '../../../utils';
 
 // Import Header and Footer Components
@@ -36,24 +37,26 @@ export default function MerchantRegistration() {
     setRePasswordVisible(!rePasswordVisible);
   };
 
-  const handleSubmit=(e)=>{  
+  const handleSubmit = (e) => {  
     e.preventDefault();
-    console.log(phone,"", firstName,"", lastName,"", email,"", password,"", repeatPassword,"")
-
-    if(!email || !password || !firstName || !lastName || !phone) { 
+    
+    if (!email || !password || !firstName || !lastName || !phone) { 
       TOAST_ERROR('You must fill in all of the fields')
-    }
-    else{ 
-      if( password ===  repeatPassword ){
-        const obj ={ firstName, lastName, email, password, phone} 
-        dispatch(USER_SIGNUP(obj))
-        history('/appUserOtpVerify') 
-
-      }else{
-        TOAST_ERROR('Passwords do not match. Please try again')
+    } else { 
+      if (password === repeatPassword) {
+        const obj = { firstName, lastName, email, password, phone };
+        dispatch(USER_SIGNUP(obj)).then(() => {
+          // Dispatch the OTP request after successful user signup
+          dispatch(MERCHANT_REQUEST_OTP({ email }));
+          history('/appUserOtpVerify');
+        });
+      } else {
+        TOAST_ERROR('Passwords do not match. Please try again');
       }
     }
   }
+  
+
 
   return (
     <>
