@@ -35,7 +35,6 @@ const AmbassadorsCampaignPage = () => {
   const selectedBusinessData = useSelector((state) => state.merchantAuth.selectedBusinessData);  
   const campaignList = useSelector((state) => state.merchantAuth.campaignList);  
   console.log('selectedBusinessData',selectedBusinessData)
-  console.log('allBusinessData',allBusinessData)
 
   const socialMediaOptions = [ 
     { value: 'Facebook', label: 'Facebook' },

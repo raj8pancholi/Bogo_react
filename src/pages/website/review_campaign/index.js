@@ -36,6 +36,7 @@ const submitCampaign =(status)=>{
         maxRedeem:saveVoucher.redemption,
         voucherTimings: reArrangeObj(saveVoucher) ,
         isPublished:status,
+        isActive:true,
         businessIds:saveVoucher.branch,
     }
 
