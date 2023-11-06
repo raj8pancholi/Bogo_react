@@ -112,7 +112,7 @@ return (
         console.log("endDate", endDate, today);
         const isActive = today >= startDate && today <= endDate;
 
-        return item.isPublished ? (
+        return item.isPublished && item.isActive ? (
           <div className="row" key={i}>
             <div className="col-6 d-flex flex-column justify-content-between">
               <div className="offerLabel">

@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import {CreateUser}  from "../services/userAuthServices";
+import { RequestOtp }  from "../services/marchantAuthServices";
 import { TOAST_ERROR, TOAST_SUCCESS } from '../../utils';
  
 
@@ -11,9 +12,10 @@ export const USER_SIGNUP = createAsyncThunk(
     try {
       const res = await CreateUser(data);
 
-      console.log(res.data + 'signup user data from slice');
+      console.log('signup user data from slice',res);
       localStorage.setItem('token', res.data?.tokens.access.token)
       localStorage.setItem('userMail', res.data?.user.email)
+
       return res.data;
     } catch (error) { 
       if (error.response.data.code === 401 || error.response.data.code === 400) {
@@ -23,6 +25,26 @@ export const USER_SIGNUP = createAsyncThunk(
       else  throw new Error("An unexpected error occurred"); 
     }
   }
+);
+
+
+export const MERCHANT_REQUEST_OTP = createAsyncThunk(
+  "merchant/MERCHANT_REQUEST_OTP",
+  async (data) => { 
+    console.log(data.email + 'request otp data from slicessssss');
+  try {
+    console.log(data.email + 'request otp data from slice');
+    const res = await RequestOtp(data);
+    TOAST_SUCCESS('OTP sent successfully! Check your email.')
+    return res.data;
+  } catch (error) {  
+    if (error.response.status === 401) {
+      TOAST_ERROR(error.response.data.message)
+       throw new Error(error.response.data.message)
+    }
+    else  throw new Error("An unexpected error occurred"); 
+  }
+}
 );
 
 

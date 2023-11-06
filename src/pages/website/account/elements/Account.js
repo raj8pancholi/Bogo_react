@@ -1,5 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect  } from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux';
+// import { GET_USER_PROFILE } from '../redux/yourSlice';
+import {GET_USER_PROFILE , CHANGE_PASSWORD } from '../../../../redux/slices/otherSlice';
+import { toast } from 'react-toastify';
 
 
 
@@ -8,6 +12,43 @@ import VerifyOtp from './OtpVerifyInput';
 
 
 function AccountPageBody() {
+
+    const dispatch = useDispatch();
+    const userProfileData = useSelector((state) => state.otherInfo.userProfileData);
+
+    const [passwordForm, setPasswordForm] = useState({
+        oldPassword: '',
+        newPassword: '',
+        confirmPassword: '',
+    });
+
+    const [formValues, setFormValues] = useState({
+        name: '',
+        email: '',
+        password: '',
+        mobile: '',
+    });
+
+    useEffect(() => {
+        // Dispatch your Redux action to make the API request
+        dispatch(GET_USER_PROFILE())
+            .then((response) => {
+                console.log('User Profile Data:', response.payload);
+                if (response.payload) {
+                    const { firstName, lastName, email, phone } = response.payload;
+                    setFormValues({
+                        name: `${firstName} ${lastName}`,
+                        email: email,
+                        mobile: phone,
+                        password: '', 
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error('Error fetching user profile data:', error);
+            });
+    }, [dispatch]);
+    
 
     const [Colaps, setColaps] = useState(false);
     const colapsbtn = (data) => {
@@ -48,6 +89,26 @@ function AccountPageBody() {
         setOtpVisible(!otpVisible);
     };
 
+    const handleChangePassword = async () => {
+        const { oldPassword, newPassword, confirmPassword } = passwordForm;
+        console.log('passwordFormmmmmm', passwordForm);
+    
+        if (newPassword !== confirmPassword) {
+            toast.error("New password and confirm password do not match.");
+          return;
+        }
+    
+        try {
+           const response = await dispatch(CHANGE_PASSWORD({ oldPassword, newPassword }));
+           console.log('response', response);
+           toast.success(response.payload.msg);
+        } catch (error) {
+            toast.error("Error changing password. Please try again.");
+        }
+      };
+
+    
+
 
     return (
         <>
@@ -74,7 +135,7 @@ function AccountPageBody() {
                                     <div className="col-12">
                                         <div className="input-box ">
                                             <label for="">Owner/ Manager Information</label>
-                                            <input type="text" name="name" id="name" className="form-control" required="" placeholder="John Doe" />
+                                            <input type="text" name="name" id="name" className="form-control" required="" placeholder="John Doe" value={formValues.name} onChange={(e) => setFormValues({ ...formValues, name: e.target.value })}  />
                                         </div>
                                     </div>
                                 </div>
@@ -83,12 +144,12 @@ function AccountPageBody() {
                                     <div className="col-12">
                                         <div className="input-box ">
                                             <label for="">Email Address</label>
-                                            <input type="email" name="name" id="name" className="form-control" required placeholder="johndoe@gmail.com" />
+                                            <input type="email" name="name" id="name" className="form-control" required placeholder="johndoe@gmail.com" value={formValues.email} onChange={(e) => setFormValues({ ...formValues, email: e.target.value })} />
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="row ">
+                                {/* <div className="row ">
                                     <div className="col-12" >
                                         <div className="input-box " style={{ position: "relative" }}>
                                             <label for="">Password</label>
@@ -101,7 +162,7 @@ function AccountPageBody() {
                                         </div>
 
                                     </div>
-                                </div>
+                                </div> */}
 
 
                                 <div className="row">
@@ -114,6 +175,8 @@ function AccountPageBody() {
                                                 className="form-control"
                                                 placeholder="Phone Number"
                                                 name="mobile"
+                                                value={formValues.mobile}
+                                                onChange={(e) => setFormValues({ ...formValues, mobile: e.target.value })}
                                             />
                                         </div>
                                     </div>
@@ -189,7 +252,10 @@ function AccountPageBody() {
                                                 <div className="col-12" >
                                                     <div className="input-box " >
                                                         <label for="">Current Password</label>
-                                                        <input type={Visible2 ? "text" : "password"} className="current_password form-control" id="" name="" placeholder="Current Password" required="" />
+                                                        <input type={Visible2 ? "text" : "password"} className="current_password form-control" id="" name="" placeholder="Current Password" required=""
+                                                        value={passwordForm.oldPassword}
+                                                        onChange={(e) => setPasswordForm({ ...passwordForm, oldPassword: e.target.value })}
+                                                        />
                                                         <i
                                                             className={`fa-solid ${Visible2 ? 'fa-eye' : 'fa-eye-slash'} eyes-toggle-password`}
 
@@ -200,7 +266,11 @@ function AccountPageBody() {
                                                 <div className="col-12" >
                                                     <div className="input-box " style={{ position: "relative" }}>
                                                         <label for="new_password">New Password</label>
-                                                        <input type={Visible3 ? "text" : "password"} className="form-control new_password" id="new_password" name="new_password" placeholder="New Password" required="" />
+                                                        <input type={Visible3 ? "text" : "password"} className="form-control new_password" id="new_password" name="new_password" placeholder="New Password" required="" 
+                                                        value={passwordForm.newPassword}
+                                                        onChange={(e) => setPasswordForm({ ...passwordForm, newPassword: e.target.value })}
+
+                                                        />
                                                         <i
                                                             className={`fa-solid ${Visible3 ? 'fa-eye' : 'fa-eye-slash'} eyes-toggle-password`}
 
@@ -211,7 +281,11 @@ function AccountPageBody() {
                                                 <div className="col-12" >
                                                     <div className="input-box " style={{ position: "relative" }}>
                                                         <label for="confirm_password">Confirm Password</label>
-                                                        <input type={Visible4 ? "text" : "password"} className="form-control conf_password" id="confirm_password " name="confirm_password" placeholder="Confirm Password" required="" />
+                                                        <input type={Visible4 ? "text" : "password"} className="form-control conf_password" id="confirm_password " name="confirm_password" placeholder="Confirm Password" required="" 
+                                                        value={passwordForm.confirmPassword}
+                                                        onChange={(e) => setPasswordForm({ ...passwordForm, confirmPassword: e.target.value })}
+
+                                                        />
                                                         <i
                                                             className={`fa-solid ${Visible4 ? 'fa-eye' : 'fa-eye-slash'} eyes-toggle-password`}
 
@@ -222,7 +296,9 @@ function AccountPageBody() {
 
                                                 <div className="col-12">
                                                     <div className="input-box">
-                                                        <button type="button" className="btn btn-primary btnNext change_pass_btn">
+                                                        <button type="button" className="btn btn-primary btnNext change_pass_btn"
+                                                        onClick={handleChangePassword}
+                                                        >
                                                             Change Password
                                                         </button>
                                                     </div>

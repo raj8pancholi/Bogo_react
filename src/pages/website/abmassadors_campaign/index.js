@@ -35,7 +35,6 @@ const AmbassadorsCampaignPage = () => {
   const selectedBusinessData = useSelector((state) => state.merchantAuth.selectedBusinessData);  
   const campaignList = useSelector((state) => state.merchantAuth.campaignList);  
   console.log('selectedBusinessData',selectedBusinessData)
-  console.log('allBusinessData',allBusinessData)
 
   const socialMediaOptions = [ 
     { value: 'Facebook', label: 'Facebook' },
@@ -93,7 +92,7 @@ const AmbassadorsCampaignPage = () => {
     setvideo(campaindata.video)
     setuntilDate(new Date(campaindata.untilDate))
     setendDate(new Date(campaindata.endDate))
-    sethashtags(campaindata.hashtags?.map((x)=>x.name))
+    sethashtags(campaindata.hashtags?.map((x)=>x.name)?.toString())
     setpromoCode(campaindata.promoCode)
     setaudienceSize(campaindata.audienceSize)
    }
@@ -165,7 +164,7 @@ const navigate = useNavigate()
 
 
  const SubmitCampaign=(status)=>{
-   const obj ={ ...(campainId ? { id: campainId } : {}), campaignType:campaignType==1 ? "GiveAway":"Exclusive", offer, estimationSaving:estimationSaving, cashIncentive:parseInt(cashIncentive), allowedGuest:parseInt(2), requirement, prefferedPlatforms, photo, video, untilDate:untilDate.toISOString(), endDate:endDate.toISOString(), hashtags:[hashtags?.replace(/#/g, '')], promoCode, audienceSize:parseInt(audienceSize), isPublished:status,  businessIds}
+   const obj ={ ...(campainId ? { id: campainId } : {}), campaignType:campaignType==1 ? "GiveAway":"Exclusive", offer, estimationSaving:estimationSaving, cashIncentive:parseInt(cashIncentive), allowedGuest:parseInt(2), requirement, prefferedPlatforms, photo, video, untilDate:untilDate.toISOString(), endDate:endDate.toISOString(), hashtags:hashtags?.includes('#')? [ hashtags.replace(/#/g, '')]:[hashtags], promoCode, audienceSize:parseInt(audienceSize), isPublished:status,  businessIds}
    console.log('obj1 ',obj)
    dispatch(CREATE_CAMPAIGN(obj ,status, navigate))
  }

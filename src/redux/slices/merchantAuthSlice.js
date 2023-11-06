@@ -157,7 +157,7 @@ export const CREATE_CAMPAIGN = createAsyncThunk(
       try {
         const res = await CampaignCreate(data);
         localStorage.setItem("activeCampaing",res.data.id)
-        if(res?.isPublished) TOAST_SUCCESS("Campaign created successfully!")
+        if(res.data?.isPublished) TOAST_SUCCESS("Campaign created successfully!")
         else  TOAST_SUCCESS("Campaign save in draft successfully!") 
         history('/invite_influencer')
         return res.data;
@@ -199,7 +199,8 @@ export const GET_BUSINESS_VOUCHER = createAsyncThunk(
   'merchant/GET_BUSINESS_VOUCHER',
   async (id) => {
       try {
-        const res = await getBusinessVoucher(id);  
+        const res = await getBusinessVoucher(id); 
+        console.log('voucher data from slice', res); 
         return res.data;
         
       } catch (error) {
@@ -210,7 +211,7 @@ export const GET_BUSINESS_VOUCHER = createAsyncThunk(
 
 
 export const GET_BUSINESS_CAMPAIGN = createAsyncThunk(
-  'merchant/GET_BUSINESS_VOUCHER',
+  'merchant/GET_BUSINESS_CAMPAIGN',
   async (id) => {
       try {
         const res = await getBusinessCampaign(id);  
@@ -280,7 +281,7 @@ const marchantAuthSlice = createSlice({
     },
     [CREATE_VOUCHER.fulfilled]: (state, action) => { 
       state.voucher = action.payload;
-      console.log(state.saveVoucher, 'voucher data form slice')
+      console.log(state.saveVoucher)
     },
     [SAVE_VOUCHER.fulfilled]: (state, action) => { 
       state.saveVoucher = action.payload;
@@ -291,10 +292,12 @@ const marchantAuthSlice = createSlice({
     },
     [GET_BUSINESS_VOUCHER.fulfilled]: (state, action) => { 
       state.voucherList = action.payload;
+      console.log("voucher lisht from sliceee" , state.voucherList)
     },
 
     [GET_BUSINESS_CAMPAIGN.fulfilled]: (state, action) => { 
       state.campaignList = action.payload;
+      console.log("campaignList lisht from sliceee" , state.campaignList)
     },
     
 

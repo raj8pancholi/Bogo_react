@@ -18,6 +18,7 @@ import { getVoucherDetail } from '../../../utils';
 export default function Index() { // Renamed to start with an uppercase letter
  
   let { voucherId } = useParams();
+  console.log("voucherId",voucherId)
 
   const [offers ,setOffers] = useState(1)
   const [buy ,setBuy] = useState('')
@@ -62,7 +63,8 @@ export default function Index() { // Renamed to start with an uppercase letter
   const saveVoucher = useSelector((state) => state.merchantAuth.saveVoucher);
   const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);
   const holidayList = useSelector((state) => state.otherInfo.holidayList);
-  const voucherList = useSelector((state) => state.merchantAuth.voucherList);   
+  // const voucherList = useSelector((state) => state.merchantAuth.voucherList); 
+  const voucherList = useSelector((state) => state.merchantAuth.voucherList); 
 
   
   useEffect(() => { 
@@ -93,7 +95,7 @@ export default function Index() { // Renamed to start with an uppercase letter
 
 useEffect(()=>{ 
   if(voucherId && voucherList){ 
-    const voucher = voucherList?.find((x)=>x.id ==voucherId)
+    const voucher = voucherList?.find((x)=>x.id === voucherId)
 
 
     if(voucher){ 
