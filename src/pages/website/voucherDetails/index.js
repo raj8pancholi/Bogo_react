@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 // import Header and Footer
 import Headers from '../../../partials/header/Header';  
 import Footer from '../../../partials/footer/Footer';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react'; 
 
 
 // Import components
@@ -13,7 +14,7 @@ import Header1 from '../../../partials/header/Header1';
 import { useDispatch, useSelector } from 'react-redux';
 import { GET_BUSINESS_VOUCHER } from '../../../redux/slices/merchantAuthSlice';
 
-function VoucherDetails() {
+function VoucherDetails(props) {
 const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);  
 const selectedBusinessData = useSelector((state) => state.merchantAuth.selectedBusinessData); 
 
@@ -47,12 +48,22 @@ console.log('allGalleryData:', selectedBusinessData);
                 
 
                 <div className="location_map">
+                <div className="Business_Information_map_section" style={{ height: '450px', width: '100%', border: '1px solid black' }}>
+                                <Map
+                                google={props.google} 
+                                zoom={14}
+                                initialCenter={{ lat: selectedBusinessData.latitude, lng: selectedBusinessData.longitude }}  
+                                >
+                                <Marker position={{ lat: selectedBusinessData.latitude, lng: selectedBusinessData.longitude }} />
+                                </Map> 
+                            </div>
                 </div>
             </section>
         <Footer/>
         </>
     )
 }
-
-export default VoucherDetails
+export default GoogleApiWrapper({
+    apiKey: 'AIzaSyDttOtnnoXMiMRXstU7hfBh2eymTg2tCUA',
+  })(VoucherDetails); 
 

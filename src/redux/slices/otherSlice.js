@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { AllHoliday, UserProfile, ChangePassword } from '../services/otherServices';
+import { AllHoliday, UserProfile, ChangePassword, updateUser } from '../services/otherServices';
 import { toast } from 'react-toastify';
  
 
@@ -59,10 +59,23 @@ export const CHANGE_PASSWORD = createAsyncThunk(
   }
 );
 
+export const UPDATEPIN = createAsyncThunk(
+  'merchant/UPDATEPIN',
+  async (obj) => {
+    try { 
+      const res = await updateUser(obj);
+      return res.data;
+    } catch (error) {
+      if (error.response.status === 401) throw new Error(error.response.data.message)
+      else  throw new Error("An unexpected error occurred");
+    }
+  }
+);
+
   
 const otherSlice = createSlice({
   name: 'merchant',
-  initialState: { holidayList: [], userProfileData: {}, changePasswordData: {}},
+  initialState: { holidayList: [], userProfileData: {}, changePasswordData: {}, userpin:[]},
   reducers: {},
   extraReducers:{
 
@@ -76,6 +89,9 @@ const otherSlice = createSlice({
     [CHANGE_PASSWORD.fulfilled]: (state, action) => {
         state.changePasswordData = action.payload; 
     },
+    [UPDATEPIN.fulfilled]:(state, action)=>{
+      state.userpin =action.payload;
+    }
 
 
   },

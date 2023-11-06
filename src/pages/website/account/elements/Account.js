@@ -2,7 +2,7 @@ import React, { useState, useEffect  } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 // import { GET_USER_PROFILE } from '../redux/yourSlice';
-import {GET_USER_PROFILE , CHANGE_PASSWORD } from '../../../../redux/slices/otherSlice';
+import {GET_USER_PROFILE , CHANGE_PASSWORD, UPDATEPIN } from '../../../../redux/slices/otherSlice';
 import { toast } from 'react-toastify';
 
 
@@ -16,18 +16,10 @@ function AccountPageBody() {
     const dispatch = useDispatch();
     const userProfileData = useSelector((state) => state.otherInfo.userProfileData);
 
-    const [passwordForm, setPasswordForm] = useState({
-        oldPassword: '',
-        newPassword: '',
-        confirmPassword: '',
-    });
+    const [passwordForm, setPasswordForm] = useState({ oldPassword: '', newPassword: '', confirmPassword: '', });
 
-    const [formValues, setFormValues] = useState({
-        name: '',
-        email: '',
-        password: '',
-        mobile: '',
-    });
+    const [formValues, setFormValues] = useState({ name: '', email: '', password: '', mobile: '', });
+    const [updatPin,setUpdatPin] = useState('')
 
     useEffect(() => {
         // Dispatch your Redux action to make the API request
@@ -35,13 +27,9 @@ function AccountPageBody() {
             .then((response) => {
                 console.log('User Profile Data:', response.payload);
                 if (response.payload) {
-                    const { firstName, lastName, email, phone } = response.payload;
-                    setFormValues({
-                        name: `${firstName} ${lastName}`,
-                        email: email,
-                        mobile: phone,
-                        password: '', 
-                    });
+                    const { firstName, lastName, email, phone, pin } = response.payload;
+                    setFormValues({ name: `${firstName} ${lastName}`, email: email, mobile: phone, password: '', });
+                    setUpdatPin(pin ?isNaN(pin) ? '':pin:'')
                 }
             })
             .catch((error) => {
@@ -107,7 +95,14 @@ function AccountPageBody() {
         }
       };
 
-    
+ 
+
+   const  setUserPin=()=>{
+    if(updatPin){
+    const obj ={pin: parseInt(updatPin?.join(''), 10).toString(),  }
+    dispatch(UPDATEPIN(obj))
+    }
+      }
 
 
     return (
@@ -193,11 +188,11 @@ function AccountPageBody() {
                                                 <div className="input-box">
                                                     <label for="">Set Merchant Pin</label>
                                                     {otpVisible && 
-                                                        <VerifyOtp />
+                                                        <VerifyOtp updatPin={updatPin} setUpdatPin={setUpdatPin}/>
                                                     }
                                                 </div>
                                                 {otpVisible && 
-                                                    <button className='btn setBtnPin' type='submit'>SET PIN</button>
+                                                    <button className='btn setBtnPin' type='submit' onClick={setUserPin}>SET PIN</button>
                                                     }
                                             </div>
                                             
