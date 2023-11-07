@@ -46,6 +46,7 @@ componentDidUpdate(prevProps, prevState) {
         address: businessInfo.businessData.address ,
         countryId: businessInfo.businessData.country , 
         cityId: businessInfo.businessData.state ,
+        whatsappNo: businessInfo.businessData.whatsappNo ,
         categoryId: businessInfo.businessData.categoryId ,
         subCategoryId: businessInfo.businessData.subCategoryId ,
       //  logo: businessInfo.galleryData.logo,
@@ -57,8 +58,7 @@ componentDidUpdate(prevProps, prevState) {
         longitude: businessInfo.businessData.longitude ,
         ...(businessInfo.galleryData.logo ? { logo: businessInfo.galleryData.logo } : {}),
         ...( businessInfo.galleryData.bannerobj ? { banner: businessInfo.galleryData.bannerobj } : {}),
-         ...( businessInfo.galleryData.selectedImage ? { gallery: businessInfo.galleryData.selectedImages } : {}),
-         whatsappNo:businessInfo.businessData.whatsaAppNo,
+         ...( businessInfo.galleryData.selectedImages ? { gallery: businessInfo.galleryData.selectedImages } : {}),
       }
 
 

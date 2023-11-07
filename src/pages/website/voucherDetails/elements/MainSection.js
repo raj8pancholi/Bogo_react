@@ -8,6 +8,7 @@ import TimeSection from './TimeSection'
 import CampaignCard from './CampaignCard'
 import BranchDetails from './BranchDetails'
 import { useSelector } from 'react-redux'
+import { ImgUrl } from '../../../../utils'
 
 function VoucherDetails_index({allBusinessData, selectedBusinessData}) {
 
@@ -61,12 +62,9 @@ function VoucherDetails_index({allBusinessData, selectedBusinessData}) {
                                             <div className="branch_gallery_img_row">
                                                 <div className="branch-gallery_img_box">
                                                     <ul>
-                                                        <li><img src="/images/image5.png" alt="" className="img-fluid" /></li>
-                                                        <li><img src="/images/image6.png" alt="" className="img-fluid" /></li>
-                                                        <li><img src="/images/image7.png" alt="" className="img-fluid" /></li>
-                                                        <li><img src="/images/image8.png" alt="" className="img-fluid" /></li>
-                                                        <li><img src="/images/image9.png" alt="" className="img-fluid" /></li>
-                                                        <li><img src="/images/image5.png" alt="" className="img-fluid" /></li>
+                                                        {selectedBusinessData?.gallery?.map((img,i)=>{
+                                                            return <li key={i}><img src={`${ImgUrl}/${img}`} alt="" className="img-fluid" /></li>
+                                                        })}
                                                     </ul>
                                                 </div>
                                             </div>
