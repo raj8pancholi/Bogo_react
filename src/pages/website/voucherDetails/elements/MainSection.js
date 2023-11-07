@@ -44,15 +44,21 @@ function VoucherDetails_index({allBusinessData, selectedBusinessData}) {
 
                             <div id="tab11" className="tab-content6">
                                 <div className="overviewTab_box">
-                                <h2 style={{textAlign:'left'}}>Overview</h2>
+                                
                                     <div className="row">
                                         
                                         <div className="col-md-6">
-
+                                            <h2 style={{textAlign:'left'}}>Overview</h2>
                                             <TimeSection selectedBusinessData={selectedBusinessData}/>
 
                                         </div>
                                         <div className="col-md-6">
+                                            <div className='galleryBoxHeading' style={{  marginLeft:'auto' }}>
+                                                <h2 style={{textAlign:'left'}}>
+                                                    Gallery
+                                                </h2>
+                                            </div>
+                                            
                                             <div className="branch_gallery_img_row">
                                                 <div className="branch-gallery_img_box">
                                                     <ul>

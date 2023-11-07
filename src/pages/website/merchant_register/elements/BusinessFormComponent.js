@@ -22,6 +22,7 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
   const [categoryId ,setCategoryId] = useState('')
   const [subCategoryId ,setSubCategoryId] = useState('')
   const [whatsappNo ,setWhatsappNo] = useState('')
+  console.log('whatsappNo form', whatsappNo);
   const [logo ,setLogo] = useState('')
   const [rating ,setRating] = useState(0)
   const [banner ,setBanner] = useState('')
@@ -60,12 +61,14 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
 
 
   const selectedSubCategoryId = useSelector((state) => state.subCategory.subcategories);
-  const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData);  
+  const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData); 
+  console.log("allBusinessData==================", allBusinessData); 
  
   
   useEffect(()=>{
     if(branchId && allBusinessData){
       const busiData = allBusinessData?.find((x)=>x.id ==branchId)
+      console.log("busiData==================", busiData)
      if(busiData){
       setBName(busiData?.bName) 
       setAddress(busiData?.address)
@@ -73,7 +76,7 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
       setState(busiData?.city?.id)  
       setCategoryId(busiData?.category?.id)
       setSubCategoryId(busiData?.subCategory?.id)
-      setWhatsappNo( )
+      setWhatsappNo( busiData?.whatsappNo)
       setLogo(busiData?.logo)
       setRating(busiData?.rating)
       setBanner(busiData?.banner)
@@ -141,10 +144,12 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
     else if (!country) TOAST_ERROR('Country is required.')
     else if (!state) TOAST_ERROR('State is required.')
     else if (!categoryId) TOAST_ERROR('Category is required.')
+    else if (!whatsappNo) TOAST_ERROR(`Whatsapp number is required.`)
     else if (!subCategoryId) TOAST_ERROR('Subcategory is required.') 
     else if (!latitude || !longitude) TOAST_ERROR('Please Select Your Business Location.')
     else {
     const obj = {bName , address ,country ,pin ,rating , state ,categoryId ,subCategoryId ,whatsappNo , sundayState , mondayState , tuesdayState , wednesdayState , thursdayState , latitude:latitude, longitude:longitude ,fridayState , saturdayState }
+    console.log('obj whatsappNo =============' , obj.whatsappNo);
     dispatch(UpdateBusinessInfo(obj)) 
      setActiveTab("tabs-2");
  }

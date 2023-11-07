@@ -67,11 +67,11 @@ export default function BusinessMap({setMapdata , setlatitude, setlongitude,lati
       {/*  */}
       
 
-      <div className="connect-g-bussi text-center">
+      {/* <div className="connect-g-bussi text-center">
         <div className=" btn btn-primary conn-g-bussi-btn" >
           Connect Google Business Account
         </div>
-      </div>
+      </div> */}
     </div>
 
     </>

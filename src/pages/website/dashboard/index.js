@@ -11,6 +11,8 @@ import { GET_ALL_BUSINESS_DETAILS, GET_BUSINESS_VOUCHER, SELECTED_BUSINESS_DATA 
 import { useDispatch, useSelector } from 'react-redux';
 import { TOAST_SUCCESS } from '../../../utils';
 import { GET_ALL_HOLIDAY } from '../../../redux/slices/otherSlice';
+import Tooltip from '@mui/material/Tooltip';
+import Button from '@mui/material/Button';
 
 const DashboardPage = () => {
 
@@ -49,6 +51,11 @@ const DashboardPage = () => {
         <div className="row">
           <div className="col-12">
             <div className="BranchSelector">
+              <label htmlFor="BranchSelector" className="form-label" style={{fontWeight:400}}>Select Your Branch 
+                  <Tooltip title="Select Branch" disableInteractive>
+                    <Button> <i class="fa-solid fa-circle-info"></i></Button>
+                  </Tooltip>
+              </label>
               <select className="form-select" aria-label="Default select example"  onChange={e=>selectBusiness(e.target.value)}>
                   <option selected="">Select Branch</option>
                   {allBusinessData?.map(item=> <option  key={item.id} selected={localStorage.getItem('activeBusiness')==item.id} value={item.id}>{item.bName}</option>)}    

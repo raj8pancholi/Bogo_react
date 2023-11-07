@@ -1,9 +1,44 @@
 import moment from 'moment';
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { CREATE_CAMPAIGN, CREATE_VOUCHER } from '../../../../../redux/slices/merchantAuthSlice';
 
 export default function Tab4({campaign}) {
-    const today = new Date();
+    const today = new Date(); 
+    const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const campaignList = useSelector((state) => state.merchantAuth.campaignList);  
+  
+ 
+    const submitCampaign =(campainId)=>{ 
+      const campaindata = campaignList?.find((x)=>x.id ==campainId)
+      const obj={
+          id: campainId ,
+          campaignType:campaindata.campaignType, 
+          offer:campaindata.offer, 
+          estimationSaving:campaindata.estimationSaving,
+          cashIncentive:campaindata.cashIncentive,
+          allowedGuest:campaindata.allowedGuest,
+          requirement:campaindata.requirement,
+          prefferedPlatforms:campaindata.prefferedPlatforms,
+          photo:campaindata.photo,
+          video:campaindata.video,
+          untilDate:campaindata.untilDate,
+          endDate:today,
+          hashtags:campaindata.hashtags?.map((x)=>x.name),
+          promoCode:campaindata.promoCode,
+          audienceSize:campaindata.audienceSize,
+          isPublished:campaindata.isPublished,  
+          businessIds:campaindata.business.map((x)=>x.id),
+      }
+  
+      dispatch(CREATE_CAMPAIGN(obj ,'close', navigate)) 
+ setTimeout(function() {
+    window.location.reload();
+  }, 2000);  
+  
+  }
 
   return (
     <>
@@ -13,8 +48,7 @@ export default function Tab4({campaign}) {
 const startDate = new Date(item.untilDate);
 const endDate = new Date(item.endDate);
 
-console.log("startDate",startDate ,today)
-console.log("endDate",endDate ,today)
+ 
 const isActive = today >= startDate && today <= endDate;
 return isActive && item.isPublished? 
             <div className="row">
@@ -61,10 +95,10 @@ return isActive && item.isPublished?
                                             <i className="fa-solid fa-pencil mr-1"></i>
                                             Edit Application
                                         </Link>
-                                        <Link className="dropdown-item" >
+                                        <span className="dropdown-item" onClick={ () => submitCampaign(item.id)} >
                                             <i className="fa-regular fa-circle-xmark mr-1"></i>
                                             Close This Campaign
-                                        </Link>
+                                        </span>
                                         </li>
                                     </ul>
                                 </div>

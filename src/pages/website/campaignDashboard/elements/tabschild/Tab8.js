@@ -9,9 +9,9 @@ export default function Tab5({campaign}) {
     <>
         <div id="tab5" className="tab-content1">
         {campaign?.map((item, i)=>{  
-            console.log(item , "item in tab8");  
+             
             const endDate = new Date(item.endDate);
-            const isActive =  today < endDate;
+            const isActive =  today >= endDate; 
             return isActive && item.isPublished?   <div className="row">
                 <div className="col-6">
                 <div className="offerLabel">
