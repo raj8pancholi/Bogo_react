@@ -28,8 +28,8 @@ export default function Integration({branchId}) {
   const nextStapReg=()=>{ history('/merchant_registration') }
 
   const handleNextClick=()=>{  
-  const accessToken = 'IGQWRPOTdwZAUNFUDR1RXVxMTBjalhlMzQwSS1BdmJhSmdFalFkaGIxdENUaEFrbVFhbzdaOXVnZAnpld0FEQXh5d09ZAdjc0TnJTcERmd3oxdGlmWjEwQW1Mbmh6djl4Y0NtNDE0Y0c2bXRNQ2FtX2lqVzR6cmk0bmMZD';
-  const userId = 'artxcellent'; 
+  const accessToken = 'IGQWRPQ2dxQ0N1cU10RXZAjUlpSYWtQWlQ2UEp3ckcwLV8zaGtWMk1MVVd5ZA21ROGZAUcGxZAWXRqZAGpFNWZAxa0ZARX1BiZA3ljcmctdzEyYUtEUFplWnZA6aEJ5RGNoWjJzRnZAabjlpT2hnNVNiYkZA2SEVYSFhYcGVMZAHcZD';
+  const userId = 'dicaprioandrea89'; 
   const endpoint = `https://graph.instagram.com/v12.0/${userId}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&access_token=${accessToken}`;
   
   fetch(endpoint)
