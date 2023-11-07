@@ -41,14 +41,14 @@ console.log('allGalleryData:', selectedBusinessData);
                 <div className='container'>
                     <div className="row">
                         <div className="col-12">
-                            <h3 className="location_heading">Location:</h3>
+                            <h3 className="location_heading" style={{color:'#1478a8', fontWeight:'500'}}>Location:</h3>
                         </div>
                     </div>
                 </div>
                 
 
-                <div className="location_map">
-                <div className="Business_Information_map_section" style={{ height: '450px', width: '100%', border: '1px solid black' }}>
+                <div className="">
+                <div className="Business_Information_map_section location_map">
                                 <Map
                                 google={props.google} 
                                 zoom={14}

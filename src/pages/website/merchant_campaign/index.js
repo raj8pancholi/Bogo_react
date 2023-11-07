@@ -127,13 +127,13 @@ useEffect(()=>{
 
 
   const SaveVoucher=()=>{
-     const obj ={offers: offers==1 ? "BuyOneGetOne": offers==2 ? "BuyXGetX":  offers==3 ? "BuyBundleGetUnit":''  ,buy, get, estSaving,excludeWeekends,  excludePublicHolidays, finePrint, branch, redemption,sundayState,mondayState,tuesdayState,wednesdayState,thursdayState,fridayState,saturdayState}
+     const obj ={offers: offers==1 ? "BuyOneGetOne": offers==2 ? "BuyXGetY":  offers==3 ? "BuyBundleGetUnit":''  ,buy, get, estSaving,excludeWeekends,  excludePublicHolidays, finePrint, branch, redemption,sundayState,mondayState,tuesdayState,wednesdayState,thursdayState,fridayState,saturdayState}
      dispatch(SAVE_VOUCHER(obj))
   }
 
   const businessOptions = allBusinessData.map((business) => ({ value: business.id, label: business.bName, }));
 
-  const obj ={offers: offers==1 ? "BuyOneGetOne": offers==2 ? "BuyXGetX":  offers==3 ? "BuyBundleGetUnit":''  ,buy, get, estSaving,excludeWeekends,  excludePublicHolidays, finePrint, branch, redemption,sundayState,mondayState,tuesdayState,wednesdayState,thursdayState,fridayState,saturdayState}
+  const obj ={offers: offers==1 ? "BuyOneGetOne": offers==2 ? "BuyXGetY":  offers==3 ? "BuyBundleGetUnit":''  ,buy, get, estSaving,excludeWeekends,  excludePublicHolidays, finePrint, branch, redemption,sundayState,mondayState,tuesdayState,wednesdayState,thursdayState,fridayState,saturdayState}
   console.log('obj===', obj)
 
   return (

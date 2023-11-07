@@ -58,9 +58,11 @@ componentDidUpdate(prevProps, prevState) {
         ...(businessInfo.galleryData.logo ? { logo: businessInfo.galleryData.logo } : {}),
         ...( businessInfo.galleryData.bannerobj ? { banner: businessInfo.galleryData.bannerobj } : {}),
          ...( businessInfo.galleryData.selectedImage ? { gallery: businessInfo.galleryData.selectedImages } : {}),
+         whatsappNo:businessInfo.businessData.whatsaAppNo,
       }
 
 
+      console.log("businessInfo whatsaAppNo", obj.whatsaAppNo)
       this.props.MERCHANT_BUSINESS(obj)
        this.props.navigate('/otpVerify')
     }
@@ -70,6 +72,7 @@ componentDidUpdate(prevProps, prevState) {
 businessAdd=()=>{
 
   const {businessInfo} = this.props
+  console.log("businessInfo==========", businessInfo)
   const timing = reArrangeObj(businessInfo.businessData);
 
 
@@ -86,7 +89,10 @@ businessAdd=()=>{
         banner: businessInfo.galleryData.bannerobj ,
         gallery: businessInfo.galleryData.selectedImages ,
         hoursOfOperation: reArrangeObj(businessInfo.businessData) ,
+        whatsaAppNo:businessInfo.businessData.whatsaAppNo,
       }
+      console.log("businessInfo obj", obj)
+      
  
       this.props.MERCHANT_BUSINESS(obj);
 }

@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'; 
 
-export const UpdateBusinessInfo = createAsyncThunk( "businessInfo/get", (businessInfo) =>   businessInfo );
+export const UpdateBusinessInfo = createAsyncThunk( "businessInfo/get", (businessInfo) =>   businessInfo 
+);
+
 export const UpdateGalleryInfo = createAsyncThunk( "businessInfo/gallery", (galleryInfo) =>   galleryInfo );
 
 
@@ -9,6 +11,7 @@ export const UpdateGalleryInfo = createAsyncThunk( "businessInfo/gallery", (gall
 
 
 const businessInfoSlice = createSlice({
+
 
   name: 'businessInfo',
   initialState: { businessData: [], galleryData:[] },

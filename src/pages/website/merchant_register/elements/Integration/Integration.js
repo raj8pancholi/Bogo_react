@@ -46,7 +46,6 @@ export default function Integration({branchId}) {
   
 
   const businessAdd=()=>{
-  
         const obj ={
           ...(branchId ? { id: branchId } : {}),
           ...(businessInfo.galleryData.logo ? { logo: businessInfo.galleryData.logo } : {}),
@@ -62,6 +61,7 @@ export default function Integration({branchId}) {
           hoursOfOperation: reArrangeObj(businessInfo.businessData) ,
           latitude: businessInfo.businessData.latitude ,
           longitude: businessInfo.businessData.longitude ,
+          whatsappNo:businessInfo.businessData.whatsappNo,
         }
 
         if (!obj.bName) TOAST_ERROR('Business name is required.')
@@ -72,6 +72,7 @@ export default function Integration({branchId}) {
         else if (!obj.subCategoryId) TOAST_ERROR('Subcategory is required.') 
         else if (!obj.latitude || !obj.longitude) TOAST_ERROR('Please Select Your Business Location.')
         else {
+          console.log('intregration whatappno ======', businessInfo.businessData);
        dispatch(MERCHANT_BUSINESS(obj));
         setTimeout(() => {
           history('/dashboard')
