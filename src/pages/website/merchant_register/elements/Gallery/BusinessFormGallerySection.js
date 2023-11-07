@@ -12,7 +12,7 @@ const BusinessFormGallerySection = ({onNextClick, oldlogo, oldbanner,oldgallery 
   const [logo, setLogo] = useState(null);
 
   const handleLogoImageUpload = (event) => { 
-    let form = new FormData();
+    let form = new FormData(); 
     form.append('logo', event.target.files[0]); 
 
     setLogo(event.target.files[0])
@@ -56,6 +56,7 @@ const BusinessFormGallerySection = ({onNextClick, oldlogo, oldbanner,oldgallery 
 
   // Upload Gallery image
   const [selectedImages, setSelectedImages] = useState([]);
+  const [galleryimg, setGalleryimg] = useState([]);
   console.log('====', selectedImages);
 
   const onDrop = useCallback(acceptedFiles => {
@@ -79,23 +80,21 @@ const BusinessFormGallerySection = ({onNextClick, oldlogo, oldbanner,oldgallery 
 
   const dispatch = useDispatch()
 const submitGallery=()=>{
-  const obj = {logo, bannerobj, selectedImages: JSON.stringify(selectedImages)} 
+ const obj = {logo, bannerobj, selectedImages: selectedImages} 
   
   dispatch(UpdateGalleryInfo(obj))
   onNextClick();
 }
 
- 
-// useEffect(()=>{ 
-//   console.log(" oldlogo, oldbanner,oldgallery", oldlogo, oldbanner,oldgallery)
-//     setLogoImage(oldlogo)  
-//     setLogo(oldlogo)
-//     setBannerImage(oldbanner)
-//     setBannerobj(oldbanner)
-//     setSelectedImages(oldgallery) 
-//   } ,[])
 
-const obj = {logo, bannerobj, selectedImage1: JSON.stringify(selectedImages)}
+const handleMultipleImageUpload = (event) => {
+  const files = event.target.files;  
+  const selectedImageArray = Array.from(files);
+  setSelectedImages(selectedImageArray);
+};
+ 
+
+const obj = {logo, bannerobj, selectedImage1: selectedImages}
 console.log("obj gallery:------", obj) 
 
   return (
@@ -157,14 +156,18 @@ console.log("obj gallery:------", obj)
                 </div>
                 ):<div style={{ border: '2px dashed #cccccc', minHeight: '60px', width: '100%' ,borderRadius:'5px',alignItems:'center',justifyContent:'center',display:'flex'}}>
                 <img src="/images/gallery_img.png" alt="Upload "  className='img-fluid'/>
-
+              
                 </div>}
-                <div {...getRootProps()} style={dropzoneStyle}>
+
+                <input  accept="*" multiple type="file" name="gallery_img" id="imageUplod" onChange={handleMultipleImageUpload}  />
+
+
+                {/* <div {...getRootProps()} style={dropzoneStyle}>
                     <input {...getInputProps()} />
                     <label className="upload__btn">
                         <p >Upload images</p>
                     </label>
-                </div>	
+                </div>	 */}
           </div>
         </div>
       </div>
