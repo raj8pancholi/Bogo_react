@@ -101,11 +101,17 @@ function AccountPageBody() {
 
    const  setUserPin=()=>{
     if(updatPin){
-    const obj ={pin: parseInt(updatPin?.join(''), 10).toString(),  }
+    const obj ={pin: parseInt(updatPin?.join(''), 10).toString() }
     dispatch(UPDATEPIN(obj))
     }
       }
 
+
+      const  setUserdata=()=>{ 
+        const obj ={ firstName:formValues.name ,lastName:" ", phone:formValues.mobile }
+        dispatch(UPDATEPIN(obj))
+       
+     }
 
     return (
         <>
@@ -310,8 +316,8 @@ function AccountPageBody() {
 
                                 <div className="row review_submit_btn_row">
                                     <div className="next-btn-box review_submit_btn_box tab-pane active">
-                                        <button type="button" className="btn btn-primary btnNext review_submit_btn">
-                                            <Link to=""   style={{ padding: "10px 30px " }}>Submit</Link>
+                                        <button type="button" className="btn btn-primary btnNext review_submit_btn" onClick={setUserdata}>
+                                            <Link to=""  style={{ padding: "10px 30px " }}>Submit</Link>
                                         </button>
                                     </div>
                                 </div>

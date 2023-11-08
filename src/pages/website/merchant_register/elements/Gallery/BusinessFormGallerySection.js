@@ -4,6 +4,7 @@ import { useDropzone } from 'react-dropzone';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { UpdateGalleryInfo } from '../../../../../redux/slices/businessInfoSlice';
+import { ImgUrl } from '../../../../../utils';
 
 const BusinessFormGallerySection = ({onNextClick, oldlogo, oldbanner,oldgallery }) => {
 
@@ -96,6 +97,8 @@ const handleMultipleImageUpload = (event) => {
  
 
 const obj = {logo, bannerobj, selectedImage1: selectedImages}
+console.log("hel......", obj )  
+console.log("oldGallery......",oldgallery)  
 
   return (
     <div>
@@ -154,7 +157,26 @@ const obj = {logo, bannerobj, selectedImage1: selectedImages}
                       ))}
                   </ul>
                 </div>
-                ):<div style={{ border: '2px dashed #cccccc', minHeight: '60px', width: '100%' ,borderRadius:'5px',alignItems:'center',justifyContent:'center',display:'flex'}}>
+                ):oldgallery && oldgallery.length ? 
+                <div style={{ border: '2px dashed #cccccc', minHeight: '60px', width: '100%' ,borderRadius:'5px'}}>
+
+                  <ul style={{ display: 'flex', justifyContent:'center', flexWrap: 'wrap',border: 'none', }}>
+                      {oldgallery?.map((file, index) => (
+                          <li key={index} style={{ listStyle: 'none', margin: '10px' }}>
+                              <img
+                                  src={`${ImgUrl}${file}`}
+                                  alt={`Selected ${index}`}
+                                  style={{ height: '100px', width: '100px', objectFit: 'cover', borderRadius: '10px' }}
+                              />
+                              <Link onClick={() => removeImage(index)} style={{ position: 'absolute', marginLeft: -31,  border: 'none', }}>
+                                  <Cancel size="20px" color='#ffff' backgrond="black" />
+                              </Link>
+                          </li>
+                      ))}
+                  </ul>
+                </div>
+                
+                :<div style={{ border: '2px dashed #cccccc', minHeight: '60px', width: '100%' ,borderRadius:'5px',alignItems:'center',justifyContent:'center',display:'flex'}}>
                 <img src="/images/gallery_img.png" alt="Upload "  className='img-fluid'/>
               
                 </div>}

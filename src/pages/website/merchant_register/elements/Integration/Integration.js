@@ -50,7 +50,7 @@ export default function Integration({branchId}) {
           ...(branchId ? { id: branchId } : {}),
           ...(businessInfo.galleryData.logo ? { logo: businessInfo.galleryData.logo } : {}),
           ...( businessInfo.galleryData.bannerobj ? { banner: businessInfo.galleryData.bannerobj } : {}),
-           ...( businessInfo.galleryData.selectedImages ? { gallery: businessInfo.galleryData.selectedImages } : {}),
+           ...( businessInfo.galleryData.selectedImages && businessInfo.galleryData.selectedImages.length ? { gallery: businessInfo.galleryData.selectedImages } : {}),
           bName: businessInfo.businessData.bName , 
           address: businessInfo.businessData.address ,
         whatsappNo: businessInfo.businessData.whatsappNo ,
@@ -73,7 +73,7 @@ export default function Integration({branchId}) {
         else if (!obj.subCategoryId) TOAST_ERROR('Subcategory is required.') 
         else if (!obj.latitude || !obj.longitude) TOAST_ERROR('Please Select Your Business Location.')
         else {
-          console.log('intregration whatappno ======', businessInfo.businessData);
+          console.log('intregration whatappno ======', obj);
        dispatch(MERCHANT_BUSINESS(obj));
         setTimeout(() => {
           history('/dashboard')

@@ -42,9 +42,11 @@ export const BusinessMerchant = (data) => {
         data[key].forEach((image, index) => { 
             formData.append(`gallery`, image);
         });
+      }else{
+        formData.append(key, data[key]);
       }
  
-      formData.append(key, data[key]);
+      
     }
   }
 

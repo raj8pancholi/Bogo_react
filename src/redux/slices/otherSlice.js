@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { AllHoliday, UserProfile, ChangePassword, updateUser } from '../services/otherServices';
 import { toast } from 'react-toastify';
+import { TOAST_SUCCESS } from '../../utils';
  
 
  
@@ -48,6 +49,7 @@ export const CHANGE_PASSWORD = createAsyncThunk(
       const { oldPassword, newPassword } = passwordData;
       console.log('passwordDataaaaaa', passwordData);
       const res = await ChangePassword(oldPassword, newPassword);
+      TOAST_SUCCESS("password change successfully!")
       return res.data;
     } catch (error) {
       if (error.response && error.response.status === 401) {
@@ -64,6 +66,7 @@ export const UPDATEPIN = createAsyncThunk(
   async (obj) => {
     try { 
       const res = await updateUser(obj);
+       TOAST_SUCCESS("account update successfully!")
       return res.data;
     } catch (error) {
       if (error.response.status === 401) throw new Error(error.response.data.message)

@@ -22,7 +22,6 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
   const [categoryId ,setCategoryId] = useState('')
   const [subCategoryId ,setSubCategoryId] = useState('')
   const [whatsappNo ,setWhatsappNo] = useState('')
-  console.log('whatsappNo form', whatsappNo);
   const [logo ,setLogo] = useState('')
   const [rating ,setRating] = useState(0)
   const [banner ,setBanner] = useState('')
@@ -62,7 +61,7 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
 
   const selectedSubCategoryId = useSelector((state) => state.subCategory.subcategories);
   const allBusinessData = useSelector((state) => state.merchantAuth.allBusinessData); 
-  console.log("allBusinessData==================", allBusinessData); 
+ 
  
   
   useEffect(()=>{
@@ -252,7 +251,7 @@ const BusinessFormMainSection = ({branchId, mapData, latitude, longitude}) => {
         </Tab>
         <Tab eventKey="tabs-2" title="Gallery">
           {/* Content for Gallery tab */}
-          <BusinessFormGallerySection onNextClick={handleInterNextClick} oldlogo={logo ?`${ImgUrl}${logo}`:''} oldbanner={banner ?`${ImgUrl}${banner}`:''} oldgallery={gallery ? `${ImgUrl}${gallery}`:''}/> 
+          <BusinessFormGallerySection onNextClick={handleInterNextClick} oldlogo={logo ?`${ImgUrl}${logo}`:''} oldbanner={banner ?`${ImgUrl}${banner}`:''} oldgallery={gallery}/> 
         </Tab>
         <Tab eventKey="tabs-3" title="Integration">
           {/* Content for Integration tab */}
