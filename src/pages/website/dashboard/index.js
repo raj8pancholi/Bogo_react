@@ -52,7 +52,7 @@ const DashboardPage = () => {
           <div className="col-12">
             <div className="BranchSelector">
               <label htmlFor="BranchSelector" className="form-label" style={{fontWeight:400}}>Select Your Branch 
-                  <Tooltip title="Select Branch" disableInteractive>
+                  <Tooltip title="Choose the branch you wish to switch to from the list." disableInteractive>
                     <Button> <i class="fa-solid fa-circle-info"></i></Button>
                   </Tooltip>
               </label>

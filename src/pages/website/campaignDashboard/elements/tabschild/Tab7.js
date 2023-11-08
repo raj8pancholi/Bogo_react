@@ -65,7 +65,7 @@ return isActive && item.isPublished?
 
                     <div className="campaign_louch_date">
                             <h6 className="me-1">Launched: </h6>
-                            <h6>{startDate ? moment(startDate).format("D MMM YYYY"):''}</h6>
+                            <h6>{startDate ? moment(startDate).format("DD MMM YYYY"):''}</h6>
                     </div>
                 </div>
                 <div className="col-6">

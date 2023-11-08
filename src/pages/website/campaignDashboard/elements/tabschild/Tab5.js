@@ -7,7 +7,7 @@ export default function Tab5({vouchers}) {
   return (
     <>
         <div id="tab5" className="tab-content1">
-        {vouchers?.map((item, i)=>( item.isPublished && !item.isActive?  <div className="row">
+        {vouchers?.map((item, i)=>( !item.isPublished && item.isActive?  <div className="row">
                 <div className="col-6">
                 <div className="offerLabel">
                     <div className="offerlabelbox">{item.voucherType}</div>

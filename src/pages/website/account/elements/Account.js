@@ -90,6 +90,8 @@ function AccountPageBody() {
            const response = await dispatch(CHANGE_PASSWORD({ oldPassword, newPassword }));
            console.log('response', response);
            toast.success(response.payload.msg);
+        //    empty password form
+                setPasswordForm({ oldPassword: '', newPassword: '', confirmPassword: '', });
         } catch (error) {
             toast.error("Error changing password. Please try again.");
         }
@@ -209,7 +211,7 @@ function AccountPageBody() {
 
 
 
-                                <div className="row mt-3">
+                                {/* <div className="row mt-3">
                                     <div className="col-12">
                                         <div className="input-box" >
                                             <label for="">Payment & Subscription</label>
@@ -234,7 +236,7 @@ function AccountPageBody() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
 
                                 <div className="row mt-3">
                                     <div className="change_pass_row">

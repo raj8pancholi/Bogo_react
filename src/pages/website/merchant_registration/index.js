@@ -12,7 +12,7 @@ import { ReportGmailerrorred } from '@mui/icons-material';
 
 
  class index extends Component{
-state = {firstName:'', lastName:'', email:'', password:'', repeatpassword:'', phone:'919988776655', whatsaAppNo:'', error:false, passMatchErr:false }
+state = {firstName:'', lastName:'', email:'', password:'', repeatpassword:'', phone:'', whatsaAppNo:'', error:false, passMatchErr:false }
 
 signup=()=>{
   this.setState({error:false, passMatchErr:false})
@@ -129,7 +129,9 @@ render(){
                     <div className="input-box">
                  {/* Using the PhoneInput component */}
                     <label>Mobile Number</label>
-                    <PhoneInput country={'ae'} value={phone} onChange={(e)=> console.log("e",e)} inputStyle={{ width: '100%' , marginBottom: '10px'}} />
+                    <PhoneInput country={'ae'} value={phone} onChange={(value)=>  this.setState({ phone: value })} inputStyle={{ width: '100%' , marginBottom: '10px'}} />
+
+                    {/* <PhoneInput country={'ae'} value={phone}  onChange={(value, country, e, formattedValue) => this.setState({ phone: value })}  inputStyle={{ width: '100%' , marginBottom: '10px'}} /> */}
               </div>
                     <div className="col-12 regisBtn">
                         

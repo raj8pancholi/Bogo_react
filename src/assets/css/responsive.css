@@ -1365,6 +1365,11 @@
       width: 100%;
     }
 
+    #tabs-content_child .tab-content6 .row{
+      margin:0px;
+      padding:0px;
+    }
+
 
 
     .black-div{

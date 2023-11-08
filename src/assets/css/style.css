@@ -6905,7 +6905,10 @@ ul#tabs2-nav li.active {
 .branch-gallery_img_box ul{
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: center;
+}
+.branch-gallery_img_box ul li:first-child{
+  margin-left: 0;
 }
 
 .branch-gallery_img_box ul li{

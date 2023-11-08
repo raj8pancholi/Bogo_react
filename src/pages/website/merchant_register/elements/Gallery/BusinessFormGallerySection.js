@@ -81,6 +81,7 @@ const BusinessFormGallerySection = ({onNextClick, oldlogo, oldbanner,oldgallery 
   const dispatch = useDispatch()
 const submitGallery=()=>{
  const obj = {logo, bannerobj, selectedImages: selectedImages} 
+ console.log("obj gallery", obj)
   
   dispatch(UpdateGalleryInfo(obj))
   onNextClick();
@@ -95,7 +96,6 @@ const handleMultipleImageUpload = (event) => {
  
 
 const obj = {logo, bannerobj, selectedImage1: selectedImages}
-console.log("obj gallery:------", obj) 
 
   return (
     <div>
@@ -159,7 +159,13 @@ console.log("obj gallery:------", obj)
               
                 </div>}
 
-                <input  accept="*" multiple type="file" name="gallery_img" id="imageUplod" onChange={handleMultipleImageUpload}  />
+                <div style={{position:"relative", width:"100%"}}>
+                  <input  accept="*" multiple type="file" name="gallery_img" id="imageUplod" onChange={handleMultipleImageUpload} style={{position:"absolute", right:'0', opacity:'0'}}/>
+                  <label className="upload__btn">
+                        <p >Upload images</p>
+                    </label>
+                </div>
+
 
 
                 {/* <div {...getRootProps()} style={dropzoneStyle}>

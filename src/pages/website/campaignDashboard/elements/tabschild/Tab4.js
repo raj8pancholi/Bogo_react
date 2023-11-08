@@ -17,6 +17,27 @@ export default function Tab4({vouchers}) {
     const submitCampaign =(voucherId)=>{
       console.log('voucherId', voucherId);
       const voucher = voucherList?.find((x)=>x.id === voucherId)
+
+      let voucherday = [];
+
+      voucher?.voucherTimings?.map((x)=>{
+        // filter day,endTime,startTime and isActive
+        const obj = {
+          day:x.day,
+          endTime:x.endTime,
+          startTime:x.startTime,
+          isActive:x.isActive
+        }
+        voucherday.push(obj)  
+      })
+
+      console.log('voucherday', voucherday);
+
+
+
+
+
+
       const obj={
           id: voucherId ,
           voucherType:voucher.voucherType,
@@ -25,11 +46,13 @@ export default function Tab4({vouchers}) {
           estimationSaving:voucher.estimationSaving,
           finePrint:voucher.finePrint,
           maxRedeem:voucher.maxRedeem,
-          voucherTimings: voucher.voucherTimings,
+          voucherTimings: voucherday,
           isPublished:false,
           isActive:true,
           businessIds:voucher.business.map((x)=>x.id),
       }
+
+      console.log('obj voucher type check', obj.voucherType);
   
       dispatch(CREATE_VOUCHER(obj))
   
@@ -41,10 +64,8 @@ return (
         
         // Move the variable declarations outside of the map function
         const startDate = new Date(item.untilDate);
+       
         const endDate = new Date(item.endDate);
-
-        console.log("startDate", startDate, today);
-        console.log("endDate", endDate, today);
         const isActive = today >= startDate && today <= endDate;
 
         return item.isPublished && item.isActive ? (
@@ -63,10 +84,10 @@ return (
                   <h6>{item.toGet}</h6>
                 </div>
               </div>
-              <div className="campaign_louch_date">
+              {/* <div className="campaign_louch_date">
                 <h6 className="me-1">Launched: </h6>
-                <h6>{startDate ? moment(startDate).format("D MMM YYYY") : ''}</h6>
-              </div>
+                <h6>{startDate ? moment(startDate).format("DD MMM YYYY") : ''}</h6>
+              </div> */}
             </div>
             <div className="col-6">
               <div className="edtiteable-row">
